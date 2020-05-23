@@ -101,8 +101,16 @@ CY_ISR(Custom_ISR_RX)
             {
                 // Read register
                 // communicate on UART if this FSR is already setted
+                if ( ACC_readRegister(LIS3DH_CTRL_REG4) & LIS3DH_CTRL_REG4_FSR_2 )
+                {
+                   UART_1_PutString("The selected option was already been setted \r\n");
+                }
                 // if not write the new FSR + communicate on UART the change
-                ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_2);
+                else 
+                {
+                    ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_2);
+                    UART_1_PutString("The change was successful \r\n");
+                }
                 
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
@@ -112,8 +120,17 @@ CY_ISR(Custom_ISR_RX)
             {
                 // Read register
                 // communicate on UART if this freq is already setted
+                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_HR_1_CTRL_REG1 )
+                {
+                   UART_1_PutString("The selected option was already been setted \r\n");
+                }
                 // if not write the new freq + communicate on UART the change
-                ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_1_CTRL_REG1);
+                else
+                {
+                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_1_CTRL_REG1);
+                    UART_1_PutString("The change was successful \r\n");
+                }
+                
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
                 SamplingFreqFlag=0;
@@ -124,12 +141,40 @@ CY_ISR(Custom_ISR_RX)
         case '2':
             if (FSRFlag==1) // +- 4g
             {
-                ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_4);
+                // Read register
+                // communicate on UART if this FSR is already setted
+                if ( ACC_readRegister(LIS3DH_CTRL_REG4) & LIS3DH_CTRL_REG4_FSR_4 )
+                {
+                   UART_1_PutString("The selected option was already been setted \r\n");
+                }
+                // if not write the new FSR + communicate on UART the change
+                else 
+                {
+                    ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_4);
+                    UART_1_PutString("The change was successful \r\n");
+                }
+                
+                // delate previous data in EEPROM + reset counter stooring data
+                // save new configuration in EEPROM memory
                 FSRFlag=0; 
             }
             if (SamplingFreqFlag==1) // 10Hz
             {
-                ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_10_CTRL_REG1);
+                // Read register
+                // communicate on UART if this freq is already setted
+                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_HR_10_CTRL_REG1 )
+                {
+                   UART_1_PutString("The selected option was already been setted \r\n");
+                }
+                // if not write the new freq + communicate on UART the change
+                else
+                {
+                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_10_CTRL_REG1);
+                    UART_1_PutString("The change was successful \r\n");
+                }
+                
+                // delate previous data in EEPROM + reset counter stooring data
+                // save new configuration in EEPROM memory
                 SamplingFreqFlag=0;
             }
         break;
@@ -138,12 +183,40 @@ CY_ISR(Custom_ISR_RX)
         case '3':
             if (FSRFlag==1) // +- 8g
             {
-                ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_8);
+                // Read register
+                // communicate on UART if this FSR is already setted
+                if ( ACC_readRegister(LIS3DH_CTRL_REG4) & LIS3DH_CTRL_REG4_FSR_8 )
+                {
+                   UART_1_PutString("The selected option was already been setted \r\n");
+                }
+                // if not write the new FSR + communicate on UART the change
+                else 
+                {
+                    ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_8);
+                     UART_1_PutString("The change was successful \r\n");
+                }
+                
+                // delate previous data in EEPROM + reset counter stooring data
+                // save new configuration in EEPROM memory
                 FSRFlag=0; 
             }
             if (SamplingFreqFlag==1) // 25Hz
             {
-                ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_25_CTRL_REG1);
+                // Read register
+                // communicate on UART if this freq is already setted
+                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_HR_25_CTRL_REG1 )
+                {
+                   UART_1_PutString("The selected option was already been setted \r\n");
+                }
+                // if not write the new freq + communicate on UART the change
+                else
+                {
+                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_25_CTRL_REG1);
+                    UART_1_PutString("The change was successful \r\n");
+                }
+                
+                // delate previous data in EEPROM + reset counter stooring data
+                // save new configuration in EEPROM memory
                 SamplingFreqFlag=0;
             }
         break;
@@ -152,12 +225,40 @@ CY_ISR(Custom_ISR_RX)
         case '4':
             if (FSRFlag==1) // +- 16g
             {
-                ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_16);
+                // Read register
+                // communicate on UART if this FSR is already setted
+                if ( ACC_readRegister(LIS3DH_CTRL_REG4) & LIS3DH_CTRL_REG4_FSR_16 )
+                {
+                   UART_1_PutString("The selected option was already been setted \r\n");
+                }
+                // if not write the new FSR + communicate on UART the change
+                else 
+                {
+                    ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_16);
+                     UART_1_PutString("The change was successful \r\n");
+                }
+                
+                // delate previous data in EEPROM + reset counter stooring data
+                // save new configuration in EEPROM memory
                 FSRFlag=0; 
             }
             if (SamplingFreqFlag==1) // 50Hz
             {
-                ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_50_CTRL_REG1);
+                // Read register
+                // communicate on UART if this freq is already setted
+                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_HR_50_CTRL_REG1 )
+                {
+                   UART_1_PutString("The selected option was already been setted \r\n");
+                }
+                // if not write the new freq + communicate on UART the change
+                else
+                {
+                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_50_CTRL_REG1);
+                    UART_1_PutString("The change was successful \r\n");
+                }
+                
+                // delate previous data in EEPROM + reset counter stooring data
+                // save new configuration in EEPROM memory
                 SamplingFreqFlag=0;
             }
         break;

@@ -1,8 +1,8 @@
---------------- Build Started: 05/23/2020 18:45:02 Project: Final_Project_Group5, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 05/23/2020 19:17:59 Project: Final_Project_Group5, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 cydsfit.exe -.appdatapath "C:\Users\ilami\AppData\Local\Cypress Semiconductor\PSoC Creator\4.3" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\ilami\Documents\GitHub\FINAL-PROJECT-GROUP5\Final_Project_Group5.cydsn\Final_Project_Group5.cyprj -d CY8C5888LTI-LP097 -s C:\Users\ilami\Documents\GitHub\FINAL-PROJECT-GROUP5\Final_Project_Group5.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 ADD: sdb.M0033: error: The instance 'KIT_059_1', of component KIT_059_v1_0, contains an error. Unable to locate and customize component 'KIT_059_v1_0' used in schematic 'C:\Users\ilami\Documents\GitHub\FINAL-PROJECT-GROUP5\Final_Project_Group5.cydsn\TopDesign\TopDesign.cysch'.
  *  (Component Update Tool)
  * C:\Users\ilami\Documents\GitHub\FINAL-PROJECT-GROUP5\Final_Project_Group5.cydsn\TopDesign\TopDesign.cysch (Instance:KIT_059_1)
 Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
---------------- Build Failed: 05/23/2020 18:45:05 ---------------
+--------------- Build Failed: 05/23/2020 19:18:02 ---------------
