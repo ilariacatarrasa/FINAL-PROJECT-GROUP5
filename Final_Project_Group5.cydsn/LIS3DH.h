@@ -47,7 +47,7 @@
 
 //brief Address of the Control register 5
 #define LIS3DH_CTRL_REG5 0x24
-//FIFO enabling stream mode
+//FIFO enable
 #define LIS3DH_CTRL_REG5_FIFO_EN 0x40
 
 //brief Address of the Control register 
@@ -59,7 +59,7 @@
 
 //brief Address of the Control register 3
 #define LIS3DH_CTRL_REG3 0x22
-//Enable FIFO data overrun (when FIFO is full interrupt enables and stops collecting data)
+//Enable FIFO data overrun on INT1(when FIFO is full interrupt enables and stops collecting data)
 #define LIS3DH_CTRL_REG3_FIFO_OVERRUN 0x02
 
 //brief Address
