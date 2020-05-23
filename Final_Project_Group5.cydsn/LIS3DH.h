@@ -108,6 +108,17 @@ void ACC_writeRegister(uint8_t reg_addr, uint8_t dataByte);
 */
 uint8_t ACC_readRegister(uint8_t reg_addr);
 
+/*
+* @brief Read 1+ bytes from memory.
+*
+* @param[in]: 6-bit memory address to from read.
+* @param[out]: uint8_t* pointer to the output data (cast operation required for different data type).
+* @param[in]: Number of bytes to read.
+*
+*/
+void ACC_Multi_Read(uint8_t addr, uint8_t* data, uint8_t nBytes);
+
+/* [] END OF FILE */
 
 
 /* [] END OF FILE */
