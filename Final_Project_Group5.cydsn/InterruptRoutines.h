@@ -16,8 +16,11 @@
     #include "cytypes.h"
     #include "stdio.h"
     
-    
+    /*Prototyping interrupt service routine on receiving UART*/
     CY_ISR_PROTO (Custom_ISR_RX);
+    
+    /*Prototyping the interrupt service routine for triggering when FIFO is full*/
+    CY_ISR_PROTO (Custom_isr_FIFO);
     
 #endif
 

@@ -42,8 +42,8 @@ int main(void) {
     
     /* Start ISR_RX */
     isr_RX_StartEx(Custom_ISR_RX);
-
-
+    
+        
     
     CyDelay(10); //"The boot procedure is complete about 10 milliseconds after device power-up."
         
@@ -113,7 +113,11 @@ int main(void) {
     UART_1_PutBuffer;
     
     UART_1_PutString("********************************************\r\n");
+    /**/
+
+    for(;;){
     
+    }
 }
 
 /* [] END OF FILE */

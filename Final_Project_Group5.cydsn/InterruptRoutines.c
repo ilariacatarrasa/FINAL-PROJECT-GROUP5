@@ -24,6 +24,11 @@ uint8 FSRFlag=0;
 uint8 SamplingFreqFlag=0;
 uint8 TemperatureFlag=0;
 
+CY_ISR_PROTO (Custom_isr_FIFO)
+{
+    /*Send data to EEPROM*/
+}
+
 CY_ISR(Custom_ISR_RX)
 {
     ch_received=UART_1_GetChar();

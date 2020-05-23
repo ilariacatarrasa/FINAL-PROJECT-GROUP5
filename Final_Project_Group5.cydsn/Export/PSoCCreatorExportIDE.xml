@@ -123,6 +123,9 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_2_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_2_INT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_2_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\INT1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\INT1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\INT1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_RX.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_RX.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_1_IntClock.c</File>
@@ -164,9 +167,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FIFO_FULL_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FIFO_FULL.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FIFO_FULL.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_FIFO.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_FIFO.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Ilaria\Documents\GitHub\FINAL-PROJECT-GROUP5\Final_Project_Group5.cydsn\Export\ARM_GCC_Generic">
