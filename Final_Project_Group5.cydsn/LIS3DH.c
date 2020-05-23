@@ -31,7 +31,8 @@ void ACC_writeRegister(uint8_t reg_addr, uint8_t dataByte) {
     SLAVE_ACC_CS_Write(0);
 }
 
-uint8_t ACC_readRegister(uint8_t reg_addr) {
+uint8_t 
+ACC_readRegister(uint8_t reg_addr) {
 
 	/* Prepare the TX data packet: instruction + address */
 	uint8_t dataTX[1] = {(SPI_ACC_SINGLE_READ | reg_addr)};

@@ -97,17 +97,19 @@ int main(void) {
     uint8_t ctrl_reg5;    
     //Enable the FIFO 
     ACC_writeRegister(LIS3DH_CTRL_REG5, LIS3DH_CTRL_REG5_FIFO_EN);
+                
+    ctrl_reg5 = ACC_readRegister(LIS3DH_CTRL_REG5);
+    sprintf(bufferUART, " Control register 5 has been set to = 0x%02X \r\n", ctrl_reg5);
+    UART_1_PutBuffer;
     
      /* Setting Control Register FIFO */
-    
     uint8_t ctrl1_FIFO;    
     //Enable the FIFO mode
     ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
-    
-    ctrl1_FIFO = ACC_readRegister(LIS3DH_CTRL_REG5);
+                
+    ctrl_reg5 = ACC_readRegister(LIS3DH_CTRL_REG5);
     sprintf(bufferUART, " Control register of FIFO has been set to = 0x%02X \r\n", ctrl1_FIFO);
     UART_1_PutBuffer;
-    
     /* Setting Control Register 3 */
 
     uint8_t ctrl_reg3;
