@@ -1,0 +1,1721 @@
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"InterruptRoutines.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Custom_ISR_RX,"ax",%progbits
+  20              		.align	2
+  21              		.global	Custom_ISR_RX
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Custom_ISR_RX, %function
+  25              	Custom_ISR_RX:
+  26              	.LFB64:
+  27              		.file 1 "InterruptRoutines.c"
+   1:InterruptRoutines.c **** /* ========================================
+   2:InterruptRoutines.c ****  *
+   3:InterruptRoutines.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:InterruptRoutines.c ****  * All Rights Reserved
+   5:InterruptRoutines.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:InterruptRoutines.c ****  *
+   7:InterruptRoutines.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:InterruptRoutines.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:InterruptRoutines.c ****  *
+  10:InterruptRoutines.c ****  * ========================================
+  11:InterruptRoutines.c **** */
+  12:InterruptRoutines.c **** 
+  13:InterruptRoutines.c **** // Include header
+  14:InterruptRoutines.c **** #include "InterruptRoutines.h"
+  15:InterruptRoutines.c **** #include "project.h"
+  16:InterruptRoutines.c **** #include "LIS3DH.h"
+  17:InterruptRoutines.c **** 
+  18:InterruptRoutines.c **** 
+  19:InterruptRoutines.c **** // Variabile declaration
+  20:InterruptRoutines.c **** uint8 ch_received;
+  21:InterruptRoutines.c **** // uint8 StartFlag=0;
+  22:InterruptRoutines.c **** uint8 SelectionFlag=0;
+  23:InterruptRoutines.c **** uint8 FSRFlag=0;
+  24:InterruptRoutines.c **** uint8 SamplingFreqFlag=0;
+  25:InterruptRoutines.c **** uint8 TemperatureFlag=0;
+  26:InterruptRoutines.c **** 
+  27:InterruptRoutines.c **** CY_ISR(Custom_ISR_RX)
+  28:InterruptRoutines.c **** {
+  28              		.loc 1 28 0
+  29              		.cfi_startproc
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 2
+
+
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  29:InterruptRoutines.c ****     ch_received=UART_1_GetChar();
+  36              		.loc 1 29 0
+  37 0002 FFF7FEFF 		bl	UART_1_GetChar
+  38              	.LVL0:
+  39 0006 974B     		ldr	r3, .L23
+  40 0008 1870     		strb	r0, [r3]
+  30:InterruptRoutines.c ****     switch (ch_received)
+  41              		.loc 1 30 0
+  42 000a 3138     		subs	r0, r0, #49
+  43 000c 4528     		cmp	r0, #69
+  44 000e 00F22881 		bhi	.L1
+  45 0012 DFE810F0 		tbh	[pc, r0, lsl #1]
+  46              	.L4:
+  47 0016 9D00     		.2byte	(.L3-.L4)/2
+  48 0018 B400     		.2byte	(.L5-.L4)/2
+  49 001a CB00     		.2byte	(.L6-.L4)/2
+  50 001c E200     		.2byte	(.L7-.L4)/2
+  51 001e 2601     		.2byte	(.L1-.L4)/2
+  52 0020 2601     		.2byte	(.L1-.L4)/2
+  53 0022 2601     		.2byte	(.L1-.L4)/2
+  54 0024 2601     		.2byte	(.L1-.L4)/2
+  55 0026 2601     		.2byte	(.L1-.L4)/2
+  56 0028 2601     		.2byte	(.L1-.L4)/2
+  57 002a 2601     		.2byte	(.L1-.L4)/2
+  58 002c 2601     		.2byte	(.L1-.L4)/2
+  59 002e 2601     		.2byte	(.L1-.L4)/2
+  60 0030 2601     		.2byte	(.L1-.L4)/2
+  61 0032 4600     		.2byte	(.L8-.L4)/2
+  62 0034 2601     		.2byte	(.L1-.L4)/2
+  63 0036 2601     		.2byte	(.L1-.L4)/2
+  64 0038 4A00     		.2byte	(.L9-.L4)/2
+  65 003a 1F01     		.2byte	(.L10-.L4)/2
+  66 003c 2601     		.2byte	(.L1-.L4)/2
+  67 003e 2601     		.2byte	(.L1-.L4)/2
+  68 0040 5C00     		.2byte	(.L11-.L4)/2
+  69 0042 2601     		.2byte	(.L1-.L4)/2
+  70 0044 2601     		.2byte	(.L1-.L4)/2
+  71 0046 2601     		.2byte	(.L1-.L4)/2
+  72 0048 2601     		.2byte	(.L1-.L4)/2
+  73 004a 2601     		.2byte	(.L1-.L4)/2
+  74 004c 2601     		.2byte	(.L1-.L4)/2
+  75 004e 2601     		.2byte	(.L1-.L4)/2
+  76 0050 2601     		.2byte	(.L1-.L4)/2
+  77 0052 2601     		.2byte	(.L1-.L4)/2
+  78 0054 8000     		.2byte	(.L12-.L4)/2
+  79 0056 2601     		.2byte	(.L1-.L4)/2
+  80 0058 2601     		.2byte	(.L1-.L4)/2
+  81 005a 5300     		.2byte	(.L13-.L4)/2
+  82 005c 0901     		.2byte	(.L14-.L4)/2
+  83 005e 0101     		.2byte	(.L15-.L4)/2
+  84 0060 F900     		.2byte	(.L16-.L4)/2
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 3
+
+
+  85 0062 2601     		.2byte	(.L1-.L4)/2
+  86 0064 2601     		.2byte	(.L1-.L4)/2
+  87 0066 2601     		.2byte	(.L1-.L4)/2
+  88 0068 2601     		.2byte	(.L1-.L4)/2
+  89 006a 2601     		.2byte	(.L1-.L4)/2
+  90 006c 2601     		.2byte	(.L1-.L4)/2
+  91 006e 2601     		.2byte	(.L1-.L4)/2
+  92 0070 2601     		.2byte	(.L1-.L4)/2
+  93 0072 2601     		.2byte	(.L1-.L4)/2
+  94 0074 2601     		.2byte	(.L1-.L4)/2
+  95 0076 2601     		.2byte	(.L1-.L4)/2
+  96 0078 4A00     		.2byte	(.L9-.L4)/2
+  97 007a 1F01     		.2byte	(.L10-.L4)/2
+  98 007c 2601     		.2byte	(.L1-.L4)/2
+  99 007e 2601     		.2byte	(.L1-.L4)/2
+ 100 0080 5C00     		.2byte	(.L11-.L4)/2
+ 101 0082 2601     		.2byte	(.L1-.L4)/2
+ 102 0084 2601     		.2byte	(.L1-.L4)/2
+ 103 0086 2601     		.2byte	(.L1-.L4)/2
+ 104 0088 2601     		.2byte	(.L1-.L4)/2
+ 105 008a 2601     		.2byte	(.L1-.L4)/2
+ 106 008c 2601     		.2byte	(.L1-.L4)/2
+ 107 008e 2601     		.2byte	(.L1-.L4)/2
+ 108 0090 2601     		.2byte	(.L1-.L4)/2
+ 109 0092 2601     		.2byte	(.L1-.L4)/2
+ 110 0094 8000     		.2byte	(.L12-.L4)/2
+ 111 0096 2601     		.2byte	(.L1-.L4)/2
+ 112 0098 2601     		.2byte	(.L1-.L4)/2
+ 113 009a 5300     		.2byte	(.L13-.L4)/2
+ 114 009c 0901     		.2byte	(.L14-.L4)/2
+ 115 009e 0101     		.2byte	(.L15-.L4)/2
+ 116 00a0 F900     		.2byte	(.L16-.L4)/2
+ 117              		.p2align 1
+ 118              	.L8:
+  31:InterruptRoutines.c ****     {
+  32:InterruptRoutines.c ****         // ? command on UART: show the menù
+  33:InterruptRoutines.c ****         case '?':
+  34:InterruptRoutines.c ****             // show the menù
+  35:InterruptRoutines.c ****             // call function show menù
+  36:InterruptRoutines.c ****             SelectionFlag=1;
+ 119              		.loc 1 36 0
+ 120 00a2 0122     		movs	r2, #1
+ 121 00a4 704B     		ldr	r3, .L23+4
+ 122 00a6 1A70     		strb	r2, [r3]
+  37:InterruptRoutines.c ****         break;
+ 123              		.loc 1 37 0
+ 124 00a8 08BD     		pop	{r3, pc}
+ 125              	.L9:
+  38:InterruptRoutines.c ****         // ON command on UART
+  39:InterruptRoutines.c ****         case 'B':
+  40:InterruptRoutines.c ****         case 'b':
+  41:InterruptRoutines.c ****             if (SelectionFlag==1)
+ 126              		.loc 1 41 0
+ 127 00aa 6F4B     		ldr	r3, .L23+4
+ 128 00ac 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 129 00ae 012B     		cmp	r3, #1
+ 130 00b0 40F0D780 		bne	.L1
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 4
+
+
+  42:InterruptRoutines.c ****             {
+  43:InterruptRoutines.c ****                 // StartFlag=1;
+  44:InterruptRoutines.c ****                 // Start data acquisition from the accelerometer
+  45:InterruptRoutines.c ****                 // Start data storage on the EEPROM
+  46:InterruptRoutines.c ****                 // Save the configuration on the EEPROM
+  47:InterruptRoutines.c ****                 SelectionFlag=0;
+ 131              		.loc 1 47 0
+ 132 00b4 0022     		movs	r2, #0
+ 133 00b6 6C4B     		ldr	r3, .L23+4
+ 134 00b8 1A70     		strb	r2, [r3]
+ 135 00ba 08BD     		pop	{r3, pc}
+ 136              	.L13:
+  48:InterruptRoutines.c ****             }
+  49:InterruptRoutines.c ****         break;
+  50:InterruptRoutines.c ****         // OFF command on UART
+  51:InterruptRoutines.c ****         case 'S':
+  52:InterruptRoutines.c ****         case 's':
+  53:InterruptRoutines.c ****             if (SelectionFlag==1)
+ 137              		.loc 1 53 0
+ 138 00bc 6A4B     		ldr	r3, .L23+4
+ 139 00be 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 140 00c0 012B     		cmp	r3, #1
+ 141 00c2 40F0CE80 		bne	.L1
+  54:InterruptRoutines.c ****             {
+  55:InterruptRoutines.c ****                 // StartFlag=0;
+  56:InterruptRoutines.c ****                 // Stop data acquisition from the accelerometer
+  57:InterruptRoutines.c ****                 // Stop data storage on the EEPROM
+  58:InterruptRoutines.c ****                 // Save the configuration on the EEPROM
+  59:InterruptRoutines.c ****                 SelectionFlag=0;
+ 142              		.loc 1 59 0
+ 143 00c6 0022     		movs	r2, #0
+ 144 00c8 674B     		ldr	r3, .L23+4
+ 145 00ca 1A70     		strb	r2, [r3]
+ 146 00cc 08BD     		pop	{r3, pc}
+ 147              	.L11:
+  60:InterruptRoutines.c ****             }
+  61:InterruptRoutines.c ****         break;
+  62:InterruptRoutines.c ****         case 'F':
+  63:InterruptRoutines.c ****         case 'f':
+  64:InterruptRoutines.c ****             // Selection full scale range command on UART
+  65:InterruptRoutines.c ****             if (SelectionFlag==1)
+ 148              		.loc 1 65 0
+ 149 00ce 664B     		ldr	r3, .L23+4
+ 150 00d0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 151 00d2 012B     		cmp	r3, #1
+ 152 00d4 16D1     		bne	.L17
+  66:InterruptRoutines.c ****             {
+  67:InterruptRoutines.c ****                 UART_1_PutString("Configuration of the accelerometer full scale range \r\n");
+ 153              		.loc 1 67 0
+ 154 00d6 6548     		ldr	r0, .L23+8
+ 155 00d8 FFF7FEFF 		bl	UART_1_PutString
+ 156              	.LVL1:
+  68:InterruptRoutines.c ****                 UART_1_PutString("Character            Full scale range \r\n");
+ 157              		.loc 1 68 0
+ 158 00dc 6448     		ldr	r0, .L23+12
+ 159 00de FFF7FEFF 		bl	UART_1_PutString
+ 160              	.LVL2:
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 5
+
+
+  69:InterruptRoutines.c ****                 UART_1_PutString("1                    +- 2g \r\n");
+ 161              		.loc 1 69 0
+ 162 00e2 6448     		ldr	r0, .L23+16
+ 163 00e4 FFF7FEFF 		bl	UART_1_PutString
+ 164              	.LVL3:
+  70:InterruptRoutines.c ****                 UART_1_PutString("2                    +- 4g \r\n");
+ 165              		.loc 1 70 0
+ 166 00e8 6348     		ldr	r0, .L23+20
+ 167 00ea FFF7FEFF 		bl	UART_1_PutString
+ 168              	.LVL4:
+  71:InterruptRoutines.c ****                 UART_1_PutString("3                    +- 8g \r\n");
+ 169              		.loc 1 71 0
+ 170 00ee 6348     		ldr	r0, .L23+24
+ 171 00f0 FFF7FEFF 		bl	UART_1_PutString
+ 172              	.LVL5:
+  72:InterruptRoutines.c ****                 UART_1_PutString("4                    +- 16g \r\n");
+ 173              		.loc 1 72 0
+ 174 00f4 6248     		ldr	r0, .L23+28
+ 175 00f6 FFF7FEFF 		bl	UART_1_PutString
+ 176              	.LVL6:
+  73:InterruptRoutines.c ****                 FSRFlag=1;
+ 177              		.loc 1 73 0
+ 178 00fa 5B4B     		ldr	r3, .L23+4
+ 179 00fc 0122     		movs	r2, #1
+ 180 00fe 5A70     		strb	r2, [r3, #1]
+  74:InterruptRoutines.c ****                 SelectionFlag=0;
+ 181              		.loc 1 74 0
+ 182 0100 0022     		movs	r2, #0
+ 183 0102 1A70     		strb	r2, [r3]
+ 184              	.L17:
+  75:InterruptRoutines.c ****             }
+  76:InterruptRoutines.c ****             // Temperature in Fahrenheit command on UART
+  77:InterruptRoutines.c ****             if (TemperatureFlag==1)
+ 185              		.loc 1 77 0
+ 186 0104 584B     		ldr	r3, .L23+4
+ 187 0106 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 188 0108 012B     		cmp	r3, #1
+ 189 010a 40F0AA80 		bne	.L1
+  78:InterruptRoutines.c ****             {
+  79:InterruptRoutines.c ****                 TemperatureFlag=0;
+ 190              		.loc 1 79 0
+ 191 010e 0022     		movs	r2, #0
+ 192 0110 554B     		ldr	r3, .L23+4
+ 193 0112 9A70     		strb	r2, [r3, #2]
+ 194 0114 08BD     		pop	{r3, pc}
+ 195              	.L12:
+  80:InterruptRoutines.c ****             }
+  81:InterruptRoutines.c ****         break;
+  82:InterruptRoutines.c ****         // Selection sampling frequency command on UART
+  83:InterruptRoutines.c ****         case 'P':
+  84:InterruptRoutines.c ****         case 'p':
+  85:InterruptRoutines.c ****             if (SelectionFlag==1)
+ 196              		.loc 1 85 0
+ 197 0116 544B     		ldr	r3, .L23+4
+ 198 0118 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 199 011a 012B     		cmp	r3, #1
+ 200 011c 40F0A180 		bne	.L1
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 6
+
+
+  86:InterruptRoutines.c ****             {
+  87:InterruptRoutines.c ****                 UART_1_PutString("Configuration of the accelerometer sampling frequency \r\n");
+ 201              		.loc 1 87 0
+ 202 0120 5848     		ldr	r0, .L23+32
+ 203 0122 FFF7FEFF 		bl	UART_1_PutString
+ 204              	.LVL7:
+  88:InterruptRoutines.c ****                 UART_1_PutString("Character            Sampling Frequency \r\n");
+ 205              		.loc 1 88 0
+ 206 0126 5848     		ldr	r0, .L23+36
+ 207 0128 FFF7FEFF 		bl	UART_1_PutString
+ 208              	.LVL8:
+  89:InterruptRoutines.c ****                 UART_1_PutString("1                    1Hz \r\n");
+ 209              		.loc 1 89 0
+ 210 012c 5748     		ldr	r0, .L23+40
+ 211 012e FFF7FEFF 		bl	UART_1_PutString
+ 212              	.LVL9:
+  90:InterruptRoutines.c ****                 UART_1_PutString("2                    10Hz \r\n");
+ 213              		.loc 1 90 0
+ 214 0132 5748     		ldr	r0, .L23+44
+ 215 0134 FFF7FEFF 		bl	UART_1_PutString
+ 216              	.LVL10:
+  91:InterruptRoutines.c ****                 UART_1_PutString("3                    25Hz \r\n");
+ 217              		.loc 1 91 0
+ 218 0138 5648     		ldr	r0, .L23+48
+ 219 013a FFF7FEFF 		bl	UART_1_PutString
+ 220              	.LVL11:
+  92:InterruptRoutines.c ****                 UART_1_PutString("4                    50Hz \r\n");
+ 221              		.loc 1 92 0
+ 222 013e 5648     		ldr	r0, .L23+52
+ 223 0140 FFF7FEFF 		bl	UART_1_PutString
+ 224              	.LVL12:
+  93:InterruptRoutines.c ****                 SamplingFreqFlag=1;
+ 225              		.loc 1 93 0
+ 226 0144 484B     		ldr	r3, .L23+4
+ 227 0146 0122     		movs	r2, #1
+ 228 0148 DA70     		strb	r2, [r3, #3]
+  94:InterruptRoutines.c ****                 SelectionFlag=0;
+ 229              		.loc 1 94 0
+ 230 014a 0022     		movs	r2, #0
+ 231 014c 1A70     		strb	r2, [r3]
+ 232 014e 08BD     		pop	{r3, pc}
+ 233              	.L3:
+  95:InterruptRoutines.c ****             }
+  96:InterruptRoutines.c ****         break;
+  97:InterruptRoutines.c ****         // 1 command on UART
+  98:InterruptRoutines.c ****         case '1':
+  99:InterruptRoutines.c ****             if (FSRFlag==1) // +- 2g
+ 234              		.loc 1 99 0
+ 235 0150 454B     		ldr	r3, .L23+4
+ 236 0152 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 237 0154 012B     		cmp	r3, #1
+ 238 0156 06D1     		bne	.L18
+ 100:InterruptRoutines.c ****             {
+ 101:InterruptRoutines.c ****                 // Read register
+ 102:InterruptRoutines.c ****                 // communicate on UART if this FSR is already setted
+ 103:InterruptRoutines.c ****                 // if not write the new FSR + communicate on UART the change
+ 104:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_2);
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 7
+
+
+ 239              		.loc 1 104 0
+ 240 0158 8021     		movs	r1, #128
+ 241 015a 2320     		movs	r0, #35
+ 242 015c FFF7FEFF 		bl	ACC_writeRegister
+ 243              	.LVL13:
+ 105:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 106:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 107:InterruptRoutines.c ****                 FSRFlag=0; 
+ 244              		.loc 1 107 0
+ 245 0160 0022     		movs	r2, #0
+ 246 0162 414B     		ldr	r3, .L23+4
+ 247 0164 5A70     		strb	r2, [r3, #1]
+ 248              	.L18:
+ 108:InterruptRoutines.c ****             }
+ 109:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 1Hz
+ 249              		.loc 1 109 0
+ 250 0166 404B     		ldr	r3, .L23+4
+ 251 0168 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 252 016a 012B     		cmp	r3, #1
+ 253 016c 79D1     		bne	.L1
+ 110:InterruptRoutines.c ****             {
+ 111:InterruptRoutines.c ****                 // Read register
+ 112:InterruptRoutines.c ****                 // communicate on UART if this freq is already setted
+ 113:InterruptRoutines.c ****                 // if not write the new freq + communicate on UART the change
+ 114:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_1_CTRL_REG1);
+ 254              		.loc 1 114 0
+ 255 016e 2321     		movs	r1, #35
+ 256 0170 2020     		movs	r0, #32
+ 257 0172 FFF7FEFF 		bl	ACC_writeRegister
+ 258              	.LVL14:
+ 115:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 116:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 117:InterruptRoutines.c ****                 SamplingFreqFlag=0;
+ 259              		.loc 1 117 0
+ 260 0176 0022     		movs	r2, #0
+ 261 0178 3B4B     		ldr	r3, .L23+4
+ 262 017a DA70     		strb	r2, [r3, #3]
+ 263 017c 08BD     		pop	{r3, pc}
+ 264              	.L5:
+ 118:InterruptRoutines.c ****             }
+ 119:InterruptRoutines.c ****         break;
+ 120:InterruptRoutines.c ****         // 2 command on UART
+ 121:InterruptRoutines.c ****         case '2':
+ 122:InterruptRoutines.c ****             if (FSRFlag==1) // +- 4g
+ 265              		.loc 1 122 0
+ 266 017e 3A4B     		ldr	r3, .L23+4
+ 267 0180 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 268 0182 012B     		cmp	r3, #1
+ 269 0184 06D1     		bne	.L19
+ 123:InterruptRoutines.c ****             {
+ 124:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_4);
+ 270              		.loc 1 124 0
+ 271 0186 9021     		movs	r1, #144
+ 272 0188 2320     		movs	r0, #35
+ 273 018a FFF7FEFF 		bl	ACC_writeRegister
+ 274              	.LVL15:
+ 125:InterruptRoutines.c ****                 FSRFlag=0; 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 8
+
+
+ 275              		.loc 1 125 0
+ 276 018e 0022     		movs	r2, #0
+ 277 0190 354B     		ldr	r3, .L23+4
+ 278 0192 5A70     		strb	r2, [r3, #1]
+ 279              	.L19:
+ 126:InterruptRoutines.c ****             }
+ 127:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 10Hz
+ 280              		.loc 1 127 0
+ 281 0194 344B     		ldr	r3, .L23+4
+ 282 0196 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 283 0198 012B     		cmp	r3, #1
+ 284 019a 62D1     		bne	.L1
+ 128:InterruptRoutines.c ****             {
+ 129:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_10_CTRL_REG1);
+ 285              		.loc 1 129 0
+ 286 019c 3921     		movs	r1, #57
+ 287 019e 2020     		movs	r0, #32
+ 288 01a0 FFF7FEFF 		bl	ACC_writeRegister
+ 289              	.LVL16:
+ 130:InterruptRoutines.c ****                 SamplingFreqFlag=0;
+ 290              		.loc 1 130 0
+ 291 01a4 0022     		movs	r2, #0
+ 292 01a6 304B     		ldr	r3, .L23+4
+ 293 01a8 DA70     		strb	r2, [r3, #3]
+ 294 01aa 08BD     		pop	{r3, pc}
+ 295              	.L6:
+ 131:InterruptRoutines.c ****             }
+ 132:InterruptRoutines.c ****         break;
+ 133:InterruptRoutines.c ****         // 3 command on UART
+ 134:InterruptRoutines.c ****         case '3':
+ 135:InterruptRoutines.c ****             if (FSRFlag==1) // +- 8g
+ 296              		.loc 1 135 0
+ 297 01ac 2E4B     		ldr	r3, .L23+4
+ 298 01ae 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 299 01b0 012B     		cmp	r3, #1
+ 300 01b2 06D1     		bne	.L20
+ 136:InterruptRoutines.c ****             {
+ 137:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_8);
+ 301              		.loc 1 137 0
+ 302 01b4 A021     		movs	r1, #160
+ 303 01b6 2320     		movs	r0, #35
+ 304 01b8 FFF7FEFF 		bl	ACC_writeRegister
+ 305              	.LVL17:
+ 138:InterruptRoutines.c ****                 FSRFlag=0; 
+ 306              		.loc 1 138 0
+ 307 01bc 0022     		movs	r2, #0
+ 308 01be 2A4B     		ldr	r3, .L23+4
+ 309 01c0 5A70     		strb	r2, [r3, #1]
+ 310              	.L20:
+ 139:InterruptRoutines.c ****             }
+ 140:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 25Hz
+ 311              		.loc 1 140 0
+ 312 01c2 294B     		ldr	r3, .L23+4
+ 313 01c4 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 314 01c6 012B     		cmp	r3, #1
+ 315 01c8 4BD1     		bne	.L1
+ 141:InterruptRoutines.c ****             {
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 9
+
+
+ 142:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_25_CTRL_REG1);
+ 316              		.loc 1 142 0
+ 317 01ca 5521     		movs	r1, #85
+ 318 01cc 2020     		movs	r0, #32
+ 319 01ce FFF7FEFF 		bl	ACC_writeRegister
+ 320              	.LVL18:
+ 143:InterruptRoutines.c ****                 SamplingFreqFlag=0;
+ 321              		.loc 1 143 0
+ 322 01d2 0022     		movs	r2, #0
+ 323 01d4 244B     		ldr	r3, .L23+4
+ 324 01d6 DA70     		strb	r2, [r3, #3]
+ 325 01d8 08BD     		pop	{r3, pc}
+ 326              	.L7:
+ 144:InterruptRoutines.c ****             }
+ 145:InterruptRoutines.c ****         break;
+ 146:InterruptRoutines.c ****         // 4 command on UART
+ 147:InterruptRoutines.c ****         case '4':
+ 148:InterruptRoutines.c ****             if (FSRFlag==1) // +- 16g
+ 327              		.loc 1 148 0
+ 328 01da 234B     		ldr	r3, .L23+4
+ 329 01dc 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 330 01de 012B     		cmp	r3, #1
+ 331 01e0 06D1     		bne	.L21
+ 149:InterruptRoutines.c ****             {
+ 150:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_16);
+ 332              		.loc 1 150 0
+ 333 01e2 B021     		movs	r1, #176
+ 334 01e4 2320     		movs	r0, #35
+ 335 01e6 FFF7FEFF 		bl	ACC_writeRegister
+ 336              	.LVL19:
+ 151:InterruptRoutines.c ****                 FSRFlag=0; 
+ 337              		.loc 1 151 0
+ 338 01ea 0022     		movs	r2, #0
+ 339 01ec 1E4B     		ldr	r3, .L23+4
+ 340 01ee 5A70     		strb	r2, [r3, #1]
+ 341              	.L21:
+ 152:InterruptRoutines.c ****             }
+ 153:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 50Hz
+ 342              		.loc 1 153 0
+ 343 01f0 1D4B     		ldr	r3, .L23+4
+ 344 01f2 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 345 01f4 012B     		cmp	r3, #1
+ 346 01f6 34D1     		bne	.L1
+ 154:InterruptRoutines.c ****             {
+ 155:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_50_CTRL_REG1);
+ 347              		.loc 1 155 0
+ 348 01f8 7121     		movs	r1, #113
+ 349 01fa 2020     		movs	r0, #32
+ 350 01fc FFF7FEFF 		bl	ACC_writeRegister
+ 351              	.LVL20:
+ 156:InterruptRoutines.c ****                 SamplingFreqFlag=0;
+ 352              		.loc 1 156 0
+ 353 0200 0022     		movs	r2, #0
+ 354 0202 194B     		ldr	r3, .L23+4
+ 355 0204 DA70     		strb	r2, [r3, #3]
+ 356 0206 08BD     		pop	{r3, pc}
+ 357              	.L16:
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 10
+
+
+ 157:InterruptRoutines.c ****             }
+ 158:InterruptRoutines.c ****         break;
+ 159:InterruptRoutines.c ****         // Visualize data on Bridge Control Panel command on UART
+ 160:InterruptRoutines.c ****         case 'V':
+ 161:InterruptRoutines.c ****         case 'v':
+ 162:InterruptRoutines.c ****             if (SelectionFlag==1)
+ 358              		.loc 1 162 0
+ 359 0208 174B     		ldr	r3, .L23+4
+ 360 020a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 361 020c 012B     		cmp	r3, #1
+ 362 020e 28D1     		bne	.L1
+ 163:InterruptRoutines.c ****             {
+ 164:InterruptRoutines.c ****                 SelectionFlag=0;
+ 363              		.loc 1 164 0
+ 364 0210 0022     		movs	r2, #0
+ 365 0212 154B     		ldr	r3, .L23+4
+ 366 0214 1A70     		strb	r2, [r3]
+ 367 0216 08BD     		pop	{r3, pc}
+ 368              	.L15:
+ 165:InterruptRoutines.c ****             }
+ 166:InterruptRoutines.c ****         break;
+ 167:InterruptRoutines.c ****         // Stop visualize data on Bridge Control Panel command on UART
+ 168:InterruptRoutines.c ****         case 'U':
+ 169:InterruptRoutines.c ****         case 'u':
+ 170:InterruptRoutines.c ****             if (SelectionFlag==1)
+ 369              		.loc 1 170 0
+ 370 0218 134B     		ldr	r3, .L23+4
+ 371 021a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 372 021c 012B     		cmp	r3, #1
+ 373 021e 20D1     		bne	.L1
+ 171:InterruptRoutines.c ****             {
+ 172:InterruptRoutines.c ****                 SelectionFlag=0;
+ 374              		.loc 1 172 0
+ 375 0220 0022     		movs	r2, #0
+ 376 0222 114B     		ldr	r3, .L23+4
+ 377 0224 1A70     		strb	r2, [r3]
+ 378 0226 08BD     		pop	{r3, pc}
+ 379              	.L14:
+ 173:InterruptRoutines.c ****             }
+ 174:InterruptRoutines.c ****         break;
+ 175:InterruptRoutines.c ****         // Temperature mode command on UART
+ 176:InterruptRoutines.c ****         case 'T':
+ 177:InterruptRoutines.c ****         case 't':
+ 178:InterruptRoutines.c ****             if (SelectionFlag==1)
+ 380              		.loc 1 178 0
+ 381 0228 0F4B     		ldr	r3, .L23+4
+ 382 022a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 383 022c 012B     		cmp	r3, #1
+ 384 022e 18D1     		bne	.L1
+ 179:InterruptRoutines.c ****             {
+ 180:InterruptRoutines.c ****                 UART_1_PutString("Store the temperature data \r\n");
+ 385              		.loc 1 180 0
+ 386 0230 1A48     		ldr	r0, .L23+56
+ 387 0232 FFF7FEFF 		bl	UART_1_PutString
+ 388              	.LVL21:
+ 181:InterruptRoutines.c ****                 UART_1_PutString("Character            Temperature format \r\n");
+ 389              		.loc 1 181 0
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 11
+
+
+ 390 0236 1A48     		ldr	r0, .L23+60
+ 391 0238 FFF7FEFF 		bl	UART_1_PutString
+ 392              	.LVL22:
+ 182:InterruptRoutines.c ****                 UART_1_PutString("c                    Store data in Celsius format \r\n");
+ 393              		.loc 1 182 0
+ 394 023c 1948     		ldr	r0, .L23+64
+ 395 023e FFF7FEFF 		bl	UART_1_PutString
+ 396              	.LVL23:
+ 183:InterruptRoutines.c ****                 UART_1_PutString("f                    Store data in Fahrenheit format  \r\n");
+ 397              		.loc 1 183 0
+ 398 0242 1948     		ldr	r0, .L23+68
+ 399 0244 FFF7FEFF 		bl	UART_1_PutString
+ 400              	.LVL24:
+ 184:InterruptRoutines.c ****                 TemperatureFlag=1;
+ 401              		.loc 1 184 0
+ 402 0248 074B     		ldr	r3, .L23+4
+ 403 024a 0122     		movs	r2, #1
+ 404 024c 9A70     		strb	r2, [r3, #2]
+ 185:InterruptRoutines.c ****                 SelectionFlag=0;
+ 405              		.loc 1 185 0
+ 406 024e 0022     		movs	r2, #0
+ 407 0250 1A70     		strb	r2, [r3]
+ 408 0252 08BD     		pop	{r3, pc}
+ 409              	.L10:
+ 186:InterruptRoutines.c ****             }
+ 187:InterruptRoutines.c ****         break;
+ 188:InterruptRoutines.c ****         // Temperature in Celsius command on UART
+ 189:InterruptRoutines.c ****         case 'C':
+ 190:InterruptRoutines.c ****         case 'c':
+ 191:InterruptRoutines.c ****             if (TemperatureFlag==1)
+ 410              		.loc 1 191 0
+ 411 0254 044B     		ldr	r3, .L23+4
+ 412 0256 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 413 0258 012B     		cmp	r3, #1
+ 414 025a 02D1     		bne	.L1
+ 192:InterruptRoutines.c ****             {
+ 193:InterruptRoutines.c ****                 TemperatureFlag=0;
+ 415              		.loc 1 193 0
+ 416 025c 0022     		movs	r2, #0
+ 417 025e 024B     		ldr	r3, .L23+4
+ 418 0260 9A70     		strb	r2, [r3, #2]
+ 419              	.L1:
+ 420 0262 08BD     		pop	{r3, pc}
+ 421              	.L24:
+ 422              		.align	2
+ 423              	.L23:
+ 424 0264 00000000 		.word	ch_received
+ 425 0268 00000000 		.word	.LANCHOR0
+ 426 026c 00000000 		.word	.LC0
+ 427 0270 38000000 		.word	.LC1
+ 428 0274 64000000 		.word	.LC2
+ 429 0278 84000000 		.word	.LC3
+ 430 027c A4000000 		.word	.LC4
+ 431 0280 C4000000 		.word	.LC5
+ 432 0284 E4000000 		.word	.LC6
+ 433 0288 20010000 		.word	.LC7
+ 434 028c 4C010000 		.word	.LC8
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 12
+
+
+ 435 0290 68010000 		.word	.LC9
+ 436 0294 88010000 		.word	.LC10
+ 437 0298 A8010000 		.word	.LC11
+ 438 029c C8010000 		.word	.LC12
+ 439 02a0 E8010000 		.word	.LC13
+ 440 02a4 14020000 		.word	.LC14
+ 441 02a8 4C020000 		.word	.LC15
+ 442              		.cfi_endproc
+ 443              	.LFE64:
+ 444              		.size	Custom_ISR_RX, .-Custom_ISR_RX
+ 445              		.global	TemperatureFlag
+ 446              		.global	SamplingFreqFlag
+ 447              		.global	FSRFlag
+ 448              		.global	SelectionFlag
+ 449              		.comm	ch_received,1,1
+ 450              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 451              		.align	2
+ 452              	.LC0:
+ 453 0000 436F6E66 		.ascii	"Configuration of the accelerometer full scale range"
+ 453      69677572 
+ 453      6174696F 
+ 453      6E206F66 
+ 453      20746865 
+ 454 0033 200D0A00 		.ascii	" \015\012\000"
+ 455 0037 00       		.space	1
+ 456              	.LC1:
+ 457 0038 43686172 		.ascii	"Character            Full scale range \015\012\000"
+ 457      61637465 
+ 457      72202020 
+ 457      20202020 
+ 457      20202020 
+ 458 0061 000000   		.space	3
+ 459              	.LC2:
+ 460 0064 31202020 		.ascii	"1                    +- 2g \015\012\000"
+ 460      20202020 
+ 460      20202020 
+ 460      20202020 
+ 460      20202020 
+ 461 0082 0000     		.space	2
+ 462              	.LC3:
+ 463 0084 32202020 		.ascii	"2                    +- 4g \015\012\000"
+ 463      20202020 
+ 463      20202020 
+ 463      20202020 
+ 463      20202020 
+ 464 00a2 0000     		.space	2
+ 465              	.LC4:
+ 466 00a4 33202020 		.ascii	"3                    +- 8g \015\012\000"
+ 466      20202020 
+ 466      20202020 
+ 466      20202020 
+ 466      20202020 
+ 467 00c2 0000     		.space	2
+ 468              	.LC5:
+ 469 00c4 34202020 		.ascii	"4                    +- 16g \015\012\000"
+ 469      20202020 
+ 469      20202020 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 13
+
+
+ 469      20202020 
+ 469      20202020 
+ 470 00e3 00       		.space	1
+ 471              	.LC6:
+ 472 00e4 436F6E66 		.ascii	"Configuration of the accelerometer sampling frequen"
+ 472      69677572 
+ 472      6174696F 
+ 472      6E206F66 
+ 472      20746865 
+ 473 0117 6379200D 		.ascii	"cy \015\012\000"
+ 473      0A00
+ 474 011d 000000   		.space	3
+ 475              	.LC7:
+ 476 0120 43686172 		.ascii	"Character            Sampling Frequency \015\012\000"
+ 476      61637465 
+ 476      72202020 
+ 476      20202020 
+ 476      20202020 
+ 477 014b 00       		.space	1
+ 478              	.LC8:
+ 479 014c 31202020 		.ascii	"1                    1Hz \015\012\000"
+ 479      20202020 
+ 479      20202020 
+ 479      20202020 
+ 479      20202020 
+ 480              	.LC9:
+ 481 0168 32202020 		.ascii	"2                    10Hz \015\012\000"
+ 481      20202020 
+ 481      20202020 
+ 481      20202020 
+ 481      20202020 
+ 482 0185 000000   		.space	3
+ 483              	.LC10:
+ 484 0188 33202020 		.ascii	"3                    25Hz \015\012\000"
+ 484      20202020 
+ 484      20202020 
+ 484      20202020 
+ 484      20202020 
+ 485 01a5 000000   		.space	3
+ 486              	.LC11:
+ 487 01a8 34202020 		.ascii	"4                    50Hz \015\012\000"
+ 487      20202020 
+ 487      20202020 
+ 487      20202020 
+ 487      20202020 
+ 488 01c5 000000   		.space	3
+ 489              	.LC12:
+ 490 01c8 53746F72 		.ascii	"Store the temperature data \015\012\000"
+ 490      65207468 
+ 490      65207465 
+ 490      6D706572 
+ 490      61747572 
+ 491 01e6 0000     		.space	2
+ 492              	.LC13:
+ 493 01e8 43686172 		.ascii	"Character            Temperature format \015\012\000"
+ 493      61637465 
+ 493      72202020 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 14
+
+
+ 493      20202020 
+ 493      20202020 
+ 494 0213 00       		.space	1
+ 495              	.LC14:
+ 496 0214 63202020 		.ascii	"c                    Store data in Celsius format \015"
+ 496      20202020 
+ 496      20202020 
+ 496      20202020 
+ 496      20202020 
+ 497 0247 0A00     		.ascii	"\012\000"
+ 498 0249 000000   		.space	3
+ 499              	.LC15:
+ 500 024c 66202020 		.ascii	"f                    Store data in Fahrenheit forma"
+ 500      20202020 
+ 500      20202020 
+ 500      20202020 
+ 500      20202020 
+ 501 027f 7420200D 		.ascii	"t  \015\012\000"
+ 501      0A00
+ 502              		.bss
+ 503              		.set	.LANCHOR0,. + 0
+ 504              		.type	SelectionFlag, %object
+ 505              		.size	SelectionFlag, 1
+ 506              	SelectionFlag:
+ 507 0000 00       		.space	1
+ 508              		.type	FSRFlag, %object
+ 509              		.size	FSRFlag, 1
+ 510              	FSRFlag:
+ 511 0001 00       		.space	1
+ 512              		.type	TemperatureFlag, %object
+ 513              		.size	TemperatureFlag, 1
+ 514              	TemperatureFlag:
+ 515 0002 00       		.space	1
+ 516              		.type	SamplingFreqFlag, %object
+ 517              		.size	SamplingFreqFlag, 1
+ 518              	SamplingFreqFlag:
+ 519 0003 00       		.space	1
+ 520              		.text
+ 521              	.Letext0:
+ 522              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 523              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 524              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 525              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 526              		.file 6 "Generated_Source\\PSoC5/UART_1.h"
+ 527              		.file 7 "LIS3DH.h"
+ 528              		.section	.debug_info,"",%progbits
+ 529              	.Ldebug_info0:
+ 530 0000 8F030000 		.4byte	0x38f
+ 531 0004 0400     		.2byte	0x4
+ 532 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 533 000a 04       		.byte	0x4
+ 534 000b 01       		.uleb128 0x1
+ 535 000c 47000000 		.4byte	.LASF26
+ 536 0010 0C       		.byte	0xc
+ 537 0011 32020000 		.4byte	.LASF27
+ 538 0015 E7000000 		.4byte	.LASF28
+ 539 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 15
+
+
+ 540 001d 00000000 		.4byte	0
+ 541 0021 00000000 		.4byte	.Ldebug_line0
+ 542 0025 02       		.uleb128 0x2
+ 543 0026 01       		.byte	0x1
+ 544 0027 06       		.byte	0x6
+ 545 0028 FC010000 		.4byte	.LASF0
+ 546 002c 02       		.uleb128 0x2
+ 547 002d 01       		.byte	0x1
+ 548 002e 08       		.byte	0x8
+ 549 002f 39000000 		.4byte	.LASF1
+ 550 0033 02       		.uleb128 0x2
+ 551 0034 02       		.byte	0x2
+ 552 0035 05       		.byte	0x5
+ 553 0036 D2010000 		.4byte	.LASF2
+ 554 003a 02       		.uleb128 0x2
+ 555 003b 02       		.byte	0x2
+ 556 003c 07       		.byte	0x7
+ 557 003d 18000000 		.4byte	.LASF3
+ 558 0041 03       		.uleb128 0x3
+ 559 0042 00000000 		.4byte	.LASF9
+ 560 0046 02       		.byte	0x2
+ 561 0047 3F       		.byte	0x3f
+ 562 0048 4C000000 		.4byte	0x4c
+ 563 004c 02       		.uleb128 0x2
+ 564 004d 04       		.byte	0x4
+ 565 004e 05       		.byte	0x5
+ 566 004f E2010000 		.4byte	.LASF4
+ 567 0053 02       		.uleb128 0x2
+ 568 0054 04       		.byte	0x4
+ 569 0055 07       		.byte	0x7
+ 570 0056 D5000000 		.4byte	.LASF5
+ 571 005a 02       		.uleb128 0x2
+ 572 005b 08       		.byte	0x8
+ 573 005c 05       		.byte	0x5
+ 574 005d B6010000 		.4byte	.LASF6
+ 575 0061 02       		.uleb128 0x2
+ 576 0062 08       		.byte	0x8
+ 577 0063 07       		.byte	0x7
+ 578 0064 7B010000 		.4byte	.LASF7
+ 579 0068 04       		.uleb128 0x4
+ 580 0069 04       		.byte	0x4
+ 581 006a 05       		.byte	0x5
+ 582 006b 696E7400 		.ascii	"int\000"
+ 583 006f 02       		.uleb128 0x2
+ 584 0070 04       		.byte	0x4
+ 585 0071 07       		.byte	0x7
+ 586 0072 6E010000 		.4byte	.LASF8
+ 587 0076 03       		.uleb128 0x3
+ 588 0077 2B000000 		.4byte	.LASF10
+ 589 007b 03       		.byte	0x3
+ 590 007c 2C       		.byte	0x2c
+ 591 007d 41000000 		.4byte	0x41
+ 592 0081 05       		.uleb128 0x5
+ 593 0082 DC010000 		.4byte	.LASF11
+ 594 0086 04       		.byte	0x4
+ 595 0087 E401     		.2byte	0x1e4
+ 596 0089 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 16
+
+
+ 597 008d 02       		.uleb128 0x2
+ 598 008e 04       		.byte	0x4
+ 599 008f 04       		.byte	0x4
+ 600 0090 33000000 		.4byte	.LASF12
+ 601 0094 02       		.uleb128 0x2
+ 602 0095 08       		.byte	0x8
+ 603 0096 04       		.byte	0x4
+ 604 0097 45010000 		.4byte	.LASF13
+ 605 009b 02       		.uleb128 0x2
+ 606 009c 01       		.byte	0x1
+ 607 009d 08       		.byte	0x8
+ 608 009e EB010000 		.4byte	.LASF14
+ 609 00a2 02       		.uleb128 0x2
+ 610 00a3 08       		.byte	0x8
+ 611 00a4 04       		.byte	0x4
+ 612 00a5 F0010000 		.4byte	.LASF15
+ 613 00a9 02       		.uleb128 0x2
+ 614 00aa 04       		.byte	0x4
+ 615 00ab 07       		.byte	0x7
+ 616 00ac AD010000 		.4byte	.LASF16
+ 617 00b0 06       		.uleb128 0x6
+ 618 00b1 C4010000 		.4byte	.LASF29
+ 619 00b5 01       		.byte	0x1
+ 620 00b6 1B       		.byte	0x1b
+ 621 00b7 00000000 		.4byte	.LFB64
+ 622 00bb AC020000 		.4byte	.LFE64-.LFB64
+ 623 00bf 01       		.uleb128 0x1
+ 624 00c0 9C       		.byte	0x9c
+ 625 00c1 0B030000 		.4byte	0x30b
+ 626 00c5 07       		.uleb128 0x7
+ 627 00c6 06000000 		.4byte	.LVL0
+ 628 00ca 71030000 		.4byte	0x371
+ 629 00ce 08       		.uleb128 0x8
+ 630 00cf DC000000 		.4byte	.LVL1
+ 631 00d3 7C030000 		.4byte	0x37c
+ 632 00d7 E5000000 		.4byte	0xe5
+ 633 00db 09       		.uleb128 0x9
+ 634 00dc 01       		.uleb128 0x1
+ 635 00dd 50       		.byte	0x50
+ 636 00de 05       		.uleb128 0x5
+ 637 00df 03       		.byte	0x3
+ 638 00e0 00000000 		.4byte	.LC0
+ 639 00e4 00       		.byte	0
+ 640 00e5 08       		.uleb128 0x8
+ 641 00e6 E2000000 		.4byte	.LVL2
+ 642 00ea 7C030000 		.4byte	0x37c
+ 643 00ee FC000000 		.4byte	0xfc
+ 644 00f2 09       		.uleb128 0x9
+ 645 00f3 01       		.uleb128 0x1
+ 646 00f4 50       		.byte	0x50
+ 647 00f5 05       		.uleb128 0x5
+ 648 00f6 03       		.byte	0x3
+ 649 00f7 38000000 		.4byte	.LC1
+ 650 00fb 00       		.byte	0
+ 651 00fc 08       		.uleb128 0x8
+ 652 00fd E8000000 		.4byte	.LVL3
+ 653 0101 7C030000 		.4byte	0x37c
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 17
+
+
+ 654 0105 13010000 		.4byte	0x113
+ 655 0109 09       		.uleb128 0x9
+ 656 010a 01       		.uleb128 0x1
+ 657 010b 50       		.byte	0x50
+ 658 010c 05       		.uleb128 0x5
+ 659 010d 03       		.byte	0x3
+ 660 010e 64000000 		.4byte	.LC2
+ 661 0112 00       		.byte	0
+ 662 0113 08       		.uleb128 0x8
+ 663 0114 EE000000 		.4byte	.LVL4
+ 664 0118 7C030000 		.4byte	0x37c
+ 665 011c 2A010000 		.4byte	0x12a
+ 666 0120 09       		.uleb128 0x9
+ 667 0121 01       		.uleb128 0x1
+ 668 0122 50       		.byte	0x50
+ 669 0123 05       		.uleb128 0x5
+ 670 0124 03       		.byte	0x3
+ 671 0125 84000000 		.4byte	.LC3
+ 672 0129 00       		.byte	0
+ 673 012a 08       		.uleb128 0x8
+ 674 012b F4000000 		.4byte	.LVL5
+ 675 012f 7C030000 		.4byte	0x37c
+ 676 0133 41010000 		.4byte	0x141
+ 677 0137 09       		.uleb128 0x9
+ 678 0138 01       		.uleb128 0x1
+ 679 0139 50       		.byte	0x50
+ 680 013a 05       		.uleb128 0x5
+ 681 013b 03       		.byte	0x3
+ 682 013c A4000000 		.4byte	.LC4
+ 683 0140 00       		.byte	0
+ 684 0141 08       		.uleb128 0x8
+ 685 0142 FA000000 		.4byte	.LVL6
+ 686 0146 7C030000 		.4byte	0x37c
+ 687 014a 58010000 		.4byte	0x158
+ 688 014e 09       		.uleb128 0x9
+ 689 014f 01       		.uleb128 0x1
+ 690 0150 50       		.byte	0x50
+ 691 0151 05       		.uleb128 0x5
+ 692 0152 03       		.byte	0x3
+ 693 0153 C4000000 		.4byte	.LC5
+ 694 0157 00       		.byte	0
+ 695 0158 08       		.uleb128 0x8
+ 696 0159 26010000 		.4byte	.LVL7
+ 697 015d 7C030000 		.4byte	0x37c
+ 698 0161 6F010000 		.4byte	0x16f
+ 699 0165 09       		.uleb128 0x9
+ 700 0166 01       		.uleb128 0x1
+ 701 0167 50       		.byte	0x50
+ 702 0168 05       		.uleb128 0x5
+ 703 0169 03       		.byte	0x3
+ 704 016a E4000000 		.4byte	.LC6
+ 705 016e 00       		.byte	0
+ 706 016f 08       		.uleb128 0x8
+ 707 0170 2C010000 		.4byte	.LVL8
+ 708 0174 7C030000 		.4byte	0x37c
+ 709 0178 86010000 		.4byte	0x186
+ 710 017c 09       		.uleb128 0x9
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 18
+
+
+ 711 017d 01       		.uleb128 0x1
+ 712 017e 50       		.byte	0x50
+ 713 017f 05       		.uleb128 0x5
+ 714 0180 03       		.byte	0x3
+ 715 0181 20010000 		.4byte	.LC7
+ 716 0185 00       		.byte	0
+ 717 0186 08       		.uleb128 0x8
+ 718 0187 32010000 		.4byte	.LVL9
+ 719 018b 7C030000 		.4byte	0x37c
+ 720 018f 9D010000 		.4byte	0x19d
+ 721 0193 09       		.uleb128 0x9
+ 722 0194 01       		.uleb128 0x1
+ 723 0195 50       		.byte	0x50
+ 724 0196 05       		.uleb128 0x5
+ 725 0197 03       		.byte	0x3
+ 726 0198 4C010000 		.4byte	.LC8
+ 727 019c 00       		.byte	0
+ 728 019d 08       		.uleb128 0x8
+ 729 019e 38010000 		.4byte	.LVL10
+ 730 01a2 7C030000 		.4byte	0x37c
+ 731 01a6 B4010000 		.4byte	0x1b4
+ 732 01aa 09       		.uleb128 0x9
+ 733 01ab 01       		.uleb128 0x1
+ 734 01ac 50       		.byte	0x50
+ 735 01ad 05       		.uleb128 0x5
+ 736 01ae 03       		.byte	0x3
+ 737 01af 68010000 		.4byte	.LC9
+ 738 01b3 00       		.byte	0
+ 739 01b4 08       		.uleb128 0x8
+ 740 01b5 3E010000 		.4byte	.LVL11
+ 741 01b9 7C030000 		.4byte	0x37c
+ 742 01bd CB010000 		.4byte	0x1cb
+ 743 01c1 09       		.uleb128 0x9
+ 744 01c2 01       		.uleb128 0x1
+ 745 01c3 50       		.byte	0x50
+ 746 01c4 05       		.uleb128 0x5
+ 747 01c5 03       		.byte	0x3
+ 748 01c6 88010000 		.4byte	.LC10
+ 749 01ca 00       		.byte	0
+ 750 01cb 08       		.uleb128 0x8
+ 751 01cc 44010000 		.4byte	.LVL12
+ 752 01d0 7C030000 		.4byte	0x37c
+ 753 01d4 E2010000 		.4byte	0x1e2
+ 754 01d8 09       		.uleb128 0x9
+ 755 01d9 01       		.uleb128 0x1
+ 756 01da 50       		.byte	0x50
+ 757 01db 05       		.uleb128 0x5
+ 758 01dc 03       		.byte	0x3
+ 759 01dd A8010000 		.4byte	.LC11
+ 760 01e1 00       		.byte	0
+ 761 01e2 08       		.uleb128 0x8
+ 762 01e3 60010000 		.4byte	.LVL13
+ 763 01e7 87030000 		.4byte	0x387
+ 764 01eb FC010000 		.4byte	0x1fc
+ 765 01ef 09       		.uleb128 0x9
+ 766 01f0 01       		.uleb128 0x1
+ 767 01f1 50       		.byte	0x50
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 19
+
+
+ 768 01f2 02       		.uleb128 0x2
+ 769 01f3 08       		.byte	0x8
+ 770 01f4 23       		.byte	0x23
+ 771 01f5 09       		.uleb128 0x9
+ 772 01f6 01       		.uleb128 0x1
+ 773 01f7 51       		.byte	0x51
+ 774 01f8 02       		.uleb128 0x2
+ 775 01f9 09       		.byte	0x9
+ 776 01fa 80       		.byte	0x80
+ 777 01fb 00       		.byte	0
+ 778 01fc 08       		.uleb128 0x8
+ 779 01fd 76010000 		.4byte	.LVL14
+ 780 0201 87030000 		.4byte	0x387
+ 781 0205 16020000 		.4byte	0x216
+ 782 0209 09       		.uleb128 0x9
+ 783 020a 01       		.uleb128 0x1
+ 784 020b 50       		.byte	0x50
+ 785 020c 02       		.uleb128 0x2
+ 786 020d 08       		.byte	0x8
+ 787 020e 20       		.byte	0x20
+ 788 020f 09       		.uleb128 0x9
+ 789 0210 01       		.uleb128 0x1
+ 790 0211 51       		.byte	0x51
+ 791 0212 02       		.uleb128 0x2
+ 792 0213 08       		.byte	0x8
+ 793 0214 23       		.byte	0x23
+ 794 0215 00       		.byte	0
+ 795 0216 08       		.uleb128 0x8
+ 796 0217 8E010000 		.4byte	.LVL15
+ 797 021b 87030000 		.4byte	0x387
+ 798 021f 30020000 		.4byte	0x230
+ 799 0223 09       		.uleb128 0x9
+ 800 0224 01       		.uleb128 0x1
+ 801 0225 50       		.byte	0x50
+ 802 0226 02       		.uleb128 0x2
+ 803 0227 08       		.byte	0x8
+ 804 0228 23       		.byte	0x23
+ 805 0229 09       		.uleb128 0x9
+ 806 022a 01       		.uleb128 0x1
+ 807 022b 51       		.byte	0x51
+ 808 022c 02       		.uleb128 0x2
+ 809 022d 09       		.byte	0x9
+ 810 022e 90       		.byte	0x90
+ 811 022f 00       		.byte	0
+ 812 0230 08       		.uleb128 0x8
+ 813 0231 A4010000 		.4byte	.LVL16
+ 814 0235 87030000 		.4byte	0x387
+ 815 0239 4A020000 		.4byte	0x24a
+ 816 023d 09       		.uleb128 0x9
+ 817 023e 01       		.uleb128 0x1
+ 818 023f 50       		.byte	0x50
+ 819 0240 02       		.uleb128 0x2
+ 820 0241 08       		.byte	0x8
+ 821 0242 20       		.byte	0x20
+ 822 0243 09       		.uleb128 0x9
+ 823 0244 01       		.uleb128 0x1
+ 824 0245 51       		.byte	0x51
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 20
+
+
+ 825 0246 02       		.uleb128 0x2
+ 826 0247 08       		.byte	0x8
+ 827 0248 39       		.byte	0x39
+ 828 0249 00       		.byte	0
+ 829 024a 08       		.uleb128 0x8
+ 830 024b BC010000 		.4byte	.LVL17
+ 831 024f 87030000 		.4byte	0x387
+ 832 0253 64020000 		.4byte	0x264
+ 833 0257 09       		.uleb128 0x9
+ 834 0258 01       		.uleb128 0x1
+ 835 0259 50       		.byte	0x50
+ 836 025a 02       		.uleb128 0x2
+ 837 025b 08       		.byte	0x8
+ 838 025c 23       		.byte	0x23
+ 839 025d 09       		.uleb128 0x9
+ 840 025e 01       		.uleb128 0x1
+ 841 025f 51       		.byte	0x51
+ 842 0260 02       		.uleb128 0x2
+ 843 0261 09       		.byte	0x9
+ 844 0262 A0       		.byte	0xa0
+ 845 0263 00       		.byte	0
+ 846 0264 08       		.uleb128 0x8
+ 847 0265 D2010000 		.4byte	.LVL18
+ 848 0269 87030000 		.4byte	0x387
+ 849 026d 7E020000 		.4byte	0x27e
+ 850 0271 09       		.uleb128 0x9
+ 851 0272 01       		.uleb128 0x1
+ 852 0273 50       		.byte	0x50
+ 853 0274 02       		.uleb128 0x2
+ 854 0275 08       		.byte	0x8
+ 855 0276 20       		.byte	0x20
+ 856 0277 09       		.uleb128 0x9
+ 857 0278 01       		.uleb128 0x1
+ 858 0279 51       		.byte	0x51
+ 859 027a 02       		.uleb128 0x2
+ 860 027b 08       		.byte	0x8
+ 861 027c 55       		.byte	0x55
+ 862 027d 00       		.byte	0
+ 863 027e 08       		.uleb128 0x8
+ 864 027f EA010000 		.4byte	.LVL19
+ 865 0283 87030000 		.4byte	0x387
+ 866 0287 98020000 		.4byte	0x298
+ 867 028b 09       		.uleb128 0x9
+ 868 028c 01       		.uleb128 0x1
+ 869 028d 50       		.byte	0x50
+ 870 028e 02       		.uleb128 0x2
+ 871 028f 08       		.byte	0x8
+ 872 0290 23       		.byte	0x23
+ 873 0291 09       		.uleb128 0x9
+ 874 0292 01       		.uleb128 0x1
+ 875 0293 51       		.byte	0x51
+ 876 0294 02       		.uleb128 0x2
+ 877 0295 09       		.byte	0x9
+ 878 0296 B0       		.byte	0xb0
+ 879 0297 00       		.byte	0
+ 880 0298 08       		.uleb128 0x8
+ 881 0299 00020000 		.4byte	.LVL20
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 21
+
+
+ 882 029d 87030000 		.4byte	0x387
+ 883 02a1 B2020000 		.4byte	0x2b2
+ 884 02a5 09       		.uleb128 0x9
+ 885 02a6 01       		.uleb128 0x1
+ 886 02a7 50       		.byte	0x50
+ 887 02a8 02       		.uleb128 0x2
+ 888 02a9 08       		.byte	0x8
+ 889 02aa 20       		.byte	0x20
+ 890 02ab 09       		.uleb128 0x9
+ 891 02ac 01       		.uleb128 0x1
+ 892 02ad 51       		.byte	0x51
+ 893 02ae 02       		.uleb128 0x2
+ 894 02af 08       		.byte	0x8
+ 895 02b0 71       		.byte	0x71
+ 896 02b1 00       		.byte	0
+ 897 02b2 08       		.uleb128 0x8
+ 898 02b3 36020000 		.4byte	.LVL21
+ 899 02b7 7C030000 		.4byte	0x37c
+ 900 02bb C9020000 		.4byte	0x2c9
+ 901 02bf 09       		.uleb128 0x9
+ 902 02c0 01       		.uleb128 0x1
+ 903 02c1 50       		.byte	0x50
+ 904 02c2 05       		.uleb128 0x5
+ 905 02c3 03       		.byte	0x3
+ 906 02c4 C8010000 		.4byte	.LC12
+ 907 02c8 00       		.byte	0
+ 908 02c9 08       		.uleb128 0x8
+ 909 02ca 3C020000 		.4byte	.LVL22
+ 910 02ce 7C030000 		.4byte	0x37c
+ 911 02d2 E0020000 		.4byte	0x2e0
+ 912 02d6 09       		.uleb128 0x9
+ 913 02d7 01       		.uleb128 0x1
+ 914 02d8 50       		.byte	0x50
+ 915 02d9 05       		.uleb128 0x5
+ 916 02da 03       		.byte	0x3
+ 917 02db E8010000 		.4byte	.LC13
+ 918 02df 00       		.byte	0
+ 919 02e0 08       		.uleb128 0x8
+ 920 02e1 42020000 		.4byte	.LVL23
+ 921 02e5 7C030000 		.4byte	0x37c
+ 922 02e9 F7020000 		.4byte	0x2f7
+ 923 02ed 09       		.uleb128 0x9
+ 924 02ee 01       		.uleb128 0x1
+ 925 02ef 50       		.byte	0x50
+ 926 02f0 05       		.uleb128 0x5
+ 927 02f1 03       		.byte	0x3
+ 928 02f2 14020000 		.4byte	.LC14
+ 929 02f6 00       		.byte	0
+ 930 02f7 0A       		.uleb128 0xa
+ 931 02f8 48020000 		.4byte	.LVL24
+ 932 02fc 7C030000 		.4byte	0x37c
+ 933 0300 09       		.uleb128 0x9
+ 934 0301 01       		.uleb128 0x1
+ 935 0302 50       		.byte	0x50
+ 936 0303 05       		.uleb128 0x5
+ 937 0304 03       		.byte	0x3
+ 938 0305 4C020000 		.4byte	.LC15
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 22
+
+
+ 939 0309 00       		.byte	0
+ 940 030a 00       		.byte	0
+ 941 030b 0B       		.uleb128 0xb
+ 942 030c 38010000 		.4byte	.LASF17
+ 943 0310 05       		.byte	0x5
+ 944 0311 1207     		.2byte	0x712
+ 945 0313 17030000 		.4byte	0x317
+ 946 0317 0C       		.uleb128 0xc
+ 947 0318 76000000 		.4byte	0x76
+ 948 031c 0D       		.uleb128 0xd
+ 949 031d A1010000 		.4byte	.LASF18
+ 950 0321 01       		.byte	0x1
+ 951 0322 14       		.byte	0x14
+ 952 0323 81000000 		.4byte	0x81
+ 953 0327 05       		.uleb128 0x5
+ 954 0328 03       		.byte	0x3
+ 955 0329 00000000 		.4byte	ch_received
+ 956 032d 0D       		.uleb128 0xd
+ 957 032e 0A000000 		.4byte	.LASF19
+ 958 0332 01       		.byte	0x1
+ 959 0333 16       		.byte	0x16
+ 960 0334 81000000 		.4byte	0x81
+ 961 0338 05       		.uleb128 0x5
+ 962 0339 03       		.byte	0x3
+ 963 033a 00000000 		.4byte	SelectionFlag
+ 964 033e 0D       		.uleb128 0xd
+ 965 033f 2A020000 		.4byte	.LASF20
+ 966 0343 01       		.byte	0x1
+ 967 0344 17       		.byte	0x17
+ 968 0345 81000000 		.4byte	0x81
+ 969 0349 05       		.uleb128 0x5
+ 970 034a 03       		.byte	0x3
+ 971 034b 00000000 		.4byte	FSRFlag
+ 972 034f 0D       		.uleb128 0xd
+ 973 0350 08020000 		.4byte	.LASF21
+ 974 0354 01       		.byte	0x1
+ 975 0355 18       		.byte	0x18
+ 976 0356 81000000 		.4byte	0x81
+ 977 035a 05       		.uleb128 0x5
+ 978 035b 03       		.byte	0x3
+ 979 035c 00000000 		.4byte	SamplingFreqFlag
+ 980 0360 0D       		.uleb128 0xd
+ 981 0361 5E010000 		.4byte	.LASF22
+ 982 0365 01       		.byte	0x1
+ 983 0366 19       		.byte	0x19
+ 984 0367 81000000 		.4byte	0x81
+ 985 036b 05       		.uleb128 0x5
+ 986 036c 03       		.byte	0x3
+ 987 036d 00000000 		.4byte	TemperatureFlag
+ 988 0371 0E       		.uleb128 0xe
+ 989 0372 92010000 		.4byte	.LASF23
+ 990 0376 92010000 		.4byte	.LASF23
+ 991 037a 06       		.byte	0x6
+ 992 037b 71       		.byte	0x71
+ 993 037c 0E       		.uleb128 0xe
+ 994 037d 19020000 		.4byte	.LASF24
+ 995 0381 19020000 		.4byte	.LASF24
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 23
+
+
+ 996 0385 06       		.byte	0x6
+ 997 0386 8B       		.byte	0x8b
+ 998 0387 0E       		.uleb128 0xe
+ 999 0388 4C010000 		.4byte	.LASF25
+ 1000 038c 4C010000 		.4byte	.LASF25
+ 1001 0390 07       		.byte	0x7
+ 1002 0391 65       		.byte	0x65
+ 1003 0392 00       		.byte	0
+ 1004              		.section	.debug_abbrev,"",%progbits
+ 1005              	.Ldebug_abbrev0:
+ 1006 0000 01       		.uleb128 0x1
+ 1007 0001 11       		.uleb128 0x11
+ 1008 0002 01       		.byte	0x1
+ 1009 0003 25       		.uleb128 0x25
+ 1010 0004 0E       		.uleb128 0xe
+ 1011 0005 13       		.uleb128 0x13
+ 1012 0006 0B       		.uleb128 0xb
+ 1013 0007 03       		.uleb128 0x3
+ 1014 0008 0E       		.uleb128 0xe
+ 1015 0009 1B       		.uleb128 0x1b
+ 1016 000a 0E       		.uleb128 0xe
+ 1017 000b 55       		.uleb128 0x55
+ 1018 000c 17       		.uleb128 0x17
+ 1019 000d 11       		.uleb128 0x11
+ 1020 000e 01       		.uleb128 0x1
+ 1021 000f 10       		.uleb128 0x10
+ 1022 0010 17       		.uleb128 0x17
+ 1023 0011 00       		.byte	0
+ 1024 0012 00       		.byte	0
+ 1025 0013 02       		.uleb128 0x2
+ 1026 0014 24       		.uleb128 0x24
+ 1027 0015 00       		.byte	0
+ 1028 0016 0B       		.uleb128 0xb
+ 1029 0017 0B       		.uleb128 0xb
+ 1030 0018 3E       		.uleb128 0x3e
+ 1031 0019 0B       		.uleb128 0xb
+ 1032 001a 03       		.uleb128 0x3
+ 1033 001b 0E       		.uleb128 0xe
+ 1034 001c 00       		.byte	0
+ 1035 001d 00       		.byte	0
+ 1036 001e 03       		.uleb128 0x3
+ 1037 001f 16       		.uleb128 0x16
+ 1038 0020 00       		.byte	0
+ 1039 0021 03       		.uleb128 0x3
+ 1040 0022 0E       		.uleb128 0xe
+ 1041 0023 3A       		.uleb128 0x3a
+ 1042 0024 0B       		.uleb128 0xb
+ 1043 0025 3B       		.uleb128 0x3b
+ 1044 0026 0B       		.uleb128 0xb
+ 1045 0027 49       		.uleb128 0x49
+ 1046 0028 13       		.uleb128 0x13
+ 1047 0029 00       		.byte	0
+ 1048 002a 00       		.byte	0
+ 1049 002b 04       		.uleb128 0x4
+ 1050 002c 24       		.uleb128 0x24
+ 1051 002d 00       		.byte	0
+ 1052 002e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 24
+
+
+ 1053 002f 0B       		.uleb128 0xb
+ 1054 0030 3E       		.uleb128 0x3e
+ 1055 0031 0B       		.uleb128 0xb
+ 1056 0032 03       		.uleb128 0x3
+ 1057 0033 08       		.uleb128 0x8
+ 1058 0034 00       		.byte	0
+ 1059 0035 00       		.byte	0
+ 1060 0036 05       		.uleb128 0x5
+ 1061 0037 16       		.uleb128 0x16
+ 1062 0038 00       		.byte	0
+ 1063 0039 03       		.uleb128 0x3
+ 1064 003a 0E       		.uleb128 0xe
+ 1065 003b 3A       		.uleb128 0x3a
+ 1066 003c 0B       		.uleb128 0xb
+ 1067 003d 3B       		.uleb128 0x3b
+ 1068 003e 05       		.uleb128 0x5
+ 1069 003f 49       		.uleb128 0x49
+ 1070 0040 13       		.uleb128 0x13
+ 1071 0041 00       		.byte	0
+ 1072 0042 00       		.byte	0
+ 1073 0043 06       		.uleb128 0x6
+ 1074 0044 2E       		.uleb128 0x2e
+ 1075 0045 01       		.byte	0x1
+ 1076 0046 3F       		.uleb128 0x3f
+ 1077 0047 19       		.uleb128 0x19
+ 1078 0048 03       		.uleb128 0x3
+ 1079 0049 0E       		.uleb128 0xe
+ 1080 004a 3A       		.uleb128 0x3a
+ 1081 004b 0B       		.uleb128 0xb
+ 1082 004c 3B       		.uleb128 0x3b
+ 1083 004d 0B       		.uleb128 0xb
+ 1084 004e 27       		.uleb128 0x27
+ 1085 004f 19       		.uleb128 0x19
+ 1086 0050 11       		.uleb128 0x11
+ 1087 0051 01       		.uleb128 0x1
+ 1088 0052 12       		.uleb128 0x12
+ 1089 0053 06       		.uleb128 0x6
+ 1090 0054 40       		.uleb128 0x40
+ 1091 0055 18       		.uleb128 0x18
+ 1092 0056 9742     		.uleb128 0x2117
+ 1093 0058 19       		.uleb128 0x19
+ 1094 0059 01       		.uleb128 0x1
+ 1095 005a 13       		.uleb128 0x13
+ 1096 005b 00       		.byte	0
+ 1097 005c 00       		.byte	0
+ 1098 005d 07       		.uleb128 0x7
+ 1099 005e 898201   		.uleb128 0x4109
+ 1100 0061 00       		.byte	0
+ 1101 0062 11       		.uleb128 0x11
+ 1102 0063 01       		.uleb128 0x1
+ 1103 0064 31       		.uleb128 0x31
+ 1104 0065 13       		.uleb128 0x13
+ 1105 0066 00       		.byte	0
+ 1106 0067 00       		.byte	0
+ 1107 0068 08       		.uleb128 0x8
+ 1108 0069 898201   		.uleb128 0x4109
+ 1109 006c 01       		.byte	0x1
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 25
+
+
+ 1110 006d 11       		.uleb128 0x11
+ 1111 006e 01       		.uleb128 0x1
+ 1112 006f 31       		.uleb128 0x31
+ 1113 0070 13       		.uleb128 0x13
+ 1114 0071 01       		.uleb128 0x1
+ 1115 0072 13       		.uleb128 0x13
+ 1116 0073 00       		.byte	0
+ 1117 0074 00       		.byte	0
+ 1118 0075 09       		.uleb128 0x9
+ 1119 0076 8A8201   		.uleb128 0x410a
+ 1120 0079 00       		.byte	0
+ 1121 007a 02       		.uleb128 0x2
+ 1122 007b 18       		.uleb128 0x18
+ 1123 007c 9142     		.uleb128 0x2111
+ 1124 007e 18       		.uleb128 0x18
+ 1125 007f 00       		.byte	0
+ 1126 0080 00       		.byte	0
+ 1127 0081 0A       		.uleb128 0xa
+ 1128 0082 898201   		.uleb128 0x4109
+ 1129 0085 01       		.byte	0x1
+ 1130 0086 11       		.uleb128 0x11
+ 1131 0087 01       		.uleb128 0x1
+ 1132 0088 31       		.uleb128 0x31
+ 1133 0089 13       		.uleb128 0x13
+ 1134 008a 00       		.byte	0
+ 1135 008b 00       		.byte	0
+ 1136 008c 0B       		.uleb128 0xb
+ 1137 008d 34       		.uleb128 0x34
+ 1138 008e 00       		.byte	0
+ 1139 008f 03       		.uleb128 0x3
+ 1140 0090 0E       		.uleb128 0xe
+ 1141 0091 3A       		.uleb128 0x3a
+ 1142 0092 0B       		.uleb128 0xb
+ 1143 0093 3B       		.uleb128 0x3b
+ 1144 0094 05       		.uleb128 0x5
+ 1145 0095 49       		.uleb128 0x49
+ 1146 0096 13       		.uleb128 0x13
+ 1147 0097 3F       		.uleb128 0x3f
+ 1148 0098 19       		.uleb128 0x19
+ 1149 0099 3C       		.uleb128 0x3c
+ 1150 009a 19       		.uleb128 0x19
+ 1151 009b 00       		.byte	0
+ 1152 009c 00       		.byte	0
+ 1153 009d 0C       		.uleb128 0xc
+ 1154 009e 35       		.uleb128 0x35
+ 1155 009f 00       		.byte	0
+ 1156 00a0 49       		.uleb128 0x49
+ 1157 00a1 13       		.uleb128 0x13
+ 1158 00a2 00       		.byte	0
+ 1159 00a3 00       		.byte	0
+ 1160 00a4 0D       		.uleb128 0xd
+ 1161 00a5 34       		.uleb128 0x34
+ 1162 00a6 00       		.byte	0
+ 1163 00a7 03       		.uleb128 0x3
+ 1164 00a8 0E       		.uleb128 0xe
+ 1165 00a9 3A       		.uleb128 0x3a
+ 1166 00aa 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 26
+
+
+ 1167 00ab 3B       		.uleb128 0x3b
+ 1168 00ac 0B       		.uleb128 0xb
+ 1169 00ad 49       		.uleb128 0x49
+ 1170 00ae 13       		.uleb128 0x13
+ 1171 00af 3F       		.uleb128 0x3f
+ 1172 00b0 19       		.uleb128 0x19
+ 1173 00b1 02       		.uleb128 0x2
+ 1174 00b2 18       		.uleb128 0x18
+ 1175 00b3 00       		.byte	0
+ 1176 00b4 00       		.byte	0
+ 1177 00b5 0E       		.uleb128 0xe
+ 1178 00b6 2E       		.uleb128 0x2e
+ 1179 00b7 00       		.byte	0
+ 1180 00b8 3F       		.uleb128 0x3f
+ 1181 00b9 19       		.uleb128 0x19
+ 1182 00ba 3C       		.uleb128 0x3c
+ 1183 00bb 19       		.uleb128 0x19
+ 1184 00bc 6E       		.uleb128 0x6e
+ 1185 00bd 0E       		.uleb128 0xe
+ 1186 00be 03       		.uleb128 0x3
+ 1187 00bf 0E       		.uleb128 0xe
+ 1188 00c0 3A       		.uleb128 0x3a
+ 1189 00c1 0B       		.uleb128 0xb
+ 1190 00c2 3B       		.uleb128 0x3b
+ 1191 00c3 0B       		.uleb128 0xb
+ 1192 00c4 00       		.byte	0
+ 1193 00c5 00       		.byte	0
+ 1194 00c6 00       		.byte	0
+ 1195              		.section	.debug_aranges,"",%progbits
+ 1196 0000 1C000000 		.4byte	0x1c
+ 1197 0004 0200     		.2byte	0x2
+ 1198 0006 00000000 		.4byte	.Ldebug_info0
+ 1199 000a 04       		.byte	0x4
+ 1200 000b 00       		.byte	0
+ 1201 000c 0000     		.2byte	0
+ 1202 000e 0000     		.2byte	0
+ 1203 0010 00000000 		.4byte	.LFB64
+ 1204 0014 AC020000 		.4byte	.LFE64-.LFB64
+ 1205 0018 00000000 		.4byte	0
+ 1206 001c 00000000 		.4byte	0
+ 1207              		.section	.debug_ranges,"",%progbits
+ 1208              	.Ldebug_ranges0:
+ 1209 0000 00000000 		.4byte	.LFB64
+ 1210 0004 AC020000 		.4byte	.LFE64
+ 1211 0008 00000000 		.4byte	0
+ 1212 000c 00000000 		.4byte	0
+ 1213              		.section	.debug_line,"",%progbits
+ 1214              	.Ldebug_line0:
+ 1215 0000 C9010000 		.section	.debug_str,"MS",%progbits,1
+ 1215      02007101 
+ 1215      00000201 
+ 1215      FB0E0D00 
+ 1215      01010101 
+ 1216              	.LASF9:
+ 1217 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 1217      7433325F 
+ 1217      7400
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 27
+
+
+ 1218              	.LASF19:
+ 1219 000a 53656C65 		.ascii	"SelectionFlag\000"
+ 1219      6374696F 
+ 1219      6E466C61 
+ 1219      6700
+ 1220              	.LASF3:
+ 1221 0018 73686F72 		.ascii	"short unsigned int\000"
+ 1221      7420756E 
+ 1221      7369676E 
+ 1221      65642069 
+ 1221      6E7400
+ 1222              	.LASF10:
+ 1223 002b 696E7433 		.ascii	"int32_t\000"
+ 1223      325F7400 
+ 1224              	.LASF12:
+ 1225 0033 666C6F61 		.ascii	"float\000"
+ 1225      7400
+ 1226              	.LASF1:
+ 1227 0039 756E7369 		.ascii	"unsigned char\000"
+ 1227      676E6564 
+ 1227      20636861 
+ 1227      7200
+ 1228              	.LASF26:
+ 1229 0047 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1229      43313120 
+ 1229      352E342E 
+ 1229      31203230 
+ 1229      31363036 
+ 1230 007a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1230      20726576 
+ 1230      6973696F 
+ 1230      6E203233 
+ 1230      37373135 
+ 1231 00ad 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1231      66756E63 
+ 1231      74696F6E 
+ 1231      2D736563 
+ 1231      74696F6E 
+ 1232              	.LASF5:
+ 1233 00d5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1233      20756E73 
+ 1233      69676E65 
+ 1233      6420696E 
+ 1233      7400
+ 1234              	.LASF28:
+ 1235 00e7 433A5C55 		.ascii	"C:\\Users\\ilami\\Documents\\GitHub\\Final-Project-"
+ 1235      73657273 
+ 1235      5C696C61 
+ 1235      6D695C44 
+ 1235      6F63756D 
+ 1236 0115 47524F55 		.ascii	"GROUP-5\\Final_Project_Group5.cydsn\000"
+ 1236      502D355C 
+ 1236      46696E61 
+ 1236      6C5F5072 
+ 1236      6F6A6563 
+ 1237              	.LASF17:
+ 1238 0138 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 28
+
+
+ 1238      52784275 
+ 1238      66666572 
+ 1238      00
+ 1239              	.LASF13:
+ 1240 0145 646F7562 		.ascii	"double\000"
+ 1240      6C6500
+ 1241              	.LASF25:
+ 1242 014c 4143435F 		.ascii	"ACC_writeRegister\000"
+ 1242      77726974 
+ 1242      65526567 
+ 1242      69737465 
+ 1242      7200
+ 1243              	.LASF22:
+ 1244 015e 54656D70 		.ascii	"TemperatureFlag\000"
+ 1244      65726174 
+ 1244      75726546 
+ 1244      6C616700 
+ 1245              	.LASF8:
+ 1246 016e 756E7369 		.ascii	"unsigned int\000"
+ 1246      676E6564 
+ 1246      20696E74 
+ 1246      00
+ 1247              	.LASF7:
+ 1248 017b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1248      206C6F6E 
+ 1248      6720756E 
+ 1248      7369676E 
+ 1248      65642069 
+ 1249              	.LASF23:
+ 1250 0192 55415254 		.ascii	"UART_1_GetChar\000"
+ 1250      5F315F47 
+ 1250      65744368 
+ 1250      617200
+ 1251              	.LASF18:
+ 1252 01a1 63685F72 		.ascii	"ch_received\000"
+ 1252      65636569 
+ 1252      76656400 
+ 1253              	.LASF16:
+ 1254 01ad 73697A65 		.ascii	"sizetype\000"
+ 1254      74797065 
+ 1254      00
+ 1255              	.LASF6:
+ 1256 01b6 6C6F6E67 		.ascii	"long long int\000"
+ 1256      206C6F6E 
+ 1256      6720696E 
+ 1256      7400
+ 1257              	.LASF29:
+ 1258 01c4 43757374 		.ascii	"Custom_ISR_RX\000"
+ 1258      6F6D5F49 
+ 1258      53525F52 
+ 1258      5800
+ 1259              	.LASF2:
+ 1260 01d2 73686F72 		.ascii	"short int\000"
+ 1260      7420696E 
+ 1260      7400
+ 1261              	.LASF11:
+ 1262 01dc 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\cclkAseV.s 			page 29
+
+
+ 1262      3800
+ 1263              	.LASF4:
+ 1264 01e2 6C6F6E67 		.ascii	"long int\000"
+ 1264      20696E74 
+ 1264      00
+ 1265              	.LASF14:
+ 1266 01eb 63686172 		.ascii	"char\000"
+ 1266      00
+ 1267              	.LASF15:
+ 1268 01f0 6C6F6E67 		.ascii	"long double\000"
+ 1268      20646F75 
+ 1268      626C6500 
+ 1269              	.LASF0:
+ 1270 01fc 7369676E 		.ascii	"signed char\000"
+ 1270      65642063 
+ 1270      68617200 
+ 1271              	.LASF21:
+ 1272 0208 53616D70 		.ascii	"SamplingFreqFlag\000"
+ 1272      6C696E67 
+ 1272      46726571 
+ 1272      466C6167 
+ 1272      00
+ 1273              	.LASF24:
+ 1274 0219 55415254 		.ascii	"UART_1_PutString\000"
+ 1274      5F315F50 
+ 1274      75745374 
+ 1274      72696E67 
+ 1274      00
+ 1275              	.LASF20:
+ 1276 022a 46535246 		.ascii	"FSRFlag\000"
+ 1276      6C616700 
+ 1277              	.LASF27:
+ 1278 0232 496E7465 		.ascii	"InterruptRoutines.c\000"
+ 1278      72727570 
+ 1278      74526F75 
+ 1278      74696E65 
+ 1278      732E6300 
+ 1279              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
