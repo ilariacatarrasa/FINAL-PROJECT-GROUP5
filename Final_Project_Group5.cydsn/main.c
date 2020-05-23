@@ -15,6 +15,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "InterruptRoutines.h"
+#include "Functions.h"
 
 //Define buffer for UART
 #define UART_1_PutBuffer UART_1_PutString(bufferUART)
@@ -42,6 +43,9 @@ int main(void) {
     
     /* Start ISR_RX */
     isr_RX_StartEx(Custom_ISR_RX);
+    
+    /* Start ISR_FIFO */
+    isr_FIFO_StartEx(Custom_isr_FIFO);
     
         
     
@@ -122,6 +126,9 @@ int main(void) {
     
     UART_1_PutString("********************************************\r\n");
     /**/
+    
+    // show the menù
+    show_menu();
 
     for(;;){
     
