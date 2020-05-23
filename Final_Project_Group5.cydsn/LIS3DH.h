@@ -6,7 +6,7 @@
  * ========================================
 */
 
-#pragma once /*al posto del #ifndef, fa includere l-header una volta sola*/
+#pragma once 
 
 #include "SPI_Interface_LIS3DH.h"
 

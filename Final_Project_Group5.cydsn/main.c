@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @brief Main file of the EEPROM 25LC256 Project.
+ * @brief Main file of the EEPROM 25LC256 and Accelerometer LIS3DH project
  * 
  * Communication of accelerometer via SPI protocol
  * Usage of 25LC256 SPI EEPROM
