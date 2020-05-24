@@ -41,13 +41,20 @@ int main(void) {
     /* Start SPI Master 2*/
     SPIM_2_Start();
     
+    /* Start ADC */
+    ADC_DelSig_Start();
+    
     /* Start ISR_RX */
     isr_RX_StartEx(Custom_ISR_RX);
     
     /* Start ISR_FIFO */
     //isr_FIFO_StartEx(Custom_isr_FIFO);
     
-        
+    /* Start ISR_ADC */
+    isr_ADC_StartEx(Custom_ISR_ADC);  
+    
+    /* Start ADC conversion */
+    ADC_DelSig_StartConvert();
     
     CyDelay(10); //"The boot procedure is complete about 10 milliseconds after device power-up."
         

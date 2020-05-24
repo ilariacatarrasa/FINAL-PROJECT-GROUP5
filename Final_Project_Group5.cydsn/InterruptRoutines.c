@@ -10,6 +10,14 @@
  * ========================================
 */
 
+
+// ISR priorities are to be setted!!
+// io direi di mettere priorità maggiore nel isr_RX, però ditemi voi
+
+
+
+
+
 // Include header
 #include "InterruptRoutines.h"
 #include "project.h"
@@ -23,11 +31,41 @@ uint8 ch_received;
 // uint8 SelectionFlag=0;
 uint8 FSRFlag=0;
 uint8 SamplingFreqFlag=0;
-uint8 TemperatureFlag=0;
+uint8 TemperatureMode=0;
+uint8 FahrenheitFlag=0;
+int   value_temp;
+int32 value_digit;
+int   value_mv; 
 
 CY_ISR_PROTO (Custom_isr_FIFO)
 {
     /*Send data to EEPROM*/
+}
+
+CY_ISR(Custom_ISR_ADC)
+{
+    /*Read Timer status register to bring interrupt line low*/
+    Timer_ReadStatusRegister();  
+    
+    if(TemperatureMode==1) // if Temperature mode command has been received on UART
+    {
+        value_digit=ADC_DelSig_Read32(); // Read value in ADC
+    
+        if(value_digit<0)      value_digit=0;
+        if(value_digit>65535)  value_digit=65535;
+        
+        DataBuffer[5]=value_digit>>8; // shift a dx di 8 bit --> MSB
+        DataBuffer[6]=value_digit & 0xFF; // & bit a bit --> LSB
+        
+        value_mv=ADC_DelSig_CountsTo_mVolts(value_digit);
+        value_temp= ; // Temperature in Celsius
+        if(FahrenheitFlag==1)
+        {
+            value_temp= value_temp * 9/5 + 32; // Temperature in Fahrenheit
+        }
+        
+        PacketReadyFlag=1;
+    }
 }
 
 CY_ISR(Custom_ISR_RX)
@@ -75,9 +113,9 @@ CY_ISR(Custom_ISR_RX)
             FSRFlag=1;
          
             // Temperature in Fahrenheit command on UART
-            if (TemperatureFlag==1)
+            if (TemperatureMode==1)
             {
-                TemperatureFlag=0;
+                FahrenheitFlag=1;
             }
         break;
             
@@ -278,21 +316,26 @@ CY_ISR(Custom_ISR_RX)
         // Temperature mode command on UART
         case 'T':
         case 't':
+            if ( TemperatureMode == 0 )
+            {
+                Timer_Start(); // Start sampling Temperature values every Timer overflow
+            }
             /* SHOW TEMPERATURE MENU' ON UART*/
             UART_1_PutString("Store the temperature data \r\n");
             UART_1_PutString("Character            Temperature format \r\n");
             UART_1_PutString("c                    Store data in Celsius format \r\n");
             UART_1_PutString("f                    Store data in Fahrenheit format  \r\n");
-            TemperatureFlag=1;
-             
+            TemperatureMode=1;
+            
+            // Timer_Stop(); in usvita dalla modalità temp?
         break;
             
         // Temperature in Celsius command on UART
         case 'C':
         case 'c':
-            if (TemperatureFlag==1)
+            if (TemperatureMode==1)
             {
-                TemperatureFlag=0;
+                FahrenheitFlag=0;
             }
             
         break;
