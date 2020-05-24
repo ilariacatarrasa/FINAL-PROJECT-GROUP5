@@ -106,7 +106,7 @@ int main(void) {
     /*Setting control register 1*/
      uint8_t ctrl_reg1;    
     //Enable the ODR
-    ACC_writeRegister(LIS3DH_CTRL_REG1, LIS3DH_CTRL_REG1_ODR_START);
+    ACC_writeRegister(LIS3DH_CTRL_REG1, LIS3DH_CTRL_REG1_ODR_START_1HZ);
                 
     ctrl_reg1 = ACC_readRegister(LIS3DH_CTRL_REG5);
     sprintf(bufferUART, " Control register 1 has been set to = 0x%02X \r\n", ctrl_reg1);
@@ -146,7 +146,7 @@ int main(void) {
     /**/
 
     uint8_t new_data;
-            
+    uint8_t data[6];        
 
     
     // show the menu
@@ -162,23 +162,30 @@ int main(void) {
             /* non funziona :
             for (i = 0; i<32; i++)
             {
-                ACC_Multi_Read(LIS3DH_OUT_X_L, &data[0], 6);
-                               
-                sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[0], data[1]);
-                UART_1_PutBuffer;
+                //ACC_Multi_Read(LIS3DH_OUT_X_L, &data[0], 6); 
+            
             }
-            DA PROVARE COME LA EEPROM DOPO*/
+            //DA PROVARE COME LA EEPROM DOPO*/
+            
             
             UART_1_PutString(" Overrun occurred! \r\n");
                         
-            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);
+            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);            
             ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
         }
         else
-        {           
+        {               
+            data[0] = ACC_readRegister(LIS3DH_OUT_Z_L);
+            data[1] = ACC_readRegister(LIS3DH_OUT_Z_H);
+            if (data[0]||data[1] != 0)
+            {
+                sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[0], data[1]);
+                UART_1_PutBuffer;
+            }
             /*sprintf(bufferUART, " OVerrun not occurred 0x%02X \r\n", new_data);
             UART_1_PutBuffer;  */          
         }
+        
         
     }
 }

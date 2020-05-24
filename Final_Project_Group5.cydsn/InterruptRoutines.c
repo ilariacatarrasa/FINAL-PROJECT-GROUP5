@@ -58,7 +58,7 @@ CY_ISR(Custom_ISR_ADC)
         DataBuffer[6]=value_digit & 0xFF; // & bit a bit --> LSB
         
         value_mv=ADC_DelSig_CountsTo_mVolts(value_digit);
-        value_temp= ; // Temperature in Celsius
+        //value_temp= ; // Temperature in Celsius
         if(FahrenheitFlag==1)
         {
             value_temp= value_temp * 9/5 + 32; // Temperature in Fahrenheit
@@ -158,14 +158,14 @@ CY_ISR(Custom_ISR_RX)
             {
                 // Read register
                 // communicate on UART if this freq is already setted
-                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_HR_1_CTRL_REG1 )
+                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_1HZ )
                 {
                    UART_1_PutString("The selected option was already been setted \r\n");
                 }
                 // if not write the new freq + communicate on UART the change
                 else
                 {
-                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_1_CTRL_REG1);
+                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_CTRL_REG1_ODR_START_1HZ);
                     UART_1_PutString("The change was successful \r\n");
                 }
                 
@@ -200,14 +200,14 @@ CY_ISR(Custom_ISR_RX)
             {
                 // Read register
                 // communicate on UART if this freq is already setted
-                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_HR_10_CTRL_REG1 )
+                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_10HZ )
                 {
                    UART_1_PutString("The selected option was already been setted \r\n");
                 }
                 // if not write the new freq + communicate on UART the change
                 else
                 {
-                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_10_CTRL_REG1);
+                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_CTRL_REG1_ODR_START_10HZ);
                     UART_1_PutString("The change was successful \r\n");
                 }
                 
@@ -242,14 +242,14 @@ CY_ISR(Custom_ISR_RX)
             {
                 // Read register
                 // communicate on UART if this freq is already setted
-                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_HR_25_CTRL_REG1 )
+                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_25HZ )
                 {
                    UART_1_PutString("The selected option was already been setted \r\n");
                 }
                 // if not write the new freq + communicate on UART the change
                 else
                 {
-                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_25_CTRL_REG1);
+                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_CTRL_REG1_ODR_START_25HZ);
                     UART_1_PutString("The change was successful \r\n");
                 }
                 
@@ -284,14 +284,14 @@ CY_ISR(Custom_ISR_RX)
             {
                 // Read register
                 // communicate on UART if this freq is already setted
-                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_HR_50_CTRL_REG1 )
+                if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_50HZ )
                 {
                    UART_1_PutString("The selected option was already been setted \r\n");
                 }
                 // if not write the new freq + communicate on UART the change
                 else
                 {
-                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_50_CTRL_REG1);
+                    ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_CTRL_REG1_ODR_START_50HZ);
                     UART_1_PutString("The change was successful \r\n");
                 }
                 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
   28:Generated_Source\PSoC5/PWM.c ****     #error PWM_v3_30 detected with a constant 0 for the enable or \
   29:Generated_Source\PSoC5/PWM.c ****          constant 1 for reset. This will prevent the component from operating.
   30:Generated_Source\PSoC5/PWM.c **** #endif /* PWM_PWMUDB_genblk1_ctrlreg__REMOVED */
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 2
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 2
 
 
   31:Generated_Source\PSoC5/PWM.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
   85:Generated_Source\PSoC5/PWM.c **** {
   86:Generated_Source\PSoC5/PWM.c ****     #if (PWM_UsingFixedFunction || PWM_UseControl)
   87:Generated_Source\PSoC5/PWM.c ****         uint8 ctrl;
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 3
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 3
 
 
   88:Generated_Source\PSoC5/PWM.c ****     #endif /* (PWM_UsingFixedFunction || PWM_UseControl) */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  142:Generated_Source\PSoC5/PWM.c ****             PWM_WriteCompare2(PWM_INIT_COMPARE_VALUE2);
  143:Generated_Source\PSoC5/PWM.c ****         #endif /* (PWM_UseOneCompareMode) */
  144:Generated_Source\PSoC5/PWM.c **** 
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 4
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 4
 
 
  145:Generated_Source\PSoC5/PWM.c ****         #if (PWM_KillModeMinTime)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  199:Generated_Source\PSoC5/PWM.c **** void PWM_Enable(void) 
  200:Generated_Source\PSoC5/PWM.c **** {
   28              		.loc 1 200 0
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 5
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 5
 
 
   29              		.cfi_startproc
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  230:Generated_Source\PSoC5/PWM.c **** *  has no effect on the operation of the PWM
  231:Generated_Source\PSoC5/PWM.c **** *
  232:Generated_Source\PSoC5/PWM.c **** *******************************************************************************/
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 6
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 6
 
 
  233:Generated_Source\PSoC5/PWM.c **** void PWM_Stop(void) 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  261:Generated_Source\PSoC5/PWM.c ****         *
  262:Generated_Source\PSoC5/PWM.c ****         * Return:
  263:Generated_Source\PSoC5/PWM.c ****         *  None
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 7
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 7
 
 
  264:Generated_Source\PSoC5/PWM.c ****         *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  318:Generated_Source\PSoC5/PWM.c ****         * Parameters:
  319:Generated_Source\PSoC5/PWM.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
  320:Generated_Source\PSoC5/PWM.c ****         *                defined in the H file as input arguments.
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 8
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 8
 
 
  321:Generated_Source\PSoC5/PWM.c ****         *
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  375:Generated_Source\PSoC5/PWM.c ****     #endif /*PWM_CompareMode2SW */
  376:Generated_Source\PSoC5/PWM.c **** 
  377:Generated_Source\PSoC5/PWM.c **** #endif /* UseOneCompareMode */
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 9
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 9
 
 
  378:Generated_Source\PSoC5/PWM.c **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  407:Generated_Source\PSoC5/PWM.c ****     }
  408:Generated_Source\PSoC5/PWM.c **** 
  409:Generated_Source\PSoC5/PWM.c **** 
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 10
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 10
 
 
  410:Generated_Source\PSoC5/PWM.c ****     /*******************************************************************************
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  134              	.LFB7:
  435:Generated_Source\PSoC5/PWM.c **** 
  436:Generated_Source\PSoC5/PWM.c ****     #if (PWM_UseStatus)
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 11
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 11
 
 
  437:Generated_Source\PSoC5/PWM.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  485:Generated_Source\PSoC5/PWM.c ****         CY_SET_REG16(PWM_PERIOD_LSB_PTR, (uint16)period);
  486:Generated_Source\PSoC5/PWM.c ****     #else
  487:Generated_Source\PSoC5/PWM.c ****         CY_SET_REG16(PWM_PERIOD_LSB_PTR, period);
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 12
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 12
 
 
  141              		.loc 1 487 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  164              		@ link register save eliminated.
  165              	.LVL2:
  519:Generated_Source\PSoC5/PWM.c ****         #if(PWM_UsingFixedFunction)
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 13
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 13
 
 
  520:Generated_Source\PSoC5/PWM.c ****             CY_SET_REG16(PWM_COMPARE1_LSB_PTR, (uint16)compare);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  555:Generated_Source\PSoC5/PWM.c ****     void PWM_WriteCompare1(uint16 compare) \
  556:Generated_Source\PSoC5/PWM.c ****                                         
  557:Generated_Source\PSoC5/PWM.c ****     {
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 14
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 14
 
 
  558:Generated_Source\PSoC5/PWM.c ****         #if(PWM_UsingFixedFunction)
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  612:Generated_Source\PSoC5/PWM.c ****     void PWM_WriteDeadTime(uint8 deadtime) 
  613:Generated_Source\PSoC5/PWM.c ****     {
  614:Generated_Source\PSoC5/PWM.c ****         /* If using the Dead Band 1-255 mode then just write the register */
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 15
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 15
 
 
  615:Generated_Source\PSoC5/PWM.c ****         #if(!PWM_DeadBand2_4)
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  669:Generated_Source\PSoC5/PWM.c ****     /*******************************************************************************
  670:Generated_Source\PSoC5/PWM.c ****     * Function Name: PWM_SetInterruptMode
  671:Generated_Source\PSoC5/PWM.c ****     ********************************************************************************
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 16
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 16
 
 
  672:Generated_Source\PSoC5/PWM.c ****     *
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  701:Generated_Source\PSoC5/PWM.c ****     *  uint8 : Current status register value. The status register bits are:
  702:Generated_Source\PSoC5/PWM.c ****     *  [7:6] : Unused(0)
  703:Generated_Source\PSoC5/PWM.c ****     *  [5]   : Kill event output
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 17
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 17
 
 
  704:Generated_Source\PSoC5/PWM.c ****     *  [4]   : FIFO not empty
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  733:Generated_Source\PSoC5/PWM.c ****     * Return:
  734:Generated_Source\PSoC5/PWM.c ****     *  uint8 : Current control register value
  735:Generated_Source\PSoC5/PWM.c ****     *
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 18
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 18
 
 
  736:Generated_Source\PSoC5/PWM.c ****     *******************************************************************************/
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  764:Generated_Source\PSoC5/PWM.c ****     *******************************************************************************/
  765:Generated_Source\PSoC5/PWM.c ****     void PWM_WriteControlRegister(uint8 control) 
  766:Generated_Source\PSoC5/PWM.c ****     {
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 19
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 19
 
 
  261              		.loc 1 766 0
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  290              		@ link register save eliminated.
  792:Generated_Source\PSoC5/PWM.c ****         return (CY_GET_REG16(PWM_CAPTURE_LSB_PTR));
  291              		.loc 1 792 0
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 20
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 20
 
 
  292 0000 014B     		ldr	r3, .L32
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  340              		.thumb
  341              		.thumb_func
  342              		.type	PWM_Init, %function
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 21
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 21
 
 
  343              	PWM_Init:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  167:Generated_Source\PSoC5/PWM.c ****             /* Use the interrupt output of the status register for IRQ output */
  388              		.loc 1 167 0
  389 0042 FFF7FEFF 		bl	CyEnterCriticalSection
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 22
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 22
 
 
  390              	.LVL14:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  437 0010 1A70     		strb	r2, [r3]
  438              	.L43:
   63:Generated_Source\PSoC5/PWM.c **** 
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 23
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 23
 
 
  439              		.loc 1 63 0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  465 0002 1888     		ldrh	r0, [r3]
  822:Generated_Source\PSoC5/PWM.c ****         #endif /* (PWM_UsingFixedFunction) */
  823:Generated_Source\PSoC5/PWM.c ****     }
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 24
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 24
 
 
  466              		.loc 1 823 0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  860:Generated_Source\PSoC5/PWM.c ****     *
  861:Generated_Source\PSoC5/PWM.c ****     *******************************************************************************/
  862:Generated_Source\PSoC5/PWM.c ****     uint16 PWM_ReadCompare2(void) 
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 25
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 25
 
 
  863:Generated_Source\PSoC5/PWM.c ****     {
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  509              		.text
  510              	.Letext0:
  511              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 26
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 26
 
 
  512              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
@@ -1511,15 +1511,15 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  519 000b 01       		.uleb128 0x1
  520 000c 94000000 		.4byte	.LASF43
  521 0010 0C       		.byte	0xc
- 522 0011 29030000 		.4byte	.LASF44
- 523 0015 22010000 		.4byte	.LASF45
+ 522 0011 2A030000 		.4byte	.LASF44
+ 523 0015 6F010000 		.4byte	.LASF45
  524 0019 00000000 		.4byte	.Ldebug_ranges0+0
  525 001d 00000000 		.4byte	0
  526 0021 00000000 		.4byte	.Ldebug_line0
  527 0025 02       		.uleb128 0x2
  528 0026 01       		.byte	0x1
  529 0027 06       		.byte	0x6
- 530 0028 EE020000 		.4byte	.LASF0
+ 530 0028 EF020000 		.4byte	.LASF0
  531 002c 02       		.uleb128 0x2
  532 002d 01       		.byte	0x1
  533 002e 08       		.byte	0x8
@@ -1527,7 +1527,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  535 0033 02       		.uleb128 0x2
  536 0034 02       		.byte	0x2
  537 0035 05       		.byte	0x5
- 538 0036 98020000 		.4byte	.LASF2
+ 538 0036 99020000 		.4byte	.LASF2
  539 003a 02       		.uleb128 0x2
  540 003b 02       		.byte	0x2
  541 003c 07       		.byte	0x7
@@ -1535,15 +1535,15 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  543 0041 02       		.uleb128 0x2
  544 0042 04       		.byte	0x4
  545 0043 05       		.byte	0x5
- 546 0044 BC020000 		.4byte	.LASF4
+ 546 0044 BD020000 		.4byte	.LASF4
  547 0048 02       		.uleb128 0x2
  548 0049 04       		.byte	0x4
  549 004a 07       		.byte	0x7
- 550 004b 77010000 		.4byte	.LASF5
+ 550 004b 27010000 		.4byte	.LASF5
  551 004f 02       		.uleb128 0x2
  552 0050 08       		.byte	0x8
  553 0051 05       		.byte	0x5
- 554 0052 41020000 		.4byte	.LASF6
+ 554 0052 42020000 		.4byte	.LASF6
  555 0056 02       		.uleb128 0x2
  556 0057 08       		.byte	0x8
  557 0058 07       		.byte	0x7
@@ -1555,17 +1555,17 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  563 0064 02       		.uleb128 0x2
  564 0065 04       		.byte	0x4
  565 0066 07       		.byte	0x7
- 566 0067 E9010000 		.4byte	.LASF8
+ 566 0067 EA010000 		.4byte	.LASF8
  567 006b 04       		.uleb128 0x4
- 568 006c 99010000 		.4byte	.LASF9
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 27
+ 568 006c 49010000 		.4byte	.LASF9
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 27
 
 
  569 0070 02       		.byte	0x2
  570 0071 E401     		.2byte	0x1e4
  571 0073 2C000000 		.4byte	0x2c
  572 0077 04       		.uleb128 0x4
- 573 0078 BF010000 		.4byte	.LASF10
+ 573 0078 C0010000 		.4byte	.LASF10
  574 007c 02       		.byte	0x2
  575 007d E501     		.2byte	0x1e5
  576 007f 3A000000 		.4byte	0x3a
@@ -1576,13 +1576,13 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  581 008a 02       		.uleb128 0x2
  582 008b 08       		.byte	0x8
  583 008c 04       		.byte	0x4
- 584 008d A7010000 		.4byte	.LASF12
+ 584 008d 57010000 		.4byte	.LASF12
  585 0091 02       		.uleb128 0x2
  586 0092 01       		.byte	0x1
  587 0093 08       		.byte	0x8
- 588 0094 C5020000 		.4byte	.LASF13
+ 588 0094 C6020000 		.4byte	.LASF13
  589 0098 04       		.uleb128 0x4
- 590 0099 72010000 		.4byte	.LASF14
+ 590 0099 22010000 		.4byte	.LASF14
  591 009d 02       		.byte	0x2
  592 009e 8E02     		.2byte	0x28e
  593 00a0 A4000000 		.4byte	0xa4
@@ -1598,13 +1598,13 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  603 00ba 02       		.uleb128 0x2
  604 00bb 08       		.byte	0x8
  605 00bc 04       		.byte	0x4
- 606 00bd CA020000 		.4byte	.LASF16
+ 606 00bd CB020000 		.4byte	.LASF16
  607 00c1 02       		.uleb128 0x2
  608 00c2 04       		.byte	0x4
  609 00c3 07       		.byte	0x7
- 610 00c4 38020000 		.4byte	.LASF17
+ 610 00c4 39020000 		.4byte	.LASF17
  611 00c8 06       		.uleb128 0x6
- 612 00c9 02030000 		.4byte	.LASF18
+ 612 00c9 03030000 		.4byte	.LASF18
  613 00cd 01       		.byte	0x1
  614 00ce C7       		.byte	0xc7
  615 00cf 00000000 		.4byte	.LFB2
@@ -1612,18 +1612,18 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  617 00d7 01       		.uleb128 0x1
  618 00d8 9C       		.byte	0x9c
  619 00d9 06       		.uleb128 0x6
- 620 00da B3020000 		.4byte	.LASF19
+ 620 00da B4020000 		.4byte	.LASF19
  621 00de 01       		.byte	0x1
  622 00df E9       		.byte	0xe9
  623 00e0 00000000 		.4byte	.LFB3
  624 00e4 10000000 		.4byte	.LFE3-.LFB3
  625 00e8 01       		.uleb128 0x1
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 28
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 28
 
 
  626 00e9 9C       		.byte	0x9c
  627 00ea 07       		.uleb128 0x7
- 628 00eb A2020000 		.4byte	.LASF20
+ 628 00eb A3020000 		.4byte	.LASF20
  629 00ef 01       		.byte	0x1
  630 00f0 9301     		.2byte	0x193
  631 00f2 00000000 		.4byte	.LFB4
@@ -1640,7 +1640,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  642 010d 50       		.byte	0x50
  643 010e 00       		.byte	0
  644 010f 09       		.uleb128 0x9
- 645 0110 89010000 		.4byte	.LASF28
+ 645 0110 39010000 		.4byte	.LASF28
  646 0114 01       		.byte	0x1
  647 0115 A901     		.2byte	0x1a9
  648 0117 77000000 		.4byte	0x77
@@ -1649,7 +1649,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  651 0123 01       		.uleb128 0x1
  652 0124 9C       		.byte	0x9c
  653 0125 07       		.uleb128 0x7
- 654 0126 13020000 		.4byte	.LASF21
+ 654 0126 14020000 		.4byte	.LASF21
  655 012a 01       		.byte	0x1
  656 012b E201     		.2byte	0x1e2
  657 012d 00000000 		.4byte	.LFB7
@@ -1666,7 +1666,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  668 0148 50       		.byte	0x50
  669 0149 00       		.byte	0
  670 014a 07       		.uleb128 0x7
- 671 014b AE010000 		.4byte	.LASF24
+ 671 014b 5E010000 		.4byte	.LASF24
  672 014f 01       		.byte	0x1
  673 0150 0402     		.2byte	0x204
  674 0152 00000000 		.4byte	.LFB8
@@ -1675,10 +1675,10 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  677 015b 9C       		.byte	0x9c
  678 015c 6F010000 		.4byte	0x16f
  679 0160 08       		.uleb128 0x8
- 680 0161 FA020000 		.4byte	.LASF25
+ 680 0161 FB020000 		.4byte	.LASF25
  681 0165 01       		.byte	0x1
  682 0166 0402     		.2byte	0x204
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 29
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 29
 
 
  683 0168 77000000 		.4byte	0x77
@@ -1686,7 +1686,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  685 016d 50       		.byte	0x50
  686 016e 00       		.byte	0
  687 016f 07       		.uleb128 0x7
- 688 0170 23020000 		.4byte	.LASF26
+ 688 0170 24020000 		.4byte	.LASF26
  689 0174 01       		.byte	0x1
  690 0175 AC02     		.2byte	0x2ac
  691 0177 00000000 		.4byte	.LFB9
@@ -1695,7 +1695,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  694 0180 9C       		.byte	0x9c
  695 0181 94010000 		.4byte	0x194
  696 0185 08       		.uleb128 0x8
- 697 0186 4F020000 		.4byte	.LASF27
+ 697 0186 50020000 		.4byte	.LASF27
  698 018a 01       		.byte	0x1
  699 018b AC02     		.2byte	0x2ac
  700 018d 6B000000 		.4byte	0x6b
@@ -1703,7 +1703,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  702 0192 50       		.byte	0x50
  703 0193 00       		.byte	0
  704 0194 09       		.uleb128 0x9
- 705 0195 0D030000 		.4byte	.LASF29
+ 705 0195 0E030000 		.4byte	.LASF29
  706 0199 01       		.byte	0x1
  707 019a C702     		.2byte	0x2c7
  708 019c 6B000000 		.4byte	0x6b
@@ -1712,7 +1712,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  711 01a8 01       		.uleb128 0x1
  712 01a9 9C       		.byte	0x9c
  713 01aa 0A       		.uleb128 0xa
- 714 01ab D6020000 		.4byte	.LASF46
+ 714 01ab D7020000 		.4byte	.LASF46
  715 01af 01       		.byte	0x1
  716 01b0 E102     		.2byte	0x2e1
  717 01b2 6B000000 		.4byte	0x6b
@@ -1722,7 +1722,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  721 01bf 9C       		.byte	0x9c
  722 01c0 D3010000 		.4byte	0x1d3
  723 01c4 0B       		.uleb128 0xb
- 724 01c5 0C020000 		.4byte	.LASF35
+ 724 01c5 0D020000 		.4byte	.LASF35
  725 01c9 01       		.byte	0x1
  726 01ca E302     		.2byte	0x2e3
  727 01cc 6B000000 		.4byte	0x6b
@@ -1730,7 +1730,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  729 01d1 50       		.byte	0x50
  730 01d2 00       		.byte	0
  731 01d3 07       		.uleb128 0x7
- 732 01d4 5D020000 		.4byte	.LASF30
+ 732 01d4 5E020000 		.4byte	.LASF30
  733 01d8 01       		.byte	0x1
  734 01d9 FD02     		.2byte	0x2fd
  735 01db 00000000 		.4byte	.LFB12
@@ -1738,11 +1738,11 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  737 01e3 01       		.uleb128 0x1
  738 01e4 9C       		.byte	0x9c
  739 01e5 F8010000 		.4byte	0x1f8
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 30
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 30
 
 
  740 01e9 08       		.uleb128 0x8
- 741 01ea 9F010000 		.4byte	.LASF31
+ 741 01ea 4F010000 		.4byte	.LASF31
  742 01ee 01       		.byte	0x1
  743 01ef FD02     		.2byte	0x2fd
  744 01f1 6B000000 		.4byte	0x6b
@@ -1784,13 +1784,13 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  780 0247 9C       		.byte	0x9c
  781 0248 D8020000 		.4byte	0x2d8
  782 024c 0E       		.uleb128 0xe
- 783 024d 24030000 		.4byte	.LASF36
+ 783 024d 25030000 		.4byte	.LASF36
  784 0251 01       		.byte	0x1
  785 0252 57       		.byte	0x57
  786 0253 6B000000 		.4byte	0x6b
  787 0257 00000000 		.4byte	.LLST0
  788 025b 0E       		.uleb128 0xe
- 789 025c 76020000 		.4byte	.LASF37
+ 789 025c 77020000 		.4byte	.LASF37
  790 0260 01       		.byte	0x1
  791 0261 5D       		.byte	0x5d
  792 0262 6B000000 		.4byte	0x6b
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  794 026a 0F       		.uleb128 0xf
  795 026b 2C000000 		.4byte	.LVL10
  796 026f EA000000 		.4byte	0xea
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 31
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 31
 
 
  797 0273 7F020000 		.4byte	0x27f
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  851 02df 00000000 		.4byte	.LFB0
  852 02e3 1C000000 		.4byte	.LFE0-.LFB0
  853 02e7 01       		.uleb128 0x1
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 32
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 32
 
 
  854 02e8 9C       		.byte	0x9c
@@ -1880,7 +1880,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  870 0314 01       		.uleb128 0x1
  871 0315 9C       		.byte	0x9c
  872 0316 09       		.uleb128 0x9
- 873 0317 89020000 		.4byte	.LASF40
+ 873 0317 8A020000 		.4byte	.LASF40
  874 031b 01       		.byte	0x1
  875 031c 7403     		.2byte	0x374
  876 031e 77000000 		.4byte	0x77
@@ -1889,7 +1889,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  879 032a 01       		.uleb128 0x1
  880 032b 9C       		.byte	0x9c
  881 032c 11       		.uleb128 0x11
- 882 032d C6010000 		.4byte	.LASF47
+ 882 032d C7010000 		.4byte	.LASF47
  883 0331 01       		.byte	0x1
  884 0332 20       		.byte	0x20
  885 0333 6B000000 		.4byte	0x6b
@@ -1897,13 +1897,13 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  887 0338 03       		.byte	0x3
  888 0339 00000000 		.4byte	PWM_initVar
  889 033d 12       		.uleb128 0x12
- 890 033e D2010000 		.4byte	.LASF41
- 891 0342 D2010000 		.4byte	.LASF41
+ 890 033e D3010000 		.4byte	.LASF41
+ 891 0342 D3010000 		.4byte	.LASF41
  892 0346 03       		.byte	0x3
  893 0347 7D       		.byte	0x7d
  894 0348 12       		.uleb128 0x12
- 895 0349 F6010000 		.4byte	.LASF42
- 896 034d F6010000 		.4byte	.LASF42
+ 895 0349 F7010000 		.4byte	.LASF42
+ 896 034d F7010000 		.4byte	.LASF42
  897 0351 03       		.byte	0x3
  898 0352 7E       		.byte	0x7e
  899 0353 00       		.byte	0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  908 0006 0B       		.uleb128 0xb
  909 0007 03       		.uleb128 0x3
  910 0008 0E       		.uleb128 0xe
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 33
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 33
 
 
  911 0009 1B       		.uleb128 0x1b
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  965 003f 00       		.byte	0
  966 0040 3F       		.uleb128 0x3f
  967 0041 19       		.uleb128 0x19
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 34
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 34
 
 
  968 0042 03       		.uleb128 0x3
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  1022 007a 02       		.uleb128 0x2
  1023 007b 18       		.uleb128 0x18
  1024 007c 00       		.byte	0
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 35
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 35
 
 
  1025 007d 00       		.byte	0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  1079 00b5 34       		.uleb128 0x34
  1080 00b6 00       		.byte	0
  1081 00b7 03       		.uleb128 0x3
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 36
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 36
 
 
  1082 00b8 0E       		.uleb128 0xe
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  1136 00f1 49       		.uleb128 0x49
  1137 00f2 13       		.uleb128 0x13
  1138 00f3 02       		.uleb128 0x2
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 37
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 37
 
 
  1139 00f4 17       		.uleb128 0x17
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  1193 012f 0B       		.uleb128 0xb
  1194 0130 00       		.byte	0
  1195 0131 00       		.byte	0
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 38
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 38
 
 
  1196 0132 00       		.byte	0
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  1250 0084 0C000000 		.4byte	.LFE14-.LFB14
  1251 0088 00000000 		.4byte	.LFB15
  1252 008c 0C000000 		.4byte	.LFE15-.LFB15
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 39
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 39
 
 
  1253 0090 00000000 		.4byte	0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  1299 0016 50574D5F 		.ascii	"PWM_Init\000"
  1299      496E6974 
  1299      00
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 40
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 40
 
 
  1300              	.LASF33:
@@ -2397,128 +2397,128 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  1321      74696F6E 
  1321      2D736563 
  1321      74696F6E 
- 1322              	.LASF45:
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 41
+ 1322              	.LASF14:
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 41
 
 
- 1323 0122 433A5C55 		.ascii	"C:\\Users\\ilami\\Documents\\GitHub\\FINAL-PROJECT-"
- 1323      73657273 
- 1323      5C696C61 
- 1323      6D695C44 
- 1323      6F63756D 
- 1324 0150 47524F55 		.ascii	"GROUP5\\Final_Project_Group5.cydsn\000"
- 1324      50355C46 
- 1324      696E616C 
- 1324      5F50726F 
- 1324      6A656374 
- 1325              	.LASF14:
- 1326 0172 72656738 		.ascii	"reg8\000"
- 1326      00
- 1327              	.LASF5:
- 1328 0177 6C6F6E67 		.ascii	"long unsigned int\000"
- 1328      20756E73 
- 1328      69676E65 
- 1328      6420696E 
- 1328      7400
- 1329              	.LASF28:
- 1330 0189 50574D5F 		.ascii	"PWM_ReadCounter\000"
- 1330      52656164 
- 1330      436F756E 
- 1330      74657200 
- 1331              	.LASF9:
- 1332 0199 75696E74 		.ascii	"uint8\000"
- 1332      3800
- 1333              	.LASF31:
- 1334 019f 636F6E74 		.ascii	"control\000"
- 1334      726F6C00 
- 1335              	.LASF12:
- 1336 01a7 646F7562 		.ascii	"double\000"
- 1336      6C6500
- 1337              	.LASF24:
- 1338 01ae 50574D5F 		.ascii	"PWM_WriteCompare\000"
- 1338      57726974 
- 1338      65436F6D 
- 1338      70617265 
- 1338      00
+ 1323 0122 72656738 		.ascii	"reg8\000"
+ 1323      00
+ 1324              	.LASF5:
+ 1325 0127 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1325      20756E73 
+ 1325      69676E65 
+ 1325      6420696E 
+ 1325      7400
+ 1326              	.LASF28:
+ 1327 0139 50574D5F 		.ascii	"PWM_ReadCounter\000"
+ 1327      52656164 
+ 1327      436F756E 
+ 1327      74657200 
+ 1328              	.LASF9:
+ 1329 0149 75696E74 		.ascii	"uint8\000"
+ 1329      3800
+ 1330              	.LASF31:
+ 1331 014f 636F6E74 		.ascii	"control\000"
+ 1331      726F6C00 
+ 1332              	.LASF12:
+ 1333 0157 646F7562 		.ascii	"double\000"
+ 1333      6C6500
+ 1334              	.LASF24:
+ 1335 015e 50574D5F 		.ascii	"PWM_WriteCompare\000"
+ 1335      57726974 
+ 1335      65436F6D 
+ 1335      70617265 
+ 1335      00
+ 1336              	.LASF45:
+ 1337 016f 433A5C55 		.ascii	"C:\\Users\\Ilaria\\Documents\\GitHub\\FINAL-PROJECT"
+ 1337      73657273 
+ 1337      5C496C61 
+ 1337      7269615C 
+ 1337      446F6375 
+ 1338 019d 2D47524F 		.ascii	"-GROUP5\\Final_Project_Group5.cydsn\000"
+ 1338      5550355C 
+ 1338      46696E61 
+ 1338      6C5F5072 
+ 1338      6F6A6563 
  1339              	.LASF10:
- 1340 01bf 75696E74 		.ascii	"uint16\000"
+ 1340 01c0 75696E74 		.ascii	"uint16\000"
  1340      313600
  1341              	.LASF47:
- 1342 01c6 50574D5F 		.ascii	"PWM_initVar\000"
+ 1342 01c7 50574D5F 		.ascii	"PWM_initVar\000"
  1342      696E6974 
  1342      56617200 
  1343              	.LASF41:
- 1344 01d2 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1344 01d3 4379456E 		.ascii	"CyEnterCriticalSection\000"
  1344      74657243 
  1344      72697469 
  1344      63616C53 
  1344      65637469 
  1345              	.LASF8:
- 1346 01e9 756E7369 		.ascii	"unsigned int\000"
+ 1346 01ea 756E7369 		.ascii	"unsigned int\000"
  1346      676E6564 
  1346      20696E74 
  1346      00
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 42
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 42
 
 
  1347              	.LASF42:
- 1348 01f6 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1348 01f7 43794578 		.ascii	"CyExitCriticalSection\000"
  1348      69744372 
  1348      69746963 
  1348      616C5365 
  1348      6374696F 
  1349              	.LASF35:
- 1350 020c 72657375 		.ascii	"result\000"
+ 1350 020d 72657375 		.ascii	"result\000"
  1350      6C7400
  1351              	.LASF21:
- 1352 0213 50574D5F 		.ascii	"PWM_WritePeriod\000"
+ 1352 0214 50574D5F 		.ascii	"PWM_WritePeriod\000"
  1352      57726974 
  1352      65506572 
  1352      696F6400 
  1353              	.LASF26:
- 1354 0223 50574D5F 		.ascii	"PWM_SetInterruptMode\000"
+ 1354 0224 50574D5F 		.ascii	"PWM_SetInterruptMode\000"
  1354      53657449 
  1354      6E746572 
  1354      72757074 
  1354      4D6F6465 
  1355              	.LASF17:
- 1356 0238 73697A65 		.ascii	"sizetype\000"
+ 1356 0239 73697A65 		.ascii	"sizetype\000"
  1356      74797065 
  1356      00
  1357              	.LASF6:
- 1358 0241 6C6F6E67 		.ascii	"long long int\000"
+ 1358 0242 6C6F6E67 		.ascii	"long long int\000"
  1358      206C6F6E 
  1358      6720696E 
  1358      7400
  1359              	.LASF27:
- 1360 024f 696E7465 		.ascii	"interruptMode\000"
+ 1360 0250 696E7465 		.ascii	"interruptMode\000"
  1360      72727570 
  1360      744D6F64 
  1360      6500
  1361              	.LASF30:
- 1362 025d 50574D5F 		.ascii	"PWM_WriteControlRegister\000"
+ 1362 025e 50574D5F 		.ascii	"PWM_WriteControlRegister\000"
  1362      57726974 
  1362      65436F6E 
  1362      74726F6C 
  1362      52656769 
  1363              	.LASF37:
- 1364 0276 50574D5F 		.ascii	"PWM_interruptState\000"
+ 1364 0277 50574D5F 		.ascii	"PWM_interruptState\000"
  1364      696E7465 
  1364      72727570 
  1364      74537461 
  1364      746500
  1365              	.LASF40:
- 1366 0289 50574D5F 		.ascii	"PWM_ReadPeriod\000"
+ 1366 028a 50574D5F 		.ascii	"PWM_ReadPeriod\000"
  1366      52656164 
  1366      50657269 
  1366      6F6400
  1367              	.LASF2:
- 1368 0298 73686F72 		.ascii	"short int\000"
+ 1368 0299 73686F72 		.ascii	"short int\000"
  1368      7420696E 
  1368      7400
  1369              	.LASF20:
- 1370 02a2 50574D5F 		.ascii	"PWM_WriteCounter\000"
-ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 43
+ 1370 02a3 50574D5F 		.ascii	"PWM_WriteCounter\000"
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccFq5whN.s 			page 43
 
 
  1370      57726974 
@@ -2526,48 +2526,48 @@ ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccSPyJBc.s 			page 1
  1370      6E746572 
  1370      00
  1371              	.LASF19:
- 1372 02b3 50574D5F 		.ascii	"PWM_Stop\000"
+ 1372 02b4 50574D5F 		.ascii	"PWM_Stop\000"
  1372      53746F70 
  1372      00
  1373              	.LASF4:
- 1374 02bc 6C6F6E67 		.ascii	"long int\000"
+ 1374 02bd 6C6F6E67 		.ascii	"long int\000"
  1374      20696E74 
  1374      00
  1375              	.LASF13:
- 1376 02c5 63686172 		.ascii	"char\000"
+ 1376 02c6 63686172 		.ascii	"char\000"
  1376      00
  1377              	.LASF16:
- 1378 02ca 6C6F6E67 		.ascii	"long double\000"
+ 1378 02cb 6C6F6E67 		.ascii	"long double\000"
  1378      20646F75 
  1378      626C6500 
  1379              	.LASF46:
- 1380 02d6 50574D5F 		.ascii	"PWM_ReadControlRegister\000"
+ 1380 02d7 50574D5F 		.ascii	"PWM_ReadControlRegister\000"
  1380      52656164 
  1380      436F6E74 
  1380      726F6C52 
  1380      65676973 
  1381              	.LASF0:
- 1382 02ee 7369676E 		.ascii	"signed char\000"
+ 1382 02ef 7369676E 		.ascii	"signed char\000"
  1382      65642063 
  1382      68617200 
  1383              	.LASF25:
- 1384 02fa 636F6D70 		.ascii	"compare\000"
+ 1384 02fb 636F6D70 		.ascii	"compare\000"
  1384      61726500 
  1385              	.LASF18:
- 1386 0302 50574D5F 		.ascii	"PWM_Enable\000"
+ 1386 0303 50574D5F 		.ascii	"PWM_Enable\000"
  1386      456E6162 
  1386      6C6500
  1387              	.LASF29:
- 1388 030d 50574D5F 		.ascii	"PWM_ReadStatusRegister\000"
+ 1388 030e 50574D5F 		.ascii	"PWM_ReadStatusRegister\000"
  1388      52656164 
  1388      53746174 
  1388      75735265 
  1388      67697374 
  1389              	.LASF36:
- 1390 0324 6374726C 		.ascii	"ctrl\000"
+ 1390 0325 6374726C 		.ascii	"ctrl\000"
  1390      00
  1391              	.LASF44:
- 1392 0329 47656E65 		.ascii	"Generated_Source\\PSoC5\\PWM.c\000"
+ 1392 032a 47656E65 		.ascii	"Generated_Source\\PSoC5\\PWM.c\000"
  1392      72617465 
  1392      645F536F 
  1392      75726365 
