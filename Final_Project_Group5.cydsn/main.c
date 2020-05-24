@@ -45,7 +45,7 @@ int main(void) {
     isr_RX_StartEx(Custom_ISR_RX);
     
     /* Start ISR_FIFO */
-    isr_FIFO_StartEx(Custom_isr_FIFO);
+    //isr_FIFO_StartEx(Custom_isr_FIFO);
     
         
     
