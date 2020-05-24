@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
   28:SPI_Interface_25LC256.c **** */
   29:SPI_Interface_25LC256.c **** uint8_t SPI_Interface_25LC256_tradeByte(uint8_t byte) {
   28              		.loc 1 29 0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 2
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 2
 
 
   29              		.cfi_startproc
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
   64 0028 10BD     		pop	{r4, pc}
   65              		.cfi_endproc
   66              	.LFE0:
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 3
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 3
 
 
   67              		.size	SPI_Interface_25LC256_tradeByte, .-SPI_Interface_25LC256_tradeByte
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  104 001e FAD0     		beq	.L5
   66:SPI_Interface_25LC256.c ****     	                                                    /*attendo scambio di informazione tra slav
   67:SPI_Interface_25LC256.c ****     /* Read the RX Buffer logica FIFO */
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 4
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 4
 
 
   68:SPI_Interface_25LC256.c ****     SPIM_1_ReadRxData(); /*dummy read*/
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  142              		.align	2
  143              		.global	SPI_Interface_25LC256_Multi_RW
  144              		.thumb
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 5
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 5
 
 
  145              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  182              	.L11:
  102:SPI_Interface_25LC256.c ****             
  103:SPI_Interface_25LC256.c ****     	/* Load the TX buffer with Data*/
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 6
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 6
 
 
  104:SPI_Interface_25LC256.c ****             SPIM_1_PutArray(&dataTX[index*SPI_TxBufferSize], (count > SPI_TxBufferSize ? SPI_TxBuff
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  219 004a 0026     		movs	r6, #0
  220              	.LVL32:
  221 004c 0096     		str	r6, [sp]
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 7
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 7
 
 
  222 004e 0196     		str	r6, [sp, #4]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  260              	.L14:
  134:SPI_Interface_25LC256.c ****                 dataRX[j + index*SPI_RxBufferSize] = SPIM_1_ReadRxData();   
  261              		.loc 1 134 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 8
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 8
 
 
  262 0088 4C45     		cmp	r4, r9
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  300 00b6 00BF     		.text
  301              	.Letext0:
  302              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 9
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 9
 
 
  303              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  357 0067 05       		.byte	0x5
  358 0068 7E020000 		.4byte	.LASF8
  359 006c 03       		.uleb128 0x3
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 10
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 10
 
 
  360 006d 08       		.byte	0x8
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  414 00da 9C       		.byte	0x9c
  415 00db 44010000 		.4byte	0x144
  416 00df 07       		.uleb128 0x7
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 11
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 11
 
 
  417 00e0 84000000 		.4byte	.LASF21
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  471 014f 00000000 		.4byte	.LFB1
  472 0153 34000000 		.4byte	.LFE1-.LFB1
  473 0157 01       		.uleb128 0x1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 12
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 12
 
 
  474 0158 9C       		.byte	0x9c
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  528 01ca 9C030000 		.4byte	0x39c
  529 01ce 0C       		.uleb128 0xc
  530 01cf 30000000 		.4byte	.LVL17
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 13
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 13
 
 
  531 01d3 7B030000 		.4byte	0x37b
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  585 023c 5D       		.byte	0x5d
  586 023d 1B020000 		.4byte	0x21b
  587 0241 42000000 		.4byte	.LLST2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 14
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 14
 
 
  588 0245 07       		.uleb128 0x7
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  642 02c7 7B030000 		.4byte	0x37b
  643 02cb D5020000 		.4byte	0x2d5
  644 02cf 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 15
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 15
 
 
  645 02d0 01       		.uleb128 0x1
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  699 032b 00       		.sleb128 0
  700 032c 0A       		.uleb128 0xa
  701 032d 01       		.uleb128 0x1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 16
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 16
 
 
  702 032e 51       		.byte	0x51
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  756 03a6 60       		.byte	0x60
  757 03a7 15       		.uleb128 0x15
  758 03a8 FC010000 		.4byte	.LASF39
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 17
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 17
 
 
  759 03ac FC010000 		.4byte	.LASF39
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  813 0021 24       		.uleb128 0x24
  814 0022 00       		.byte	0
  815 0023 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 18
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 18
 
 
  816 0024 0B       		.uleb128 0xb
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  870 005b 01       		.uleb128 0x1
  871 005c 13       		.uleb128 0x13
  872 005d 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 19
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 19
 
 
  873 005e 00       		.byte	0
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  927 009b 11       		.uleb128 0x11
  928 009c 01       		.uleb128 0x1
  929 009d 31       		.uleb128 0x31
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 20
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 20
 
 
  930 009e 13       		.uleb128 0x13
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  984 00d7 00       		.byte	0
  985 00d8 0B       		.uleb128 0xb
  986 00d9 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 21
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 21
 
 
  987 00da 49       		.uleb128 0x49
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  1041 0110 14       		.uleb128 0x14
  1042 0111 21       		.uleb128 0x21
  1043 0112 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 22
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 22
 
 
  1044 0113 49       		.uleb128 0x49
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  1098              	.LLST2:
  1099 0042 00000000 		.4byte	.LVL19
  1100 0046 10000000 		.4byte	.LVL20
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 23
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 23
 
 
  1101 004a 0100     		.2byte	0x1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  1155              	.LLST6:
  1156 00ce 16000000 		.4byte	.LVL22
  1157 00d2 38000000 		.4byte	.LVL26
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 24
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 24
 
 
  1158 00d6 0100     		.2byte	0x1
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  1212 0164 00000000 		.4byte	0
  1213 0168 00000000 		.4byte	0
  1214              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 25
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 25
 
 
  1215 0000 34000000 		.4byte	0x34
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  1255      5550355C 
  1255      46696E61 
  1255      6C5F5072 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 26
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 26
 
 
  1255      6F6A6563 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  1279      496E7465 
  1279      72666163 
  1279      655F3235 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 27
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 27
 
 
  1279      4C433235 
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  1302              	.LASF9:
  1303 0224 6C6F6E67 		.ascii	"long long unsigned int\000"
  1303      206C6F6E 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 28
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 28
 
 
  1303      6720756E 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 1
  1329      7400
  1330              	.LASF41:
  1331 02d5 5350494D 		.ascii	"SPIM_1_ClearRxBuffer\000"
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccIkJTNf.s 			page 29
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccvvFl7b.s 			page 29
 
 
  1331      5F315F43 

@@ -29,6 +29,8 @@
 
 //Address of the Control register 1
 #define LIS3DH_CTRL_REG1 0x20
+//Define ODR HR / Normal / Low-power mode (1 Hz)
+#define LIS3DH_CTRL_REG1_ODR_START 0x20
 
 //Hex value to set resolution mode to the accelerator. x,y,z enabled
 #define LIS3DH_HR_1_CTRL_REG1  0x23  /* 1 Hz  */
@@ -49,20 +51,28 @@
 #define LIS3DH_CTRL_REG5 0x24
 //FIFO enable
 #define LIS3DH_CTRL_REG5_FIFO_EN 0x40
+//Latch interrupt request on INT1_SRC register
+#define LIS3DH_CTRL_REG5_LIR_INT1 0x20
+
 
 //brief Address of the Control register 
 #define LIS3DH_FIFO_CTRL_REG 0x2E
 //Enable FIFO MODE, trigger event allows triggering signal on INT1
 #define LIS3DH_FIFO_CTRL_REG_FIFO_MODE 0x40
+//Enable Stream FIFO MODE, trigger event allows triggering signal on INT1
+#define LIS3DH_FIFO_CTRL_REG_STRM_MODE 0x80
+//Enable STEAM-TO-FIFO mode (default)
+#define LIS3DH_FIFO_CTRL_REG_STRM2FIFO_MODE 0xC0
 //Enable Bypass mode (default)
 #define LIS3DH_FIFO_CTRL_REG_BYPASS_MODE 0x00
+
 
 //brief Address of the Control register 3
 #define LIS3DH_CTRL_REG3 0x22
 //Enable FIFO data overrun on INT1(when FIFO is full interrupt enables and stops collecting data)
 #define LIS3DH_CTRL_REG3_FIFO_OVERRUN 0x02
 
-//brief Address
+//brief Address FIFO source
 #define LIS3DH_FIFO_SRC_REG 0x2F
 //Watermark = new data available
 #define LIS3DH_FIFO_SRC_REG_WTM_FIFO 0x80
