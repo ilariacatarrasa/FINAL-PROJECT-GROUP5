@@ -20,6 +20,11 @@
     #define BYTE_TO_SEND 8
     #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
     
+   
+    /* brief High and Low level state for digital output pin */
+    #define EXT_LED_ON  0
+    #define EXT_LED_OFF 1
+    
     /*Prototyping interrupt service routine on receiving UART*/
     CY_ISR_PROTO (Custom_ISR_RX);
     

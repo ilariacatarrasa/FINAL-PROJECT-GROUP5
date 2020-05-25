@@ -56,6 +56,9 @@ int main(void) {
     /* Start ADC conversion */
     ADC_DelSig_StartConvert();
     
+    /* Initialize PWM so that the Onboard LED is OFF */
+    PWM_OnboardLED_Start();
+    
     CyDelay(10); //"The boot procedure is complete about 10 milliseconds after device power-up."
         
     
