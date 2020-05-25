@@ -128,9 +128,6 @@ CY_ISR(Custom_ISR_RX)
             
             // StartFlag=1;
             // Start data acquisition from the accelerometer
-            //Onboard LED tells the user that data acquisition is ON
-            PWM_OnboardLED_WritePeriod(255);  //1s period
-            PWM_OnboardLED_WriteCompare(128); //50% DC (SISTEMARE CON DEFINE)
             // Start data storage on the EEPROM
             // Save the configuration on the EEPROM
           
@@ -143,12 +140,8 @@ CY_ISR(Custom_ISR_RX)
             // StartFlag=0;
             // Stop data acquisition from the accelerometer
             // Stop data storage on the EEPROM
-            //Onboard LED tells the user that data acquisition is OFF
-            PWM_OnboardLED_WritePeriod(255);  //1s period
-            PWM_OnboardLED_WriteCompare(0);   //Onboard LED OFF
             // Save the configuration on the EEPROM
            
-            
         break;
             
         case 'F':
@@ -355,24 +348,12 @@ CY_ISR(Custom_ISR_RX)
         // Visualize data on Bridge Control Panel command on UART
         case 'V':
         case 'v':
-            //data acquisition from Acc and Storage in EEPROM must be STOPPED
-            //Onboard LED tells the user that data acquisition is OFF
-            PWM_OnboardLED_WritePeriod(255);  //1s period
-            PWM_OnboardLED_WriteCompare(0);   //Onboard LED OFF
-            //External LED tells the user that data are being streamed through UART
-            Ext_LED_Write(EXT_LED_ON);
             
         break;
             
         // Stop visualize data on Bridge Control Panel command on UART
         case 'U':
         case 'u':
-            
-            //External LED tells the user that streaming through UART has been stopped
-            Ext_LED_Write(EXT_LED_OFF);
-            //data acquisition from Acc and Storage in EEPROM must be RE-Started?
-            //vedi punto 6 dell'assignment, ultime righe
-            
             
         break;
             
