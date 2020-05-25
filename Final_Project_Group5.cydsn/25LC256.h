@@ -107,4 +107,5 @@ void EEPROM_writePage(uint16_t addr, uint8_t* data, uint8_t nBytes);
 */
 void EEPROM_waitForWriteComplete(void);
 
+
 /* [] END OF FILE */

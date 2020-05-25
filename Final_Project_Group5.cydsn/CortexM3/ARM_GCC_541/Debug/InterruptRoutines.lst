@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 1
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 1
 
 
    1              		.syntax unified
@@ -40,27 +40,41 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 1
   10:InterruptRoutines.c ****  * ========================================
   11:InterruptRoutines.c **** */
   12:InterruptRoutines.c **** 
-  13:InterruptRoutines.c **** // Include header
-  14:InterruptRoutines.c **** #include "InterruptRoutines.h"
-  15:InterruptRoutines.c **** #include "project.h"
-  16:InterruptRoutines.c **** #include "LIS3DH.h"
-  17:InterruptRoutines.c **** 
+  13:InterruptRoutines.c **** 
+  14:InterruptRoutines.c **** 
+  15:InterruptRoutines.c **** 
+  16:InterruptRoutines.c **** // ISR priorities are to be setted!!
+  17:InterruptRoutines.c **** // io direi di mettere priorità maggiore nel isr_RX, però ditemi voi
   18:InterruptRoutines.c **** 
-  19:InterruptRoutines.c **** // Variabile declaration
-  20:InterruptRoutines.c **** uint8 ch_received;
-  21:InterruptRoutines.c **** // uint8 StartFlag=0;
-  22:InterruptRoutines.c **** uint8 SelectionFlag=0;
-  23:InterruptRoutines.c **** uint8 FSRFlag=0;
-  24:InterruptRoutines.c **** uint8 SamplingFreqFlag=0;
-  25:InterruptRoutines.c **** uint8 TemperatureFlag=0;
-  26:InterruptRoutines.c **** 
-  27:InterruptRoutines.c **** CY_ISR_PROTO (Custom_isr_FIFO)
-  28:InterruptRoutines.c **** {
-  28              		.loc 1 28 0
+  19:InterruptRoutines.c **** 
+  20:InterruptRoutines.c **** 
+  21:InterruptRoutines.c **** 
+  22:InterruptRoutines.c **** 
+  23:InterruptRoutines.c **** // Include header
+  24:InterruptRoutines.c **** #include "InterruptRoutines.h"
+  25:InterruptRoutines.c **** #include "project.h"
+  26:InterruptRoutines.c **** #include "LIS3DH.h"
+  27:InterruptRoutines.c **** #include "Functions.h"
+  28:InterruptRoutines.c **** 
+  29:InterruptRoutines.c **** 
+  30:InterruptRoutines.c **** // Variabile declaration
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 2
+
+
+  31:InterruptRoutines.c **** uint8 ch_received;
+  32:InterruptRoutines.c **** // uint8 StartFlag=0;
+  33:InterruptRoutines.c **** uint8 FSRFlag=0;
+  34:InterruptRoutines.c **** uint8 SamplingFreqFlag=0;
+  35:InterruptRoutines.c **** uint8 TemperatureMode=0;
+  36:InterruptRoutines.c **** uint8 FahrenheitFlag=0;
+  37:InterruptRoutines.c **** int   value_temp;
+  38:InterruptRoutines.c **** int32 value_digit;
+  39:InterruptRoutines.c **** int   value_mv; 
+  40:InterruptRoutines.c **** 
+  41:InterruptRoutines.c **** CY_ISR_PROTO (Custom_isr_FIFO)
+  42:InterruptRoutines.c **** {
+  28              		.loc 1 42 0
   29              		.cfi_startproc
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 2
-
-
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
@@ -68,2067 +82,2566 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 1
   34              		.cfi_endproc
   35              	.LFE64:
   36              		.size	Custom_isr_FIFO, .-Custom_isr_FIFO
-  37 0002 00BF     		.section	.text.Custom_ISR_RX,"ax",%progbits
+  37 0002 00BF     		.section	.text.Custom_ISR_ADC,"ax",%progbits
   38              		.align	2
-  39              		.global	Custom_ISR_RX
+  39              		.global	Custom_ISR_ADC
   40              		.thumb
   41              		.thumb_func
-  42              		.type	Custom_ISR_RX, %function
-  43              	Custom_ISR_RX:
+  42              		.type	Custom_ISR_ADC, %function
+  43              	Custom_ISR_ADC:
   44              	.LFB65:
-  29:InterruptRoutines.c ****     /*Send data to EEPROM*/
-  30:InterruptRoutines.c **** }
-  31:InterruptRoutines.c **** 
-  32:InterruptRoutines.c **** CY_ISR(Custom_ISR_RX)
-  33:InterruptRoutines.c **** {
-  45              		.loc 1 33 0
+  43:InterruptRoutines.c ****     /*Send data to EEPROM*/
+  44:InterruptRoutines.c **** }
+  45:InterruptRoutines.c **** 
+  46:InterruptRoutines.c **** CY_ISR(Custom_ISR_ADC)
+  47:InterruptRoutines.c **** {
+  45              		.loc 1 47 0
   46              		.cfi_startproc
   47              		@ args = 0, pretend = 0, frame = 0
   48              		@ frame_needed = 0, uses_anonymous_args = 0
-  49              		.loc 1 33 0
-  50 0000 38B5     		push	{r3, r4, r5, lr}
-  51              		.cfi_def_cfa_offset 16
-  52              		.cfi_offset 3, -16
-  53              		.cfi_offset 4, -12
-  54              		.cfi_offset 5, -8
-  55              		.cfi_offset 14, -4
-  34:InterruptRoutines.c ****     ch_received=UART_1_GetChar();
-  56              		.loc 1 34 0
-  57 0002 FFF7FEFF 		bl	UART_1_GetChar
-  58              	.LVL0:
-  59 0006 9E4B     		ldr	r3, .L24
-  60 0008 1870     		strb	r0, [r3]
-  35:InterruptRoutines.c ****     switch (ch_received)
-  61              		.loc 1 35 0
-  62 000a 3138     		subs	r0, r0, #49
-  63 000c 4528     		cmp	r0, #69
-  64 000e 00F28681 		bhi	.L2
-  65 0012 DFE810F0 		tbh	[pc, r0, lsl #1]
-  66              	.L5:
-  67 0016 C600     		.2byte	(.L4-.L5)/2
-  68 0018 DE00     		.2byte	(.L6-.L5)/2
-  69 001a F600     		.2byte	(.L7-.L5)/2
-  70 001c 0D01     		.2byte	(.L8-.L5)/2
-  71 001e 8401     		.2byte	(.L2-.L5)/2
-  72 0020 8401     		.2byte	(.L2-.L5)/2
-  73 0022 8401     		.2byte	(.L2-.L5)/2
-  74 0024 8401     		.2byte	(.L2-.L5)/2
-  75 0026 8401     		.2byte	(.L2-.L5)/2
-  76 0028 8401     		.2byte	(.L2-.L5)/2
-  77 002a 8401     		.2byte	(.L2-.L5)/2
-  78 002c 8401     		.2byte	(.L2-.L5)/2
-  79 002e 8401     		.2byte	(.L2-.L5)/2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 3
+  49              		.loc 1 47 0
+  50 0000 08B5     		push	{r3, lr}
+  51              		.cfi_def_cfa_offset 8
+  52              		.cfi_offset 3, -8
+  53              		.cfi_offset 14, -4
+  48:InterruptRoutines.c ****     /*Read Timer status register to bring interrupt line low*/
+  49:InterruptRoutines.c ****     Timer_ReadStatusRegister();  
+  54              		.loc 1 49 0
+  55 0002 FFF7FEFF 		bl	Timer_ReadStatusRegister
+  56              	.LVL0:
+  50:InterruptRoutines.c ****     
+  51:InterruptRoutines.c ****     if(TemperatureMode==1) // if Temperature mode command has been received on UART
+  57              		.loc 1 51 0
+  58 0006 1E4B     		ldr	r3, .L8
+  59 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  60 000a 012B     		cmp	r3, #1
+  61 000c 37D1     		bne	.L2
+  52:InterruptRoutines.c ****     {
+  53:InterruptRoutines.c ****         value_digit=ADC_DelSig_Read32(); // Read value in ADC
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 3
 
 
-  80 0030 8401     		.2byte	(.L2-.L5)/2
-  81 0032 4600     		.2byte	(.L9-.L5)/2
-  82 0034 8401     		.2byte	(.L2-.L5)/2
-  83 0036 8401     		.2byte	(.L2-.L5)/2
-  84 0038 7300     		.2byte	(.L10-.L5)/2
-  85 003a 7D01     		.2byte	(.L11-.L5)/2
-  86 003c 8401     		.2byte	(.L2-.L5)/2
-  87 003e 8401     		.2byte	(.L2-.L5)/2
-  88 0040 8500     		.2byte	(.L12-.L5)/2
-  89 0042 8401     		.2byte	(.L2-.L5)/2
-  90 0044 8401     		.2byte	(.L2-.L5)/2
-  91 0046 8401     		.2byte	(.L2-.L5)/2
-  92 0048 8401     		.2byte	(.L2-.L5)/2
-  93 004a 8401     		.2byte	(.L2-.L5)/2
-  94 004c 8401     		.2byte	(.L2-.L5)/2
-  95 004e 8401     		.2byte	(.L2-.L5)/2
-  96 0050 8401     		.2byte	(.L2-.L5)/2
-  97 0052 8401     		.2byte	(.L2-.L5)/2
-  98 0054 A900     		.2byte	(.L13-.L5)/2
-  99 0056 8401     		.2byte	(.L2-.L5)/2
- 100 0058 8401     		.2byte	(.L2-.L5)/2
- 101 005a 7C00     		.2byte	(.L14-.L5)/2
- 102 005c 6701     		.2byte	(.L15-.L5)/2
- 103 005e 2C01     		.2byte	(.L16-.L5)/2
- 104 0060 2401     		.2byte	(.L17-.L5)/2
- 105 0062 8401     		.2byte	(.L2-.L5)/2
- 106 0064 8401     		.2byte	(.L2-.L5)/2
- 107 0066 8401     		.2byte	(.L2-.L5)/2
- 108 0068 8401     		.2byte	(.L2-.L5)/2
- 109 006a 8401     		.2byte	(.L2-.L5)/2
- 110 006c 8401     		.2byte	(.L2-.L5)/2
- 111 006e 8401     		.2byte	(.L2-.L5)/2
- 112 0070 8401     		.2byte	(.L2-.L5)/2
- 113 0072 8401     		.2byte	(.L2-.L5)/2
- 114 0074 8401     		.2byte	(.L2-.L5)/2
- 115 0076 8401     		.2byte	(.L2-.L5)/2
- 116 0078 7300     		.2byte	(.L10-.L5)/2
- 117 007a 7D01     		.2byte	(.L11-.L5)/2
- 118 007c 8401     		.2byte	(.L2-.L5)/2
- 119 007e 8401     		.2byte	(.L2-.L5)/2
- 120 0080 8500     		.2byte	(.L12-.L5)/2
- 121 0082 8401     		.2byte	(.L2-.L5)/2
- 122 0084 8401     		.2byte	(.L2-.L5)/2
- 123 0086 8401     		.2byte	(.L2-.L5)/2
- 124 0088 8401     		.2byte	(.L2-.L5)/2
- 125 008a 8401     		.2byte	(.L2-.L5)/2
- 126 008c 8401     		.2byte	(.L2-.L5)/2
- 127 008e 8401     		.2byte	(.L2-.L5)/2
- 128 0090 8401     		.2byte	(.L2-.L5)/2
- 129 0092 8401     		.2byte	(.L2-.L5)/2
- 130 0094 A900     		.2byte	(.L13-.L5)/2
- 131 0096 8401     		.2byte	(.L2-.L5)/2
- 132 0098 8401     		.2byte	(.L2-.L5)/2
- 133 009a 7C00     		.2byte	(.L14-.L5)/2
- 134 009c 6701     		.2byte	(.L15-.L5)/2
- 135 009e 2C01     		.2byte	(.L16-.L5)/2
- 136 00a0 2401     		.2byte	(.L17-.L5)/2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 4
+  62              		.loc 1 53 0
+  63 000e FFF7FEFF 		bl	ADC_DelSig_Read32
+  64              	.LVL1:
+  65 0012 1C4B     		ldr	r3, .L8+4
+  66 0014 1860     		str	r0, [r3]
+  54:InterruptRoutines.c ****     
+  55:InterruptRoutines.c ****         if(value_digit<0)      value_digit=0;
+  67              		.loc 1 55 0
+  68 0016 0028     		cmp	r0, #0
+  69 0018 01DA     		bge	.L4
+  70              		.loc 1 55 0 is_stmt 0 discriminator 1
+  71 001a 0022     		movs	r2, #0
+  72 001c 1A60     		str	r2, [r3]
+  73              	.L4:
+  56:InterruptRoutines.c ****         if(value_digit>65535)  value_digit=65535;
+  74              		.loc 1 56 0 is_stmt 1
+  75 001e 194B     		ldr	r3, .L8+4
+  76 0020 1B68     		ldr	r3, [r3]
+  77 0022 B3F5803F 		cmp	r3, #65536
+  78 0026 03DB     		blt	.L5
+  79              		.loc 1 56 0 is_stmt 0 discriminator 1
+  80 0028 4FF6FF72 		movw	r2, #65535
+  81 002c 154B     		ldr	r3, .L8+4
+  82 002e 1A60     		str	r2, [r3]
+  83              	.L5:
+  57:InterruptRoutines.c ****         
+  58:InterruptRoutines.c ****         DataBuffer[7]=value_digit>>8; // shift a dx di 8 bit --> MSB
+  84              		.loc 1 58 0 is_stmt 1
+  85 0030 144B     		ldr	r3, .L8+4
+  86 0032 1868     		ldr	r0, [r3]
+  87 0034 0212     		asrs	r2, r0, #8
+  88 0036 144B     		ldr	r3, .L8+8
+  89 0038 DA71     		strb	r2, [r3, #7]
+  59:InterruptRoutines.c ****         DataBuffer[8]=value_digit & 0xFF; // & bit a bit --> LSB
+  90              		.loc 1 59 0
+  91 003a 1872     		strb	r0, [r3, #8]
+  60:InterruptRoutines.c ****         
+  61:InterruptRoutines.c ****         value_mv=ADC_DelSig_CountsTo_mVolts(value_digit);
+  92              		.loc 1 61 0
+  93 003c FFF7FEFF 		bl	ADC_DelSig_CountsTo_mVolts
+  94              	.LVL2:
+  95 0040 124B     		ldr	r3, .L8+12
+  96 0042 1860     		str	r0, [r3]
+  62:InterruptRoutines.c ****         value_temp= (value_mv-500)/10; // Temperature in Celsius
+  97              		.loc 1 62 0
+  98 0044 A0F5FA70 		sub	r0, r0, #500
+  99 0048 114B     		ldr	r3, .L8+16
+ 100 004a 83FB0023 		smull	r2, r3, r3, r0
+ 101 004e C017     		asrs	r0, r0, #31
+ 102 0050 C0EBA300 		rsb	r0, r0, r3, asr #2
+ 103 0054 0F4B     		ldr	r3, .L8+20
+ 104 0056 1860     		str	r0, [r3]
+  63:InterruptRoutines.c ****         if(FahrenheitFlag==1)
+ 105              		.loc 1 63 0
+ 106 0058 094B     		ldr	r3, .L8
+ 107 005a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 108 005c 012B     		cmp	r3, #1
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 4
 
 
- 137              		.p2align 1
- 138              	.L9:
-  36:InterruptRoutines.c ****     {
-  37:InterruptRoutines.c ****         // ? command on UART: show the menù
-  38:InterruptRoutines.c ****         case '?':
-  39:InterruptRoutines.c ****             // show the menù
-  40:InterruptRoutines.c ****             // call function show menù
-  41:InterruptRoutines.c ****             /* MENU' on UART */
-  42:InterruptRoutines.c ****     
-  43:InterruptRoutines.c ****             UART_1_PutString("*************************************\r\n");
- 139              		.loc 1 43 0
- 140 00a2 784C     		ldr	r4, .L24+4
- 141 00a4 2046     		mov	r0, r4
- 142 00a6 FFF7FEFF 		bl	UART_1_PutString
- 143              	.LVL1:
-  44:InterruptRoutines.c ****             UART_1_PutString("****************MENU'****************\r\n");
- 144              		.loc 1 44 0
- 145 00aa 7748     		ldr	r0, .L24+8
- 146 00ac FFF7FEFF 		bl	UART_1_PutString
- 147              	.LVL2:
-  45:InterruptRoutines.c ****             UART_1_PutString("\r\n");
- 148              		.loc 1 45 0
- 149 00b0 764D     		ldr	r5, .L24+12
- 150 00b2 2846     		mov	r0, r5
- 151 00b4 FFF7FEFF 		bl	UART_1_PutString
- 152              	.LVL3:
-  46:InterruptRoutines.c ****             UART_1_PutString("Command      Result                  \r\n");
- 153              		.loc 1 46 0
- 154 00b8 7548     		ldr	r0, .L24+16
- 155 00ba FFF7FEFF 		bl	UART_1_PutString
- 156              	.LVL4:
-  47:InterruptRoutines.c ****             UART_1_PutString("b            Start data acquisition from the accelerometer and storag
- 157              		.loc 1 47 0
- 158 00be 7548     		ldr	r0, .L24+20
- 159 00c0 FFF7FEFF 		bl	UART_1_PutString
- 160              	.LVL5:
-  48:InterruptRoutines.c ****             UART_1_PutString("s            Stop data acquisition from the accelerometer and storage
- 161              		.loc 1 48 0
- 162 00c4 7448     		ldr	r0, .L24+24
- 163 00c6 FFF7FEFF 		bl	UART_1_PutString
- 164              	.LVL6:
-  49:InterruptRoutines.c ****             UART_1_PutString("f            Configuration of the accelerometer full scale range \r\n
- 165              		.loc 1 49 0
- 166 00ca 7448     		ldr	r0, .L24+28
- 167 00cc FFF7FEFF 		bl	UART_1_PutString
- 168              	.LVL7:
-  50:InterruptRoutines.c ****             UART_1_PutString("p            Configuration of the accelerometer sampling frequency \r
- 169              		.loc 1 50 0
- 170 00d0 7348     		ldr	r0, .L24+32
- 171 00d2 FFF7FEFF 		bl	UART_1_PutString
- 172              	.LVL8:
-  51:InterruptRoutines.c ****             UART_1_PutString("v            Start data visualization in the Bridge Control Panel \r\
- 173              		.loc 1 51 0
- 174 00d6 7348     		ldr	r0, .L24+36
- 175 00d8 FFF7FEFF 		bl	UART_1_PutString
- 176              	.LVL9:
-  52:InterruptRoutines.c ****             UART_1_PutString("u            Stop data visualization in the Bridge Control Panel \r\n
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 5
+ 109 005e 0BD1     		bne	.L6
+  64:InterruptRoutines.c ****         {
+  65:InterruptRoutines.c ****             value_temp= value_temp * 9/5 + 32; // Temperature in Fahrenheit
+ 110              		.loc 1 65 0
+ 111 0060 00EBC000 		add	r0, r0, r0, lsl #3
+ 112 0064 03F16633 		add	r3, r3, #1717986918
+ 113 0068 83FB0023 		smull	r2, r3, r3, r0
+ 114 006c C017     		asrs	r0, r0, #31
+ 115 006e C0EB6303 		rsb	r3, r0, r3, asr #1
+ 116 0072 2033     		adds	r3, r3, #32
+ 117 0074 074A     		ldr	r2, .L8+20
+ 118 0076 1360     		str	r3, [r2]
+ 119              	.L6:
+  66:InterruptRoutines.c ****         }
+  67:InterruptRoutines.c ****         
+  68:InterruptRoutines.c ****         PacketReadyFlag=1;
+ 120              		.loc 1 68 0
+ 121 0078 0122     		movs	r2, #1
+ 122 007a 074B     		ldr	r3, .L8+24
+ 123 007c 1A70     		strb	r2, [r3]
+ 124              	.L2:
+ 125 007e 08BD     		pop	{r3, pc}
+ 126              	.L9:
+ 127              		.align	2
+ 128              	.L8:
+ 129 0080 00000000 		.word	.LANCHOR0
+ 130 0084 00000000 		.word	value_digit
+ 131 0088 00000000 		.word	DataBuffer
+ 132 008c 00000000 		.word	value_mv
+ 133 0090 67666666 		.word	1717986919
+ 134 0094 00000000 		.word	value_temp
+ 135 0098 00000000 		.word	PacketReadyFlag
+ 136              		.cfi_endproc
+ 137              	.LFE65:
+ 138              		.size	Custom_ISR_ADC, .-Custom_ISR_ADC
+ 139              		.section	.text.Custom_ISR_RX,"ax",%progbits
+ 140              		.align	2
+ 141              		.global	Custom_ISR_RX
+ 142              		.thumb
+ 143              		.thumb_func
+ 144              		.type	Custom_ISR_RX, %function
+ 145              	Custom_ISR_RX:
+ 146              	.LFB66:
+  69:InterruptRoutines.c ****     }
+  70:InterruptRoutines.c **** }
+  71:InterruptRoutines.c **** 
+  72:InterruptRoutines.c **** CY_ISR(Custom_ISR_RX)
+  73:InterruptRoutines.c **** {
+ 147              		.loc 1 73 0
+ 148              		.cfi_startproc
+ 149              		@ args = 0, pretend = 0, frame = 0
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151 0000 08B5     		push	{r3, lr}
+ 152              		.cfi_def_cfa_offset 8
+ 153              		.cfi_offset 3, -8
+ 154              		.cfi_offset 14, -4
+  74:InterruptRoutines.c ****     ch_received=UART_1_GetChar();
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 5
 
 
- 177              		.loc 1 52 0
- 178 00dc 7248     		ldr	r0, .L24+40
- 179 00de FFF7FEFF 		bl	UART_1_PutString
- 180              	.LVL10:
-  53:InterruptRoutines.c ****             UART_1_PutString("t            Store the temperature data \r\n");
- 181              		.loc 1 53 0
- 182 00e2 7248     		ldr	r0, .L24+44
- 183 00e4 FFF7FEFF 		bl	UART_1_PutString
- 184              	.LVL11:
-  54:InterruptRoutines.c ****             UART_1_PutString("\r\n");
- 185              		.loc 1 54 0
- 186 00e8 2846     		mov	r0, r5
- 187 00ea FFF7FEFF 		bl	UART_1_PutString
- 188              	.LVL12:
-  55:InterruptRoutines.c ****             UART_1_PutString("*************************************\r\n");
- 189              		.loc 1 55 0
- 190 00ee 2046     		mov	r0, r4
- 191 00f0 FFF7FEFF 		bl	UART_1_PutString
- 192              	.LVL13:
-  56:InterruptRoutines.c **** 
-  57:InterruptRoutines.c **** 
-  58:InterruptRoutines.c ****             SelectionFlag=1;
- 193              		.loc 1 58 0
- 194 00f4 0122     		movs	r2, #1
- 195 00f6 6E4B     		ldr	r3, .L24+48
- 196 00f8 1A70     		strb	r2, [r3]
-  59:InterruptRoutines.c ****         break;
- 197              		.loc 1 59 0
- 198 00fa 38BD     		pop	{r3, r4, r5, pc}
- 199              	.L10:
-  60:InterruptRoutines.c ****         // ON command on UART
-  61:InterruptRoutines.c ****         case 'B':
-  62:InterruptRoutines.c ****         case 'b':
-  63:InterruptRoutines.c ****             if (SelectionFlag==1)
- 200              		.loc 1 63 0
- 201 00fc 6C4B     		ldr	r3, .L24+48
- 202 00fe 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 203 0100 012B     		cmp	r3, #1
- 204 0102 40F00C81 		bne	.L2
-  64:InterruptRoutines.c ****             {
-  65:InterruptRoutines.c ****                 // StartFlag=1;
-  66:InterruptRoutines.c ****                 // Start data acquisition from the accelerometer
-  67:InterruptRoutines.c ****                 // Start data storage on the EEPROM
-  68:InterruptRoutines.c ****                 // Save the configuration on the EEPROM
-  69:InterruptRoutines.c ****                 SelectionFlag=0;
- 205              		.loc 1 69 0
- 206 0106 0022     		movs	r2, #0
- 207 0108 694B     		ldr	r3, .L24+48
- 208 010a 1A70     		strb	r2, [r3]
- 209 010c 38BD     		pop	{r3, r4, r5, pc}
- 210              	.L14:
-  70:InterruptRoutines.c ****             }
-  71:InterruptRoutines.c ****         break;
-  72:InterruptRoutines.c ****         // OFF command on UART
-  73:InterruptRoutines.c ****         case 'S':
-  74:InterruptRoutines.c ****         case 's':
-  75:InterruptRoutines.c ****             if (SelectionFlag==1)
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 6
+ 155              		.loc 1 74 0
+ 156 0002 FFF7FEFF 		bl	UART_1_GetChar
+ 157              	.LVL3:
+ 158 0006 A44B     		ldr	r3, .L44
+ 159 0008 1870     		strb	r0, [r3]
+  75:InterruptRoutines.c ****     switch (ch_received)
+ 160              		.loc 1 75 0
+ 161 000a 3138     		subs	r0, r0, #49
+ 162 000c 4328     		cmp	r0, #67
+ 163 000e 00F27F81 		bhi	.L10
+ 164 0012 DFE810F0 		tbh	[pc, r0, lsl #1]
+ 165              	.L13:
+ 166 0016 7900     		.2byte	(.L12-.L13)/2
+ 167 0018 AB00     		.2byte	(.L14-.L13)/2
+ 168 001a DD00     		.2byte	(.L15-.L13)/2
+ 169 001c 0F01     		.2byte	(.L16-.L13)/2
+ 170 001e 7D01     		.2byte	(.L10-.L13)/2
+ 171 0020 7D01     		.2byte	(.L10-.L13)/2
+ 172 0022 7D01     		.2byte	(.L10-.L13)/2
+ 173 0024 7D01     		.2byte	(.L10-.L13)/2
+ 174 0026 7D01     		.2byte	(.L10-.L13)/2
+ 175 0028 7D01     		.2byte	(.L10-.L13)/2
+ 176 002a 7D01     		.2byte	(.L10-.L13)/2
+ 177 002c 7D01     		.2byte	(.L10-.L13)/2
+ 178 002e 7D01     		.2byte	(.L10-.L13)/2
+ 179 0030 7D01     		.2byte	(.L10-.L13)/2
+ 180 0032 4400     		.2byte	(.L17-.L13)/2
+ 181 0034 7D01     		.2byte	(.L10-.L13)/2
+ 182 0036 7D01     		.2byte	(.L10-.L13)/2
+ 183 0038 7D01     		.2byte	(.L10-.L13)/2
+ 184 003a 7601     		.2byte	(.L18-.L13)/2
+ 185 003c 7D01     		.2byte	(.L10-.L13)/2
+ 186 003e 7D01     		.2byte	(.L10-.L13)/2
+ 187 0040 4700     		.2byte	(.L19-.L13)/2
+ 188 0042 7D01     		.2byte	(.L10-.L13)/2
+ 189 0044 7D01     		.2byte	(.L10-.L13)/2
+ 190 0046 7D01     		.2byte	(.L10-.L13)/2
+ 191 0048 7D01     		.2byte	(.L10-.L13)/2
+ 192 004a 7D01     		.2byte	(.L10-.L13)/2
+ 193 004c 7D01     		.2byte	(.L10-.L13)/2
+ 194 004e 7D01     		.2byte	(.L10-.L13)/2
+ 195 0050 7D01     		.2byte	(.L10-.L13)/2
+ 196 0052 7D01     		.2byte	(.L10-.L13)/2
+ 197 0054 6300     		.2byte	(.L20-.L13)/2
+ 198 0056 7D01     		.2byte	(.L10-.L13)/2
+ 199 0058 7D01     		.2byte	(.L10-.L13)/2
+ 200 005a 7D01     		.2byte	(.L10-.L13)/2
+ 201 005c 6101     		.2byte	(.L21-.L13)/2
+ 202 005e 7D01     		.2byte	(.L10-.L13)/2
+ 203 0060 7D01     		.2byte	(.L10-.L13)/2
+ 204 0062 7D01     		.2byte	(.L10-.L13)/2
+ 205 0064 7D01     		.2byte	(.L10-.L13)/2
+ 206 0066 7D01     		.2byte	(.L10-.L13)/2
+ 207 0068 7D01     		.2byte	(.L10-.L13)/2
+ 208 006a 7D01     		.2byte	(.L10-.L13)/2
+ 209 006c 7D01     		.2byte	(.L10-.L13)/2
+ 210 006e 7D01     		.2byte	(.L10-.L13)/2
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 6
 
 
- 211              		.loc 1 75 0
- 212 010e 684B     		ldr	r3, .L24+48
- 213 0110 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 214 0112 012B     		cmp	r3, #1
- 215 0114 40F00381 		bne	.L2
-  76:InterruptRoutines.c ****             {
-  77:InterruptRoutines.c ****                 // StartFlag=0;
-  78:InterruptRoutines.c ****                 // Stop data acquisition from the accelerometer
-  79:InterruptRoutines.c ****                 // Stop data storage on the EEPROM
-  80:InterruptRoutines.c ****                 // Save the configuration on the EEPROM
-  81:InterruptRoutines.c ****                 SelectionFlag=0;
- 216              		.loc 1 81 0
- 217 0118 0022     		movs	r2, #0
- 218 011a 654B     		ldr	r3, .L24+48
- 219 011c 1A70     		strb	r2, [r3]
- 220 011e 38BD     		pop	{r3, r4, r5, pc}
- 221              	.L12:
-  82:InterruptRoutines.c ****             }
-  83:InterruptRoutines.c ****         break;
-  84:InterruptRoutines.c ****         case 'F':
-  85:InterruptRoutines.c ****         case 'f':
-  86:InterruptRoutines.c ****             // Selection full scale range command on UART
-  87:InterruptRoutines.c ****             if (SelectionFlag==1)
- 222              		.loc 1 87 0
- 223 0120 634B     		ldr	r3, .L24+48
- 224 0122 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 225 0124 012B     		cmp	r3, #1
- 226 0126 16D1     		bne	.L18
-  88:InterruptRoutines.c ****             {
-  89:InterruptRoutines.c ****                 UART_1_PutString("Configuration of the accelerometer full scale range \r\n");
- 227              		.loc 1 89 0
- 228 0128 6248     		ldr	r0, .L24+52
- 229 012a FFF7FEFF 		bl	UART_1_PutString
- 230              	.LVL14:
-  90:InterruptRoutines.c ****                 UART_1_PutString("Character            Full scale range \r\n");
- 231              		.loc 1 90 0
- 232 012e 6248     		ldr	r0, .L24+56
- 233 0130 FFF7FEFF 		bl	UART_1_PutString
- 234              	.LVL15:
-  91:InterruptRoutines.c ****                 UART_1_PutString("1                    +- 2g \r\n");
- 235              		.loc 1 91 0
- 236 0134 6148     		ldr	r0, .L24+60
- 237 0136 FFF7FEFF 		bl	UART_1_PutString
- 238              	.LVL16:
-  92:InterruptRoutines.c ****                 UART_1_PutString("2                    +- 4g \r\n");
- 239              		.loc 1 92 0
- 240 013a 6148     		ldr	r0, .L24+64
- 241 013c FFF7FEFF 		bl	UART_1_PutString
- 242              	.LVL17:
-  93:InterruptRoutines.c ****                 UART_1_PutString("3                    +- 8g \r\n");
- 243              		.loc 1 93 0
- 244 0140 6048     		ldr	r0, .L24+68
- 245 0142 FFF7FEFF 		bl	UART_1_PutString
- 246              	.LVL18:
-  94:InterruptRoutines.c ****                 UART_1_PutString("4                    +- 16g \r\n");
- 247              		.loc 1 94 0
- 248 0146 6048     		ldr	r0, .L24+72
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 7
+ 211 0070 7D01     		.2byte	(.L10-.L13)/2
+ 212 0072 7D01     		.2byte	(.L10-.L13)/2
+ 213 0074 7D01     		.2byte	(.L10-.L13)/2
+ 214 0076 7D01     		.2byte	(.L10-.L13)/2
+ 215 0078 7D01     		.2byte	(.L10-.L13)/2
+ 216 007a 7601     		.2byte	(.L18-.L13)/2
+ 217 007c 7D01     		.2byte	(.L10-.L13)/2
+ 218 007e 7D01     		.2byte	(.L10-.L13)/2
+ 219 0080 4700     		.2byte	(.L19-.L13)/2
+ 220 0082 7D01     		.2byte	(.L10-.L13)/2
+ 221 0084 7D01     		.2byte	(.L10-.L13)/2
+ 222 0086 7D01     		.2byte	(.L10-.L13)/2
+ 223 0088 7D01     		.2byte	(.L10-.L13)/2
+ 224 008a 7D01     		.2byte	(.L10-.L13)/2
+ 225 008c 7D01     		.2byte	(.L10-.L13)/2
+ 226 008e 7D01     		.2byte	(.L10-.L13)/2
+ 227 0090 7D01     		.2byte	(.L10-.L13)/2
+ 228 0092 7D01     		.2byte	(.L10-.L13)/2
+ 229 0094 6300     		.2byte	(.L20-.L13)/2
+ 230 0096 7D01     		.2byte	(.L10-.L13)/2
+ 231 0098 7D01     		.2byte	(.L10-.L13)/2
+ 232 009a 7D01     		.2byte	(.L10-.L13)/2
+ 233 009c 6101     		.2byte	(.L21-.L13)/2
+ 234              		.p2align 1
+ 235              	.L17:
+  76:InterruptRoutines.c ****     {
+  77:InterruptRoutines.c ****         // ? command on UART: show the menù
+  78:InterruptRoutines.c ****         case '?':
+  79:InterruptRoutines.c ****             show_menu();
+ 236              		.loc 1 79 0
+ 237 009e FFF7FEFF 		bl	show_menu
+ 238              	.LVL4:
+  80:InterruptRoutines.c ****         break;
+ 239              		.loc 1 80 0
+ 240 00a2 08BD     		pop	{r3, pc}
+ 241              	.L19:
+  81:InterruptRoutines.c ****             
+  82:InterruptRoutines.c ****         // ON command on UART
+  83:InterruptRoutines.c ****         case 'B':
+  84:InterruptRoutines.c ****         case 'b':
+  85:InterruptRoutines.c ****             
+  86:InterruptRoutines.c ****             // StartFlag=1;
+  87:InterruptRoutines.c ****             // Start data acquisition from the accelerometer
+  88:InterruptRoutines.c ****             //Onboard LED tells the user that data acquisition is ON
+  89:InterruptRoutines.c ****            
+  90:InterruptRoutines.c ****             // Start data storage on the EEPROM
+  91:InterruptRoutines.c ****             // Save the configuration on the EEPROM
+  92:InterruptRoutines.c ****           
+  93:InterruptRoutines.c ****         break;
+  94:InterruptRoutines.c ****             
+  95:InterruptRoutines.c ****         // OFF command on UART
+  96:InterruptRoutines.c ****         case 'S':
+  97:InterruptRoutines.c ****         case 's':
+  98:InterruptRoutines.c ****             
+  99:InterruptRoutines.c ****             // StartFlag=0;
+ 100:InterruptRoutines.c ****             // Stop data acquisition from the accelerometer
+ 101:InterruptRoutines.c ****             // Stop data storage on the EEPROM
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 7
 
 
- 249 0148 FFF7FEFF 		bl	UART_1_PutString
- 250              	.LVL19:
-  95:InterruptRoutines.c ****                 FSRFlag=1;
- 251              		.loc 1 95 0
- 252 014c 584B     		ldr	r3, .L24+48
- 253 014e 0122     		movs	r2, #1
- 254 0150 5A70     		strb	r2, [r3, #1]
-  96:InterruptRoutines.c ****                 SelectionFlag=0;
- 255              		.loc 1 96 0
- 256 0152 0022     		movs	r2, #0
- 257 0154 1A70     		strb	r2, [r3]
- 258              	.L18:
-  97:InterruptRoutines.c ****             }
-  98:InterruptRoutines.c ****             // Temperature in Fahrenheit command on UART
-  99:InterruptRoutines.c ****             if (TemperatureFlag==1)
- 259              		.loc 1 99 0
- 260 0156 564B     		ldr	r3, .L24+48
- 261 0158 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
- 262 015a 012B     		cmp	r3, #1
- 263 015c 40F0DF80 		bne	.L2
- 100:InterruptRoutines.c ****             {
- 101:InterruptRoutines.c ****                 TemperatureFlag=0;
- 264              		.loc 1 101 0
- 265 0160 0022     		movs	r2, #0
- 266 0162 534B     		ldr	r3, .L24+48
- 267 0164 9A70     		strb	r2, [r3, #2]
- 268 0166 38BD     		pop	{r3, r4, r5, pc}
- 269              	.L13:
- 102:InterruptRoutines.c ****             }
- 103:InterruptRoutines.c ****         break;
- 104:InterruptRoutines.c ****         // Selection sampling frequency command on UART
- 105:InterruptRoutines.c ****         case 'P':
- 106:InterruptRoutines.c ****         case 'p':
- 107:InterruptRoutines.c ****             if (SelectionFlag==1)
- 270              		.loc 1 107 0
- 271 0168 514B     		ldr	r3, .L24+48
- 272 016a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 273 016c 012B     		cmp	r3, #1
- 274 016e 40F0D680 		bne	.L2
- 108:InterruptRoutines.c ****             {
- 109:InterruptRoutines.c ****                 UART_1_PutString("Configuration of the accelerometer sampling frequency \r\n");
- 275              		.loc 1 109 0
- 276 0172 5648     		ldr	r0, .L24+76
- 277 0174 FFF7FEFF 		bl	UART_1_PutString
- 278              	.LVL20:
- 110:InterruptRoutines.c ****                 UART_1_PutString("Character            Sampling Frequency \r\n");
- 279              		.loc 1 110 0
- 280 0178 5548     		ldr	r0, .L24+80
- 281 017a FFF7FEFF 		bl	UART_1_PutString
- 282              	.LVL21:
- 111:InterruptRoutines.c ****                 UART_1_PutString("1                    1Hz \r\n");
- 283              		.loc 1 111 0
- 284 017e 5548     		ldr	r0, .L24+84
- 285 0180 FFF7FEFF 		bl	UART_1_PutString
- 286              	.LVL22:
- 112:InterruptRoutines.c ****                 UART_1_PutString("2                    10Hz \r\n");
- 287              		.loc 1 112 0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 8
+ 102:InterruptRoutines.c ****             //Onboard LED tells the user that data acquisition is OFF
+ 103:InterruptRoutines.c ****             
+ 104:InterruptRoutines.c ****             // Save the configuration on the EEPROM
+ 105:InterruptRoutines.c ****            
+ 106:InterruptRoutines.c ****             
+ 107:InterruptRoutines.c ****         break;
+ 108:InterruptRoutines.c ****             
+ 109:InterruptRoutines.c ****         case 'F':
+ 110:InterruptRoutines.c ****         case 'f':
+ 111:InterruptRoutines.c ****             // Selection full scale range command on UART
+ 112:InterruptRoutines.c ****             /* SHOW FSR MENU' ON UART*/
+ 113:InterruptRoutines.c ****             UART_1_PutString("Configuration of the accelerometer full scale range \r\n");
+ 242              		.loc 1 113 0
+ 243 00a4 7D48     		ldr	r0, .L44+4
+ 244 00a6 FFF7FEFF 		bl	UART_1_PutString
+ 245              	.LVL5:
+ 114:InterruptRoutines.c ****             UART_1_PutString("Character            Full scale range \r\n");
+ 246              		.loc 1 114 0
+ 247 00aa 7D48     		ldr	r0, .L44+8
+ 248 00ac FFF7FEFF 		bl	UART_1_PutString
+ 249              	.LVL6:
+ 115:InterruptRoutines.c ****             UART_1_PutString("1                    +- 2g \r\n");
+ 250              		.loc 1 115 0
+ 251 00b0 7C48     		ldr	r0, .L44+12
+ 252 00b2 FFF7FEFF 		bl	UART_1_PutString
+ 253              	.LVL7:
+ 116:InterruptRoutines.c ****             UART_1_PutString("2                    +- 4g \r\n");
+ 254              		.loc 1 116 0
+ 255 00b6 7C48     		ldr	r0, .L44+16
+ 256 00b8 FFF7FEFF 		bl	UART_1_PutString
+ 257              	.LVL8:
+ 117:InterruptRoutines.c ****             UART_1_PutString("3                    +- 8g \r\n");
+ 258              		.loc 1 117 0
+ 259 00bc 7B48     		ldr	r0, .L44+20
+ 260 00be FFF7FEFF 		bl	UART_1_PutString
+ 261              	.LVL9:
+ 118:InterruptRoutines.c ****             UART_1_PutString("4                    +- 16g \r\n");
+ 262              		.loc 1 118 0
+ 263 00c2 7B48     		ldr	r0, .L44+24
+ 264 00c4 FFF7FEFF 		bl	UART_1_PutString
+ 265              	.LVL10:
+ 119:InterruptRoutines.c ****             FSRFlag=1;
+ 266              		.loc 1 119 0
+ 267 00c8 7A4B     		ldr	r3, .L44+28
+ 268 00ca 0122     		movs	r2, #1
+ 269 00cc 9A70     		strb	r2, [r3, #2]
+ 120:InterruptRoutines.c ****          
+ 121:InterruptRoutines.c ****             // Temperature in Fahrenheit command on UART
+ 122:InterruptRoutines.c ****             if (TemperatureMode==1)
+ 270              		.loc 1 122 0
+ 271 00ce 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 272 00d0 9342     		cmp	r3, r2
+ 273 00d2 40F01D81 		bne	.L10
+ 123:InterruptRoutines.c ****             {
+ 124:InterruptRoutines.c ****                 FahrenheitFlag=1;
+ 274              		.loc 1 124 0
+ 275 00d6 774B     		ldr	r3, .L44+28
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 8
 
 
- 288 0184 5448     		ldr	r0, .L24+88
- 289 0186 FFF7FEFF 		bl	UART_1_PutString
- 290              	.LVL23:
- 113:InterruptRoutines.c ****                 UART_1_PutString("3                    25Hz \r\n");
- 291              		.loc 1 113 0
- 292 018a 5448     		ldr	r0, .L24+92
- 293 018c FFF7FEFF 		bl	UART_1_PutString
- 294              	.LVL24:
- 114:InterruptRoutines.c ****                 UART_1_PutString("4                    50Hz \r\n");
- 295              		.loc 1 114 0
- 296 0190 5348     		ldr	r0, .L24+96
- 297 0192 FFF7FEFF 		bl	UART_1_PutString
- 298              	.LVL25:
- 115:InterruptRoutines.c ****                 SamplingFreqFlag=1;
- 299              		.loc 1 115 0
- 300 0196 464B     		ldr	r3, .L24+48
- 301 0198 0122     		movs	r2, #1
- 302 019a DA70     		strb	r2, [r3, #3]
- 116:InterruptRoutines.c ****                 SelectionFlag=0;
- 303              		.loc 1 116 0
- 304 019c 0022     		movs	r2, #0
- 305 019e 1A70     		strb	r2, [r3]
- 306 01a0 38BD     		pop	{r3, r4, r5, pc}
- 307              	.L4:
- 117:InterruptRoutines.c ****             }
- 118:InterruptRoutines.c ****         break;
- 119:InterruptRoutines.c ****         // 1 command on UART
- 120:InterruptRoutines.c ****         case '1':
- 121:InterruptRoutines.c ****             if (FSRFlag==1) // +- 2g
- 308              		.loc 1 121 0
- 309 01a2 434B     		ldr	r3, .L24+48
- 310 01a4 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
- 311 01a6 012B     		cmp	r3, #1
- 312 01a8 06D1     		bne	.L19
- 122:InterruptRoutines.c ****             {
- 123:InterruptRoutines.c ****                 // Read register
- 124:InterruptRoutines.c ****                 // communicate on UART if this FSR is already setted
- 125:InterruptRoutines.c ****                 // if not write the new FSR + communicate on UART the change
- 126:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_2);
- 313              		.loc 1 126 0
- 314 01aa 8021     		movs	r1, #128
- 315 01ac 2320     		movs	r0, #35
- 316 01ae FFF7FEFF 		bl	ACC_writeRegister
- 317              	.LVL26:
- 127:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
- 128:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
- 129:InterruptRoutines.c ****                 FSRFlag=0; 
- 318              		.loc 1 129 0
- 319 01b2 0022     		movs	r2, #0
- 320 01b4 3E4B     		ldr	r3, .L24+48
- 321 01b6 5A70     		strb	r2, [r3, #1]
- 322              	.L19:
- 130:InterruptRoutines.c ****             }
- 131:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 1Hz
- 323              		.loc 1 131 0
- 324 01b8 3D4B     		ldr	r3, .L24+48
- 325 01ba DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 9
+ 276 00d8 5A70     		strb	r2, [r3, #1]
+ 277 00da 08BD     		pop	{r3, pc}
+ 278              	.L20:
+ 125:InterruptRoutines.c ****             }
+ 126:InterruptRoutines.c ****         break;
+ 127:InterruptRoutines.c ****             
+ 128:InterruptRoutines.c ****         // Selection sampling frequency command on UART
+ 129:InterruptRoutines.c ****         case 'P':
+ 130:InterruptRoutines.c ****         case 'p':
+ 131:InterruptRoutines.c ****             /* SHOW SAMPLING FREQUENCY MENU' ON UART*/
+ 132:InterruptRoutines.c ****             UART_1_PutString("Configuration of the accelerometer sampling frequency \r\n");
+ 279              		.loc 1 132 0
+ 280 00dc 7648     		ldr	r0, .L44+32
+ 281 00de FFF7FEFF 		bl	UART_1_PutString
+ 282              	.LVL11:
+ 133:InterruptRoutines.c ****             UART_1_PutString("Character            Sampling Frequency \r\n");
+ 283              		.loc 1 133 0
+ 284 00e2 7648     		ldr	r0, .L44+36
+ 285 00e4 FFF7FEFF 		bl	UART_1_PutString
+ 286              	.LVL12:
+ 134:InterruptRoutines.c ****             UART_1_PutString("1                    1Hz \r\n");
+ 287              		.loc 1 134 0
+ 288 00e8 7548     		ldr	r0, .L44+40
+ 289 00ea FFF7FEFF 		bl	UART_1_PutString
+ 290              	.LVL13:
+ 135:InterruptRoutines.c ****             UART_1_PutString("2                    10Hz \r\n");
+ 291              		.loc 1 135 0
+ 292 00ee 7548     		ldr	r0, .L44+44
+ 293 00f0 FFF7FEFF 		bl	UART_1_PutString
+ 294              	.LVL14:
+ 136:InterruptRoutines.c ****             UART_1_PutString("3                    25Hz \r\n");
+ 295              		.loc 1 136 0
+ 296 00f4 7448     		ldr	r0, .L44+48
+ 297 00f6 FFF7FEFF 		bl	UART_1_PutString
+ 298              	.LVL15:
+ 137:InterruptRoutines.c ****             UART_1_PutString("4                    50Hz \r\n");
+ 299              		.loc 1 137 0
+ 300 00fa 7448     		ldr	r0, .L44+52
+ 301 00fc FFF7FEFF 		bl	UART_1_PutString
+ 302              	.LVL16:
+ 138:InterruptRoutines.c ****             SamplingFreqFlag=1;
+ 303              		.loc 1 138 0
+ 304 0100 0122     		movs	r2, #1
+ 305 0102 6C4B     		ldr	r3, .L44+28
+ 306 0104 DA70     		strb	r2, [r3, #3]
+ 139:InterruptRoutines.c ****               
+ 140:InterruptRoutines.c ****         break;
+ 307              		.loc 1 140 0
+ 308 0106 08BD     		pop	{r3, pc}
+ 309              	.L12:
+ 141:InterruptRoutines.c ****             
+ 142:InterruptRoutines.c ****         // 1 command on UART
+ 143:InterruptRoutines.c ****         case '1':
+ 144:InterruptRoutines.c ****             if (FSRFlag==1) // +- 2g
+ 310              		.loc 1 144 0
+ 311 0108 6A4B     		ldr	r3, .L44+28
+ 312 010a 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 9
 
 
- 326 01bc 012B     		cmp	r3, #1
- 327 01be 40F0AE80 		bne	.L2
- 132:InterruptRoutines.c ****             {
- 133:InterruptRoutines.c ****                 // Read register
- 134:InterruptRoutines.c ****                 // communicate on UART if this freq is already setted
- 135:InterruptRoutines.c ****                 // if not write the new freq + communicate on UART the change
- 136:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_1_CTRL_REG1);
- 328              		.loc 1 136 0
- 329 01c2 2321     		movs	r1, #35
- 330 01c4 2020     		movs	r0, #32
- 331 01c6 FFF7FEFF 		bl	ACC_writeRegister
- 332              	.LVL27:
- 137:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
- 138:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
- 139:InterruptRoutines.c ****                 SamplingFreqFlag=0;
- 333              		.loc 1 139 0
- 334 01ca 0022     		movs	r2, #0
- 335 01cc 384B     		ldr	r3, .L24+48
- 336 01ce DA70     		strb	r2, [r3, #3]
- 337 01d0 38BD     		pop	{r3, r4, r5, pc}
- 338              	.L6:
- 140:InterruptRoutines.c ****             }
- 141:InterruptRoutines.c ****         break;
- 142:InterruptRoutines.c ****         // 2 command on UART
- 143:InterruptRoutines.c ****         case '2':
- 144:InterruptRoutines.c ****             if (FSRFlag==1) // +- 4g
- 339              		.loc 1 144 0
- 340 01d2 374B     		ldr	r3, .L24+48
- 341 01d4 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
- 342 01d6 012B     		cmp	r3, #1
- 343 01d8 06D1     		bne	.L20
+ 313 010c 012B     		cmp	r3, #1
+ 314 010e 13D1     		bne	.L22
  145:InterruptRoutines.c ****             {
- 146:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_4);
- 344              		.loc 1 146 0
- 345 01da 9021     		movs	r1, #144
- 346 01dc 2320     		movs	r0, #35
- 347 01de FFF7FEFF 		bl	ACC_writeRegister
- 348              	.LVL28:
- 147:InterruptRoutines.c ****                 FSRFlag=0; 
- 349              		.loc 1 147 0
- 350 01e2 0022     		movs	r2, #0
- 351 01e4 324B     		ldr	r3, .L24+48
- 352 01e6 5A70     		strb	r2, [r3, #1]
- 353              	.L20:
- 148:InterruptRoutines.c ****             }
- 149:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 10Hz
- 354              		.loc 1 149 0
- 355 01e8 314B     		ldr	r3, .L24+48
- 356 01ea DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
- 357 01ec 012B     		cmp	r3, #1
- 358 01ee 40F09680 		bne	.L2
- 150:InterruptRoutines.c ****             {
- 151:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_10_CTRL_REG1);
- 359              		.loc 1 151 0
- 360 01f2 3921     		movs	r1, #57
- 361 01f4 2020     		movs	r0, #32
- 362 01f6 FFF7FEFF 		bl	ACC_writeRegister
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 10
+ 146:InterruptRoutines.c ****                 // Read register
+ 147:InterruptRoutines.c ****                 // communicate on UART if this FSR is already setted
+ 148:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG4) & LIS3DH_CTRL_REG4_FSR_2 )
+ 315              		.loc 1 148 0
+ 316 0110 2320     		movs	r0, #35
+ 317 0112 FFF7FEFF 		bl	ACC_readRegister
+ 318              	.LVL17:
+ 319 0116 10F0800F 		tst	r0, #128
+ 320 011a 03D0     		beq	.L23
+ 149:InterruptRoutines.c ****                 {
+ 150:InterruptRoutines.c ****                    UART_1_PutString("The selected option was already been setted \r\n");
+ 321              		.loc 1 150 0
+ 322 011c 6C48     		ldr	r0, .L44+56
+ 323 011e FFF7FEFF 		bl	UART_1_PutString
+ 324              	.LVL18:
+ 325 0122 06E0     		b	.L24
+ 326              	.L23:
+ 151:InterruptRoutines.c ****                 }
+ 152:InterruptRoutines.c ****                 // if not write the new FSR + communicate on UART the change
+ 153:InterruptRoutines.c ****                 else 
+ 154:InterruptRoutines.c ****                 {
+ 155:InterruptRoutines.c ****                     ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_2);
+ 327              		.loc 1 155 0
+ 328 0124 8021     		movs	r1, #128
+ 329 0126 2320     		movs	r0, #35
+ 330 0128 FFF7FEFF 		bl	ACC_writeRegister
+ 331              	.LVL19:
+ 156:InterruptRoutines.c ****                     UART_1_PutString("The change was successful \r\n");
+ 332              		.loc 1 156 0
+ 333 012c 6948     		ldr	r0, .L44+60
+ 334 012e FFF7FEFF 		bl	UART_1_PutString
+ 335              	.LVL20:
+ 336              	.L24:
+ 157:InterruptRoutines.c ****                 }
+ 158:InterruptRoutines.c ****                 
+ 159:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 160:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 161:InterruptRoutines.c ****                 FSRFlag=0; 
+ 337              		.loc 1 161 0
+ 338 0132 0022     		movs	r2, #0
+ 339 0134 5F4B     		ldr	r3, .L44+28
+ 340 0136 9A70     		strb	r2, [r3, #2]
+ 341              	.L22:
+ 162:InterruptRoutines.c ****             }
+ 163:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 1Hz
+ 342              		.loc 1 163 0
+ 343 0138 5E4B     		ldr	r3, .L44+28
+ 344 013a DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 345 013c 012B     		cmp	r3, #1
+ 346 013e 40F0E780 		bne	.L10
+ 164:InterruptRoutines.c ****             {
+ 165:InterruptRoutines.c ****                 // Read register
+ 166:InterruptRoutines.c ****                 // communicate on UART if this freq is already setted
+ 167:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_1HZ )
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 10
 
 
- 363              	.LVL29:
- 152:InterruptRoutines.c ****                 SamplingFreqFlag=0;
- 364              		.loc 1 152 0
- 365 01fa 0022     		movs	r2, #0
- 366 01fc 2C4B     		ldr	r3, .L24+48
- 367 01fe DA70     		strb	r2, [r3, #3]
- 368 0200 38BD     		pop	{r3, r4, r5, pc}
- 369              	.L7:
- 153:InterruptRoutines.c ****             }
- 154:InterruptRoutines.c ****         break;
- 155:InterruptRoutines.c ****         // 3 command on UART
- 156:InterruptRoutines.c ****         case '3':
- 157:InterruptRoutines.c ****             if (FSRFlag==1) // +- 8g
- 370              		.loc 1 157 0
- 371 0202 2B4B     		ldr	r3, .L24+48
- 372 0204 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
- 373 0206 012B     		cmp	r3, #1
- 374 0208 06D1     		bne	.L21
- 158:InterruptRoutines.c ****             {
- 159:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_8);
- 375              		.loc 1 159 0
- 376 020a A021     		movs	r1, #160
- 377 020c 2320     		movs	r0, #35
- 378 020e FFF7FEFF 		bl	ACC_writeRegister
- 379              	.LVL30:
- 160:InterruptRoutines.c ****                 FSRFlag=0; 
- 380              		.loc 1 160 0
- 381 0212 0022     		movs	r2, #0
- 382 0214 264B     		ldr	r3, .L24+48
- 383 0216 5A70     		strb	r2, [r3, #1]
- 384              	.L21:
- 161:InterruptRoutines.c ****             }
- 162:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 25Hz
- 385              		.loc 1 162 0
- 386 0218 254B     		ldr	r3, .L24+48
- 387 021a DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
- 388 021c 012B     		cmp	r3, #1
- 389 021e 7ED1     		bne	.L2
- 163:InterruptRoutines.c ****             {
- 164:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_25_CTRL_REG1);
- 390              		.loc 1 164 0
- 391 0220 5521     		movs	r1, #85
- 392 0222 2020     		movs	r0, #32
- 393 0224 FFF7FEFF 		bl	ACC_writeRegister
- 394              	.LVL31:
- 165:InterruptRoutines.c ****                 SamplingFreqFlag=0;
- 395              		.loc 1 165 0
- 396 0228 0022     		movs	r2, #0
- 397 022a 214B     		ldr	r3, .L24+48
- 398 022c DA70     		strb	r2, [r3, #3]
- 399 022e 38BD     		pop	{r3, r4, r5, pc}
- 400              	.L8:
- 166:InterruptRoutines.c ****             }
- 167:InterruptRoutines.c ****         break;
- 168:InterruptRoutines.c ****         // 4 command on UART
- 169:InterruptRoutines.c ****         case '4':
- 170:InterruptRoutines.c ****             if (FSRFlag==1) // +- 16g
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 11
+ 347              		.loc 1 167 0
+ 348 0142 2020     		movs	r0, #32
+ 349 0144 FFF7FEFF 		bl	ACC_readRegister
+ 350              	.LVL21:
+ 351 0148 10F0170F 		tst	r0, #23
+ 352 014c 03D0     		beq	.L25
+ 168:InterruptRoutines.c ****                 {
+ 169:InterruptRoutines.c ****                    UART_1_PutString("The selected option was already been setted \r\n");
+ 353              		.loc 1 169 0
+ 354 014e 6048     		ldr	r0, .L44+56
+ 355 0150 FFF7FEFF 		bl	UART_1_PutString
+ 356              	.LVL22:
+ 357 0154 06E0     		b	.L26
+ 358              	.L25:
+ 170:InterruptRoutines.c ****                 }
+ 171:InterruptRoutines.c ****                 // if not write the new freq + communicate on UART the change
+ 172:InterruptRoutines.c ****                 else
+ 173:InterruptRoutines.c ****                 {
+ 174:InterruptRoutines.c ****                     ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_CTRL_REG1_ODR_START_1HZ);
+ 359              		.loc 1 174 0
+ 360 0156 1721     		movs	r1, #23
+ 361 0158 2020     		movs	r0, #32
+ 362 015a FFF7FEFF 		bl	ACC_writeRegister
+ 363              	.LVL23:
+ 175:InterruptRoutines.c ****                     UART_1_PutString("The change was successful \r\n");
+ 364              		.loc 1 175 0
+ 365 015e 5D48     		ldr	r0, .L44+60
+ 366 0160 FFF7FEFF 		bl	UART_1_PutString
+ 367              	.LVL24:
+ 368              	.L26:
+ 176:InterruptRoutines.c ****                 }
+ 177:InterruptRoutines.c ****                 
+ 178:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 179:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 180:InterruptRoutines.c ****                 SamplingFreqFlag=0;
+ 369              		.loc 1 180 0
+ 370 0164 0022     		movs	r2, #0
+ 371 0166 534B     		ldr	r3, .L44+28
+ 372 0168 DA70     		strb	r2, [r3, #3]
+ 373 016a 08BD     		pop	{r3, pc}
+ 374              	.L14:
+ 181:InterruptRoutines.c ****             }
+ 182:InterruptRoutines.c ****         break;
+ 183:InterruptRoutines.c ****             
+ 184:InterruptRoutines.c ****         // 2 command on UART
+ 185:InterruptRoutines.c ****         case '2':
+ 186:InterruptRoutines.c ****             if (FSRFlag==1) // +- 4g
+ 375              		.loc 1 186 0
+ 376 016c 514B     		ldr	r3, .L44+28
+ 377 016e 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 378 0170 012B     		cmp	r3, #1
+ 379 0172 13D1     		bne	.L27
+ 187:InterruptRoutines.c ****             {
+ 188:InterruptRoutines.c ****                 // Read register
+ 189:InterruptRoutines.c ****                 // communicate on UART if this FSR is already setted
+ 190:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG4) & LIS3DH_CTRL_REG4_FSR_4 )
+ 380              		.loc 1 190 0
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 11
 
 
- 401              		.loc 1 170 0
- 402 0230 1F4B     		ldr	r3, .L24+48
- 403 0232 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
- 404 0234 012B     		cmp	r3, #1
- 405 0236 06D1     		bne	.L22
- 171:InterruptRoutines.c ****             {
- 172:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_16);
- 406              		.loc 1 172 0
- 407 0238 B021     		movs	r1, #176
- 408 023a 2320     		movs	r0, #35
- 409 023c FFF7FEFF 		bl	ACC_writeRegister
- 410              	.LVL32:
- 173:InterruptRoutines.c ****                 FSRFlag=0; 
- 411              		.loc 1 173 0
- 412 0240 0022     		movs	r2, #0
- 413 0242 1B4B     		ldr	r3, .L24+48
- 414 0244 5A70     		strb	r2, [r3, #1]
- 415              	.L22:
- 174:InterruptRoutines.c ****             }
- 175:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 50Hz
- 416              		.loc 1 175 0
- 417 0246 1A4B     		ldr	r3, .L24+48
- 418 0248 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
- 419 024a 012B     		cmp	r3, #1
- 420 024c 67D1     		bne	.L2
- 176:InterruptRoutines.c ****             {
- 177:InterruptRoutines.c ****                 ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_HR_50_CTRL_REG1);
- 421              		.loc 1 177 0
- 422 024e 7121     		movs	r1, #113
- 423 0250 2020     		movs	r0, #32
- 424 0252 FFF7FEFF 		bl	ACC_writeRegister
- 425              	.LVL33:
- 178:InterruptRoutines.c ****                 SamplingFreqFlag=0;
- 426              		.loc 1 178 0
- 427 0256 0022     		movs	r2, #0
- 428 0258 154B     		ldr	r3, .L24+48
- 429 025a DA70     		strb	r2, [r3, #3]
- 430 025c 38BD     		pop	{r3, r4, r5, pc}
- 431              	.L17:
- 179:InterruptRoutines.c ****             }
- 180:InterruptRoutines.c ****         break;
- 181:InterruptRoutines.c ****         // Visualize data on Bridge Control Panel command on UART
- 182:InterruptRoutines.c ****         case 'V':
- 183:InterruptRoutines.c ****         case 'v':
- 184:InterruptRoutines.c ****             if (SelectionFlag==1)
- 432              		.loc 1 184 0
- 433 025e 144B     		ldr	r3, .L24+48
- 434 0260 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 435 0262 012B     		cmp	r3, #1
- 436 0264 5BD1     		bne	.L2
- 185:InterruptRoutines.c ****             {
- 186:InterruptRoutines.c ****                 SelectionFlag=0;
- 437              		.loc 1 186 0
- 438 0266 0022     		movs	r2, #0
- 439 0268 114B     		ldr	r3, .L24+48
- 440 026a 1A70     		strb	r2, [r3]
- 441 026c 38BD     		pop	{r3, r4, r5, pc}
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 12
+ 381 0174 2320     		movs	r0, #35
+ 382 0176 FFF7FEFF 		bl	ACC_readRegister
+ 383              	.LVL25:
+ 384 017a 10F0900F 		tst	r0, #144
+ 385 017e 03D0     		beq	.L28
+ 191:InterruptRoutines.c ****                 {
+ 192:InterruptRoutines.c ****                    UART_1_PutString("The selected option was already been setted \r\n");
+ 386              		.loc 1 192 0
+ 387 0180 5348     		ldr	r0, .L44+56
+ 388 0182 FFF7FEFF 		bl	UART_1_PutString
+ 389              	.LVL26:
+ 390 0186 06E0     		b	.L29
+ 391              	.L28:
+ 193:InterruptRoutines.c ****                 }
+ 194:InterruptRoutines.c ****                 // if not write the new FSR + communicate on UART the change
+ 195:InterruptRoutines.c ****                 else 
+ 196:InterruptRoutines.c ****                 {
+ 197:InterruptRoutines.c ****                     ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_4);
+ 392              		.loc 1 197 0
+ 393 0188 9021     		movs	r1, #144
+ 394 018a 2320     		movs	r0, #35
+ 395 018c FFF7FEFF 		bl	ACC_writeRegister
+ 396              	.LVL27:
+ 198:InterruptRoutines.c ****                     UART_1_PutString("The change was successful \r\n");
+ 397              		.loc 1 198 0
+ 398 0190 5048     		ldr	r0, .L44+60
+ 399 0192 FFF7FEFF 		bl	UART_1_PutString
+ 400              	.LVL28:
+ 401              	.L29:
+ 199:InterruptRoutines.c ****                 }
+ 200:InterruptRoutines.c ****                 
+ 201:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 202:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 203:InterruptRoutines.c ****                 FSRFlag=0; 
+ 402              		.loc 1 203 0
+ 403 0196 0022     		movs	r2, #0
+ 404 0198 464B     		ldr	r3, .L44+28
+ 405 019a 9A70     		strb	r2, [r3, #2]
+ 406              	.L27:
+ 204:InterruptRoutines.c ****             }
+ 205:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 10Hz
+ 407              		.loc 1 205 0
+ 408 019c 454B     		ldr	r3, .L44+28
+ 409 019e DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 410 01a0 012B     		cmp	r3, #1
+ 411 01a2 40F0B580 		bne	.L10
+ 206:InterruptRoutines.c ****             {
+ 207:InterruptRoutines.c ****                 // Read register
+ 208:InterruptRoutines.c ****                 // communicate on UART if this freq is already setted
+ 209:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_10HZ )
+ 412              		.loc 1 209 0
+ 413 01a6 2020     		movs	r0, #32
+ 414 01a8 FFF7FEFF 		bl	ACC_readRegister
+ 415              	.LVL29:
+ 416 01ac 10F0270F 		tst	r0, #39
+ 417 01b0 03D0     		beq	.L30
+ 210:InterruptRoutines.c ****                 {
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 12
 
 
- 442              	.L16:
- 187:InterruptRoutines.c ****             }
- 188:InterruptRoutines.c ****         break;
- 189:InterruptRoutines.c ****         // Stop visualize data on Bridge Control Panel command on UART
- 190:InterruptRoutines.c ****         case 'U':
- 191:InterruptRoutines.c ****         case 'u':
- 192:InterruptRoutines.c ****             if (SelectionFlag==1)
- 443              		.loc 1 192 0
- 444 026e 104B     		ldr	r3, .L24+48
- 445 0270 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 446 0272 012B     		cmp	r3, #1
- 447 0274 53D1     		bne	.L2
- 193:InterruptRoutines.c ****             {
- 194:InterruptRoutines.c ****                 SelectionFlag=0;
- 448              		.loc 1 194 0
- 449 0276 0022     		movs	r2, #0
- 450 0278 0D4B     		ldr	r3, .L24+48
- 451 027a 1A70     		strb	r2, [r3]
- 452 027c 38BD     		pop	{r3, r4, r5, pc}
- 453              	.L25:
- 454 027e 00BF     		.align	2
- 455              	.L24:
- 456 0280 00000000 		.word	ch_received
- 457 0284 00000000 		.word	.LC0
- 458 0288 28000000 		.word	.LC1
- 459 028c 50000000 		.word	.LC2
- 460 0290 54000000 		.word	.LC3
- 461 0294 7C000000 		.word	.LC4
- 462 0298 DC000000 		.word	.LC5
- 463 029c 3C010000 		.word	.LC6
- 464 02a0 80010000 		.word	.LC7
- 465 02a4 C8010000 		.word	.LC8
- 466 02a8 10020000 		.word	.LC9
- 467 02ac 54020000 		.word	.LC10
- 468 02b0 00000000 		.word	.LANCHOR0
- 469 02b4 80020000 		.word	.LC11
- 470 02b8 B8020000 		.word	.LC12
- 471 02bc E4020000 		.word	.LC13
- 472 02c0 04030000 		.word	.LC14
- 473 02c4 24030000 		.word	.LC15
- 474 02c8 44030000 		.word	.LC16
- 475 02cc 64030000 		.word	.LC17
- 476 02d0 A0030000 		.word	.LC18
- 477 02d4 CC030000 		.word	.LC19
- 478 02d8 E8030000 		.word	.LC20
- 479 02dc 08040000 		.word	.LC21
- 480 02e0 28040000 		.word	.LC22
- 481              	.L15:
- 195:InterruptRoutines.c ****             }
- 196:InterruptRoutines.c ****         break;
- 197:InterruptRoutines.c ****         // Temperature mode command on UART
- 198:InterruptRoutines.c ****         case 'T':
- 199:InterruptRoutines.c ****         case 't':
- 200:InterruptRoutines.c ****             if (SelectionFlag==1)
- 482              		.loc 1 200 0
- 483 02e4 0E4B     		ldr	r3, .L26
- 484 02e6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 13
+ 211:InterruptRoutines.c ****                    UART_1_PutString("The selected option was already been setted \r\n");
+ 418              		.loc 1 211 0
+ 419 01b2 4748     		ldr	r0, .L44+56
+ 420 01b4 FFF7FEFF 		bl	UART_1_PutString
+ 421              	.LVL30:
+ 422 01b8 06E0     		b	.L31
+ 423              	.L30:
+ 212:InterruptRoutines.c ****                 }
+ 213:InterruptRoutines.c ****                 // if not write the new freq + communicate on UART the change
+ 214:InterruptRoutines.c ****                 else
+ 215:InterruptRoutines.c ****                 {
+ 216:InterruptRoutines.c ****                     ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_CTRL_REG1_ODR_START_10HZ);
+ 424              		.loc 1 216 0
+ 425 01ba 2721     		movs	r1, #39
+ 426 01bc 2020     		movs	r0, #32
+ 427 01be FFF7FEFF 		bl	ACC_writeRegister
+ 428              	.LVL31:
+ 217:InterruptRoutines.c ****                     UART_1_PutString("The change was successful \r\n");
+ 429              		.loc 1 217 0
+ 430 01c2 4448     		ldr	r0, .L44+60
+ 431 01c4 FFF7FEFF 		bl	UART_1_PutString
+ 432              	.LVL32:
+ 433              	.L31:
+ 218:InterruptRoutines.c ****                 }
+ 219:InterruptRoutines.c ****                 
+ 220:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 221:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 222:InterruptRoutines.c ****                 SamplingFreqFlag=0;
+ 434              		.loc 1 222 0
+ 435 01c8 0022     		movs	r2, #0
+ 436 01ca 3A4B     		ldr	r3, .L44+28
+ 437 01cc DA70     		strb	r2, [r3, #3]
+ 438 01ce 08BD     		pop	{r3, pc}
+ 439              	.L15:
+ 223:InterruptRoutines.c ****             }
+ 224:InterruptRoutines.c ****         break;
+ 225:InterruptRoutines.c ****             
+ 226:InterruptRoutines.c ****         // 3 command on UART
+ 227:InterruptRoutines.c ****         case '3':
+ 228:InterruptRoutines.c ****             if (FSRFlag==1) // +- 8g
+ 440              		.loc 1 228 0
+ 441 01d0 384B     		ldr	r3, .L44+28
+ 442 01d2 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 443 01d4 012B     		cmp	r3, #1
+ 444 01d6 13D1     		bne	.L32
+ 229:InterruptRoutines.c ****             {
+ 230:InterruptRoutines.c ****                 // Read register
+ 231:InterruptRoutines.c ****                 // communicate on UART if this FSR is already setted
+ 232:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG4) & LIS3DH_CTRL_REG4_FSR_8 )
+ 445              		.loc 1 232 0
+ 446 01d8 2320     		movs	r0, #35
+ 447 01da FFF7FEFF 		bl	ACC_readRegister
+ 448              	.LVL33:
+ 449 01de 10F0A00F 		tst	r0, #160
+ 450 01e2 03D0     		beq	.L33
+ 233:InterruptRoutines.c ****                 {
+ 234:InterruptRoutines.c ****                    UART_1_PutString("The selected option was already been setted \r\n");
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 13
 
 
- 485 02e8 012B     		cmp	r3, #1
- 486 02ea 18D1     		bne	.L2
- 201:InterruptRoutines.c ****             {
- 202:InterruptRoutines.c ****                 UART_1_PutString("Store the temperature data \r\n");
- 487              		.loc 1 202 0
- 488 02ec 0D48     		ldr	r0, .L26+4
- 489 02ee FFF7FEFF 		bl	UART_1_PutString
- 490              	.LVL34:
- 203:InterruptRoutines.c ****                 UART_1_PutString("Character            Temperature format \r\n");
- 491              		.loc 1 203 0
- 492 02f2 0D48     		ldr	r0, .L26+8
- 493 02f4 FFF7FEFF 		bl	UART_1_PutString
- 494              	.LVL35:
- 204:InterruptRoutines.c ****                 UART_1_PutString("c                    Store data in Celsius format \r\n");
- 495              		.loc 1 204 0
- 496 02f8 0C48     		ldr	r0, .L26+12
- 497 02fa FFF7FEFF 		bl	UART_1_PutString
- 498              	.LVL36:
- 205:InterruptRoutines.c ****                 UART_1_PutString("f                    Store data in Fahrenheit format  \r\n");
- 499              		.loc 1 205 0
- 500 02fe 0C48     		ldr	r0, .L26+16
- 501 0300 FFF7FEFF 		bl	UART_1_PutString
- 502              	.LVL37:
- 206:InterruptRoutines.c ****                 TemperatureFlag=1;
- 503              		.loc 1 206 0
- 504 0304 064B     		ldr	r3, .L26
- 505 0306 0122     		movs	r2, #1
- 506 0308 9A70     		strb	r2, [r3, #2]
- 207:InterruptRoutines.c ****                 SelectionFlag=0;
- 507              		.loc 1 207 0
- 508 030a 0022     		movs	r2, #0
- 509 030c 1A70     		strb	r2, [r3]
- 510 030e 38BD     		pop	{r3, r4, r5, pc}
- 511              	.L11:
- 208:InterruptRoutines.c ****             }
- 209:InterruptRoutines.c ****         break;
- 210:InterruptRoutines.c ****         // Temperature in Celsius command on UART
- 211:InterruptRoutines.c ****         case 'C':
- 212:InterruptRoutines.c ****         case 'c':
- 213:InterruptRoutines.c ****             if (TemperatureFlag==1)
- 512              		.loc 1 213 0
- 513 0310 034B     		ldr	r3, .L26
- 514 0312 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
- 515 0314 012B     		cmp	r3, #1
- 516 0316 02D1     		bne	.L2
- 214:InterruptRoutines.c ****             {
- 215:InterruptRoutines.c ****                 TemperatureFlag=0;
- 517              		.loc 1 215 0
- 518 0318 0022     		movs	r2, #0
- 519 031a 014B     		ldr	r3, .L26
- 520 031c 9A70     		strb	r2, [r3, #2]
- 521              	.L2:
- 522 031e 38BD     		pop	{r3, r4, r5, pc}
- 523              	.L27:
- 524              		.align	2
- 525              	.L26:
- 526 0320 00000000 		.word	.LANCHOR0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 14
+ 451              		.loc 1 234 0
+ 452 01e4 3A48     		ldr	r0, .L44+56
+ 453 01e6 FFF7FEFF 		bl	UART_1_PutString
+ 454              	.LVL34:
+ 455 01ea 06E0     		b	.L34
+ 456              	.L33:
+ 235:InterruptRoutines.c ****                 }
+ 236:InterruptRoutines.c ****                 // if not write the new FSR + communicate on UART the change
+ 237:InterruptRoutines.c ****                 else 
+ 238:InterruptRoutines.c ****                 {
+ 239:InterruptRoutines.c ****                     ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_8);
+ 457              		.loc 1 239 0
+ 458 01ec A021     		movs	r1, #160
+ 459 01ee 2320     		movs	r0, #35
+ 460 01f0 FFF7FEFF 		bl	ACC_writeRegister
+ 461              	.LVL35:
+ 240:InterruptRoutines.c ****                      UART_1_PutString("The change was successful \r\n");
+ 462              		.loc 1 240 0
+ 463 01f4 3748     		ldr	r0, .L44+60
+ 464 01f6 FFF7FEFF 		bl	UART_1_PutString
+ 465              	.LVL36:
+ 466              	.L34:
+ 241:InterruptRoutines.c ****                 }
+ 242:InterruptRoutines.c ****                 
+ 243:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 244:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 245:InterruptRoutines.c ****                 FSRFlag=0; 
+ 467              		.loc 1 245 0
+ 468 01fa 0022     		movs	r2, #0
+ 469 01fc 2D4B     		ldr	r3, .L44+28
+ 470 01fe 9A70     		strb	r2, [r3, #2]
+ 471              	.L32:
+ 246:InterruptRoutines.c ****             }
+ 247:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 25Hz
+ 472              		.loc 1 247 0
+ 473 0200 2C4B     		ldr	r3, .L44+28
+ 474 0202 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 475 0204 012B     		cmp	r3, #1
+ 476 0206 40F08380 		bne	.L10
+ 248:InterruptRoutines.c ****             {
+ 249:InterruptRoutines.c ****                 // Read register
+ 250:InterruptRoutines.c ****                 // communicate on UART if this freq is already setted
+ 251:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_25HZ )
+ 477              		.loc 1 251 0
+ 478 020a 2020     		movs	r0, #32
+ 479 020c FFF7FEFF 		bl	ACC_readRegister
+ 480              	.LVL37:
+ 481 0210 10F0370F 		tst	r0, #55
+ 482 0214 03D0     		beq	.L35
+ 252:InterruptRoutines.c ****                 {
+ 253:InterruptRoutines.c ****                    UART_1_PutString("The selected option was already been setted \r\n");
+ 483              		.loc 1 253 0
+ 484 0216 2E48     		ldr	r0, .L44+56
+ 485 0218 FFF7FEFF 		bl	UART_1_PutString
+ 486              	.LVL38:
+ 487 021c 06E0     		b	.L36
+ 488              	.L35:
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 14
 
 
- 527 0324 48040000 		.word	.LC23
- 528 0328 68040000 		.word	.LC24
- 529 032c 94040000 		.word	.LC25
- 530 0330 CC040000 		.word	.LC26
- 531              		.cfi_endproc
- 532              	.LFE65:
- 533              		.size	Custom_ISR_RX, .-Custom_ISR_RX
- 534              		.global	TemperatureFlag
- 535              		.global	SamplingFreqFlag
- 536              		.global	FSRFlag
- 537              		.global	SelectionFlag
- 538              		.comm	ch_received,1,1
- 539              		.section	.rodata.str1.4,"aMS",%progbits,1
- 540              		.align	2
- 541              	.LC0:
- 542 0000 2A2A2A2A 		.ascii	"*************************************\015\012\000"
- 542      2A2A2A2A 
- 542      2A2A2A2A 
- 542      2A2A2A2A 
- 542      2A2A2A2A 
- 543              	.LC1:
- 544 0028 2A2A2A2A 		.ascii	"****************MENU'****************\015\012\000"
- 544      2A2A2A2A 
- 544      2A2A2A2A 
- 544      2A2A2A2A 
- 544      4D454E55 
- 545              	.LC2:
- 546 0050 0D0A00   		.ascii	"\015\012\000"
- 547 0053 00       		.space	1
- 548              	.LC3:
- 549 0054 436F6D6D 		.ascii	"Command      Result                  \015\012\000"
- 549      616E6420 
- 549      20202020 
- 549      20526573 
- 549      756C7420 
- 550              	.LC4:
- 551 007c 62202020 		.ascii	"b            Start data acquisition from the accele"
- 551      20202020 
- 551      20202020 
- 551      20537461 
- 551      72742064 
- 552 00af 726F6D65 		.ascii	"rometer and storage on the EEPROM memory \015\012\000"
- 552      74657220 
- 552      616E6420 
- 552      73746F72 
- 552      61676520 
- 553 00db 00       		.space	1
- 554              	.LC5:
- 555 00dc 73202020 		.ascii	"s            Stop data acquisition from the acceler"
- 555      20202020 
- 555      20202020 
- 555      2053746F 
- 555      70206461 
- 556 010f 6F6D6574 		.ascii	"ometer and storage on the EEPROM memory \015\012\000"
- 556      65722061 
- 556      6E642073 
- 556      746F7261 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 15
+ 254:InterruptRoutines.c ****                 }
+ 255:InterruptRoutines.c ****                 // if not write the new freq + communicate on UART the change
+ 256:InterruptRoutines.c ****                 else
+ 257:InterruptRoutines.c ****                 {
+ 258:InterruptRoutines.c ****                     ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_CTRL_REG1_ODR_START_25HZ);
+ 489              		.loc 1 258 0
+ 490 021e 3721     		movs	r1, #55
+ 491 0220 2020     		movs	r0, #32
+ 492 0222 FFF7FEFF 		bl	ACC_writeRegister
+ 493              	.LVL39:
+ 259:InterruptRoutines.c ****                     UART_1_PutString("The change was successful \r\n");
+ 494              		.loc 1 259 0
+ 495 0226 2B48     		ldr	r0, .L44+60
+ 496 0228 FFF7FEFF 		bl	UART_1_PutString
+ 497              	.LVL40:
+ 498              	.L36:
+ 260:InterruptRoutines.c ****                 }
+ 261:InterruptRoutines.c ****                 
+ 262:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 263:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 264:InterruptRoutines.c ****                 SamplingFreqFlag=0;
+ 499              		.loc 1 264 0
+ 500 022c 0022     		movs	r2, #0
+ 501 022e 214B     		ldr	r3, .L44+28
+ 502 0230 DA70     		strb	r2, [r3, #3]
+ 503 0232 08BD     		pop	{r3, pc}
+ 504              	.L16:
+ 265:InterruptRoutines.c ****             }
+ 266:InterruptRoutines.c ****         break;
+ 267:InterruptRoutines.c ****             
+ 268:InterruptRoutines.c ****         // 4 command on UART
+ 269:InterruptRoutines.c ****         case '4':
+ 270:InterruptRoutines.c ****             if (FSRFlag==1) // +- 16g
+ 505              		.loc 1 270 0
+ 506 0234 1F4B     		ldr	r3, .L44+28
+ 507 0236 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 508 0238 012B     		cmp	r3, #1
+ 509 023a 13D1     		bne	.L37
+ 271:InterruptRoutines.c ****             {
+ 272:InterruptRoutines.c ****                 // Read register
+ 273:InterruptRoutines.c ****                 // communicate on UART if this FSR is already setted
+ 274:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG4) & LIS3DH_CTRL_REG4_FSR_16 )
+ 510              		.loc 1 274 0
+ 511 023c 2320     		movs	r0, #35
+ 512 023e FFF7FEFF 		bl	ACC_readRegister
+ 513              	.LVL41:
+ 514 0242 10F0B00F 		tst	r0, #176
+ 515 0246 03D0     		beq	.L38
+ 275:InterruptRoutines.c ****                 {
+ 276:InterruptRoutines.c ****                    UART_1_PutString("The selected option was already been setted \r\n");
+ 516              		.loc 1 276 0
+ 517 0248 2148     		ldr	r0, .L44+56
+ 518 024a FFF7FEFF 		bl	UART_1_PutString
+ 519              	.LVL42:
+ 520 024e 06E0     		b	.L39
+ 521              	.L38:
+ 277:InterruptRoutines.c ****                 }
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 15
 
 
- 556      6765206F 
- 557 013a 0000     		.space	2
- 558              	.LC6:
- 559 013c 66202020 		.ascii	"f            Configuration of the accelerometer ful"
- 559      20202020 
- 559      20202020 
- 559      20436F6E 
- 559      66696775 
- 560 016f 6C207363 		.ascii	"l scale range \015\012\000"
- 560      616C6520 
- 560      72616E67 
- 560      65200D0A 
- 560      00
- 561              	.LC7:
- 562 0180 70202020 		.ascii	"p            Configuration of the accelerometer sam"
- 562      20202020 
- 562      20202020 
- 562      20436F6E 
- 562      66696775 
- 563 01b3 706C696E 		.ascii	"pling frequency \015\012\000"
- 563      67206672 
- 563      65717565 
- 563      6E637920 
- 563      0D0A00
- 564 01c6 0000     		.space	2
- 565              	.LC8:
- 566 01c8 76202020 		.ascii	"v            Start data visualization in the Bridge"
- 566      20202020 
- 566      20202020 
- 566      20537461 
- 566      72742064 
- 567 01fb 20436F6E 		.ascii	" Control Panel \015\012\000"
- 567      74726F6C 
- 567      2050616E 
- 567      656C200D 
- 567      0A00
- 568 020d 000000   		.space	3
- 569              	.LC9:
- 570 0210 75202020 		.ascii	"u            Stop data visualization in the Bridge "
- 570      20202020 
- 570      20202020 
- 570      2053746F 
- 570      70206461 
- 571 0243 436F6E74 		.ascii	"Control Panel \015\012\000"
- 571      726F6C20 
- 571      50616E65 
- 571      6C200D0A 
- 571      00
- 572              	.LC10:
- 573 0254 74202020 		.ascii	"t            Store the temperature data \015\012\000"
- 573      20202020 
- 573      20202020 
- 573      2053746F 
- 573      72652074 
- 574 027f 00       		.space	1
- 575              	.LC11:
- 576 0280 436F6E66 		.ascii	"Configuration of the accelerometer full scale range"
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 16
+ 278:InterruptRoutines.c ****                 // if not write the new FSR + communicate on UART the change
+ 279:InterruptRoutines.c ****                 else 
+ 280:InterruptRoutines.c ****                 {
+ 281:InterruptRoutines.c ****                     ACC_writeRegister(LIS3DH_CTRL_REG4,LIS3DH_CTRL_REG4_FSR_16);
+ 522              		.loc 1 281 0
+ 523 0250 B021     		movs	r1, #176
+ 524 0252 2320     		movs	r0, #35
+ 525 0254 FFF7FEFF 		bl	ACC_writeRegister
+ 526              	.LVL43:
+ 282:InterruptRoutines.c ****                      UART_1_PutString("The change was successful \r\n");
+ 527              		.loc 1 282 0
+ 528 0258 1E48     		ldr	r0, .L44+60
+ 529 025a FFF7FEFF 		bl	UART_1_PutString
+ 530              	.LVL44:
+ 531              	.L39:
+ 283:InterruptRoutines.c ****                 }
+ 284:InterruptRoutines.c ****                 
+ 285:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 286:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 287:InterruptRoutines.c ****                 FSRFlag=0; 
+ 532              		.loc 1 287 0
+ 533 025e 0022     		movs	r2, #0
+ 534 0260 144B     		ldr	r3, .L44+28
+ 535 0262 9A70     		strb	r2, [r3, #2]
+ 536              	.L37:
+ 288:InterruptRoutines.c ****             }
+ 289:InterruptRoutines.c ****             if (SamplingFreqFlag==1) // 50Hz
+ 537              		.loc 1 289 0
+ 538 0264 134B     		ldr	r3, .L44+28
+ 539 0266 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 540 0268 012B     		cmp	r3, #1
+ 541 026a 51D1     		bne	.L10
+ 290:InterruptRoutines.c ****             {
+ 291:InterruptRoutines.c ****                 // Read register
+ 292:InterruptRoutines.c ****                 // communicate on UART if this freq is already setted
+ 293:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_50HZ )
+ 542              		.loc 1 293 0
+ 543 026c 2020     		movs	r0, #32
+ 544 026e FFF7FEFF 		bl	ACC_readRegister
+ 545              	.LVL45:
+ 546 0272 10F0470F 		tst	r0, #71
+ 547 0276 03D0     		beq	.L40
+ 294:InterruptRoutines.c ****                 {
+ 295:InterruptRoutines.c ****                    UART_1_PutString("The selected option was already been setted \r\n");
+ 548              		.loc 1 295 0
+ 549 0278 1548     		ldr	r0, .L44+56
+ 550 027a FFF7FEFF 		bl	UART_1_PutString
+ 551              	.LVL46:
+ 552 027e 06E0     		b	.L41
+ 553              	.L40:
+ 296:InterruptRoutines.c ****                 }
+ 297:InterruptRoutines.c ****                 // if not write the new freq + communicate on UART the change
+ 298:InterruptRoutines.c ****                 else
+ 299:InterruptRoutines.c ****                 {
+ 300:InterruptRoutines.c ****                     ACC_writeRegister(LIS3DH_CTRL_REG1,LIS3DH_CTRL_REG1_ODR_START_50HZ);
+ 554              		.loc 1 300 0
+ 555 0280 4721     		movs	r1, #71
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 16
 
 
- 576      69677572 
- 576      6174696F 
- 576      6E206F66 
- 576      20746865 
- 577 02b3 200D0A00 		.ascii	" \015\012\000"
- 578 02b7 00       		.space	1
- 579              	.LC12:
- 580 02b8 43686172 		.ascii	"Character            Full scale range \015\012\000"
- 580      61637465 
- 580      72202020 
- 580      20202020 
- 580      20202020 
- 581 02e1 000000   		.space	3
- 582              	.LC13:
- 583 02e4 31202020 		.ascii	"1                    +- 2g \015\012\000"
- 583      20202020 
- 583      20202020 
- 583      20202020 
- 583      20202020 
- 584 0302 0000     		.space	2
- 585              	.LC14:
- 586 0304 32202020 		.ascii	"2                    +- 4g \015\012\000"
- 586      20202020 
- 586      20202020 
- 586      20202020 
- 586      20202020 
- 587 0322 0000     		.space	2
- 588              	.LC15:
- 589 0324 33202020 		.ascii	"3                    +- 8g \015\012\000"
- 589      20202020 
- 589      20202020 
- 589      20202020 
- 589      20202020 
- 590 0342 0000     		.space	2
- 591              	.LC16:
- 592 0344 34202020 		.ascii	"4                    +- 16g \015\012\000"
- 592      20202020 
- 592      20202020 
- 592      20202020 
- 592      20202020 
- 593 0363 00       		.space	1
- 594              	.LC17:
- 595 0364 436F6E66 		.ascii	"Configuration of the accelerometer sampling frequen"
- 595      69677572 
- 595      6174696F 
- 595      6E206F66 
- 595      20746865 
- 596 0397 6379200D 		.ascii	"cy \015\012\000"
- 596      0A00
- 597 039d 000000   		.space	3
- 598              	.LC18:
- 599 03a0 43686172 		.ascii	"Character            Sampling Frequency \015\012\000"
- 599      61637465 
- 599      72202020 
- 599      20202020 
- 599      20202020 
- 600 03cb 00       		.space	1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 17
+ 556 0282 2020     		movs	r0, #32
+ 557 0284 FFF7FEFF 		bl	ACC_writeRegister
+ 558              	.LVL47:
+ 301:InterruptRoutines.c ****                     UART_1_PutString("The change was successful \r\n");
+ 559              		.loc 1 301 0
+ 560 0288 1248     		ldr	r0, .L44+60
+ 561 028a FFF7FEFF 		bl	UART_1_PutString
+ 562              	.LVL48:
+ 563              	.L41:
+ 302:InterruptRoutines.c ****                 }
+ 303:InterruptRoutines.c ****                 
+ 304:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
+ 305:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
+ 306:InterruptRoutines.c ****                 SamplingFreqFlag=0;
+ 564              		.loc 1 306 0
+ 565 028e 0022     		movs	r2, #0
+ 566 0290 084B     		ldr	r3, .L44+28
+ 567 0292 DA70     		strb	r2, [r3, #3]
+ 568 0294 08BD     		pop	{r3, pc}
+ 569              	.L45:
+ 570 0296 00BF     		.align	2
+ 571              	.L44:
+ 572 0298 00000000 		.word	ch_received
+ 573 029c 00000000 		.word	.LC0
+ 574 02a0 38000000 		.word	.LC1
+ 575 02a4 64000000 		.word	.LC2
+ 576 02a8 84000000 		.word	.LC3
+ 577 02ac A4000000 		.word	.LC4
+ 578 02b0 C4000000 		.word	.LC5
+ 579 02b4 00000000 		.word	.LANCHOR0
+ 580 02b8 E4000000 		.word	.LC6
+ 581 02bc 20010000 		.word	.LC7
+ 582 02c0 4C010000 		.word	.LC8
+ 583 02c4 68010000 		.word	.LC9
+ 584 02c8 88010000 		.word	.LC10
+ 585 02cc A8010000 		.word	.LC11
+ 586 02d0 C8010000 		.word	.LC12
+ 587 02d4 F8010000 		.word	.LC13
+ 588              	.L21:
+ 307:InterruptRoutines.c ****             }
+ 308:InterruptRoutines.c ****         break;
+ 309:InterruptRoutines.c ****             
+ 310:InterruptRoutines.c ****         // Visualize data on Bridge Control Panel command on UART
+ 311:InterruptRoutines.c ****         case 'V':
+ 312:InterruptRoutines.c ****         case 'v':
+ 313:InterruptRoutines.c ****             //data acquisition from Acc and Storage in EEPROM must be STOPPED
+ 314:InterruptRoutines.c ****             //Onboard LED tells the user that data acquisition is OFF
+ 315:InterruptRoutines.c ****             
+ 316:InterruptRoutines.c ****             //External LED tells the user that data are being streamed through UART
+ 317:InterruptRoutines.c ****             
+ 318:InterruptRoutines.c ****             
+ 319:InterruptRoutines.c ****         break;
+ 320:InterruptRoutines.c ****             
+ 321:InterruptRoutines.c ****         // Stop visualize data on Bridge Control Panel command on UART
+ 322:InterruptRoutines.c ****         case 'U':
+ 323:InterruptRoutines.c ****         case 'u':
+ 324:InterruptRoutines.c ****             
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 17
 
 
- 601              	.LC19:
- 602 03cc 31202020 		.ascii	"1                    1Hz \015\012\000"
- 602      20202020 
- 602      20202020 
- 602      20202020 
- 602      20202020 
- 603              	.LC20:
- 604 03e8 32202020 		.ascii	"2                    10Hz \015\012\000"
- 604      20202020 
- 604      20202020 
- 604      20202020 
- 604      20202020 
- 605 0405 000000   		.space	3
- 606              	.LC21:
- 607 0408 33202020 		.ascii	"3                    25Hz \015\012\000"
- 607      20202020 
- 607      20202020 
- 607      20202020 
- 607      20202020 
- 608 0425 000000   		.space	3
- 609              	.LC22:
- 610 0428 34202020 		.ascii	"4                    50Hz \015\012\000"
- 610      20202020 
- 610      20202020 
- 610      20202020 
- 610      20202020 
- 611 0445 000000   		.space	3
- 612              	.LC23:
- 613 0448 53746F72 		.ascii	"Store the temperature data \015\012\000"
- 613      65207468 
- 613      65207465 
- 613      6D706572 
- 613      61747572 
- 614 0466 0000     		.space	2
- 615              	.LC24:
- 616 0468 43686172 		.ascii	"Character            Temperature format \015\012\000"
- 616      61637465 
- 616      72202020 
- 616      20202020 
- 616      20202020 
- 617 0493 00       		.space	1
- 618              	.LC25:
- 619 0494 63202020 		.ascii	"c                    Store data in Celsius format \015"
- 619      20202020 
- 619      20202020 
- 619      20202020 
- 619      20202020 
- 620 04c7 0A00     		.ascii	"\012\000"
- 621 04c9 000000   		.space	3
- 622              	.LC26:
- 623 04cc 66202020 		.ascii	"f                    Store data in Fahrenheit forma"
- 623      20202020 
- 623      20202020 
- 623      20202020 
- 623      20202020 
- 624 04ff 7420200D 		.ascii	"t  \015\012\000"
- 624      0A00
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 18
+ 325:InterruptRoutines.c ****             //External LED tells the user that streaming through UART has been stopped
+ 326:InterruptRoutines.c ****             
+ 327:InterruptRoutines.c ****             //data acquisition from Acc and Storage in EEPROM must be RE-Started?
+ 328:InterruptRoutines.c ****             //vedi punto 6 dell'assignment, ultime righe
+ 329:InterruptRoutines.c ****             
+ 330:InterruptRoutines.c ****             
+ 331:InterruptRoutines.c ****         break;
+ 332:InterruptRoutines.c ****             
+ 333:InterruptRoutines.c ****         // Temperature mode command on UART
+ 334:InterruptRoutines.c ****         case 'T':
+ 335:InterruptRoutines.c ****         case 't':
+ 336:InterruptRoutines.c ****             if ( TemperatureMode == 0 )
+ 589              		.loc 1 336 0
+ 590 02d8 0E4B     		ldr	r3, .L46
+ 591 02da 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 592 02dc 0BB9     		cbnz	r3, .L42
+ 337:InterruptRoutines.c ****             {
+ 338:InterruptRoutines.c ****                 Timer_Start(); // Start sampling Temperature values every Timer overflow
+ 593              		.loc 1 338 0
+ 594 02de FFF7FEFF 		bl	Timer_Start
+ 595              	.LVL49:
+ 596              	.L42:
+ 339:InterruptRoutines.c ****             }
+ 340:InterruptRoutines.c ****             /* SHOW TEMPERATURE MENU' ON UART*/
+ 341:InterruptRoutines.c ****             UART_1_PutString("Store the temperature data \r\n");
+ 597              		.loc 1 341 0
+ 598 02e2 0D48     		ldr	r0, .L46+4
+ 599 02e4 FFF7FEFF 		bl	UART_1_PutString
+ 600              	.LVL50:
+ 342:InterruptRoutines.c ****             UART_1_PutString("Character            Temperature format \r\n");
+ 601              		.loc 1 342 0
+ 602 02e8 0C48     		ldr	r0, .L46+8
+ 603 02ea FFF7FEFF 		bl	UART_1_PutString
+ 604              	.LVL51:
+ 343:InterruptRoutines.c ****             UART_1_PutString("c                    Store data in Celsius format \r\n");
+ 605              		.loc 1 343 0
+ 606 02ee 0C48     		ldr	r0, .L46+12
+ 607 02f0 FFF7FEFF 		bl	UART_1_PutString
+ 608              	.LVL52:
+ 344:InterruptRoutines.c ****             UART_1_PutString("f                    Store data in Fahrenheit format  \r\n");
+ 609              		.loc 1 344 0
+ 610 02f4 0B48     		ldr	r0, .L46+16
+ 611 02f6 FFF7FEFF 		bl	UART_1_PutString
+ 612              	.LVL53:
+ 345:InterruptRoutines.c ****             TemperatureMode=1;
+ 613              		.loc 1 345 0
+ 614 02fa 0122     		movs	r2, #1
+ 615 02fc 054B     		ldr	r3, .L46
+ 616 02fe 1A70     		strb	r2, [r3]
+ 346:InterruptRoutines.c ****             
+ 347:InterruptRoutines.c ****             // Timer_Stop(); in usvita dalla modalità temp?
+ 348:InterruptRoutines.c ****         break;
+ 617              		.loc 1 348 0
+ 618 0300 08BD     		pop	{r3, pc}
+ 619              	.L18:
+ 349:InterruptRoutines.c ****             
+ 350:InterruptRoutines.c ****         // Temperature in Celsius command on UART
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 18
 
 
- 625              		.bss
- 626              		.set	.LANCHOR0,. + 0
- 627              		.type	SelectionFlag, %object
- 628              		.size	SelectionFlag, 1
- 629              	SelectionFlag:
- 630 0000 00       		.space	1
- 631              		.type	FSRFlag, %object
- 632              		.size	FSRFlag, 1
- 633              	FSRFlag:
- 634 0001 00       		.space	1
- 635              		.type	TemperatureFlag, %object
- 636              		.size	TemperatureFlag, 1
- 637              	TemperatureFlag:
- 638 0002 00       		.space	1
- 639              		.type	SamplingFreqFlag, %object
- 640              		.size	SamplingFreqFlag, 1
- 641              	SamplingFreqFlag:
- 642 0003 00       		.space	1
- 643              		.text
- 644              	.Letext0:
- 645              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
- 646              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
- 647              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
- 648              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
- 649              		.file 6 "Generated_Source\\PSoC5/UART_1.h"
- 650              		.file 7 "LIS3DH.h"
- 651              		.section	.debug_info,"",%progbits
- 652              	.Ldebug_info0:
- 653 0000 BF040000 		.4byte	0x4bf
- 654 0004 0400     		.2byte	0x4
- 655 0006 00000000 		.4byte	.Ldebug_abbrev0
- 656 000a 04       		.byte	0x4
- 657 000b 01       		.uleb128 0x1
- 658 000c 85000000 		.4byte	.LASF26
- 659 0010 0C       		.byte	0xc
- 660 0011 42020000 		.4byte	.LASF27
- 661 0015 0A000000 		.4byte	.LASF28
- 662 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 663 001d 00000000 		.4byte	0
- 664 0021 00000000 		.4byte	.Ldebug_line0
- 665 0025 02       		.uleb128 0x2
- 666 0026 01       		.byte	0x1
- 667 0027 06       		.byte	0x6
- 668 0028 0C020000 		.4byte	.LASF0
- 669 002c 02       		.uleb128 0x2
- 670 002d 01       		.byte	0x1
- 671 002e 08       		.byte	0x8
- 672 002f 77000000 		.4byte	.LASF1
- 673 0033 02       		.uleb128 0x2
- 674 0034 02       		.byte	0x2
- 675 0035 05       		.byte	0x5
- 676 0036 E2010000 		.4byte	.LASF2
- 677 003a 02       		.uleb128 0x2
- 678 003b 02       		.byte	0x2
- 679 003c 07       		.byte	0x7
- 680 003d 25010000 		.4byte	.LASF3
- 681 0041 03       		.uleb128 0x3
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 19
+ 351:InterruptRoutines.c ****         case 'C':
+ 352:InterruptRoutines.c ****         case 'c':
+ 353:InterruptRoutines.c ****             if (TemperatureMode==1)
+ 620              		.loc 1 353 0
+ 621 0302 044B     		ldr	r3, .L46
+ 622 0304 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 623 0306 012B     		cmp	r3, #1
+ 624 0308 02D1     		bne	.L10
+ 354:InterruptRoutines.c ****             {
+ 355:InterruptRoutines.c ****                 FahrenheitFlag=0;
+ 625              		.loc 1 355 0
+ 626 030a 0022     		movs	r2, #0
+ 627 030c 014B     		ldr	r3, .L46
+ 628 030e 5A70     		strb	r2, [r3, #1]
+ 629              	.L10:
+ 630 0310 08BD     		pop	{r3, pc}
+ 631              	.L47:
+ 632 0312 00BF     		.align	2
+ 633              	.L46:
+ 634 0314 00000000 		.word	.LANCHOR0
+ 635 0318 18020000 		.word	.LC14
+ 636 031c 38020000 		.word	.LC15
+ 637 0320 64020000 		.word	.LC16
+ 638 0324 9C020000 		.word	.LC17
+ 639              		.cfi_endproc
+ 640              	.LFE66:
+ 641              		.size	Custom_ISR_RX, .-Custom_ISR_RX
+ 642              		.comm	value_mv,4,4
+ 643              		.comm	value_digit,4,4
+ 644              		.comm	value_temp,4,4
+ 645              		.global	FahrenheitFlag
+ 646              		.global	TemperatureMode
+ 647              		.global	SamplingFreqFlag
+ 648              		.global	FSRFlag
+ 649              		.comm	ch_received,1,1
+ 650              		.comm	PacketReadyFlag,1,1
+ 651              		.comm	DataBuffer,10,4
+ 652              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 653              		.align	2
+ 654              	.LC0:
+ 655 0000 436F6E66 		.ascii	"Configuration of the accelerometer full scale range"
+ 655      69677572 
+ 655      6174696F 
+ 655      6E206F66 
+ 655      20746865 
+ 656 0033 200D0A00 		.ascii	" \015\012\000"
+ 657 0037 00       		.space	1
+ 658              	.LC1:
+ 659 0038 43686172 		.ascii	"Character            Full scale range \015\012\000"
+ 659      61637465 
+ 659      72202020 
+ 659      20202020 
+ 659      20202020 
+ 660 0061 000000   		.space	3
+ 661              	.LC2:
+ 662 0064 31202020 		.ascii	"1                    +- 2g \015\012\000"
+ 662      20202020 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 19
 
 
- 682 0042 00000000 		.4byte	.LASF9
- 683 0046 02       		.byte	0x2
- 684 0047 3F       		.byte	0x3f
- 685 0048 4C000000 		.4byte	0x4c
- 686 004c 02       		.uleb128 0x2
- 687 004d 04       		.byte	0x4
- 688 004e 05       		.byte	0x5
- 689 004f F2010000 		.4byte	.LASF4
- 690 0053 02       		.uleb128 0x2
- 691 0054 04       		.byte	0x4
- 692 0055 07       		.byte	0x7
- 693 0056 13010000 		.4byte	.LASF5
- 694 005a 02       		.uleb128 0x2
- 695 005b 08       		.byte	0x8
- 696 005c 05       		.byte	0x5
- 697 005d C6010000 		.4byte	.LASF6
- 698 0061 02       		.uleb128 0x2
- 699 0062 08       		.byte	0x8
- 700 0063 07       		.byte	0x7
- 701 0064 7B010000 		.4byte	.LASF7
- 702 0068 04       		.uleb128 0x4
- 703 0069 04       		.byte	0x4
- 704 006a 05       		.byte	0x5
- 705 006b 696E7400 		.ascii	"int\000"
- 706 006f 02       		.uleb128 0x2
- 707 0070 04       		.byte	0x4
- 708 0071 07       		.byte	0x7
- 709 0072 6E010000 		.4byte	.LASF8
- 710 0076 03       		.uleb128 0x3
- 711 0077 69000000 		.4byte	.LASF10
- 712 007b 03       		.byte	0x3
- 713 007c 2C       		.byte	0x2c
- 714 007d 41000000 		.4byte	0x41
- 715 0081 05       		.uleb128 0x5
- 716 0082 EC010000 		.4byte	.LASF11
- 717 0086 04       		.byte	0x4
- 718 0087 E401     		.2byte	0x1e4
- 719 0089 2C000000 		.4byte	0x2c
- 720 008d 02       		.uleb128 0x2
- 721 008e 04       		.byte	0x4
- 722 008f 04       		.byte	0x4
- 723 0090 71000000 		.4byte	.LASF12
- 724 0094 02       		.uleb128 0x2
- 725 0095 08       		.byte	0x8
- 726 0096 04       		.byte	0x4
- 727 0097 45010000 		.4byte	.LASF13
- 728 009b 02       		.uleb128 0x2
- 729 009c 01       		.byte	0x1
- 730 009d 08       		.byte	0x8
- 731 009e FB010000 		.4byte	.LASF14
- 732 00a2 02       		.uleb128 0x2
- 733 00a3 08       		.byte	0x8
- 734 00a4 04       		.byte	0x4
- 735 00a5 00020000 		.4byte	.LASF15
- 736 00a9 02       		.uleb128 0x2
- 737 00aa 04       		.byte	0x4
- 738 00ab 07       		.byte	0x7
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 20
+ 662      20202020 
+ 662      20202020 
+ 662      20202020 
+ 663 0082 0000     		.space	2
+ 664              	.LC3:
+ 665 0084 32202020 		.ascii	"2                    +- 4g \015\012\000"
+ 665      20202020 
+ 665      20202020 
+ 665      20202020 
+ 665      20202020 
+ 666 00a2 0000     		.space	2
+ 667              	.LC4:
+ 668 00a4 33202020 		.ascii	"3                    +- 8g \015\012\000"
+ 668      20202020 
+ 668      20202020 
+ 668      20202020 
+ 668      20202020 
+ 669 00c2 0000     		.space	2
+ 670              	.LC5:
+ 671 00c4 34202020 		.ascii	"4                    +- 16g \015\012\000"
+ 671      20202020 
+ 671      20202020 
+ 671      20202020 
+ 671      20202020 
+ 672 00e3 00       		.space	1
+ 673              	.LC6:
+ 674 00e4 436F6E66 		.ascii	"Configuration of the accelerometer sampling frequen"
+ 674      69677572 
+ 674      6174696F 
+ 674      6E206F66 
+ 674      20746865 
+ 675 0117 6379200D 		.ascii	"cy \015\012\000"
+ 675      0A00
+ 676 011d 000000   		.space	3
+ 677              	.LC7:
+ 678 0120 43686172 		.ascii	"Character            Sampling Frequency \015\012\000"
+ 678      61637465 
+ 678      72202020 
+ 678      20202020 
+ 678      20202020 
+ 679 014b 00       		.space	1
+ 680              	.LC8:
+ 681 014c 31202020 		.ascii	"1                    1Hz \015\012\000"
+ 681      20202020 
+ 681      20202020 
+ 681      20202020 
+ 681      20202020 
+ 682              	.LC9:
+ 683 0168 32202020 		.ascii	"2                    10Hz \015\012\000"
+ 683      20202020 
+ 683      20202020 
+ 683      20202020 
+ 683      20202020 
+ 684 0185 000000   		.space	3
+ 685              	.LC10:
+ 686 0188 33202020 		.ascii	"3                    25Hz \015\012\000"
+ 686      20202020 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 20
 
 
- 739 00ac BD010000 		.4byte	.LASF16
- 740 00b0 06       		.uleb128 0x6
- 741 00b1 92010000 		.4byte	.LASF29
- 742 00b5 01       		.byte	0x1
- 743 00b6 1B       		.byte	0x1b
- 744 00b7 00000000 		.4byte	.LFB64
- 745 00bb 02000000 		.4byte	.LFE64-.LFB64
- 746 00bf 01       		.uleb128 0x1
- 747 00c0 9C       		.byte	0x9c
- 748 00c1 07       		.uleb128 0x7
- 749 00c2 D4010000 		.4byte	.LASF30
- 750 00c6 01       		.byte	0x1
- 751 00c7 20       		.byte	0x20
- 752 00c8 00000000 		.4byte	.LFB65
- 753 00cc 34030000 		.4byte	.LFE65-.LFB65
- 754 00d0 01       		.uleb128 0x1
- 755 00d1 9C       		.byte	0x9c
- 756 00d2 3B040000 		.4byte	0x43b
- 757 00d6 08       		.uleb128 0x8
- 758 00d7 06000000 		.4byte	.LVL0
- 759 00db A1040000 		.4byte	0x4a1
- 760 00df 09       		.uleb128 0x9
- 761 00e0 AA000000 		.4byte	.LVL1
- 762 00e4 AC040000 		.4byte	0x4ac
- 763 00e8 F3000000 		.4byte	0xf3
- 764 00ec 0A       		.uleb128 0xa
- 765 00ed 01       		.uleb128 0x1
- 766 00ee 50       		.byte	0x50
- 767 00ef 02       		.uleb128 0x2
- 768 00f0 74       		.byte	0x74
- 769 00f1 00       		.sleb128 0
- 770 00f2 00       		.byte	0
- 771 00f3 09       		.uleb128 0x9
- 772 00f4 B0000000 		.4byte	.LVL2
- 773 00f8 AC040000 		.4byte	0x4ac
- 774 00fc 0A010000 		.4byte	0x10a
- 775 0100 0A       		.uleb128 0xa
- 776 0101 01       		.uleb128 0x1
- 777 0102 50       		.byte	0x50
- 778 0103 05       		.uleb128 0x5
- 779 0104 03       		.byte	0x3
- 780 0105 28000000 		.4byte	.LC1
- 781 0109 00       		.byte	0
- 782 010a 09       		.uleb128 0x9
- 783 010b B8000000 		.4byte	.LVL3
- 784 010f AC040000 		.4byte	0x4ac
- 785 0113 1E010000 		.4byte	0x11e
- 786 0117 0A       		.uleb128 0xa
- 787 0118 01       		.uleb128 0x1
- 788 0119 50       		.byte	0x50
- 789 011a 02       		.uleb128 0x2
- 790 011b 75       		.byte	0x75
- 791 011c 00       		.sleb128 0
- 792 011d 00       		.byte	0
- 793 011e 09       		.uleb128 0x9
- 794 011f BE000000 		.4byte	.LVL4
- 795 0123 AC040000 		.4byte	0x4ac
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 21
+ 686      20202020 
+ 686      20202020 
+ 686      20202020 
+ 687 01a5 000000   		.space	3
+ 688              	.LC11:
+ 689 01a8 34202020 		.ascii	"4                    50Hz \015\012\000"
+ 689      20202020 
+ 689      20202020 
+ 689      20202020 
+ 689      20202020 
+ 690 01c5 000000   		.space	3
+ 691              	.LC12:
+ 692 01c8 54686520 		.ascii	"The selected option was already been setted \015\012"
+ 692      73656C65 
+ 692      63746564 
+ 692      206F7074 
+ 692      696F6E20 
+ 693 01f6 00       		.ascii	"\000"
+ 694 01f7 00       		.space	1
+ 695              	.LC13:
+ 696 01f8 54686520 		.ascii	"The change was successful \015\012\000"
+ 696      6368616E 
+ 696      67652077 
+ 696      61732073 
+ 696      75636365 
+ 697 0215 000000   		.space	3
+ 698              	.LC14:
+ 699 0218 53746F72 		.ascii	"Store the temperature data \015\012\000"
+ 699      65207468 
+ 699      65207465 
+ 699      6D706572 
+ 699      61747572 
+ 700 0236 0000     		.space	2
+ 701              	.LC15:
+ 702 0238 43686172 		.ascii	"Character            Temperature format \015\012\000"
+ 702      61637465 
+ 702      72202020 
+ 702      20202020 
+ 702      20202020 
+ 703 0263 00       		.space	1
+ 704              	.LC16:
+ 705 0264 63202020 		.ascii	"c                    Store data in Celsius format \015"
+ 705      20202020 
+ 705      20202020 
+ 705      20202020 
+ 705      20202020 
+ 706 0297 0A00     		.ascii	"\012\000"
+ 707 0299 000000   		.space	3
+ 708              	.LC17:
+ 709 029c 66202020 		.ascii	"f                    Store data in Fahrenheit forma"
+ 709      20202020 
+ 709      20202020 
+ 709      20202020 
+ 709      20202020 
+ 710 02cf 7420200D 		.ascii	"t  \015\012\000"
+ 710      0A00
+ 711              		.bss
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 21
 
 
- 796 0127 35010000 		.4byte	0x135
- 797 012b 0A       		.uleb128 0xa
- 798 012c 01       		.uleb128 0x1
- 799 012d 50       		.byte	0x50
- 800 012e 05       		.uleb128 0x5
- 801 012f 03       		.byte	0x3
- 802 0130 54000000 		.4byte	.LC3
- 803 0134 00       		.byte	0
- 804 0135 09       		.uleb128 0x9
- 805 0136 C4000000 		.4byte	.LVL5
- 806 013a AC040000 		.4byte	0x4ac
- 807 013e 4C010000 		.4byte	0x14c
- 808 0142 0A       		.uleb128 0xa
- 809 0143 01       		.uleb128 0x1
- 810 0144 50       		.byte	0x50
- 811 0145 05       		.uleb128 0x5
- 812 0146 03       		.byte	0x3
- 813 0147 7C000000 		.4byte	.LC4
- 814 014b 00       		.byte	0
- 815 014c 09       		.uleb128 0x9
- 816 014d CA000000 		.4byte	.LVL6
- 817 0151 AC040000 		.4byte	0x4ac
- 818 0155 63010000 		.4byte	0x163
- 819 0159 0A       		.uleb128 0xa
- 820 015a 01       		.uleb128 0x1
- 821 015b 50       		.byte	0x50
- 822 015c 05       		.uleb128 0x5
- 823 015d 03       		.byte	0x3
- 824 015e DC000000 		.4byte	.LC5
- 825 0162 00       		.byte	0
- 826 0163 09       		.uleb128 0x9
- 827 0164 D0000000 		.4byte	.LVL7
- 828 0168 AC040000 		.4byte	0x4ac
- 829 016c 7A010000 		.4byte	0x17a
- 830 0170 0A       		.uleb128 0xa
- 831 0171 01       		.uleb128 0x1
- 832 0172 50       		.byte	0x50
- 833 0173 05       		.uleb128 0x5
- 834 0174 03       		.byte	0x3
- 835 0175 3C010000 		.4byte	.LC6
- 836 0179 00       		.byte	0
- 837 017a 09       		.uleb128 0x9
- 838 017b D6000000 		.4byte	.LVL8
- 839 017f AC040000 		.4byte	0x4ac
- 840 0183 91010000 		.4byte	0x191
- 841 0187 0A       		.uleb128 0xa
- 842 0188 01       		.uleb128 0x1
- 843 0189 50       		.byte	0x50
- 844 018a 05       		.uleb128 0x5
- 845 018b 03       		.byte	0x3
- 846 018c 80010000 		.4byte	.LC7
- 847 0190 00       		.byte	0
- 848 0191 09       		.uleb128 0x9
- 849 0192 DC000000 		.4byte	.LVL9
- 850 0196 AC040000 		.4byte	0x4ac
- 851 019a A8010000 		.4byte	0x1a8
- 852 019e 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 22
+ 712              		.set	.LANCHOR0,. + 0
+ 713              		.type	TemperatureMode, %object
+ 714              		.size	TemperatureMode, 1
+ 715              	TemperatureMode:
+ 716 0000 00       		.space	1
+ 717              		.type	FahrenheitFlag, %object
+ 718              		.size	FahrenheitFlag, 1
+ 719              	FahrenheitFlag:
+ 720 0001 00       		.space	1
+ 721              		.type	FSRFlag, %object
+ 722              		.size	FSRFlag, 1
+ 723              	FSRFlag:
+ 724 0002 00       		.space	1
+ 725              		.type	SamplingFreqFlag, %object
+ 726              		.size	SamplingFreqFlag, 1
+ 727              	SamplingFreqFlag:
+ 728 0003 00       		.space	1
+ 729              		.text
+ 730              	.Letext0:
+ 731              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 732              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 733              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 734              		.file 5 "InterruptRoutines.h"
+ 735              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 736              		.file 7 "Generated_Source\\PSoC5/Timer.h"
+ 737              		.file 8 "Generated_Source\\PSoC5/ADC_DelSig.h"
+ 738              		.file 9 "Generated_Source\\PSoC5/UART_1.h"
+ 739              		.file 10 "Functions.h"
+ 740              		.file 11 "LIS3DH.h"
+ 741              		.section	.debug_info,"",%progbits
+ 742              	.Ldebug_info0:
+ 743 0000 AA060000 		.4byte	0x6aa
+ 744 0004 0400     		.2byte	0x4
+ 745 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 746 000a 04       		.byte	0x4
+ 747 000b 01       		.uleb128 0x1
+ 748 000c 88010000 		.4byte	.LASF40
+ 749 0010 0C       		.byte	0xc
+ 750 0011 FF020000 		.4byte	.LASF41
+ 751 0015 84000000 		.4byte	.LASF42
+ 752 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 753 001d 00000000 		.4byte	0
+ 754 0021 00000000 		.4byte	.Ldebug_line0
+ 755 0025 02       		.uleb128 0x2
+ 756 0026 01       		.byte	0x1
+ 757 0027 06       		.byte	0x6
+ 758 0028 A9020000 		.4byte	.LASF0
+ 759 002c 02       		.uleb128 0x2
+ 760 002d 01       		.byte	0x1
+ 761 002e 08       		.byte	0x8
+ 762 002f 6C000000 		.4byte	.LASF1
+ 763 0033 02       		.uleb128 0x2
+ 764 0034 02       		.byte	0x2
+ 765 0035 05       		.byte	0x5
+ 766 0036 64020000 		.4byte	.LASF2
+ 767 003a 02       		.uleb128 0x2
+ 768 003b 02       		.byte	0x2
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 22
 
 
- 853 019f 01       		.uleb128 0x1
- 854 01a0 50       		.byte	0x50
- 855 01a1 05       		.uleb128 0x5
- 856 01a2 03       		.byte	0x3
- 857 01a3 C8010000 		.4byte	.LC8
- 858 01a7 00       		.byte	0
- 859 01a8 09       		.uleb128 0x9
- 860 01a9 E2000000 		.4byte	.LVL10
- 861 01ad AC040000 		.4byte	0x4ac
- 862 01b1 BF010000 		.4byte	0x1bf
- 863 01b5 0A       		.uleb128 0xa
- 864 01b6 01       		.uleb128 0x1
- 865 01b7 50       		.byte	0x50
- 866 01b8 05       		.uleb128 0x5
- 867 01b9 03       		.byte	0x3
- 868 01ba 10020000 		.4byte	.LC9
- 869 01be 00       		.byte	0
- 870 01bf 09       		.uleb128 0x9
- 871 01c0 E8000000 		.4byte	.LVL11
- 872 01c4 AC040000 		.4byte	0x4ac
- 873 01c8 D6010000 		.4byte	0x1d6
- 874 01cc 0A       		.uleb128 0xa
- 875 01cd 01       		.uleb128 0x1
- 876 01ce 50       		.byte	0x50
- 877 01cf 05       		.uleb128 0x5
- 878 01d0 03       		.byte	0x3
- 879 01d1 54020000 		.4byte	.LC10
- 880 01d5 00       		.byte	0
- 881 01d6 09       		.uleb128 0x9
- 882 01d7 EE000000 		.4byte	.LVL12
- 883 01db AC040000 		.4byte	0x4ac
- 884 01df EA010000 		.4byte	0x1ea
- 885 01e3 0A       		.uleb128 0xa
- 886 01e4 01       		.uleb128 0x1
- 887 01e5 50       		.byte	0x50
- 888 01e6 02       		.uleb128 0x2
- 889 01e7 75       		.byte	0x75
- 890 01e8 00       		.sleb128 0
- 891 01e9 00       		.byte	0
- 892 01ea 09       		.uleb128 0x9
- 893 01eb F4000000 		.4byte	.LVL13
- 894 01ef AC040000 		.4byte	0x4ac
- 895 01f3 FE010000 		.4byte	0x1fe
- 896 01f7 0A       		.uleb128 0xa
- 897 01f8 01       		.uleb128 0x1
- 898 01f9 50       		.byte	0x50
- 899 01fa 02       		.uleb128 0x2
- 900 01fb 74       		.byte	0x74
- 901 01fc 00       		.sleb128 0
- 902 01fd 00       		.byte	0
- 903 01fe 09       		.uleb128 0x9
- 904 01ff 2E010000 		.4byte	.LVL14
- 905 0203 AC040000 		.4byte	0x4ac
- 906 0207 15020000 		.4byte	0x215
- 907 020b 0A       		.uleb128 0xa
- 908 020c 01       		.uleb128 0x1
- 909 020d 50       		.byte	0x50
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 23
+ 769 003c 07       		.byte	0x7
+ 770 003d 32000000 		.4byte	.LASF3
+ 771 0041 03       		.uleb128 0x3
+ 772 0042 0F000000 		.4byte	.LASF9
+ 773 0046 02       		.byte	0x2
+ 774 0047 3F       		.byte	0x3f
+ 775 0048 4C000000 		.4byte	0x4c
+ 776 004c 02       		.uleb128 0x2
+ 777 004d 04       		.byte	0x4
+ 778 004e 05       		.byte	0x5
+ 779 004f 83020000 		.4byte	.LASF4
+ 780 0053 02       		.uleb128 0x2
+ 781 0054 04       		.byte	0x4
+ 782 0055 07       		.byte	0x7
+ 783 0056 D4000000 		.4byte	.LASF5
+ 784 005a 02       		.uleb128 0x2
+ 785 005b 08       		.byte	0x8
+ 786 005c 05       		.byte	0x5
+ 787 005d 3D020000 		.4byte	.LASF6
+ 788 0061 02       		.uleb128 0x2
+ 789 0062 08       		.byte	0x8
+ 790 0063 07       		.byte	0x7
+ 791 0064 3B010000 		.4byte	.LASF7
+ 792 0068 04       		.uleb128 0x4
+ 793 0069 04       		.byte	0x4
+ 794 006a 05       		.byte	0x5
+ 795 006b 696E7400 		.ascii	"int\000"
+ 796 006f 02       		.uleb128 0x2
+ 797 0070 04       		.byte	0x4
+ 798 0071 07       		.byte	0x7
+ 799 0072 1E010000 		.4byte	.LASF8
+ 800 0076 03       		.uleb128 0x3
+ 801 0077 4E000000 		.4byte	.LASF10
+ 802 007b 03       		.byte	0x3
+ 803 007c 2C       		.byte	0x2c
+ 804 007d 41000000 		.4byte	0x41
+ 805 0081 05       		.uleb128 0x5
+ 806 0082 7D020000 		.4byte	.LASF11
+ 807 0086 04       		.byte	0x4
+ 808 0087 E401     		.2byte	0x1e4
+ 809 0089 2C000000 		.4byte	0x2c
+ 810 008d 05       		.uleb128 0x5
+ 811 008e E6000000 		.4byte	.LASF12
+ 812 0092 04       		.byte	0x4
+ 813 0093 E901     		.2byte	0x1e9
+ 814 0095 4C000000 		.4byte	0x4c
+ 815 0099 02       		.uleb128 0x2
+ 816 009a 04       		.byte	0x4
+ 817 009b 04       		.byte	0x4
+ 818 009c 56000000 		.4byte	.LASF13
+ 819 00a0 02       		.uleb128 0x2
+ 820 00a1 08       		.byte	0x8
+ 821 00a2 04       		.byte	0x4
+ 822 00a3 F9000000 		.4byte	.LASF14
+ 823 00a7 02       		.uleb128 0x2
+ 824 00a8 01       		.byte	0x1
+ 825 00a9 08       		.byte	0x8
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 23
 
 
- 910 020e 05       		.uleb128 0x5
- 911 020f 03       		.byte	0x3
- 912 0210 80020000 		.4byte	.LC11
- 913 0214 00       		.byte	0
- 914 0215 09       		.uleb128 0x9
- 915 0216 34010000 		.4byte	.LVL15
- 916 021a AC040000 		.4byte	0x4ac
- 917 021e 2C020000 		.4byte	0x22c
- 918 0222 0A       		.uleb128 0xa
- 919 0223 01       		.uleb128 0x1
- 920 0224 50       		.byte	0x50
- 921 0225 05       		.uleb128 0x5
- 922 0226 03       		.byte	0x3
- 923 0227 B8020000 		.4byte	.LC12
- 924 022b 00       		.byte	0
- 925 022c 09       		.uleb128 0x9
- 926 022d 3A010000 		.4byte	.LVL16
- 927 0231 AC040000 		.4byte	0x4ac
- 928 0235 43020000 		.4byte	0x243
- 929 0239 0A       		.uleb128 0xa
- 930 023a 01       		.uleb128 0x1
- 931 023b 50       		.byte	0x50
- 932 023c 05       		.uleb128 0x5
- 933 023d 03       		.byte	0x3
- 934 023e E4020000 		.4byte	.LC13
- 935 0242 00       		.byte	0
- 936 0243 09       		.uleb128 0x9
- 937 0244 40010000 		.4byte	.LVL17
- 938 0248 AC040000 		.4byte	0x4ac
- 939 024c 5A020000 		.4byte	0x25a
- 940 0250 0A       		.uleb128 0xa
- 941 0251 01       		.uleb128 0x1
- 942 0252 50       		.byte	0x50
- 943 0253 05       		.uleb128 0x5
- 944 0254 03       		.byte	0x3
- 945 0255 04030000 		.4byte	.LC14
- 946 0259 00       		.byte	0
- 947 025a 09       		.uleb128 0x9
- 948 025b 46010000 		.4byte	.LVL18
- 949 025f AC040000 		.4byte	0x4ac
- 950 0263 71020000 		.4byte	0x271
- 951 0267 0A       		.uleb128 0xa
- 952 0268 01       		.uleb128 0x1
- 953 0269 50       		.byte	0x50
- 954 026a 05       		.uleb128 0x5
- 955 026b 03       		.byte	0x3
- 956 026c 24030000 		.4byte	.LC15
- 957 0270 00       		.byte	0
- 958 0271 09       		.uleb128 0x9
- 959 0272 4C010000 		.4byte	.LVL19
- 960 0276 AC040000 		.4byte	0x4ac
- 961 027a 88020000 		.4byte	0x288
- 962 027e 0A       		.uleb128 0xa
- 963 027f 01       		.uleb128 0x1
- 964 0280 50       		.byte	0x50
- 965 0281 05       		.uleb128 0x5
- 966 0282 03       		.byte	0x3
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 24
+ 826 00aa 8C020000 		.4byte	.LASF15
+ 827 00ae 06       		.uleb128 0x6
+ 828 00af 81000000 		.4byte	0x81
+ 829 00b3 02       		.uleb128 0x2
+ 830 00b4 08       		.byte	0x8
+ 831 00b5 04       		.byte	0x4
+ 832 00b6 9D020000 		.4byte	.LASF16
+ 833 00ba 02       		.uleb128 0x2
+ 834 00bb 04       		.byte	0x4
+ 835 00bc 07       		.byte	0x7
+ 836 00bd 22020000 		.4byte	.LASF17
+ 837 00c1 07       		.uleb128 0x7
+ 838 00c2 52010000 		.4byte	.LASF43
+ 839 00c6 01       		.byte	0x1
+ 840 00c7 29       		.byte	0x29
+ 841 00c8 00000000 		.4byte	.LFB64
+ 842 00cc 02000000 		.4byte	.LFE64-.LFB64
+ 843 00d0 01       		.uleb128 0x1
+ 844 00d1 9C       		.byte	0x9c
+ 845 00d2 08       		.uleb128 0x8
+ 846 00d3 00000000 		.4byte	.LASF18
+ 847 00d7 01       		.byte	0x1
+ 848 00d8 2E       		.byte	0x2e
+ 849 00d9 00000000 		.4byte	.LFB65
+ 850 00dd 9C000000 		.4byte	.LFE65-.LFB65
+ 851 00e1 01       		.uleb128 0x1
+ 852 00e2 9C       		.byte	0x9c
+ 853 00e3 03010000 		.4byte	0x103
+ 854 00e7 09       		.uleb128 0x9
+ 855 00e8 06000000 		.4byte	.LVL0
+ 856 00ec 4A060000 		.4byte	0x64a
+ 857 00f0 09       		.uleb128 0x9
+ 858 00f1 12000000 		.4byte	.LVL1
+ 859 00f5 55060000 		.4byte	0x655
+ 860 00f9 09       		.uleb128 0x9
+ 861 00fa 40000000 		.4byte	.LVL2
+ 862 00fe 60060000 		.4byte	0x660
+ 863 0102 00       		.byte	0
+ 864 0103 08       		.uleb128 0x8
+ 865 0104 4B020000 		.4byte	.LASF19
+ 866 0108 01       		.byte	0x1
+ 867 0109 48       		.byte	0x48
+ 868 010a 00000000 		.4byte	.LFB66
+ 869 010e 28030000 		.4byte	.LFE66-.LFB66
+ 870 0112 01       		.uleb128 0x1
+ 871 0113 9C       		.byte	0x9c
+ 872 0114 7F050000 		.4byte	0x57f
+ 873 0118 09       		.uleb128 0x9
+ 874 0119 06000000 		.4byte	.LVL3
+ 875 011d 6B060000 		.4byte	0x66b
+ 876 0121 09       		.uleb128 0x9
+ 877 0122 A2000000 		.4byte	.LVL4
+ 878 0126 76060000 		.4byte	0x676
+ 879 012a 0A       		.uleb128 0xa
+ 880 012b AA000000 		.4byte	.LVL5
+ 881 012f 81060000 		.4byte	0x681
+ 882 0133 41010000 		.4byte	0x141
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 24
 
 
- 967 0283 44030000 		.4byte	.LC16
- 968 0287 00       		.byte	0
- 969 0288 09       		.uleb128 0x9
- 970 0289 78010000 		.4byte	.LVL20
- 971 028d AC040000 		.4byte	0x4ac
- 972 0291 9F020000 		.4byte	0x29f
- 973 0295 0A       		.uleb128 0xa
- 974 0296 01       		.uleb128 0x1
- 975 0297 50       		.byte	0x50
- 976 0298 05       		.uleb128 0x5
- 977 0299 03       		.byte	0x3
- 978 029a 64030000 		.4byte	.LC17
- 979 029e 00       		.byte	0
- 980 029f 09       		.uleb128 0x9
- 981 02a0 7E010000 		.4byte	.LVL21
- 982 02a4 AC040000 		.4byte	0x4ac
- 983 02a8 B6020000 		.4byte	0x2b6
- 984 02ac 0A       		.uleb128 0xa
- 985 02ad 01       		.uleb128 0x1
- 986 02ae 50       		.byte	0x50
- 987 02af 05       		.uleb128 0x5
- 988 02b0 03       		.byte	0x3
- 989 02b1 A0030000 		.4byte	.LC18
- 990 02b5 00       		.byte	0
- 991 02b6 09       		.uleb128 0x9
- 992 02b7 84010000 		.4byte	.LVL22
- 993 02bb AC040000 		.4byte	0x4ac
- 994 02bf CD020000 		.4byte	0x2cd
- 995 02c3 0A       		.uleb128 0xa
- 996 02c4 01       		.uleb128 0x1
- 997 02c5 50       		.byte	0x50
- 998 02c6 05       		.uleb128 0x5
- 999 02c7 03       		.byte	0x3
- 1000 02c8 CC030000 		.4byte	.LC19
- 1001 02cc 00       		.byte	0
- 1002 02cd 09       		.uleb128 0x9
- 1003 02ce 8A010000 		.4byte	.LVL23
- 1004 02d2 AC040000 		.4byte	0x4ac
- 1005 02d6 E4020000 		.4byte	0x2e4
- 1006 02da 0A       		.uleb128 0xa
- 1007 02db 01       		.uleb128 0x1
- 1008 02dc 50       		.byte	0x50
- 1009 02dd 05       		.uleb128 0x5
- 1010 02de 03       		.byte	0x3
- 1011 02df E8030000 		.4byte	.LC20
- 1012 02e3 00       		.byte	0
- 1013 02e4 09       		.uleb128 0x9
- 1014 02e5 90010000 		.4byte	.LVL24
- 1015 02e9 AC040000 		.4byte	0x4ac
- 1016 02ed FB020000 		.4byte	0x2fb
- 1017 02f1 0A       		.uleb128 0xa
- 1018 02f2 01       		.uleb128 0x1
- 1019 02f3 50       		.byte	0x50
- 1020 02f4 05       		.uleb128 0x5
- 1021 02f5 03       		.byte	0x3
- 1022 02f6 08040000 		.4byte	.LC21
- 1023 02fa 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 25
+ 883 0137 0B       		.uleb128 0xb
+ 884 0138 01       		.uleb128 0x1
+ 885 0139 50       		.byte	0x50
+ 886 013a 05       		.uleb128 0x5
+ 887 013b 03       		.byte	0x3
+ 888 013c 00000000 		.4byte	.LC0
+ 889 0140 00       		.byte	0
+ 890 0141 0A       		.uleb128 0xa
+ 891 0142 B0000000 		.4byte	.LVL6
+ 892 0146 81060000 		.4byte	0x681
+ 893 014a 58010000 		.4byte	0x158
+ 894 014e 0B       		.uleb128 0xb
+ 895 014f 01       		.uleb128 0x1
+ 896 0150 50       		.byte	0x50
+ 897 0151 05       		.uleb128 0x5
+ 898 0152 03       		.byte	0x3
+ 899 0153 38000000 		.4byte	.LC1
+ 900 0157 00       		.byte	0
+ 901 0158 0A       		.uleb128 0xa
+ 902 0159 B6000000 		.4byte	.LVL7
+ 903 015d 81060000 		.4byte	0x681
+ 904 0161 6F010000 		.4byte	0x16f
+ 905 0165 0B       		.uleb128 0xb
+ 906 0166 01       		.uleb128 0x1
+ 907 0167 50       		.byte	0x50
+ 908 0168 05       		.uleb128 0x5
+ 909 0169 03       		.byte	0x3
+ 910 016a 64000000 		.4byte	.LC2
+ 911 016e 00       		.byte	0
+ 912 016f 0A       		.uleb128 0xa
+ 913 0170 BC000000 		.4byte	.LVL8
+ 914 0174 81060000 		.4byte	0x681
+ 915 0178 86010000 		.4byte	0x186
+ 916 017c 0B       		.uleb128 0xb
+ 917 017d 01       		.uleb128 0x1
+ 918 017e 50       		.byte	0x50
+ 919 017f 05       		.uleb128 0x5
+ 920 0180 03       		.byte	0x3
+ 921 0181 84000000 		.4byte	.LC3
+ 922 0185 00       		.byte	0
+ 923 0186 0A       		.uleb128 0xa
+ 924 0187 C2000000 		.4byte	.LVL9
+ 925 018b 81060000 		.4byte	0x681
+ 926 018f 9D010000 		.4byte	0x19d
+ 927 0193 0B       		.uleb128 0xb
+ 928 0194 01       		.uleb128 0x1
+ 929 0195 50       		.byte	0x50
+ 930 0196 05       		.uleb128 0x5
+ 931 0197 03       		.byte	0x3
+ 932 0198 A4000000 		.4byte	.LC4
+ 933 019c 00       		.byte	0
+ 934 019d 0A       		.uleb128 0xa
+ 935 019e C8000000 		.4byte	.LVL10
+ 936 01a2 81060000 		.4byte	0x681
+ 937 01a6 B4010000 		.4byte	0x1b4
+ 938 01aa 0B       		.uleb128 0xb
+ 939 01ab 01       		.uleb128 0x1
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 25
 
 
- 1024 02fb 09       		.uleb128 0x9
- 1025 02fc 96010000 		.4byte	.LVL25
- 1026 0300 AC040000 		.4byte	0x4ac
- 1027 0304 12030000 		.4byte	0x312
- 1028 0308 0A       		.uleb128 0xa
- 1029 0309 01       		.uleb128 0x1
- 1030 030a 50       		.byte	0x50
- 1031 030b 05       		.uleb128 0x5
- 1032 030c 03       		.byte	0x3
- 1033 030d 28040000 		.4byte	.LC22
- 1034 0311 00       		.byte	0
- 1035 0312 09       		.uleb128 0x9
- 1036 0313 B2010000 		.4byte	.LVL26
- 1037 0317 B7040000 		.4byte	0x4b7
- 1038 031b 2C030000 		.4byte	0x32c
- 1039 031f 0A       		.uleb128 0xa
- 1040 0320 01       		.uleb128 0x1
- 1041 0321 50       		.byte	0x50
- 1042 0322 02       		.uleb128 0x2
- 1043 0323 08       		.byte	0x8
- 1044 0324 23       		.byte	0x23
- 1045 0325 0A       		.uleb128 0xa
- 1046 0326 01       		.uleb128 0x1
- 1047 0327 51       		.byte	0x51
- 1048 0328 02       		.uleb128 0x2
- 1049 0329 09       		.byte	0x9
- 1050 032a 80       		.byte	0x80
- 1051 032b 00       		.byte	0
- 1052 032c 09       		.uleb128 0x9
- 1053 032d CA010000 		.4byte	.LVL27
- 1054 0331 B7040000 		.4byte	0x4b7
- 1055 0335 46030000 		.4byte	0x346
- 1056 0339 0A       		.uleb128 0xa
- 1057 033a 01       		.uleb128 0x1
- 1058 033b 50       		.byte	0x50
- 1059 033c 02       		.uleb128 0x2
- 1060 033d 08       		.byte	0x8
- 1061 033e 20       		.byte	0x20
- 1062 033f 0A       		.uleb128 0xa
- 1063 0340 01       		.uleb128 0x1
- 1064 0341 51       		.byte	0x51
- 1065 0342 02       		.uleb128 0x2
- 1066 0343 08       		.byte	0x8
- 1067 0344 23       		.byte	0x23
- 1068 0345 00       		.byte	0
- 1069 0346 09       		.uleb128 0x9
- 1070 0347 E2010000 		.4byte	.LVL28
- 1071 034b B7040000 		.4byte	0x4b7
- 1072 034f 60030000 		.4byte	0x360
- 1073 0353 0A       		.uleb128 0xa
- 1074 0354 01       		.uleb128 0x1
- 1075 0355 50       		.byte	0x50
- 1076 0356 02       		.uleb128 0x2
- 1077 0357 08       		.byte	0x8
- 1078 0358 23       		.byte	0x23
- 1079 0359 0A       		.uleb128 0xa
- 1080 035a 01       		.uleb128 0x1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 26
+ 940 01ac 50       		.byte	0x50
+ 941 01ad 05       		.uleb128 0x5
+ 942 01ae 03       		.byte	0x3
+ 943 01af C4000000 		.4byte	.LC5
+ 944 01b3 00       		.byte	0
+ 945 01b4 0A       		.uleb128 0xa
+ 946 01b5 E2000000 		.4byte	.LVL11
+ 947 01b9 81060000 		.4byte	0x681
+ 948 01bd CB010000 		.4byte	0x1cb
+ 949 01c1 0B       		.uleb128 0xb
+ 950 01c2 01       		.uleb128 0x1
+ 951 01c3 50       		.byte	0x50
+ 952 01c4 05       		.uleb128 0x5
+ 953 01c5 03       		.byte	0x3
+ 954 01c6 E4000000 		.4byte	.LC6
+ 955 01ca 00       		.byte	0
+ 956 01cb 0A       		.uleb128 0xa
+ 957 01cc E8000000 		.4byte	.LVL12
+ 958 01d0 81060000 		.4byte	0x681
+ 959 01d4 E2010000 		.4byte	0x1e2
+ 960 01d8 0B       		.uleb128 0xb
+ 961 01d9 01       		.uleb128 0x1
+ 962 01da 50       		.byte	0x50
+ 963 01db 05       		.uleb128 0x5
+ 964 01dc 03       		.byte	0x3
+ 965 01dd 20010000 		.4byte	.LC7
+ 966 01e1 00       		.byte	0
+ 967 01e2 0A       		.uleb128 0xa
+ 968 01e3 EE000000 		.4byte	.LVL13
+ 969 01e7 81060000 		.4byte	0x681
+ 970 01eb F9010000 		.4byte	0x1f9
+ 971 01ef 0B       		.uleb128 0xb
+ 972 01f0 01       		.uleb128 0x1
+ 973 01f1 50       		.byte	0x50
+ 974 01f2 05       		.uleb128 0x5
+ 975 01f3 03       		.byte	0x3
+ 976 01f4 4C010000 		.4byte	.LC8
+ 977 01f8 00       		.byte	0
+ 978 01f9 0A       		.uleb128 0xa
+ 979 01fa F4000000 		.4byte	.LVL14
+ 980 01fe 81060000 		.4byte	0x681
+ 981 0202 10020000 		.4byte	0x210
+ 982 0206 0B       		.uleb128 0xb
+ 983 0207 01       		.uleb128 0x1
+ 984 0208 50       		.byte	0x50
+ 985 0209 05       		.uleb128 0x5
+ 986 020a 03       		.byte	0x3
+ 987 020b 68010000 		.4byte	.LC9
+ 988 020f 00       		.byte	0
+ 989 0210 0A       		.uleb128 0xa
+ 990 0211 FA000000 		.4byte	.LVL15
+ 991 0215 81060000 		.4byte	0x681
+ 992 0219 27020000 		.4byte	0x227
+ 993 021d 0B       		.uleb128 0xb
+ 994 021e 01       		.uleb128 0x1
+ 995 021f 50       		.byte	0x50
+ 996 0220 05       		.uleb128 0x5
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 26
 
 
- 1081 035b 51       		.byte	0x51
- 1082 035c 02       		.uleb128 0x2
- 1083 035d 09       		.byte	0x9
- 1084 035e 90       		.byte	0x90
- 1085 035f 00       		.byte	0
- 1086 0360 09       		.uleb128 0x9
- 1087 0361 FA010000 		.4byte	.LVL29
- 1088 0365 B7040000 		.4byte	0x4b7
- 1089 0369 7A030000 		.4byte	0x37a
- 1090 036d 0A       		.uleb128 0xa
- 1091 036e 01       		.uleb128 0x1
- 1092 036f 50       		.byte	0x50
- 1093 0370 02       		.uleb128 0x2
- 1094 0371 08       		.byte	0x8
- 1095 0372 20       		.byte	0x20
- 1096 0373 0A       		.uleb128 0xa
- 1097 0374 01       		.uleb128 0x1
- 1098 0375 51       		.byte	0x51
- 1099 0376 02       		.uleb128 0x2
- 1100 0377 08       		.byte	0x8
- 1101 0378 39       		.byte	0x39
- 1102 0379 00       		.byte	0
- 1103 037a 09       		.uleb128 0x9
- 1104 037b 12020000 		.4byte	.LVL30
- 1105 037f B7040000 		.4byte	0x4b7
- 1106 0383 94030000 		.4byte	0x394
- 1107 0387 0A       		.uleb128 0xa
- 1108 0388 01       		.uleb128 0x1
- 1109 0389 50       		.byte	0x50
- 1110 038a 02       		.uleb128 0x2
- 1111 038b 08       		.byte	0x8
- 1112 038c 23       		.byte	0x23
- 1113 038d 0A       		.uleb128 0xa
- 1114 038e 01       		.uleb128 0x1
- 1115 038f 51       		.byte	0x51
- 1116 0390 02       		.uleb128 0x2
- 1117 0391 09       		.byte	0x9
- 1118 0392 A0       		.byte	0xa0
- 1119 0393 00       		.byte	0
- 1120 0394 09       		.uleb128 0x9
- 1121 0395 28020000 		.4byte	.LVL31
- 1122 0399 B7040000 		.4byte	0x4b7
- 1123 039d AE030000 		.4byte	0x3ae
- 1124 03a1 0A       		.uleb128 0xa
- 1125 03a2 01       		.uleb128 0x1
- 1126 03a3 50       		.byte	0x50
- 1127 03a4 02       		.uleb128 0x2
- 1128 03a5 08       		.byte	0x8
- 1129 03a6 20       		.byte	0x20
- 1130 03a7 0A       		.uleb128 0xa
- 1131 03a8 01       		.uleb128 0x1
- 1132 03a9 51       		.byte	0x51
- 1133 03aa 02       		.uleb128 0x2
- 1134 03ab 08       		.byte	0x8
- 1135 03ac 55       		.byte	0x55
- 1136 03ad 00       		.byte	0
- 1137 03ae 09       		.uleb128 0x9
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 27
+ 997 0221 03       		.byte	0x3
+ 998 0222 88010000 		.4byte	.LC10
+ 999 0226 00       		.byte	0
+ 1000 0227 0A       		.uleb128 0xa
+ 1001 0228 00010000 		.4byte	.LVL16
+ 1002 022c 81060000 		.4byte	0x681
+ 1003 0230 3E020000 		.4byte	0x23e
+ 1004 0234 0B       		.uleb128 0xb
+ 1005 0235 01       		.uleb128 0x1
+ 1006 0236 50       		.byte	0x50
+ 1007 0237 05       		.uleb128 0x5
+ 1008 0238 03       		.byte	0x3
+ 1009 0239 A8010000 		.4byte	.LC11
+ 1010 023d 00       		.byte	0
+ 1011 023e 0A       		.uleb128 0xa
+ 1012 023f 16010000 		.4byte	.LVL17
+ 1013 0243 8C060000 		.4byte	0x68c
+ 1014 0247 52020000 		.4byte	0x252
+ 1015 024b 0B       		.uleb128 0xb
+ 1016 024c 01       		.uleb128 0x1
+ 1017 024d 50       		.byte	0x50
+ 1018 024e 02       		.uleb128 0x2
+ 1019 024f 08       		.byte	0x8
+ 1020 0250 23       		.byte	0x23
+ 1021 0251 00       		.byte	0
+ 1022 0252 0A       		.uleb128 0xa
+ 1023 0253 22010000 		.4byte	.LVL18
+ 1024 0257 81060000 		.4byte	0x681
+ 1025 025b 69020000 		.4byte	0x269
+ 1026 025f 0B       		.uleb128 0xb
+ 1027 0260 01       		.uleb128 0x1
+ 1028 0261 50       		.byte	0x50
+ 1029 0262 05       		.uleb128 0x5
+ 1030 0263 03       		.byte	0x3
+ 1031 0264 C8010000 		.4byte	.LC12
+ 1032 0268 00       		.byte	0
+ 1033 0269 0A       		.uleb128 0xa
+ 1034 026a 2C010000 		.4byte	.LVL19
+ 1035 026e 97060000 		.4byte	0x697
+ 1036 0272 83020000 		.4byte	0x283
+ 1037 0276 0B       		.uleb128 0xb
+ 1038 0277 01       		.uleb128 0x1
+ 1039 0278 50       		.byte	0x50
+ 1040 0279 02       		.uleb128 0x2
+ 1041 027a 08       		.byte	0x8
+ 1042 027b 23       		.byte	0x23
+ 1043 027c 0B       		.uleb128 0xb
+ 1044 027d 01       		.uleb128 0x1
+ 1045 027e 51       		.byte	0x51
+ 1046 027f 02       		.uleb128 0x2
+ 1047 0280 09       		.byte	0x9
+ 1048 0281 80       		.byte	0x80
+ 1049 0282 00       		.byte	0
+ 1050 0283 0A       		.uleb128 0xa
+ 1051 0284 32010000 		.4byte	.LVL20
+ 1052 0288 81060000 		.4byte	0x681
+ 1053 028c 9A020000 		.4byte	0x29a
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 27
 
 
- 1138 03af 40020000 		.4byte	.LVL32
- 1139 03b3 B7040000 		.4byte	0x4b7
- 1140 03b7 C8030000 		.4byte	0x3c8
- 1141 03bb 0A       		.uleb128 0xa
- 1142 03bc 01       		.uleb128 0x1
- 1143 03bd 50       		.byte	0x50
- 1144 03be 02       		.uleb128 0x2
- 1145 03bf 08       		.byte	0x8
- 1146 03c0 23       		.byte	0x23
- 1147 03c1 0A       		.uleb128 0xa
- 1148 03c2 01       		.uleb128 0x1
- 1149 03c3 51       		.byte	0x51
- 1150 03c4 02       		.uleb128 0x2
- 1151 03c5 09       		.byte	0x9
- 1152 03c6 B0       		.byte	0xb0
- 1153 03c7 00       		.byte	0
- 1154 03c8 09       		.uleb128 0x9
- 1155 03c9 56020000 		.4byte	.LVL33
- 1156 03cd B7040000 		.4byte	0x4b7
- 1157 03d1 E2030000 		.4byte	0x3e2
- 1158 03d5 0A       		.uleb128 0xa
- 1159 03d6 01       		.uleb128 0x1
- 1160 03d7 50       		.byte	0x50
- 1161 03d8 02       		.uleb128 0x2
- 1162 03d9 08       		.byte	0x8
- 1163 03da 20       		.byte	0x20
- 1164 03db 0A       		.uleb128 0xa
- 1165 03dc 01       		.uleb128 0x1
- 1166 03dd 51       		.byte	0x51
- 1167 03de 02       		.uleb128 0x2
- 1168 03df 08       		.byte	0x8
- 1169 03e0 71       		.byte	0x71
- 1170 03e1 00       		.byte	0
- 1171 03e2 09       		.uleb128 0x9
- 1172 03e3 F2020000 		.4byte	.LVL34
- 1173 03e7 AC040000 		.4byte	0x4ac
- 1174 03eb F9030000 		.4byte	0x3f9
- 1175 03ef 0A       		.uleb128 0xa
- 1176 03f0 01       		.uleb128 0x1
- 1177 03f1 50       		.byte	0x50
- 1178 03f2 05       		.uleb128 0x5
- 1179 03f3 03       		.byte	0x3
- 1180 03f4 48040000 		.4byte	.LC23
- 1181 03f8 00       		.byte	0
- 1182 03f9 09       		.uleb128 0x9
- 1183 03fa F8020000 		.4byte	.LVL35
- 1184 03fe AC040000 		.4byte	0x4ac
- 1185 0402 10040000 		.4byte	0x410
- 1186 0406 0A       		.uleb128 0xa
- 1187 0407 01       		.uleb128 0x1
- 1188 0408 50       		.byte	0x50
- 1189 0409 05       		.uleb128 0x5
- 1190 040a 03       		.byte	0x3
- 1191 040b 68040000 		.4byte	.LC24
- 1192 040f 00       		.byte	0
- 1193 0410 09       		.uleb128 0x9
- 1194 0411 FE020000 		.4byte	.LVL36
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 28
+ 1054 0290 0B       		.uleb128 0xb
+ 1055 0291 01       		.uleb128 0x1
+ 1056 0292 50       		.byte	0x50
+ 1057 0293 05       		.uleb128 0x5
+ 1058 0294 03       		.byte	0x3
+ 1059 0295 F8010000 		.4byte	.LC13
+ 1060 0299 00       		.byte	0
+ 1061 029a 0A       		.uleb128 0xa
+ 1062 029b 48010000 		.4byte	.LVL21
+ 1063 029f 8C060000 		.4byte	0x68c
+ 1064 02a3 AE020000 		.4byte	0x2ae
+ 1065 02a7 0B       		.uleb128 0xb
+ 1066 02a8 01       		.uleb128 0x1
+ 1067 02a9 50       		.byte	0x50
+ 1068 02aa 02       		.uleb128 0x2
+ 1069 02ab 08       		.byte	0x8
+ 1070 02ac 20       		.byte	0x20
+ 1071 02ad 00       		.byte	0
+ 1072 02ae 0A       		.uleb128 0xa
+ 1073 02af 54010000 		.4byte	.LVL22
+ 1074 02b3 81060000 		.4byte	0x681
+ 1075 02b7 C5020000 		.4byte	0x2c5
+ 1076 02bb 0B       		.uleb128 0xb
+ 1077 02bc 01       		.uleb128 0x1
+ 1078 02bd 50       		.byte	0x50
+ 1079 02be 05       		.uleb128 0x5
+ 1080 02bf 03       		.byte	0x3
+ 1081 02c0 C8010000 		.4byte	.LC12
+ 1082 02c4 00       		.byte	0
+ 1083 02c5 0A       		.uleb128 0xa
+ 1084 02c6 5E010000 		.4byte	.LVL23
+ 1085 02ca 97060000 		.4byte	0x697
+ 1086 02ce DE020000 		.4byte	0x2de
+ 1087 02d2 0B       		.uleb128 0xb
+ 1088 02d3 01       		.uleb128 0x1
+ 1089 02d4 50       		.byte	0x50
+ 1090 02d5 02       		.uleb128 0x2
+ 1091 02d6 08       		.byte	0x8
+ 1092 02d7 20       		.byte	0x20
+ 1093 02d8 0B       		.uleb128 0xb
+ 1094 02d9 01       		.uleb128 0x1
+ 1095 02da 51       		.byte	0x51
+ 1096 02db 01       		.uleb128 0x1
+ 1097 02dc 47       		.byte	0x47
+ 1098 02dd 00       		.byte	0
+ 1099 02de 0A       		.uleb128 0xa
+ 1100 02df 64010000 		.4byte	.LVL24
+ 1101 02e3 81060000 		.4byte	0x681
+ 1102 02e7 F5020000 		.4byte	0x2f5
+ 1103 02eb 0B       		.uleb128 0xb
+ 1104 02ec 01       		.uleb128 0x1
+ 1105 02ed 50       		.byte	0x50
+ 1106 02ee 05       		.uleb128 0x5
+ 1107 02ef 03       		.byte	0x3
+ 1108 02f0 F8010000 		.4byte	.LC13
+ 1109 02f4 00       		.byte	0
+ 1110 02f5 0A       		.uleb128 0xa
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 28
 
 
- 1195 0415 AC040000 		.4byte	0x4ac
- 1196 0419 27040000 		.4byte	0x427
- 1197 041d 0A       		.uleb128 0xa
- 1198 041e 01       		.uleb128 0x1
- 1199 041f 50       		.byte	0x50
- 1200 0420 05       		.uleb128 0x5
- 1201 0421 03       		.byte	0x3
- 1202 0422 94040000 		.4byte	.LC25
- 1203 0426 00       		.byte	0
- 1204 0427 0B       		.uleb128 0xb
- 1205 0428 04030000 		.4byte	.LVL37
- 1206 042c AC040000 		.4byte	0x4ac
- 1207 0430 0A       		.uleb128 0xa
- 1208 0431 01       		.uleb128 0x1
- 1209 0432 50       		.byte	0x50
- 1210 0433 05       		.uleb128 0x5
- 1211 0434 03       		.byte	0x3
- 1212 0435 CC040000 		.4byte	.LC26
- 1213 0439 00       		.byte	0
- 1214 043a 00       		.byte	0
- 1215 043b 0C       		.uleb128 0xc
- 1216 043c 38010000 		.4byte	.LASF17
- 1217 0440 05       		.byte	0x5
- 1218 0441 1207     		.2byte	0x712
- 1219 0443 47040000 		.4byte	0x447
- 1220 0447 0D       		.uleb128 0xd
- 1221 0448 76000000 		.4byte	0x76
- 1222 044c 0E       		.uleb128 0xe
- 1223 044d B1010000 		.4byte	.LASF18
- 1224 0451 01       		.byte	0x1
- 1225 0452 14       		.byte	0x14
- 1226 0453 81000000 		.4byte	0x81
- 1227 0457 05       		.uleb128 0x5
- 1228 0458 03       		.byte	0x3
- 1229 0459 00000000 		.4byte	ch_received
- 1230 045d 0E       		.uleb128 0xe
- 1231 045e 5B000000 		.4byte	.LASF19
- 1232 0462 01       		.byte	0x1
- 1233 0463 16       		.byte	0x16
- 1234 0464 81000000 		.4byte	0x81
- 1235 0468 05       		.uleb128 0x5
- 1236 0469 03       		.byte	0x3
- 1237 046a 00000000 		.4byte	SelectionFlag
- 1238 046e 0E       		.uleb128 0xe
- 1239 046f 3A020000 		.4byte	.LASF20
- 1240 0473 01       		.byte	0x1
- 1241 0474 17       		.byte	0x17
- 1242 0475 81000000 		.4byte	0x81
- 1243 0479 05       		.uleb128 0x5
- 1244 047a 03       		.byte	0x3
- 1245 047b 00000000 		.4byte	FSRFlag
- 1246 047f 0E       		.uleb128 0xe
- 1247 0480 18020000 		.4byte	.LASF21
- 1248 0484 01       		.byte	0x1
- 1249 0485 18       		.byte	0x18
- 1250 0486 81000000 		.4byte	0x81
- 1251 048a 05       		.uleb128 0x5
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 29
+ 1111 02f6 7A010000 		.4byte	.LVL25
+ 1112 02fa 8C060000 		.4byte	0x68c
+ 1113 02fe 09030000 		.4byte	0x309
+ 1114 0302 0B       		.uleb128 0xb
+ 1115 0303 01       		.uleb128 0x1
+ 1116 0304 50       		.byte	0x50
+ 1117 0305 02       		.uleb128 0x2
+ 1118 0306 08       		.byte	0x8
+ 1119 0307 23       		.byte	0x23
+ 1120 0308 00       		.byte	0
+ 1121 0309 0A       		.uleb128 0xa
+ 1122 030a 86010000 		.4byte	.LVL26
+ 1123 030e 81060000 		.4byte	0x681
+ 1124 0312 20030000 		.4byte	0x320
+ 1125 0316 0B       		.uleb128 0xb
+ 1126 0317 01       		.uleb128 0x1
+ 1127 0318 50       		.byte	0x50
+ 1128 0319 05       		.uleb128 0x5
+ 1129 031a 03       		.byte	0x3
+ 1130 031b C8010000 		.4byte	.LC12
+ 1131 031f 00       		.byte	0
+ 1132 0320 0A       		.uleb128 0xa
+ 1133 0321 90010000 		.4byte	.LVL27
+ 1134 0325 97060000 		.4byte	0x697
+ 1135 0329 3A030000 		.4byte	0x33a
+ 1136 032d 0B       		.uleb128 0xb
+ 1137 032e 01       		.uleb128 0x1
+ 1138 032f 50       		.byte	0x50
+ 1139 0330 02       		.uleb128 0x2
+ 1140 0331 08       		.byte	0x8
+ 1141 0332 23       		.byte	0x23
+ 1142 0333 0B       		.uleb128 0xb
+ 1143 0334 01       		.uleb128 0x1
+ 1144 0335 51       		.byte	0x51
+ 1145 0336 02       		.uleb128 0x2
+ 1146 0337 09       		.byte	0x9
+ 1147 0338 90       		.byte	0x90
+ 1148 0339 00       		.byte	0
+ 1149 033a 0A       		.uleb128 0xa
+ 1150 033b 96010000 		.4byte	.LVL28
+ 1151 033f 81060000 		.4byte	0x681
+ 1152 0343 51030000 		.4byte	0x351
+ 1153 0347 0B       		.uleb128 0xb
+ 1154 0348 01       		.uleb128 0x1
+ 1155 0349 50       		.byte	0x50
+ 1156 034a 05       		.uleb128 0x5
+ 1157 034b 03       		.byte	0x3
+ 1158 034c F8010000 		.4byte	.LC13
+ 1159 0350 00       		.byte	0
+ 1160 0351 0A       		.uleb128 0xa
+ 1161 0352 AC010000 		.4byte	.LVL29
+ 1162 0356 8C060000 		.4byte	0x68c
+ 1163 035a 65030000 		.4byte	0x365
+ 1164 035e 0B       		.uleb128 0xb
+ 1165 035f 01       		.uleb128 0x1
+ 1166 0360 50       		.byte	0x50
+ 1167 0361 02       		.uleb128 0x2
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 29
 
 
- 1252 048b 03       		.byte	0x3
- 1253 048c 00000000 		.4byte	SamplingFreqFlag
- 1254 0490 0E       		.uleb128 0xe
- 1255 0491 5E010000 		.4byte	.LASF22
- 1256 0495 01       		.byte	0x1
- 1257 0496 19       		.byte	0x19
- 1258 0497 81000000 		.4byte	0x81
- 1259 049b 05       		.uleb128 0x5
- 1260 049c 03       		.byte	0x3
- 1261 049d 00000000 		.4byte	TemperatureFlag
- 1262 04a1 0F       		.uleb128 0xf
- 1263 04a2 A2010000 		.4byte	.LASF23
- 1264 04a6 A2010000 		.4byte	.LASF23
- 1265 04aa 06       		.byte	0x6
- 1266 04ab 71       		.byte	0x71
- 1267 04ac 0F       		.uleb128 0xf
- 1268 04ad 29020000 		.4byte	.LASF24
- 1269 04b1 29020000 		.4byte	.LASF24
- 1270 04b5 06       		.byte	0x6
- 1271 04b6 8B       		.byte	0x8b
- 1272 04b7 0F       		.uleb128 0xf
- 1273 04b8 4C010000 		.4byte	.LASF25
- 1274 04bc 4C010000 		.4byte	.LASF25
- 1275 04c0 07       		.byte	0x7
- 1276 04c1 6F       		.byte	0x6f
- 1277 04c2 00       		.byte	0
- 1278              		.section	.debug_abbrev,"",%progbits
- 1279              	.Ldebug_abbrev0:
- 1280 0000 01       		.uleb128 0x1
- 1281 0001 11       		.uleb128 0x11
- 1282 0002 01       		.byte	0x1
- 1283 0003 25       		.uleb128 0x25
- 1284 0004 0E       		.uleb128 0xe
- 1285 0005 13       		.uleb128 0x13
- 1286 0006 0B       		.uleb128 0xb
- 1287 0007 03       		.uleb128 0x3
- 1288 0008 0E       		.uleb128 0xe
- 1289 0009 1B       		.uleb128 0x1b
- 1290 000a 0E       		.uleb128 0xe
- 1291 000b 55       		.uleb128 0x55
- 1292 000c 17       		.uleb128 0x17
- 1293 000d 11       		.uleb128 0x11
- 1294 000e 01       		.uleb128 0x1
- 1295 000f 10       		.uleb128 0x10
- 1296 0010 17       		.uleb128 0x17
- 1297 0011 00       		.byte	0
- 1298 0012 00       		.byte	0
- 1299 0013 02       		.uleb128 0x2
- 1300 0014 24       		.uleb128 0x24
- 1301 0015 00       		.byte	0
- 1302 0016 0B       		.uleb128 0xb
- 1303 0017 0B       		.uleb128 0xb
- 1304 0018 3E       		.uleb128 0x3e
- 1305 0019 0B       		.uleb128 0xb
- 1306 001a 03       		.uleb128 0x3
- 1307 001b 0E       		.uleb128 0xe
- 1308 001c 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 30
+ 1168 0362 08       		.byte	0x8
+ 1169 0363 20       		.byte	0x20
+ 1170 0364 00       		.byte	0
+ 1171 0365 0A       		.uleb128 0xa
+ 1172 0366 B8010000 		.4byte	.LVL30
+ 1173 036a 81060000 		.4byte	0x681
+ 1174 036e 7C030000 		.4byte	0x37c
+ 1175 0372 0B       		.uleb128 0xb
+ 1176 0373 01       		.uleb128 0x1
+ 1177 0374 50       		.byte	0x50
+ 1178 0375 05       		.uleb128 0x5
+ 1179 0376 03       		.byte	0x3
+ 1180 0377 C8010000 		.4byte	.LC12
+ 1181 037b 00       		.byte	0
+ 1182 037c 0A       		.uleb128 0xa
+ 1183 037d C2010000 		.4byte	.LVL31
+ 1184 0381 97060000 		.4byte	0x697
+ 1185 0385 96030000 		.4byte	0x396
+ 1186 0389 0B       		.uleb128 0xb
+ 1187 038a 01       		.uleb128 0x1
+ 1188 038b 50       		.byte	0x50
+ 1189 038c 02       		.uleb128 0x2
+ 1190 038d 08       		.byte	0x8
+ 1191 038e 20       		.byte	0x20
+ 1192 038f 0B       		.uleb128 0xb
+ 1193 0390 01       		.uleb128 0x1
+ 1194 0391 51       		.byte	0x51
+ 1195 0392 02       		.uleb128 0x2
+ 1196 0393 08       		.byte	0x8
+ 1197 0394 27       		.byte	0x27
+ 1198 0395 00       		.byte	0
+ 1199 0396 0A       		.uleb128 0xa
+ 1200 0397 C8010000 		.4byte	.LVL32
+ 1201 039b 81060000 		.4byte	0x681
+ 1202 039f AD030000 		.4byte	0x3ad
+ 1203 03a3 0B       		.uleb128 0xb
+ 1204 03a4 01       		.uleb128 0x1
+ 1205 03a5 50       		.byte	0x50
+ 1206 03a6 05       		.uleb128 0x5
+ 1207 03a7 03       		.byte	0x3
+ 1208 03a8 F8010000 		.4byte	.LC13
+ 1209 03ac 00       		.byte	0
+ 1210 03ad 0A       		.uleb128 0xa
+ 1211 03ae DE010000 		.4byte	.LVL33
+ 1212 03b2 8C060000 		.4byte	0x68c
+ 1213 03b6 C1030000 		.4byte	0x3c1
+ 1214 03ba 0B       		.uleb128 0xb
+ 1215 03bb 01       		.uleb128 0x1
+ 1216 03bc 50       		.byte	0x50
+ 1217 03bd 02       		.uleb128 0x2
+ 1218 03be 08       		.byte	0x8
+ 1219 03bf 23       		.byte	0x23
+ 1220 03c0 00       		.byte	0
+ 1221 03c1 0A       		.uleb128 0xa
+ 1222 03c2 EA010000 		.4byte	.LVL34
+ 1223 03c6 81060000 		.4byte	0x681
+ 1224 03ca D8030000 		.4byte	0x3d8
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 30
 
 
- 1309 001d 00       		.byte	0
- 1310 001e 03       		.uleb128 0x3
- 1311 001f 16       		.uleb128 0x16
- 1312 0020 00       		.byte	0
- 1313 0021 03       		.uleb128 0x3
- 1314 0022 0E       		.uleb128 0xe
- 1315 0023 3A       		.uleb128 0x3a
- 1316 0024 0B       		.uleb128 0xb
- 1317 0025 3B       		.uleb128 0x3b
- 1318 0026 0B       		.uleb128 0xb
- 1319 0027 49       		.uleb128 0x49
- 1320 0028 13       		.uleb128 0x13
- 1321 0029 00       		.byte	0
- 1322 002a 00       		.byte	0
- 1323 002b 04       		.uleb128 0x4
- 1324 002c 24       		.uleb128 0x24
- 1325 002d 00       		.byte	0
- 1326 002e 0B       		.uleb128 0xb
- 1327 002f 0B       		.uleb128 0xb
- 1328 0030 3E       		.uleb128 0x3e
- 1329 0031 0B       		.uleb128 0xb
- 1330 0032 03       		.uleb128 0x3
- 1331 0033 08       		.uleb128 0x8
- 1332 0034 00       		.byte	0
- 1333 0035 00       		.byte	0
- 1334 0036 05       		.uleb128 0x5
- 1335 0037 16       		.uleb128 0x16
- 1336 0038 00       		.byte	0
- 1337 0039 03       		.uleb128 0x3
- 1338 003a 0E       		.uleb128 0xe
- 1339 003b 3A       		.uleb128 0x3a
- 1340 003c 0B       		.uleb128 0xb
- 1341 003d 3B       		.uleb128 0x3b
- 1342 003e 05       		.uleb128 0x5
- 1343 003f 49       		.uleb128 0x49
- 1344 0040 13       		.uleb128 0x13
- 1345 0041 00       		.byte	0
- 1346 0042 00       		.byte	0
- 1347 0043 06       		.uleb128 0x6
- 1348 0044 2E       		.uleb128 0x2e
- 1349 0045 00       		.byte	0
- 1350 0046 3F       		.uleb128 0x3f
- 1351 0047 19       		.uleb128 0x19
- 1352 0048 03       		.uleb128 0x3
- 1353 0049 0E       		.uleb128 0xe
- 1354 004a 3A       		.uleb128 0x3a
- 1355 004b 0B       		.uleb128 0xb
- 1356 004c 3B       		.uleb128 0x3b
- 1357 004d 0B       		.uleb128 0xb
- 1358 004e 27       		.uleb128 0x27
- 1359 004f 19       		.uleb128 0x19
- 1360 0050 11       		.uleb128 0x11
- 1361 0051 01       		.uleb128 0x1
- 1362 0052 12       		.uleb128 0x12
- 1363 0053 06       		.uleb128 0x6
- 1364 0054 40       		.uleb128 0x40
- 1365 0055 18       		.uleb128 0x18
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 31
+ 1225 03ce 0B       		.uleb128 0xb
+ 1226 03cf 01       		.uleb128 0x1
+ 1227 03d0 50       		.byte	0x50
+ 1228 03d1 05       		.uleb128 0x5
+ 1229 03d2 03       		.byte	0x3
+ 1230 03d3 C8010000 		.4byte	.LC12
+ 1231 03d7 00       		.byte	0
+ 1232 03d8 0A       		.uleb128 0xa
+ 1233 03d9 F4010000 		.4byte	.LVL35
+ 1234 03dd 97060000 		.4byte	0x697
+ 1235 03e1 F2030000 		.4byte	0x3f2
+ 1236 03e5 0B       		.uleb128 0xb
+ 1237 03e6 01       		.uleb128 0x1
+ 1238 03e7 50       		.byte	0x50
+ 1239 03e8 02       		.uleb128 0x2
+ 1240 03e9 08       		.byte	0x8
+ 1241 03ea 23       		.byte	0x23
+ 1242 03eb 0B       		.uleb128 0xb
+ 1243 03ec 01       		.uleb128 0x1
+ 1244 03ed 51       		.byte	0x51
+ 1245 03ee 02       		.uleb128 0x2
+ 1246 03ef 09       		.byte	0x9
+ 1247 03f0 A0       		.byte	0xa0
+ 1248 03f1 00       		.byte	0
+ 1249 03f2 0A       		.uleb128 0xa
+ 1250 03f3 FA010000 		.4byte	.LVL36
+ 1251 03f7 81060000 		.4byte	0x681
+ 1252 03fb 09040000 		.4byte	0x409
+ 1253 03ff 0B       		.uleb128 0xb
+ 1254 0400 01       		.uleb128 0x1
+ 1255 0401 50       		.byte	0x50
+ 1256 0402 05       		.uleb128 0x5
+ 1257 0403 03       		.byte	0x3
+ 1258 0404 F8010000 		.4byte	.LC13
+ 1259 0408 00       		.byte	0
+ 1260 0409 0A       		.uleb128 0xa
+ 1261 040a 10020000 		.4byte	.LVL37
+ 1262 040e 8C060000 		.4byte	0x68c
+ 1263 0412 1D040000 		.4byte	0x41d
+ 1264 0416 0B       		.uleb128 0xb
+ 1265 0417 01       		.uleb128 0x1
+ 1266 0418 50       		.byte	0x50
+ 1267 0419 02       		.uleb128 0x2
+ 1268 041a 08       		.byte	0x8
+ 1269 041b 20       		.byte	0x20
+ 1270 041c 00       		.byte	0
+ 1271 041d 0A       		.uleb128 0xa
+ 1272 041e 1C020000 		.4byte	.LVL38
+ 1273 0422 81060000 		.4byte	0x681
+ 1274 0426 34040000 		.4byte	0x434
+ 1275 042a 0B       		.uleb128 0xb
+ 1276 042b 01       		.uleb128 0x1
+ 1277 042c 50       		.byte	0x50
+ 1278 042d 05       		.uleb128 0x5
+ 1279 042e 03       		.byte	0x3
+ 1280 042f C8010000 		.4byte	.LC12
+ 1281 0433 00       		.byte	0
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 31
 
 
- 1366 0056 9742     		.uleb128 0x2117
- 1367 0058 19       		.uleb128 0x19
- 1368 0059 00       		.byte	0
- 1369 005a 00       		.byte	0
- 1370 005b 07       		.uleb128 0x7
- 1371 005c 2E       		.uleb128 0x2e
- 1372 005d 01       		.byte	0x1
- 1373 005e 3F       		.uleb128 0x3f
- 1374 005f 19       		.uleb128 0x19
- 1375 0060 03       		.uleb128 0x3
- 1376 0061 0E       		.uleb128 0xe
- 1377 0062 3A       		.uleb128 0x3a
- 1378 0063 0B       		.uleb128 0xb
- 1379 0064 3B       		.uleb128 0x3b
- 1380 0065 0B       		.uleb128 0xb
- 1381 0066 27       		.uleb128 0x27
- 1382 0067 19       		.uleb128 0x19
- 1383 0068 11       		.uleb128 0x11
- 1384 0069 01       		.uleb128 0x1
- 1385 006a 12       		.uleb128 0x12
- 1386 006b 06       		.uleb128 0x6
- 1387 006c 40       		.uleb128 0x40
- 1388 006d 18       		.uleb128 0x18
- 1389 006e 9742     		.uleb128 0x2117
- 1390 0070 19       		.uleb128 0x19
- 1391 0071 01       		.uleb128 0x1
- 1392 0072 13       		.uleb128 0x13
- 1393 0073 00       		.byte	0
- 1394 0074 00       		.byte	0
- 1395 0075 08       		.uleb128 0x8
- 1396 0076 898201   		.uleb128 0x4109
- 1397 0079 00       		.byte	0
- 1398 007a 11       		.uleb128 0x11
- 1399 007b 01       		.uleb128 0x1
- 1400 007c 31       		.uleb128 0x31
- 1401 007d 13       		.uleb128 0x13
- 1402 007e 00       		.byte	0
- 1403 007f 00       		.byte	0
- 1404 0080 09       		.uleb128 0x9
- 1405 0081 898201   		.uleb128 0x4109
- 1406 0084 01       		.byte	0x1
- 1407 0085 11       		.uleb128 0x11
- 1408 0086 01       		.uleb128 0x1
- 1409 0087 31       		.uleb128 0x31
- 1410 0088 13       		.uleb128 0x13
- 1411 0089 01       		.uleb128 0x1
- 1412 008a 13       		.uleb128 0x13
- 1413 008b 00       		.byte	0
- 1414 008c 00       		.byte	0
- 1415 008d 0A       		.uleb128 0xa
- 1416 008e 8A8201   		.uleb128 0x410a
- 1417 0091 00       		.byte	0
- 1418 0092 02       		.uleb128 0x2
- 1419 0093 18       		.uleb128 0x18
- 1420 0094 9142     		.uleb128 0x2111
- 1421 0096 18       		.uleb128 0x18
- 1422 0097 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 32
+ 1282 0434 0A       		.uleb128 0xa
+ 1283 0435 26020000 		.4byte	.LVL39
+ 1284 0439 97060000 		.4byte	0x697
+ 1285 043d 4E040000 		.4byte	0x44e
+ 1286 0441 0B       		.uleb128 0xb
+ 1287 0442 01       		.uleb128 0x1
+ 1288 0443 50       		.byte	0x50
+ 1289 0444 02       		.uleb128 0x2
+ 1290 0445 08       		.byte	0x8
+ 1291 0446 20       		.byte	0x20
+ 1292 0447 0B       		.uleb128 0xb
+ 1293 0448 01       		.uleb128 0x1
+ 1294 0449 51       		.byte	0x51
+ 1295 044a 02       		.uleb128 0x2
+ 1296 044b 08       		.byte	0x8
+ 1297 044c 37       		.byte	0x37
+ 1298 044d 00       		.byte	0
+ 1299 044e 0A       		.uleb128 0xa
+ 1300 044f 2C020000 		.4byte	.LVL40
+ 1301 0453 81060000 		.4byte	0x681
+ 1302 0457 65040000 		.4byte	0x465
+ 1303 045b 0B       		.uleb128 0xb
+ 1304 045c 01       		.uleb128 0x1
+ 1305 045d 50       		.byte	0x50
+ 1306 045e 05       		.uleb128 0x5
+ 1307 045f 03       		.byte	0x3
+ 1308 0460 F8010000 		.4byte	.LC13
+ 1309 0464 00       		.byte	0
+ 1310 0465 0A       		.uleb128 0xa
+ 1311 0466 42020000 		.4byte	.LVL41
+ 1312 046a 8C060000 		.4byte	0x68c
+ 1313 046e 79040000 		.4byte	0x479
+ 1314 0472 0B       		.uleb128 0xb
+ 1315 0473 01       		.uleb128 0x1
+ 1316 0474 50       		.byte	0x50
+ 1317 0475 02       		.uleb128 0x2
+ 1318 0476 08       		.byte	0x8
+ 1319 0477 23       		.byte	0x23
+ 1320 0478 00       		.byte	0
+ 1321 0479 0A       		.uleb128 0xa
+ 1322 047a 4E020000 		.4byte	.LVL42
+ 1323 047e 81060000 		.4byte	0x681
+ 1324 0482 90040000 		.4byte	0x490
+ 1325 0486 0B       		.uleb128 0xb
+ 1326 0487 01       		.uleb128 0x1
+ 1327 0488 50       		.byte	0x50
+ 1328 0489 05       		.uleb128 0x5
+ 1329 048a 03       		.byte	0x3
+ 1330 048b C8010000 		.4byte	.LC12
+ 1331 048f 00       		.byte	0
+ 1332 0490 0A       		.uleb128 0xa
+ 1333 0491 58020000 		.4byte	.LVL43
+ 1334 0495 97060000 		.4byte	0x697
+ 1335 0499 AA040000 		.4byte	0x4aa
+ 1336 049d 0B       		.uleb128 0xb
+ 1337 049e 01       		.uleb128 0x1
+ 1338 049f 50       		.byte	0x50
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 32
 
 
- 1423 0098 00       		.byte	0
- 1424 0099 0B       		.uleb128 0xb
- 1425 009a 898201   		.uleb128 0x4109
- 1426 009d 01       		.byte	0x1
- 1427 009e 11       		.uleb128 0x11
- 1428 009f 01       		.uleb128 0x1
- 1429 00a0 31       		.uleb128 0x31
- 1430 00a1 13       		.uleb128 0x13
- 1431 00a2 00       		.byte	0
- 1432 00a3 00       		.byte	0
- 1433 00a4 0C       		.uleb128 0xc
- 1434 00a5 34       		.uleb128 0x34
- 1435 00a6 00       		.byte	0
- 1436 00a7 03       		.uleb128 0x3
- 1437 00a8 0E       		.uleb128 0xe
- 1438 00a9 3A       		.uleb128 0x3a
- 1439 00aa 0B       		.uleb128 0xb
- 1440 00ab 3B       		.uleb128 0x3b
- 1441 00ac 05       		.uleb128 0x5
- 1442 00ad 49       		.uleb128 0x49
- 1443 00ae 13       		.uleb128 0x13
- 1444 00af 3F       		.uleb128 0x3f
- 1445 00b0 19       		.uleb128 0x19
- 1446 00b1 3C       		.uleb128 0x3c
- 1447 00b2 19       		.uleb128 0x19
- 1448 00b3 00       		.byte	0
- 1449 00b4 00       		.byte	0
- 1450 00b5 0D       		.uleb128 0xd
- 1451 00b6 35       		.uleb128 0x35
- 1452 00b7 00       		.byte	0
- 1453 00b8 49       		.uleb128 0x49
- 1454 00b9 13       		.uleb128 0x13
- 1455 00ba 00       		.byte	0
- 1456 00bb 00       		.byte	0
- 1457 00bc 0E       		.uleb128 0xe
- 1458 00bd 34       		.uleb128 0x34
- 1459 00be 00       		.byte	0
- 1460 00bf 03       		.uleb128 0x3
- 1461 00c0 0E       		.uleb128 0xe
- 1462 00c1 3A       		.uleb128 0x3a
- 1463 00c2 0B       		.uleb128 0xb
- 1464 00c3 3B       		.uleb128 0x3b
- 1465 00c4 0B       		.uleb128 0xb
- 1466 00c5 49       		.uleb128 0x49
- 1467 00c6 13       		.uleb128 0x13
- 1468 00c7 3F       		.uleb128 0x3f
- 1469 00c8 19       		.uleb128 0x19
- 1470 00c9 02       		.uleb128 0x2
- 1471 00ca 18       		.uleb128 0x18
- 1472 00cb 00       		.byte	0
- 1473 00cc 00       		.byte	0
- 1474 00cd 0F       		.uleb128 0xf
- 1475 00ce 2E       		.uleb128 0x2e
- 1476 00cf 00       		.byte	0
- 1477 00d0 3F       		.uleb128 0x3f
- 1478 00d1 19       		.uleb128 0x19
- 1479 00d2 3C       		.uleb128 0x3c
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 33
+ 1339 04a0 02       		.uleb128 0x2
+ 1340 04a1 08       		.byte	0x8
+ 1341 04a2 23       		.byte	0x23
+ 1342 04a3 0B       		.uleb128 0xb
+ 1343 04a4 01       		.uleb128 0x1
+ 1344 04a5 51       		.byte	0x51
+ 1345 04a6 02       		.uleb128 0x2
+ 1346 04a7 09       		.byte	0x9
+ 1347 04a8 B0       		.byte	0xb0
+ 1348 04a9 00       		.byte	0
+ 1349 04aa 0A       		.uleb128 0xa
+ 1350 04ab 5E020000 		.4byte	.LVL44
+ 1351 04af 81060000 		.4byte	0x681
+ 1352 04b3 C1040000 		.4byte	0x4c1
+ 1353 04b7 0B       		.uleb128 0xb
+ 1354 04b8 01       		.uleb128 0x1
+ 1355 04b9 50       		.byte	0x50
+ 1356 04ba 05       		.uleb128 0x5
+ 1357 04bb 03       		.byte	0x3
+ 1358 04bc F8010000 		.4byte	.LC13
+ 1359 04c0 00       		.byte	0
+ 1360 04c1 0A       		.uleb128 0xa
+ 1361 04c2 72020000 		.4byte	.LVL45
+ 1362 04c6 8C060000 		.4byte	0x68c
+ 1363 04ca D5040000 		.4byte	0x4d5
+ 1364 04ce 0B       		.uleb128 0xb
+ 1365 04cf 01       		.uleb128 0x1
+ 1366 04d0 50       		.byte	0x50
+ 1367 04d1 02       		.uleb128 0x2
+ 1368 04d2 08       		.byte	0x8
+ 1369 04d3 20       		.byte	0x20
+ 1370 04d4 00       		.byte	0
+ 1371 04d5 0A       		.uleb128 0xa
+ 1372 04d6 7E020000 		.4byte	.LVL46
+ 1373 04da 81060000 		.4byte	0x681
+ 1374 04de EC040000 		.4byte	0x4ec
+ 1375 04e2 0B       		.uleb128 0xb
+ 1376 04e3 01       		.uleb128 0x1
+ 1377 04e4 50       		.byte	0x50
+ 1378 04e5 05       		.uleb128 0x5
+ 1379 04e6 03       		.byte	0x3
+ 1380 04e7 C8010000 		.4byte	.LC12
+ 1381 04eb 00       		.byte	0
+ 1382 04ec 0A       		.uleb128 0xa
+ 1383 04ed 88020000 		.4byte	.LVL47
+ 1384 04f1 97060000 		.4byte	0x697
+ 1385 04f5 06050000 		.4byte	0x506
+ 1386 04f9 0B       		.uleb128 0xb
+ 1387 04fa 01       		.uleb128 0x1
+ 1388 04fb 50       		.byte	0x50
+ 1389 04fc 02       		.uleb128 0x2
+ 1390 04fd 08       		.byte	0x8
+ 1391 04fe 20       		.byte	0x20
+ 1392 04ff 0B       		.uleb128 0xb
+ 1393 0500 01       		.uleb128 0x1
+ 1394 0501 51       		.byte	0x51
+ 1395 0502 02       		.uleb128 0x2
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 33
 
 
- 1480 00d3 19       		.uleb128 0x19
- 1481 00d4 6E       		.uleb128 0x6e
- 1482 00d5 0E       		.uleb128 0xe
- 1483 00d6 03       		.uleb128 0x3
- 1484 00d7 0E       		.uleb128 0xe
- 1485 00d8 3A       		.uleb128 0x3a
- 1486 00d9 0B       		.uleb128 0xb
- 1487 00da 3B       		.uleb128 0x3b
- 1488 00db 0B       		.uleb128 0xb
- 1489 00dc 00       		.byte	0
- 1490 00dd 00       		.byte	0
- 1491 00de 00       		.byte	0
- 1492              		.section	.debug_aranges,"",%progbits
- 1493 0000 24000000 		.4byte	0x24
- 1494 0004 0200     		.2byte	0x2
- 1495 0006 00000000 		.4byte	.Ldebug_info0
- 1496 000a 04       		.byte	0x4
- 1497 000b 00       		.byte	0
- 1498 000c 0000     		.2byte	0
- 1499 000e 0000     		.2byte	0
- 1500 0010 00000000 		.4byte	.LFB64
- 1501 0014 02000000 		.4byte	.LFE64-.LFB64
- 1502 0018 00000000 		.4byte	.LFB65
- 1503 001c 34030000 		.4byte	.LFE65-.LFB65
- 1504 0020 00000000 		.4byte	0
- 1505 0024 00000000 		.4byte	0
- 1506              		.section	.debug_ranges,"",%progbits
- 1507              	.Ldebug_ranges0:
- 1508 0000 00000000 		.4byte	.LFB64
- 1509 0004 02000000 		.4byte	.LFE64
- 1510 0008 00000000 		.4byte	.LFB65
- 1511 000c 34030000 		.4byte	.LFE65
- 1512 0010 00000000 		.4byte	0
- 1513 0014 00000000 		.4byte	0
- 1514              		.section	.debug_line,"",%progbits
- 1515              	.Ldebug_line0:
- 1516 0000 E8010000 		.section	.debug_str,"MS",%progbits,1
- 1516      02007101 
- 1516      00000201 
- 1516      FB0E0D00 
- 1516      01010101 
- 1517              	.LASF9:
- 1518 0000 5F5F696E 		.ascii	"__int32_t\000"
- 1518      7433325F 
- 1518      7400
- 1519              	.LASF28:
- 1520 000a 433A5C55 		.ascii	"C:\\Users\\Ilaria\\Documents\\GitHub\\FINAL-PROJECT"
- 1520      73657273 
- 1520      5C496C61 
- 1520      7269615C 
- 1520      446F6375 
- 1521 0038 2D47524F 		.ascii	"-GROUP5\\Final_Project_Group5.cydsn\000"
- 1521      5550355C 
- 1521      46696E61 
- 1521      6C5F5072 
- 1521      6F6A6563 
- 1522              	.LASF19:
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 34
+ 1396 0503 08       		.byte	0x8
+ 1397 0504 47       		.byte	0x47
+ 1398 0505 00       		.byte	0
+ 1399 0506 0A       		.uleb128 0xa
+ 1400 0507 8E020000 		.4byte	.LVL48
+ 1401 050b 81060000 		.4byte	0x681
+ 1402 050f 1D050000 		.4byte	0x51d
+ 1403 0513 0B       		.uleb128 0xb
+ 1404 0514 01       		.uleb128 0x1
+ 1405 0515 50       		.byte	0x50
+ 1406 0516 05       		.uleb128 0x5
+ 1407 0517 03       		.byte	0x3
+ 1408 0518 F8010000 		.4byte	.LC13
+ 1409 051c 00       		.byte	0
+ 1410 051d 09       		.uleb128 0x9
+ 1411 051e E2020000 		.4byte	.LVL49
+ 1412 0522 A2060000 		.4byte	0x6a2
+ 1413 0526 0A       		.uleb128 0xa
+ 1414 0527 E8020000 		.4byte	.LVL50
+ 1415 052b 81060000 		.4byte	0x681
+ 1416 052f 3D050000 		.4byte	0x53d
+ 1417 0533 0B       		.uleb128 0xb
+ 1418 0534 01       		.uleb128 0x1
+ 1419 0535 50       		.byte	0x50
+ 1420 0536 05       		.uleb128 0x5
+ 1421 0537 03       		.byte	0x3
+ 1422 0538 18020000 		.4byte	.LC14
+ 1423 053c 00       		.byte	0
+ 1424 053d 0A       		.uleb128 0xa
+ 1425 053e EE020000 		.4byte	.LVL51
+ 1426 0542 81060000 		.4byte	0x681
+ 1427 0546 54050000 		.4byte	0x554
+ 1428 054a 0B       		.uleb128 0xb
+ 1429 054b 01       		.uleb128 0x1
+ 1430 054c 50       		.byte	0x50
+ 1431 054d 05       		.uleb128 0x5
+ 1432 054e 03       		.byte	0x3
+ 1433 054f 38020000 		.4byte	.LC15
+ 1434 0553 00       		.byte	0
+ 1435 0554 0A       		.uleb128 0xa
+ 1436 0555 F4020000 		.4byte	.LVL52
+ 1437 0559 81060000 		.4byte	0x681
+ 1438 055d 6B050000 		.4byte	0x56b
+ 1439 0561 0B       		.uleb128 0xb
+ 1440 0562 01       		.uleb128 0x1
+ 1441 0563 50       		.byte	0x50
+ 1442 0564 05       		.uleb128 0x5
+ 1443 0565 03       		.byte	0x3
+ 1444 0566 64020000 		.4byte	.LC16
+ 1445 056a 00       		.byte	0
+ 1446 056b 0C       		.uleb128 0xc
+ 1447 056c FA020000 		.4byte	.LVL53
+ 1448 0570 81060000 		.4byte	0x681
+ 1449 0574 0B       		.uleb128 0xb
+ 1450 0575 01       		.uleb128 0x1
+ 1451 0576 50       		.byte	0x50
+ 1452 0577 05       		.uleb128 0x5
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 34
 
 
- 1523 005b 53656C65 		.ascii	"SelectionFlag\000"
- 1523      6374696F 
- 1523      6E466C61 
- 1523      6700
- 1524              	.LASF10:
- 1525 0069 696E7433 		.ascii	"int32_t\000"
- 1525      325F7400 
- 1526              	.LASF12:
- 1527 0071 666C6F61 		.ascii	"float\000"
- 1527      7400
- 1528              	.LASF1:
- 1529 0077 756E7369 		.ascii	"unsigned char\000"
- 1529      676E6564 
- 1529      20636861 
- 1529      7200
- 1530              	.LASF26:
- 1531 0085 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1531      43313120 
- 1531      352E342E 
- 1531      31203230 
- 1531      31363036 
- 1532 00b8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1532      20726576 
- 1532      6973696F 
- 1532      6E203233 
- 1532      37373135 
- 1533 00eb 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1533      66756E63 
- 1533      74696F6E 
- 1533      2D736563 
- 1533      74696F6E 
- 1534              	.LASF5:
- 1535 0113 6C6F6E67 		.ascii	"long unsigned int\000"
- 1535      20756E73 
- 1535      69676E65 
- 1535      6420696E 
- 1535      7400
- 1536              	.LASF3:
- 1537 0125 73686F72 		.ascii	"short unsigned int\000"
- 1537      7420756E 
- 1537      7369676E 
- 1537      65642069 
- 1537      6E7400
- 1538              	.LASF17:
- 1539 0138 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1539      52784275 
- 1539      66666572 
- 1539      00
- 1540              	.LASF13:
- 1541 0145 646F7562 		.ascii	"double\000"
- 1541      6C6500
- 1542              	.LASF25:
- 1543 014c 4143435F 		.ascii	"ACC_writeRegister\000"
- 1543      77726974 
- 1543      65526567 
- 1543      69737465 
- 1543      7200
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 35
+ 1453 0578 03       		.byte	0x3
+ 1454 0579 9C020000 		.4byte	.LC17
+ 1455 057d 00       		.byte	0
+ 1456 057e 00       		.byte	0
+ 1457 057f 0D       		.uleb128 0xd
+ 1458 0580 81000000 		.4byte	0x81
+ 1459 0584 8F050000 		.4byte	0x58f
+ 1460 0588 0E       		.uleb128 0xe
+ 1461 0589 BA000000 		.4byte	0xba
+ 1462 058d 09       		.byte	0x9
+ 1463 058e 00       		.byte	0
+ 1464 058f 0F       		.uleb128 0xf
+ 1465 0590 59020000 		.4byte	.LASF20
+ 1466 0594 05       		.byte	0x5
+ 1467 0595 26       		.byte	0x26
+ 1468 0596 7F050000 		.4byte	0x57f
+ 1469 059a 05       		.uleb128 0x5
+ 1470 059b 03       		.byte	0x3
+ 1471 059c 00000000 		.4byte	DataBuffer
+ 1472 05a0 0F       		.uleb128 0xf
+ 1473 05a1 5C000000 		.4byte	.LASF21
+ 1474 05a5 05       		.byte	0x5
+ 1475 05a6 29       		.byte	0x29
+ 1476 05a7 AE000000 		.4byte	0xae
+ 1477 05ab 05       		.uleb128 0x5
+ 1478 05ac 03       		.byte	0x3
+ 1479 05ad 00000000 		.4byte	PacketReadyFlag
+ 1480 05b1 10       		.uleb128 0x10
+ 1481 05b2 EC000000 		.4byte	.LASF22
+ 1482 05b6 06       		.byte	0x6
+ 1483 05b7 1207     		.2byte	0x712
+ 1484 05b9 BD050000 		.4byte	0x5bd
+ 1485 05bd 06       		.uleb128 0x6
+ 1486 05be 76000000 		.4byte	0x76
+ 1487 05c2 0F       		.uleb128 0xf
+ 1488 05c3 16020000 		.4byte	.LASF23
+ 1489 05c7 01       		.byte	0x1
+ 1490 05c8 1F       		.byte	0x1f
+ 1491 05c9 81000000 		.4byte	0x81
+ 1492 05cd 05       		.uleb128 0x5
+ 1493 05ce 03       		.byte	0x3
+ 1494 05cf 00000000 		.4byte	ch_received
+ 1495 05d3 0F       		.uleb128 0xf
+ 1496 05d4 F7020000 		.4byte	.LASF24
+ 1497 05d8 01       		.byte	0x1
+ 1498 05d9 21       		.byte	0x21
+ 1499 05da 81000000 		.4byte	0x81
+ 1500 05de 05       		.uleb128 0x5
+ 1501 05df 03       		.byte	0x3
+ 1502 05e0 00000000 		.4byte	FSRFlag
+ 1503 05e4 0F       		.uleb128 0xf
+ 1504 05e5 B5020000 		.4byte	.LASF25
+ 1505 05e9 01       		.byte	0x1
+ 1506 05ea 22       		.byte	0x22
+ 1507 05eb 81000000 		.4byte	0x81
+ 1508 05ef 05       		.uleb128 0x5
+ 1509 05f0 03       		.byte	0x3
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 35
 
 
- 1544              	.LASF22:
- 1545 015e 54656D70 		.ascii	"TemperatureFlag\000"
- 1545      65726174 
- 1545      75726546 
- 1545      6C616700 
- 1546              	.LASF8:
- 1547 016e 756E7369 		.ascii	"unsigned int\000"
- 1547      676E6564 
- 1547      20696E74 
- 1547      00
- 1548              	.LASF7:
- 1549 017b 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1549      206C6F6E 
- 1549      6720756E 
- 1549      7369676E 
- 1549      65642069 
- 1550              	.LASF29:
- 1551 0192 43757374 		.ascii	"Custom_isr_FIFO\000"
- 1551      6F6D5F69 
- 1551      73725F46 
- 1551      49464F00 
- 1552              	.LASF23:
- 1553 01a2 55415254 		.ascii	"UART_1_GetChar\000"
- 1553      5F315F47 
- 1553      65744368 
- 1553      617200
- 1554              	.LASF18:
- 1555 01b1 63685F72 		.ascii	"ch_received\000"
- 1555      65636569 
- 1555      76656400 
- 1556              	.LASF16:
- 1557 01bd 73697A65 		.ascii	"sizetype\000"
- 1557      74797065 
- 1557      00
- 1558              	.LASF6:
- 1559 01c6 6C6F6E67 		.ascii	"long long int\000"
- 1559      206C6F6E 
- 1559      6720696E 
- 1559      7400
- 1560              	.LASF30:
- 1561 01d4 43757374 		.ascii	"Custom_ISR_RX\000"
- 1561      6F6D5F49 
- 1561      53525F52 
- 1561      5800
- 1562              	.LASF2:
- 1563 01e2 73686F72 		.ascii	"short int\000"
- 1563      7420696E 
- 1563      7400
- 1564              	.LASF11:
- 1565 01ec 75696E74 		.ascii	"uint8\000"
- 1565      3800
- 1566              	.LASF4:
- 1567 01f2 6C6F6E67 		.ascii	"long int\000"
- 1567      20696E74 
- 1567      00
- 1568              	.LASF14:
- 1569 01fb 63686172 		.ascii	"char\000"
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc6vq5m7.s 			page 36
+ 1510 05f1 00000000 		.4byte	SamplingFreqFlag
+ 1511 05f5 0F       		.uleb128 0xf
+ 1512 05f6 2B010000 		.4byte	.LASF26
+ 1513 05fa 01       		.byte	0x1
+ 1514 05fb 23       		.byte	0x23
+ 1515 05fc 81000000 		.4byte	0x81
+ 1516 0600 05       		.uleb128 0x5
+ 1517 0601 03       		.byte	0x3
+ 1518 0602 00000000 		.4byte	TemperatureMode
+ 1519 0606 0F       		.uleb128 0xf
+ 1520 0607 6E020000 		.4byte	.LASF27
+ 1521 060b 01       		.byte	0x1
+ 1522 060c 24       		.byte	0x24
+ 1523 060d 81000000 		.4byte	0x81
+ 1524 0611 05       		.uleb128 0x5
+ 1525 0612 03       		.byte	0x3
+ 1526 0613 00000000 		.4byte	FahrenheitFlag
+ 1527 0617 0F       		.uleb128 0xf
+ 1528 0618 7D010000 		.4byte	.LASF28
+ 1529 061c 01       		.byte	0x1
+ 1530 061d 25       		.byte	0x25
+ 1531 061e 68000000 		.4byte	0x68
+ 1532 0622 05       		.uleb128 0x5
+ 1533 0623 03       		.byte	0x3
+ 1534 0624 00000000 		.4byte	value_temp
+ 1535 0628 0F       		.uleb128 0xf
+ 1536 0629 91020000 		.4byte	.LASF29
+ 1537 062d 01       		.byte	0x1
+ 1538 062e 26       		.byte	0x26
+ 1539 062f 8D000000 		.4byte	0x8d
+ 1540 0633 05       		.uleb128 0x5
+ 1541 0634 03       		.byte	0x3
+ 1542 0635 00000000 		.4byte	value_digit
+ 1543 0639 0F       		.uleb128 0xf
+ 1544 063a 45000000 		.4byte	.LASF30
+ 1545 063e 01       		.byte	0x1
+ 1546 063f 27       		.byte	0x27
+ 1547 0640 68000000 		.4byte	0x68
+ 1548 0644 05       		.uleb128 0x5
+ 1549 0645 03       		.byte	0x3
+ 1550 0646 00000000 		.4byte	value_mv
+ 1551 064a 11       		.uleb128 0x11
+ 1552 064b 19000000 		.4byte	.LASF31
+ 1553 064f 19000000 		.4byte	.LASF31
+ 1554 0653 07       		.byte	0x7
+ 1555 0654 5E       		.byte	0x5e
+ 1556 0655 11       		.uleb128 0x11
+ 1557 0656 2B020000 		.4byte	.LASF32
+ 1558 065a 2B020000 		.4byte	.LASF32
+ 1559 065e 08       		.byte	0x8
+ 1560 065f 56       		.byte	0x56
+ 1561 0660 11       		.uleb128 0x11
+ 1562 0661 62010000 		.4byte	.LASF33
+ 1563 0665 62010000 		.4byte	.LASF33
+ 1564 0669 08       		.byte	0x8
+ 1565 066a 47       		.byte	0x47
+ 1566 066b 11       		.uleb128 0x11
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 36
 
 
- 1569      00
- 1570              	.LASF15:
- 1571 0200 6C6F6E67 		.ascii	"long double\000"
- 1571      20646F75 
- 1571      626C6500 
- 1572              	.LASF0:
- 1573 020c 7369676E 		.ascii	"signed char\000"
- 1573      65642063 
- 1573      68617200 
- 1574              	.LASF21:
- 1575 0218 53616D70 		.ascii	"SamplingFreqFlag\000"
- 1575      6C696E67 
- 1575      46726571 
- 1575      466C6167 
- 1575      00
- 1576              	.LASF24:
- 1577 0229 55415254 		.ascii	"UART_1_PutString\000"
- 1577      5F315F50 
- 1577      75745374 
- 1577      72696E67 
- 1577      00
- 1578              	.LASF20:
- 1579 023a 46535246 		.ascii	"FSRFlag\000"
- 1579      6C616700 
- 1580              	.LASF27:
- 1581 0242 496E7465 		.ascii	"InterruptRoutines.c\000"
- 1581      72727570 
- 1581      74526F75 
- 1581      74696E65 
- 1581      732E6300 
- 1582              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1567 066c E8020000 		.4byte	.LASF34
+ 1568 0670 E8020000 		.4byte	.LASF34
+ 1569 0674 09       		.byte	0x9
+ 1570 0675 71       		.byte	0x71
+ 1571 0676 11       		.uleb128 0x11
+ 1572 0677 7A000000 		.4byte	.LASF35
+ 1573 067b 7A000000 		.4byte	.LASF35
+ 1574 067f 0A       		.byte	0xa
+ 1575 0680 12       		.byte	0x12
+ 1576 0681 11       		.uleb128 0x11
+ 1577 0682 C6020000 		.4byte	.LASF36
+ 1578 0686 C6020000 		.4byte	.LASF36
+ 1579 068a 09       		.byte	0x9
+ 1580 068b 8B       		.byte	0x8b
+ 1581 068c 11       		.uleb128 0x11
+ 1582 068d D7020000 		.4byte	.LASF37
+ 1583 0691 D7020000 		.4byte	.LASF37
+ 1584 0695 0B       		.byte	0xb
+ 1585 0696 75       		.byte	0x75
+ 1586 0697 11       		.uleb128 0x11
+ 1587 0698 00010000 		.4byte	.LASF38
+ 1588 069c 00010000 		.4byte	.LASF38
+ 1589 06a0 0B       		.byte	0xb
+ 1590 06a1 6D       		.byte	0x6d
+ 1591 06a2 11       		.uleb128 0x11
+ 1592 06a3 12010000 		.4byte	.LASF39
+ 1593 06a7 12010000 		.4byte	.LASF39
+ 1594 06ab 07       		.byte	0x7
+ 1595 06ac 5A       		.byte	0x5a
+ 1596 06ad 00       		.byte	0
+ 1597              		.section	.debug_abbrev,"",%progbits
+ 1598              	.Ldebug_abbrev0:
+ 1599 0000 01       		.uleb128 0x1
+ 1600 0001 11       		.uleb128 0x11
+ 1601 0002 01       		.byte	0x1
+ 1602 0003 25       		.uleb128 0x25
+ 1603 0004 0E       		.uleb128 0xe
+ 1604 0005 13       		.uleb128 0x13
+ 1605 0006 0B       		.uleb128 0xb
+ 1606 0007 03       		.uleb128 0x3
+ 1607 0008 0E       		.uleb128 0xe
+ 1608 0009 1B       		.uleb128 0x1b
+ 1609 000a 0E       		.uleb128 0xe
+ 1610 000b 55       		.uleb128 0x55
+ 1611 000c 17       		.uleb128 0x17
+ 1612 000d 11       		.uleb128 0x11
+ 1613 000e 01       		.uleb128 0x1
+ 1614 000f 10       		.uleb128 0x10
+ 1615 0010 17       		.uleb128 0x17
+ 1616 0011 00       		.byte	0
+ 1617 0012 00       		.byte	0
+ 1618 0013 02       		.uleb128 0x2
+ 1619 0014 24       		.uleb128 0x24
+ 1620 0015 00       		.byte	0
+ 1621 0016 0B       		.uleb128 0xb
+ 1622 0017 0B       		.uleb128 0xb
+ 1623 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 37
+
+
+ 1624 0019 0B       		.uleb128 0xb
+ 1625 001a 03       		.uleb128 0x3
+ 1626 001b 0E       		.uleb128 0xe
+ 1627 001c 00       		.byte	0
+ 1628 001d 00       		.byte	0
+ 1629 001e 03       		.uleb128 0x3
+ 1630 001f 16       		.uleb128 0x16
+ 1631 0020 00       		.byte	0
+ 1632 0021 03       		.uleb128 0x3
+ 1633 0022 0E       		.uleb128 0xe
+ 1634 0023 3A       		.uleb128 0x3a
+ 1635 0024 0B       		.uleb128 0xb
+ 1636 0025 3B       		.uleb128 0x3b
+ 1637 0026 0B       		.uleb128 0xb
+ 1638 0027 49       		.uleb128 0x49
+ 1639 0028 13       		.uleb128 0x13
+ 1640 0029 00       		.byte	0
+ 1641 002a 00       		.byte	0
+ 1642 002b 04       		.uleb128 0x4
+ 1643 002c 24       		.uleb128 0x24
+ 1644 002d 00       		.byte	0
+ 1645 002e 0B       		.uleb128 0xb
+ 1646 002f 0B       		.uleb128 0xb
+ 1647 0030 3E       		.uleb128 0x3e
+ 1648 0031 0B       		.uleb128 0xb
+ 1649 0032 03       		.uleb128 0x3
+ 1650 0033 08       		.uleb128 0x8
+ 1651 0034 00       		.byte	0
+ 1652 0035 00       		.byte	0
+ 1653 0036 05       		.uleb128 0x5
+ 1654 0037 16       		.uleb128 0x16
+ 1655 0038 00       		.byte	0
+ 1656 0039 03       		.uleb128 0x3
+ 1657 003a 0E       		.uleb128 0xe
+ 1658 003b 3A       		.uleb128 0x3a
+ 1659 003c 0B       		.uleb128 0xb
+ 1660 003d 3B       		.uleb128 0x3b
+ 1661 003e 05       		.uleb128 0x5
+ 1662 003f 49       		.uleb128 0x49
+ 1663 0040 13       		.uleb128 0x13
+ 1664 0041 00       		.byte	0
+ 1665 0042 00       		.byte	0
+ 1666 0043 06       		.uleb128 0x6
+ 1667 0044 35       		.uleb128 0x35
+ 1668 0045 00       		.byte	0
+ 1669 0046 49       		.uleb128 0x49
+ 1670 0047 13       		.uleb128 0x13
+ 1671 0048 00       		.byte	0
+ 1672 0049 00       		.byte	0
+ 1673 004a 07       		.uleb128 0x7
+ 1674 004b 2E       		.uleb128 0x2e
+ 1675 004c 00       		.byte	0
+ 1676 004d 3F       		.uleb128 0x3f
+ 1677 004e 19       		.uleb128 0x19
+ 1678 004f 03       		.uleb128 0x3
+ 1679 0050 0E       		.uleb128 0xe
+ 1680 0051 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 38
+
+
+ 1681 0052 0B       		.uleb128 0xb
+ 1682 0053 3B       		.uleb128 0x3b
+ 1683 0054 0B       		.uleb128 0xb
+ 1684 0055 27       		.uleb128 0x27
+ 1685 0056 19       		.uleb128 0x19
+ 1686 0057 11       		.uleb128 0x11
+ 1687 0058 01       		.uleb128 0x1
+ 1688 0059 12       		.uleb128 0x12
+ 1689 005a 06       		.uleb128 0x6
+ 1690 005b 40       		.uleb128 0x40
+ 1691 005c 18       		.uleb128 0x18
+ 1692 005d 9742     		.uleb128 0x2117
+ 1693 005f 19       		.uleb128 0x19
+ 1694 0060 00       		.byte	0
+ 1695 0061 00       		.byte	0
+ 1696 0062 08       		.uleb128 0x8
+ 1697 0063 2E       		.uleb128 0x2e
+ 1698 0064 01       		.byte	0x1
+ 1699 0065 3F       		.uleb128 0x3f
+ 1700 0066 19       		.uleb128 0x19
+ 1701 0067 03       		.uleb128 0x3
+ 1702 0068 0E       		.uleb128 0xe
+ 1703 0069 3A       		.uleb128 0x3a
+ 1704 006a 0B       		.uleb128 0xb
+ 1705 006b 3B       		.uleb128 0x3b
+ 1706 006c 0B       		.uleb128 0xb
+ 1707 006d 27       		.uleb128 0x27
+ 1708 006e 19       		.uleb128 0x19
+ 1709 006f 11       		.uleb128 0x11
+ 1710 0070 01       		.uleb128 0x1
+ 1711 0071 12       		.uleb128 0x12
+ 1712 0072 06       		.uleb128 0x6
+ 1713 0073 40       		.uleb128 0x40
+ 1714 0074 18       		.uleb128 0x18
+ 1715 0075 9742     		.uleb128 0x2117
+ 1716 0077 19       		.uleb128 0x19
+ 1717 0078 01       		.uleb128 0x1
+ 1718 0079 13       		.uleb128 0x13
+ 1719 007a 00       		.byte	0
+ 1720 007b 00       		.byte	0
+ 1721 007c 09       		.uleb128 0x9
+ 1722 007d 898201   		.uleb128 0x4109
+ 1723 0080 00       		.byte	0
+ 1724 0081 11       		.uleb128 0x11
+ 1725 0082 01       		.uleb128 0x1
+ 1726 0083 31       		.uleb128 0x31
+ 1727 0084 13       		.uleb128 0x13
+ 1728 0085 00       		.byte	0
+ 1729 0086 00       		.byte	0
+ 1730 0087 0A       		.uleb128 0xa
+ 1731 0088 898201   		.uleb128 0x4109
+ 1732 008b 01       		.byte	0x1
+ 1733 008c 11       		.uleb128 0x11
+ 1734 008d 01       		.uleb128 0x1
+ 1735 008e 31       		.uleb128 0x31
+ 1736 008f 13       		.uleb128 0x13
+ 1737 0090 01       		.uleb128 0x1
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 39
+
+
+ 1738 0091 13       		.uleb128 0x13
+ 1739 0092 00       		.byte	0
+ 1740 0093 00       		.byte	0
+ 1741 0094 0B       		.uleb128 0xb
+ 1742 0095 8A8201   		.uleb128 0x410a
+ 1743 0098 00       		.byte	0
+ 1744 0099 02       		.uleb128 0x2
+ 1745 009a 18       		.uleb128 0x18
+ 1746 009b 9142     		.uleb128 0x2111
+ 1747 009d 18       		.uleb128 0x18
+ 1748 009e 00       		.byte	0
+ 1749 009f 00       		.byte	0
+ 1750 00a0 0C       		.uleb128 0xc
+ 1751 00a1 898201   		.uleb128 0x4109
+ 1752 00a4 01       		.byte	0x1
+ 1753 00a5 11       		.uleb128 0x11
+ 1754 00a6 01       		.uleb128 0x1
+ 1755 00a7 31       		.uleb128 0x31
+ 1756 00a8 13       		.uleb128 0x13
+ 1757 00a9 00       		.byte	0
+ 1758 00aa 00       		.byte	0
+ 1759 00ab 0D       		.uleb128 0xd
+ 1760 00ac 01       		.uleb128 0x1
+ 1761 00ad 01       		.byte	0x1
+ 1762 00ae 49       		.uleb128 0x49
+ 1763 00af 13       		.uleb128 0x13
+ 1764 00b0 01       		.uleb128 0x1
+ 1765 00b1 13       		.uleb128 0x13
+ 1766 00b2 00       		.byte	0
+ 1767 00b3 00       		.byte	0
+ 1768 00b4 0E       		.uleb128 0xe
+ 1769 00b5 21       		.uleb128 0x21
+ 1770 00b6 00       		.byte	0
+ 1771 00b7 49       		.uleb128 0x49
+ 1772 00b8 13       		.uleb128 0x13
+ 1773 00b9 2F       		.uleb128 0x2f
+ 1774 00ba 0B       		.uleb128 0xb
+ 1775 00bb 00       		.byte	0
+ 1776 00bc 00       		.byte	0
+ 1777 00bd 0F       		.uleb128 0xf
+ 1778 00be 34       		.uleb128 0x34
+ 1779 00bf 00       		.byte	0
+ 1780 00c0 03       		.uleb128 0x3
+ 1781 00c1 0E       		.uleb128 0xe
+ 1782 00c2 3A       		.uleb128 0x3a
+ 1783 00c3 0B       		.uleb128 0xb
+ 1784 00c4 3B       		.uleb128 0x3b
+ 1785 00c5 0B       		.uleb128 0xb
+ 1786 00c6 49       		.uleb128 0x49
+ 1787 00c7 13       		.uleb128 0x13
+ 1788 00c8 3F       		.uleb128 0x3f
+ 1789 00c9 19       		.uleb128 0x19
+ 1790 00ca 02       		.uleb128 0x2
+ 1791 00cb 18       		.uleb128 0x18
+ 1792 00cc 00       		.byte	0
+ 1793 00cd 00       		.byte	0
+ 1794 00ce 10       		.uleb128 0x10
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 40
+
+
+ 1795 00cf 34       		.uleb128 0x34
+ 1796 00d0 00       		.byte	0
+ 1797 00d1 03       		.uleb128 0x3
+ 1798 00d2 0E       		.uleb128 0xe
+ 1799 00d3 3A       		.uleb128 0x3a
+ 1800 00d4 0B       		.uleb128 0xb
+ 1801 00d5 3B       		.uleb128 0x3b
+ 1802 00d6 05       		.uleb128 0x5
+ 1803 00d7 49       		.uleb128 0x49
+ 1804 00d8 13       		.uleb128 0x13
+ 1805 00d9 3F       		.uleb128 0x3f
+ 1806 00da 19       		.uleb128 0x19
+ 1807 00db 3C       		.uleb128 0x3c
+ 1808 00dc 19       		.uleb128 0x19
+ 1809 00dd 00       		.byte	0
+ 1810 00de 00       		.byte	0
+ 1811 00df 11       		.uleb128 0x11
+ 1812 00e0 2E       		.uleb128 0x2e
+ 1813 00e1 00       		.byte	0
+ 1814 00e2 3F       		.uleb128 0x3f
+ 1815 00e3 19       		.uleb128 0x19
+ 1816 00e4 3C       		.uleb128 0x3c
+ 1817 00e5 19       		.uleb128 0x19
+ 1818 00e6 6E       		.uleb128 0x6e
+ 1819 00e7 0E       		.uleb128 0xe
+ 1820 00e8 03       		.uleb128 0x3
+ 1821 00e9 0E       		.uleb128 0xe
+ 1822 00ea 3A       		.uleb128 0x3a
+ 1823 00eb 0B       		.uleb128 0xb
+ 1824 00ec 3B       		.uleb128 0x3b
+ 1825 00ed 0B       		.uleb128 0xb
+ 1826 00ee 00       		.byte	0
+ 1827 00ef 00       		.byte	0
+ 1828 00f0 00       		.byte	0
+ 1829              		.section	.debug_aranges,"",%progbits
+ 1830 0000 2C000000 		.4byte	0x2c
+ 1831 0004 0200     		.2byte	0x2
+ 1832 0006 00000000 		.4byte	.Ldebug_info0
+ 1833 000a 04       		.byte	0x4
+ 1834 000b 00       		.byte	0
+ 1835 000c 0000     		.2byte	0
+ 1836 000e 0000     		.2byte	0
+ 1837 0010 00000000 		.4byte	.LFB64
+ 1838 0014 02000000 		.4byte	.LFE64-.LFB64
+ 1839 0018 00000000 		.4byte	.LFB65
+ 1840 001c 9C000000 		.4byte	.LFE65-.LFB65
+ 1841 0020 00000000 		.4byte	.LFB66
+ 1842 0024 28030000 		.4byte	.LFE66-.LFB66
+ 1843 0028 00000000 		.4byte	0
+ 1844 002c 00000000 		.4byte	0
+ 1845              		.section	.debug_ranges,"",%progbits
+ 1846              	.Ldebug_ranges0:
+ 1847 0000 00000000 		.4byte	.LFB64
+ 1848 0004 02000000 		.4byte	.LFE64
+ 1849 0008 00000000 		.4byte	.LFB65
+ 1850 000c 9C000000 		.4byte	.LFE65
+ 1851 0010 00000000 		.4byte	.LFB66
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 41
+
+
+ 1852 0014 28030000 		.4byte	.LFE66
+ 1853 0018 00000000 		.4byte	0
+ 1854 001c 00000000 		.4byte	0
+ 1855              		.section	.debug_line,"",%progbits
+ 1856              	.Ldebug_line0:
+ 1857 0000 58020000 		.section	.debug_str,"MS",%progbits,1
+ 1857      0200B201 
+ 1857      00000201 
+ 1857      FB0E0D00 
+ 1857      01010101 
+ 1858              	.LASF18:
+ 1859 0000 43757374 		.ascii	"Custom_ISR_ADC\000"
+ 1859      6F6D5F49 
+ 1859      53525F41 
+ 1859      444300
+ 1860              	.LASF9:
+ 1861 000f 5F5F696E 		.ascii	"__int32_t\000"
+ 1861      7433325F 
+ 1861      7400
+ 1862              	.LASF31:
+ 1863 0019 54696D65 		.ascii	"Timer_ReadStatusRegister\000"
+ 1863      725F5265 
+ 1863      61645374 
+ 1863      61747573 
+ 1863      52656769 
+ 1864              	.LASF3:
+ 1865 0032 73686F72 		.ascii	"short unsigned int\000"
+ 1865      7420756E 
+ 1865      7369676E 
+ 1865      65642069 
+ 1865      6E7400
+ 1866              	.LASF30:
+ 1867 0045 76616C75 		.ascii	"value_mv\000"
+ 1867      655F6D76 
+ 1867      00
+ 1868              	.LASF10:
+ 1869 004e 696E7433 		.ascii	"int32_t\000"
+ 1869      325F7400 
+ 1870              	.LASF13:
+ 1871 0056 666C6F61 		.ascii	"float\000"
+ 1871      7400
+ 1872              	.LASF21:
+ 1873 005c 5061636B 		.ascii	"PacketReadyFlag\000"
+ 1873      65745265 
+ 1873      61647946 
+ 1873      6C616700 
+ 1874              	.LASF1:
+ 1875 006c 756E7369 		.ascii	"unsigned char\000"
+ 1875      676E6564 
+ 1875      20636861 
+ 1875      7200
+ 1876              	.LASF35:
+ 1877 007a 73686F77 		.ascii	"show_menu\000"
+ 1877      5F6D656E 
+ 1877      7500
+ 1878              	.LASF42:
+ 1879 0084 433A5C55 		.ascii	"C:\\Users\\ilami\\Documents\\GitHub\\FINAL-PROJECT-"
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 42
+
+
+ 1879      73657273 
+ 1879      5C696C61 
+ 1879      6D695C44 
+ 1879      6F63756D 
+ 1880 00b2 47524F55 		.ascii	"GROUP5\\Final_Project_Group5.cydsn\000"
+ 1880      50355C46 
+ 1880      696E616C 
+ 1880      5F50726F 
+ 1880      6A656374 
+ 1881              	.LASF5:
+ 1882 00d4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1882      20756E73 
+ 1882      69676E65 
+ 1882      6420696E 
+ 1882      7400
+ 1883              	.LASF12:
+ 1884 00e6 696E7433 		.ascii	"int32\000"
+ 1884      3200
+ 1885              	.LASF22:
+ 1886 00ec 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1886      52784275 
+ 1886      66666572 
+ 1886      00
+ 1887              	.LASF14:
+ 1888 00f9 646F7562 		.ascii	"double\000"
+ 1888      6C6500
+ 1889              	.LASF38:
+ 1890 0100 4143435F 		.ascii	"ACC_writeRegister\000"
+ 1890      77726974 
+ 1890      65526567 
+ 1890      69737465 
+ 1890      7200
+ 1891              	.LASF39:
+ 1892 0112 54696D65 		.ascii	"Timer_Start\000"
+ 1892      725F5374 
+ 1892      61727400 
+ 1893              	.LASF8:
+ 1894 011e 756E7369 		.ascii	"unsigned int\000"
+ 1894      676E6564 
+ 1894      20696E74 
+ 1894      00
+ 1895              	.LASF26:
+ 1896 012b 54656D70 		.ascii	"TemperatureMode\000"
+ 1896      65726174 
+ 1896      7572654D 
+ 1896      6F646500 
+ 1897              	.LASF7:
+ 1898 013b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1898      206C6F6E 
+ 1898      6720756E 
+ 1898      7369676E 
+ 1898      65642069 
+ 1899              	.LASF43:
+ 1900 0152 43757374 		.ascii	"Custom_isr_FIFO\000"
+ 1900      6F6D5F69 
+ 1900      73725F46 
+ 1900      49464F00 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 43
+
+
+ 1901              	.LASF33:
+ 1902 0162 4144435F 		.ascii	"ADC_DelSig_CountsTo_mVolts\000"
+ 1902      44656C53 
+ 1902      69675F43 
+ 1902      6F756E74 
+ 1902      73546F5F 
+ 1903              	.LASF28:
+ 1904 017d 76616C75 		.ascii	"value_temp\000"
+ 1904      655F7465 
+ 1904      6D7000
+ 1905              	.LASF40:
+ 1906 0188 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1906      43313120 
+ 1906      352E342E 
+ 1906      31203230 
+ 1906      31363036 
+ 1907 01bb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1907      20726576 
+ 1907      6973696F 
+ 1907      6E203233 
+ 1907      37373135 
+ 1908 01ee 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1908      66756E63 
+ 1908      74696F6E 
+ 1908      2D736563 
+ 1908      74696F6E 
+ 1909              	.LASF23:
+ 1910 0216 63685F72 		.ascii	"ch_received\000"
+ 1910      65636569 
+ 1910      76656400 
+ 1911              	.LASF17:
+ 1912 0222 73697A65 		.ascii	"sizetype\000"
+ 1912      74797065 
+ 1912      00
+ 1913              	.LASF32:
+ 1914 022b 4144435F 		.ascii	"ADC_DelSig_Read32\000"
+ 1914      44656C53 
+ 1914      69675F52 
+ 1914      65616433 
+ 1914      3200
+ 1915              	.LASF6:
+ 1916 023d 6C6F6E67 		.ascii	"long long int\000"
+ 1916      206C6F6E 
+ 1916      6720696E 
+ 1916      7400
+ 1917              	.LASF19:
+ 1918 024b 43757374 		.ascii	"Custom_ISR_RX\000"
+ 1918      6F6D5F49 
+ 1918      53525F52 
+ 1918      5800
+ 1919              	.LASF20:
+ 1920 0259 44617461 		.ascii	"DataBuffer\000"
+ 1920      42756666 
+ 1920      657200
+ 1921              	.LASF2:
+ 1922 0264 73686F72 		.ascii	"short int\000"
+ 1922      7420696E 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 44
+
+
+ 1922      7400
+ 1923              	.LASF27:
+ 1924 026e 46616872 		.ascii	"FahrenheitFlag\000"
+ 1924      656E6865 
+ 1924      6974466C 
+ 1924      616700
+ 1925              	.LASF11:
+ 1926 027d 75696E74 		.ascii	"uint8\000"
+ 1926      3800
+ 1927              	.LASF4:
+ 1928 0283 6C6F6E67 		.ascii	"long int\000"
+ 1928      20696E74 
+ 1928      00
+ 1929              	.LASF15:
+ 1930 028c 63686172 		.ascii	"char\000"
+ 1930      00
+ 1931              	.LASF29:
+ 1932 0291 76616C75 		.ascii	"value_digit\000"
+ 1932      655F6469 
+ 1932      67697400 
+ 1933              	.LASF16:
+ 1934 029d 6C6F6E67 		.ascii	"long double\000"
+ 1934      20646F75 
+ 1934      626C6500 
+ 1935              	.LASF0:
+ 1936 02a9 7369676E 		.ascii	"signed char\000"
+ 1936      65642063 
+ 1936      68617200 
+ 1937              	.LASF25:
+ 1938 02b5 53616D70 		.ascii	"SamplingFreqFlag\000"
+ 1938      6C696E67 
+ 1938      46726571 
+ 1938      466C6167 
+ 1938      00
+ 1939              	.LASF36:
+ 1940 02c6 55415254 		.ascii	"UART_1_PutString\000"
+ 1940      5F315F50 
+ 1940      75745374 
+ 1940      72696E67 
+ 1940      00
+ 1941              	.LASF37:
+ 1942 02d7 4143435F 		.ascii	"ACC_readRegister\000"
+ 1942      72656164 
+ 1942      52656769 
+ 1942      73746572 
+ 1942      00
+ 1943              	.LASF34:
+ 1944 02e8 55415254 		.ascii	"UART_1_GetChar\000"
+ 1944      5F315F47 
+ 1944      65744368 
+ 1944      617200
+ 1945              	.LASF24:
+ 1946 02f7 46535246 		.ascii	"FSRFlag\000"
+ 1946      6C616700 
+ 1947              	.LASF41:
+ 1948 02ff 496E7465 		.ascii	"InterruptRoutines.c\000"
+ 1948      72727570 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccBITdvA.s 			page 45
+
+
+ 1948      74526F75 
+ 1948      74696E65 
+ 1948      732E6300 
+ 1949              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -29,14 +29,12 @@
 
 //Address of the Control register 1
 #define LIS3DH_CTRL_REG1 0x20
-//Define ODR HR / Normal / Low-power mode (1 Hz)
-#define LIS3DH_CTRL_REG1_ODR_START 0x20
-
-//Hex value to set resolution mode to the accelerator. x,y,z enabled
-#define LIS3DH_HR_1_CTRL_REG1  0x23  /* 1 Hz  */
-#define LIS3DH_HR_10_CTRL_REG1 0x39  /* 10 Hz */
-#define LIS3DH_HR_25_CTRL_REG1 0x55  /* 25 Hz */
-#define LIS3DH_HR_50_CTRL_REG1 0x71  /* 50 Hz */
+//Define ODR HR / Normal / Low-power mode (1 Hz) and 
+//hex value to set resolution mode to the accelerator. x,y,z enabled
+#define LIS3DH_CTRL_REG1_ODR_START_1HZ  0x17   /* 1 Hz  */
+#define LIS3DH_CTRL_REG1_ODR_START_10HZ 0x27   /* 10 Hz */
+#define LIS3DH_CTRL_REG1_ODR_START_25HZ 0x37   /* 25 Hz */
+#define LIS3DH_CTRL_REG1_ODR_START_50HZ 0x47   /* 50 Hz */
 
 
 //brief Address of the Control register 4 
@@ -93,10 +91,10 @@
 #define LIS3DH_OUT_Z_H 0x2D    /*MSB Z*/
 
 
-#define LENGTH_BYTE 10
-#define TRANSMIT_BUFFER_SIZE 1+LENGTH_BYTE+1
-#define DATA_SIZE  3
-#define DATA_BYTES 6
+//#define LENGTH_BYTE 10
+//#define TRANSMIT_BUFFER_SIZE 1+LENGTH_BYTE+1
+//#define DATA_SIZE  3
+//#define DATA_BYTES 6
 
 /*** ========= FUNCTION DECLARATIONS ========= ***/
 
@@ -127,8 +125,5 @@ uint8_t ACC_readRegister(uint8_t reg_addr);
 *
 */
 void ACC_Multi_Read(uint8_t addr, uint8_t* data, uint8_t nBytes);
-
-/* [] END OF FILE */
-
 
 /* [] END OF FILE */
