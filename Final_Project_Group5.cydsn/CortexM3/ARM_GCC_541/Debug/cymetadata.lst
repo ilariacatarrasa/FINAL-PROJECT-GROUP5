@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 1
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 1
 
 
    1              		.syntax unified
@@ -27,2853 +27,2927 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 1
   24              		.section	.cyconfigecc,"a",%progbits
   25              		.align	2
   26              		.type	cy_meta_configecc, %object
-  27              		.size	cy_meta_configecc, 2256
+  27              		.size	cy_meta_configecc, 2324
   28              	cy_meta_configecc:
   29 0000 01       		.byte	1
   30 0001 45       		.byte	69
   31 0002 00       		.byte	0
   32 0003 40       		.byte	64
   33 0004 02       		.byte	2
-  34 0005 4F       		.byte	79
+  34 0005 52       		.byte	82
   35 0006 00       		.byte	0
   36 0007 40       		.byte	64
   37 0008 02       		.byte	2
-  38 0009 52       		.byte	82
+  38 0009 64       		.byte	100
   39 000a 00       		.byte	0
   40 000b 40       		.byte	64
-  41 000c 02       		.byte	2
-  42 000d 64       		.byte	100
+  41 000c 04       		.byte	4
+  42 000d 65       		.byte	101
   43 000e 00       		.byte	0
   44 000f 40       		.byte	64
-  45 0010 04       		.byte	4
-  46 0011 65       		.byte	101
-  47 0012 00       		.byte	0
+  45 0010 01       		.byte	1
+  46 0011 03       		.byte	3
+  47 0012 01       		.byte	1
   48 0013 40       		.byte	64
-  49 0014 5E       		.byte	94
-  50 0015 00       		.byte	0
+  49 0014 04       		.byte	4
+  50 0015 05       		.byte	5
   51 0016 01       		.byte	1
   52 0017 40       		.byte	64
-  53 0018 35       		.byte	53
-  54 0019 01       		.byte	1
+  53 0018 13       		.byte	19
+  54 0019 06       		.byte	6
   55 001a 01       		.byte	1
   56 001b 40       		.byte	64
-  57 001c 0E       		.byte	14
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 2
+  57 001c 45       		.byte	69
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 2
 
 
-  58 001d 03       		.byte	3
+  58 001d 07       		.byte	7
   59 001e 01       		.byte	1
   60 001f 40       		.byte	64
-  61 0020 16       		.byte	22
-  62 0021 04       		.byte	4
+  61 0020 58       		.byte	88
+  62 0021 08       		.byte	8
   63 0022 01       		.byte	1
   64 0023 40       		.byte	64
-  65 0024 43       		.byte	67
-  66 0025 05       		.byte	5
+  65 0024 3D       		.byte	61
+  66 0025 09       		.byte	9
   67 0026 01       		.byte	1
   68 0027 40       		.byte	64
-  69 0028 12       		.byte	18
-  70 0029 06       		.byte	6
+  69 0028 01       		.byte	1
+  70 0029 0B       		.byte	11
   71 002a 01       		.byte	1
   72 002b 40       		.byte	64
-  73 002c 3E       		.byte	62
-  74 002d 07       		.byte	7
+  73 002c 01       		.byte	1
+  74 002d 0D       		.byte	13
   75 002e 01       		.byte	1
   76 002f 40       		.byte	64
-  77 0030 04       		.byte	4
-  78 0031 08       		.byte	8
+  77 0030 27       		.byte	39
+  78 0031 14       		.byte	20
   79 0032 01       		.byte	1
   80 0033 40       		.byte	64
-  81 0034 04       		.byte	4
-  82 0035 09       		.byte	9
+  81 0034 57       		.byte	87
+  82 0035 15       		.byte	21
   83 0036 01       		.byte	1
   84 0037 40       		.byte	64
-  85 0038 05       		.byte	5
-  86 0039 0B       		.byte	11
+  85 0038 59       		.byte	89
+  86 0039 16       		.byte	22
   87 003a 01       		.byte	1
   88 003b 40       		.byte	64
-  89 003c 0B       		.byte	11
-  90 003d 15       		.byte	21
+  89 003c 45       		.byte	69
+  90 003d 17       		.byte	23
   91 003e 01       		.byte	1
   92 003f 40       		.byte	64
-  93 0040 49       		.byte	73
-  94 0041 16       		.byte	22
+  93 0040 51       		.byte	81
+  94 0041 18       		.byte	24
   95 0042 01       		.byte	1
   96 0043 40       		.byte	64
-  97 0044 50       		.byte	80
-  98 0045 17       		.byte	23
+  97 0044 51       		.byte	81
+  98 0045 19       		.byte	25
   99 0046 01       		.byte	1
  100 0047 40       		.byte	64
- 101 0048 54       		.byte	84
- 102 0049 18       		.byte	24
+ 101 0048 58       		.byte	88
+ 102 0049 1A       		.byte	26
  103 004a 01       		.byte	1
  104 004b 40       		.byte	64
- 105 004c 39       		.byte	57
- 106 004d 19       		.byte	25
+ 105 004c 54       		.byte	84
+ 106 004d 1B       		.byte	27
  107 004e 01       		.byte	1
  108 004f 40       		.byte	64
- 109 0050 19       		.byte	25
- 110 0051 1A       		.byte	26
+ 109 0050 05       		.byte	5
+ 110 0051 40       		.byte	64
  111 0052 01       		.byte	1
  112 0053 40       		.byte	64
- 113 0054 41       		.byte	65
- 114 0055 1B       		.byte	27
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 3
+ 113 0054 08       		.byte	8
+ 114 0055 41       		.byte	65
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 3
 
 
  115 0056 01       		.byte	1
  116 0057 40       		.byte	64
- 117 0058 05       		.byte	5
- 118 0059 40       		.byte	64
+ 117 0058 0B       		.byte	11
+ 118 0059 42       		.byte	66
  119 005a 01       		.byte	1
  120 005b 40       		.byte	64
- 121 005c 07       		.byte	7
- 122 005d 41       		.byte	65
+ 121 005c 08       		.byte	8
+ 122 005d 43       		.byte	67
  123 005e 01       		.byte	1
  124 005f 40       		.byte	64
- 125 0060 0D       		.byte	13
- 126 0061 42       		.byte	66
+ 125 0060 06       		.byte	6
+ 126 0061 45       		.byte	69
  127 0062 01       		.byte	1
  128 0063 40       		.byte	64
- 129 0064 08       		.byte	8
- 130 0065 43       		.byte	67
+ 129 0064 01       		.byte	1
+ 130 0065 46       		.byte	70
  131 0066 01       		.byte	1
  132 0067 40       		.byte	64
  133 0068 02       		.byte	2
- 134 0069 44       		.byte	68
+ 134 0069 47       		.byte	71
  135 006a 01       		.byte	1
  136 006b 40       		.byte	64
- 137 006c 03       		.byte	3
- 138 006d 45       		.byte	69
+ 137 006c 06       		.byte	6
+ 138 006d 48       		.byte	72
  139 006e 01       		.byte	1
  140 006f 40       		.byte	64
- 141 0070 06       		.byte	6
- 142 0071 46       		.byte	70
+ 141 0070 03       		.byte	3
+ 142 0071 49       		.byte	73
  143 0072 01       		.byte	1
  144 0073 40       		.byte	64
- 145 0074 03       		.byte	3
- 146 0075 47       		.byte	71
+ 145 0074 02       		.byte	2
+ 146 0075 4C       		.byte	76
  147 0076 01       		.byte	1
  148 0077 40       		.byte	64
- 149 0078 0D       		.byte	13
- 150 0079 48       		.byte	72
+ 149 0078 08       		.byte	8
+ 150 0079 4D       		.byte	77
  151 007a 01       		.byte	1
  152 007b 40       		.byte	64
- 153 007c 03       		.byte	3
- 154 007d 49       		.byte	73
+ 153 007c 06       		.byte	6
+ 154 007d 50       		.byte	80
  155 007e 01       		.byte	1
  156 007f 40       		.byte	64
- 157 0080 06       		.byte	6
- 158 0081 4C       		.byte	76
+ 157 0080 01       		.byte	1
+ 158 0081 51       		.byte	81
  159 0082 01       		.byte	1
  160 0083 40       		.byte	64
- 161 0084 07       		.byte	7
- 162 0085 4D       		.byte	77
+ 161 0084 64       		.byte	100
+ 162 0085 01       		.byte	1
  163 0086 01       		.byte	1
  164 0087 40       		.byte	64
- 165 0088 06       		.byte	6
- 166 0089 50       		.byte	80
- 167 008a 01       		.byte	1
- 168 008b 40       		.byte	64
- 169 008c 01       		.byte	1
- 170 008d 51       		.byte	81
- 171 008e 01       		.byte	1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 4
+ 165 0088 10       		.byte	16
+ 166 0089 80       		.byte	-128
+ 167 008a 87       		.byte	-121
+ 168 008b 0F       		.byte	15
+ 169 008c 89       		.byte	-119
+ 170 008d 0F       		.byte	15
+ 171 008e 84       		.byte	-124
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 4
 
 
- 172 008f 40       		.byte	64
- 173 0090 64       		.byte	100
- 174 0091 01       		.byte	1
- 175 0092 01       		.byte	1
- 176 0093 40       		.byte	64
- 177 0094 0A       		.byte	10
- 178 0095 1B       		.byte	27
- 179 0096 00       		.byte	0
- 180 0097 61       		.byte	97
- 181 0098 01       		.byte	1
- 182 0099 21       		.byte	33
- 183 009a 81       		.byte	-127
- 184 009b 0F       		.byte	15
- 185 009c 84       		.byte	-124
- 186 009d 0F       		.byte	15
- 187 009e 87       		.byte	-121
- 188 009f 0F       		.byte	15
- 189 00a0 89       		.byte	-119
- 190 00a1 72       		.byte	114
- 191 00a2 8A       		.byte	-118
- 192 00a3 38       		.byte	56
- 193 00a4 8B       		.byte	-117
- 194 00a5 0D       		.byte	13
- 195 00a6 01       		.byte	1
- 196 00a7 10       		.byte	16
- 197 00a8 04       		.byte	4
- 198 00a9 8D       		.byte	-115
- 199 00aa 09       		.byte	9
- 200 00ab 09       		.byte	9
- 201 00ac 0A       		.byte	10
- 202 00ad 80       		.byte	-128
- 203 00ae 0B       		.byte	11
- 204 00af 10       		.byte	16
- 205 00b0 0C       		.byte	12
- 206 00b1 0D       		.byte	13
- 207 00b2 0D       		.byte	13
- 208 00b3 1C       		.byte	28
- 209 00b4 0E       		.byte	14
- 210 00b5 80       		.byte	-128
- 211 00b6 0F       		.byte	15
- 212 00b7 02       		.byte	2
- 213 00b8 10       		.byte	16
- 214 00b9 02       		.byte	2
- 215 00ba 12       		.byte	18
- 216 00bb 0D       		.byte	13
- 217 00bc 13       		.byte	19
- 218 00bd 03       		.byte	3
- 219 00be 14       		.byte	20
- 220 00bf 62       		.byte	98
- 221 00c0 15       		.byte	21
- 222 00c1 10       		.byte	16
- 223 00c2 16       		.byte	22
- 224 00c3 14       		.byte	20
- 225 00c4 17       		.byte	23
- 226 00c5 0C       		.byte	12
- 227 00c6 18       		.byte	24
- 228 00c7 42       		.byte	66
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 5
+ 172 008f 0F       		.byte	15
+ 173 0090 86       		.byte	-122
+ 174 0091 0D       		.byte	13
+ 175 0092 88       		.byte	-120
+ 176 0093 38       		.byte	56
+ 177 0094 89       		.byte	-119
+ 178 0095 72       		.byte	114
+ 179 0096 8B       		.byte	-117
+ 180 0097 40       		.byte	64
+ 181 0098 8A       		.byte	-118
+ 182 0099 02       		.byte	2
+ 183 009a 93       		.byte	-109
+ 184 009b 40       		.byte	64
+ 185 009c E2       		.byte	-30
+ 186 009d 80       		.byte	-128
+ 187 009e E6       		.byte	-26
+ 188 009f 08       		.byte	8
+ 189 00a0 00       		.byte	0
+ 190 00a1 10       		.byte	16
+ 191 00a2 14       		.byte	20
+ 192 00a3 10       		.byte	16
+ 193 00a4 16       		.byte	22
+ 194 00a5 23       		.byte	35
+ 195 00a6 1A       		.byte	26
+ 196 00a7 01       		.byte	1
+ 197 00a8 28       		.byte	40
+ 198 00a9 38       		.byte	56
+ 199 00aa 2A       		.byte	42
+ 200 00ab 07       		.byte	7
+ 201 00ac 2C       		.byte	44
+ 202 00ad 06       		.byte	6
+ 203 00ae 2E       		.byte	46
+ 204 00af 28       		.byte	40
+ 205 00b0 32       		.byte	50
+ 206 00b1 1C       		.byte	28
+ 207 00b2 34       		.byte	52
+ 208 00b3 03       		.byte	3
+ 209 00b4 36       		.byte	54
+ 210 00b5 20       		.byte	32
+ 211 00b6 3A       		.byte	58
+ 212 00b7 08       		.byte	8
+ 213 00b8 3E       		.byte	62
+ 214 00b9 40       		.byte	64
+ 215 00ba 54       		.byte	84
+ 216 00bb 09       		.byte	9
+ 217 00bc 58       		.byte	88
+ 218 00bd 04       		.byte	4
+ 219 00be 5B       		.byte	91
+ 220 00bf 04       		.byte	4
+ 221 00c0 5C       		.byte	92
+ 222 00c1 01       		.byte	1
+ 223 00c2 5D       		.byte	93
+ 224 00c3 10       		.byte	16
+ 225 00c4 5F       		.byte	95
+ 226 00c5 01       		.byte	1
+ 227 00c6 00       		.byte	0
+ 228 00c7 90       		.byte	-112
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 5
 
 
- 229 00c8 19       		.byte	25
- 230 00c9 0C       		.byte	12
- 231 00ca 1A       		.byte	26
- 232 00cb 08       		.byte	8
- 233 00cc 1B       		.byte	27
- 234 00cd 11       		.byte	17
- 235 00ce 1C       		.byte	28
- 236 00cf 8D       		.byte	-115
- 237 00d0 20       		.byte	32
- 238 00d1 8D       		.byte	-115
- 239 00d2 24       		.byte	36
- 240 00d3 11       		.byte	17
- 241 00d4 26       		.byte	38
- 242 00d5 22       		.byte	34
- 243 00d6 28       		.byte	40
- 244 00d7 8D       		.byte	-115
- 245 00d8 29       		.byte	41
- 246 00d9 14       		.byte	20
- 247 00da 2C       		.byte	44
- 248 00db 40       		.byte	64
- 249 00dc 30       		.byte	48
- 250 00dd 0F       		.byte	15
- 251 00de 31       		.byte	49
- 252 00df 1F       		.byte	31
- 253 00e0 34       		.byte	52
- 254 00e1 70       		.byte	112
- 255 00e2 36       		.byte	54
- 256 00e3 80       		.byte	-128
- 257 00e4 3A       		.byte	58
- 258 00e5 22       		.byte	34
- 259 00e6 3E       		.byte	62
- 260 00e7 40       		.byte	64
- 261 00e8 54       		.byte	84
- 262 00e9 40       		.byte	64
- 263 00ea 56       		.byte	86
- 264 00eb 04       		.byte	4
- 265 00ec 58       		.byte	88
- 266 00ed 04       		.byte	4
- 267 00ee 59       		.byte	89
- 268 00ef 04       		.byte	4
- 269 00f0 5B       		.byte	91
- 270 00f1 04       		.byte	4
- 271 00f2 5C       		.byte	92
- 272 00f3 31       		.byte	49
- 273 00f4 5D       		.byte	93
- 274 00f5 10       		.byte	16
- 275 00f6 5F       		.byte	95
- 276 00f7 01       		.byte	1
- 277 00f8 80       		.byte	-128
- 278 00f9 03       		.byte	3
- 279 00fa 82       		.byte	-126
- 280 00fb 14       		.byte	20
- 281 00fc 83       		.byte	-125
- 282 00fd 08       		.byte	8
- 283 00fe 86       		.byte	-122
- 284 00ff 08       		.byte	8
- 285 0100 88       		.byte	-120
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 6
+ 229 00c8 01       		.byte	1
+ 230 00c9 02       		.byte	2
+ 231 00ca 03       		.byte	3
+ 232 00cb 10       		.byte	16
+ 233 00cc 06       		.byte	6
+ 234 00cd 40       		.byte	64
+ 235 00ce 08       		.byte	8
+ 236 00cf 41       		.byte	65
+ 237 00d0 09       		.byte	9
+ 238 00d1 08       		.byte	8
+ 239 00d2 0A       		.byte	10
+ 240 00d3 48       		.byte	72
+ 241 00d4 0B       		.byte	11
+ 242 00d5 01       		.byte	1
+ 243 00d6 0E       		.byte	14
+ 244 00d7 14       		.byte	20
+ 245 00d8 10       		.byte	16
+ 246 00d9 18       		.byte	24
+ 247 00da 11       		.byte	17
+ 248 00db 04       		.byte	4
+ 249 00dc 12       		.byte	18
+ 250 00dd 02       		.byte	2
+ 251 00de 15       		.byte	21
+ 252 00df 80       		.byte	-128
+ 253 00e0 17       		.byte	23
+ 254 00e1 20       		.byte	32
+ 255 00e2 18       		.byte	24
+ 256 00e3 10       		.byte	16
+ 257 00e4 19       		.byte	25
+ 258 00e5 20       		.byte	32
+ 259 00e6 1E       		.byte	30
+ 260 00e7 14       		.byte	20
+ 261 00e8 1F       		.byte	31
+ 262 00e9 80       		.byte	-128
+ 263 00ea 20       		.byte	32
+ 264 00eb 20       		.byte	32
+ 265 00ec 22       		.byte	34
+ 266 00ed 4E       		.byte	78
+ 267 00ee 28       		.byte	40
+ 268 00ef 89       		.byte	-119
+ 269 00f0 29       		.byte	41
+ 270 00f1 10       		.byte	16
+ 271 00f2 2A       		.byte	42
+ 272 00f3 08       		.byte	8
+ 273 00f4 2B       		.byte	43
+ 274 00f5 80       		.byte	-128
+ 275 00f6 30       		.byte	48
+ 276 00f7 18       		.byte	24
+ 277 00f8 32       		.byte	50
+ 278 00f9 02       		.byte	2
+ 279 00fa 33       		.byte	51
+ 280 00fb 40       		.byte	64
+ 281 00fc 3A       		.byte	58
+ 282 00fd 20       		.byte	32
+ 283 00fe 3B       		.byte	59
+ 284 00ff 09       		.byte	9
+ 285 0100 41       		.byte	65
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 6
 
 
- 286 0101 73       		.byte	115
- 287 0102 8A       		.byte	-118
- 288 0103 04       		.byte	4
- 289 0104 8B       		.byte	-117
- 290 0105 4C       		.byte	76
- 291 0106 94       		.byte	-108
- 292 0107 73       		.byte	115
- 293 0108 95       		.byte	-107
- 294 0109 11       		.byte	17
- 295 010a 96       		.byte	-106
- 296 010b 0C       		.byte	12
- 297 010c 97       		.byte	-105
- 298 010d 0E       		.byte	14
- 299 010e 9D       		.byte	-99
- 300 010f 4C       		.byte	76
- 301 0110 9E       		.byte	-98
- 302 0111 35       		.byte	53
- 303 0112 9F       		.byte	-97
- 304 0113 13       		.byte	19
- 305 0114 A1       		.byte	-95
- 306 0115 20       		.byte	32
- 307 0116 A3       		.byte	-93
- 308 0117 03       		.byte	3
- 309 0118 A9       		.byte	-87
- 310 0119 11       		.byte	17
- 311 011a AB       		.byte	-85
- 312 011b 46       		.byte	70
- 313 011c AC       		.byte	-84
- 314 011d 4A       		.byte	74
- 315 011e AE       		.byte	-82
- 316 011f 14       		.byte	20
- 317 0120 B0       		.byte	-80
- 318 0121 10       		.byte	16
- 319 0122 B1       		.byte	-79
- 320 0123 0F       		.byte	15
- 321 0124 B2       		.byte	-78
- 322 0125 0F       		.byte	15
- 323 0126 B3       		.byte	-77
- 324 0127 30       		.byte	48
- 325 0128 B4       		.byte	-76
- 326 0129 60       		.byte	96
- 327 012a B5       		.byte	-75
- 328 012b 4A       		.byte	74
- 329 012c B8       		.byte	-72
- 330 012d 20       		.byte	32
- 331 012e B9       		.byte	-71
- 332 012f 08       		.byte	8
- 333 0130 BA       		.byte	-70
- 334 0131 08       		.byte	8
- 335 0132 BB       		.byte	-69
- 336 0133 22       		.byte	34
- 337 0134 BE       		.byte	-66
- 338 0135 11       		.byte	17
- 339 0136 C0       		.byte	-64
- 340 0137 02       		.byte	2
- 341 0138 C7       		.byte	-57
- 342 0139 40       		.byte	64
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 7
+ 286 0101 09       		.byte	9
+ 287 0102 42       		.byte	66
+ 288 0103 28       		.byte	40
+ 289 0104 43       		.byte	67
+ 290 0105 10       		.byte	16
+ 291 0106 49       		.byte	73
+ 292 0107 12       		.byte	18
+ 293 0108 4A       		.byte	74
+ 294 0109 08       		.byte	8
+ 295 010a 4B       		.byte	75
+ 296 010b 48       		.byte	72
+ 297 010c 52       		.byte	82
+ 298 010d A0       		.byte	-96
+ 299 010e 53       		.byte	83
+ 300 010f 01       		.byte	1
+ 301 0110 5C       		.byte	92
+ 302 0111 80       		.byte	-128
+ 303 0112 5F       		.byte	95
+ 304 0113 16       		.byte	22
+ 305 0114 61       		.byte	97
+ 306 0115 01       		.byte	1
+ 307 0116 66       		.byte	102
+ 308 0117 80       		.byte	-128
+ 309 0118 68       		.byte	104
+ 310 0119 48       		.byte	72
+ 311 011a 69       		.byte	105
+ 312 011b 04       		.byte	4
+ 313 011c 6A       		.byte	106
+ 314 011d 40       		.byte	64
+ 315 011e 6B       		.byte	107
+ 316 011f 40       		.byte	64
+ 317 0120 73       		.byte	115
+ 318 0121 01       		.byte	1
+ 319 0122 85       		.byte	-123
+ 320 0123 21       		.byte	33
+ 321 0124 86       		.byte	-122
+ 322 0125 04       		.byte	4
+ 323 0126 87       		.byte	-121
+ 324 0127 04       		.byte	4
+ 325 0128 8A       		.byte	-118
+ 326 0129 40       		.byte	64
+ 327 012a 8B       		.byte	-117
+ 328 012b 10       		.byte	16
+ 329 012c 8C       		.byte	-116
+ 330 012d 10       		.byte	16
+ 331 012e 8F       		.byte	-113
+ 332 012f 01       		.byte	1
+ 333 0130 93       		.byte	-109
+ 334 0131 40       		.byte	64
+ 335 0132 9D       		.byte	-99
+ 336 0133 04       		.byte	4
+ 337 0134 9E       		.byte	-98
+ 338 0135 02       		.byte	2
+ 339 0136 B5       		.byte	-75
+ 340 0137 04       		.byte	4
+ 341 0138 C0       		.byte	-64
+ 342 0139 1F       		.byte	31
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 7
 
 
- 343 013a C9       		.byte	-55
- 344 013b FF       		.byte	-1
- 345 013c CA       		.byte	-54
- 346 013d 07       		.byte	7
- 347 013e CB       		.byte	-53
- 348 013f FF       		.byte	-1
+ 343 013a C2       		.byte	-62
+ 344 013b 6F       		.byte	111
+ 345 013c C4       		.byte	-60
+ 346 013d C7       		.byte	-57
+ 347 013e CA       		.byte	-54
+ 348 013f 0E       		.byte	14
  349 0140 CC       		.byte	-52
- 350 0141 40       		.byte	64
- 351 0142 CD       		.byte	-51
- 352 0143 20       		.byte	32
- 353 0144 CE       		.byte	-50
- 354 0145 F0       		.byte	-16
- 355 0146 CF       		.byte	-49
- 356 0147 05       		.byte	5
- 357 0148 D0       		.byte	-48
- 358 0149 08       		.byte	8
- 359 014a D4       		.byte	-44
- 360 014b 01       		.byte	1
- 361 014c D8       		.byte	-40
- 362 014d 04       		.byte	4
- 363 014e D9       		.byte	-39
- 364 014f 04       		.byte	4
- 365 0150 DA       		.byte	-38
- 366 0151 04       		.byte	4
- 367 0152 DB       		.byte	-37
- 368 0153 04       		.byte	4
- 369 0154 DC       		.byte	-36
- 370 0155 33       		.byte	51
- 371 0156 DD       		.byte	-35
- 372 0157 33       		.byte	51
- 373 0158 DF       		.byte	-33
- 374 0159 01       		.byte	1
- 375 015a E0       		.byte	-32
- 376 015b 40       		.byte	64
- 377 015c E1       		.byte	-31
- 378 015d A8       		.byte	-88
- 379 015e E2       		.byte	-30
- 380 015f 40       		.byte	64
- 381 0160 E3       		.byte	-29
- 382 0161 20       		.byte	32
- 383 0162 01       		.byte	1
- 384 0163 44       		.byte	68
- 385 0164 02       		.byte	2
- 386 0165 08       		.byte	8
- 387 0166 05       		.byte	5
- 388 0167 02       		.byte	2
- 389 0168 06       		.byte	6
- 390 0169 80       		.byte	-128
- 391 016a 07       		.byte	7
- 392 016b 18       		.byte	24
- 393 016c 09       		.byte	9
- 394 016d 08       		.byte	8
- 395 016e 0A       		.byte	10
- 396 016f 45       		.byte	69
- 397 0170 0C       		.byte	12
- 398 0171 44       		.byte	68
- 399 0172 0E       		.byte	14
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 8
+ 350 0141 0F       		.byte	15
+ 351 0142 CE       		.byte	-50
+ 352 0143 07       		.byte	7
+ 353 0144 D0       		.byte	-48
+ 354 0145 07       		.byte	7
+ 355 0146 D2       		.byte	-46
+ 356 0147 0C       		.byte	12
+ 357 0148 D6       		.byte	-42
+ 358 0149 F0       		.byte	-16
+ 359 014a D8       		.byte	-40
+ 360 014b 11       		.byte	17
+ 361 014c E2       		.byte	-30
+ 362 014d 10       		.byte	16
+ 363 014e E4       		.byte	-28
+ 364 014f 0A       		.byte	10
+ 365 0150 00       		.byte	0
+ 366 0151 45       		.byte	69
+ 367 0152 02       		.byte	2
+ 368 0153 3A       		.byte	58
+ 369 0154 05       		.byte	5
+ 370 0155 02       		.byte	2
+ 371 0156 07       		.byte	7
+ 372 0157 0D       		.byte	13
+ 373 0158 09       		.byte	9
+ 374 0159 09       		.byte	9
+ 375 015a 0B       		.byte	11
+ 376 015b 16       		.byte	22
+ 377 015c 16       		.byte	22
+ 378 015d 10       		.byte	16
+ 379 015e 18       		.byte	24
+ 380 015f 0E       		.byte	14
+ 381 0160 1C       		.byte	28
+ 382 0161 63       		.byte	99
+ 383 0162 1E       		.byte	30
+ 384 0163 04       		.byte	4
+ 385 0164 24       		.byte	36
+ 386 0165 44       		.byte	68
+ 387 0166 26       		.byte	38
+ 388 0167 39       		.byte	57
+ 389 0168 29       		.byte	41
+ 390 0169 03       		.byte	3
+ 391 016a 2B       		.byte	43
+ 392 016b 1C       		.byte	28
+ 393 016c 2D       		.byte	45
+ 394 016d 15       		.byte	21
+ 395 016e 2F       		.byte	47
+ 396 016f 0A       		.byte	10
+ 397 0170 32       		.byte	50
+ 398 0171 30       		.byte	48
+ 399 0172 33       		.byte	51
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 8
 
 
- 400 0173 10       		.byte	16
- 401 0174 0F       		.byte	15
- 402 0175 02       		.byte	2
- 403 0176 10       		.byte	16
- 404 0177 08       		.byte	8
- 405 0178 11       		.byte	17
- 406 0179 01       		.byte	1
- 407 017a 12       		.byte	18
- 408 017b 01       		.byte	1
- 409 017c 13       		.byte	19
- 410 017d 04       		.byte	4
- 411 017e 17       		.byte	23
+ 400 0173 0F       		.byte	15
+ 401 0174 34       		.byte	52
+ 402 0175 0F       		.byte	15
+ 403 0176 36       		.byte	54
+ 404 0177 40       		.byte	64
+ 405 0178 37       		.byte	55
+ 406 0179 10       		.byte	16
+ 407 017a 38       		.byte	56
+ 408 017b 20       		.byte	32
+ 409 017c 3B       		.byte	59
+ 410 017d 08       		.byte	8
+ 411 017e 3E       		.byte	62
  412 017f 40       		.byte	64
- 413 0180 18       		.byte	24
- 414 0181 02       		.byte	2
- 415 0182 19       		.byte	25
- 416 0183 10       		.byte	16
- 417 0184 1A       		.byte	26
- 418 0185 44       		.byte	68
- 419 0186 1D       		.byte	29
- 420 0187 20       		.byte	32
- 421 0188 1E       		.byte	30
- 422 0189 90       		.byte	-112
- 423 018a 21       		.byte	33
- 424 018b 02       		.byte	2
- 425 018c 24       		.byte	36
- 426 018d A0       		.byte	-96
- 427 018e 26       		.byte	38
+ 413 0180 3F       		.byte	63
+ 414 0181 40       		.byte	64
+ 415 0182 54       		.byte	84
+ 416 0183 09       		.byte	9
+ 417 0184 56       		.byte	86
+ 418 0185 04       		.byte	4
+ 419 0186 58       		.byte	88
+ 420 0187 04       		.byte	4
+ 421 0188 59       		.byte	89
+ 422 0189 04       		.byte	4
+ 423 018a 5B       		.byte	91
+ 424 018b 04       		.byte	4
+ 425 018c 5F       		.byte	95
+ 426 018d 01       		.byte	1
+ 427 018e 83       		.byte	-125
  428 018f 20       		.byte	32
- 429 0190 27       		.byte	39
- 430 0191 58       		.byte	88
- 431 0192 2B       		.byte	43
- 432 0193 08       		.byte	8
- 433 0194 2C       		.byte	44
- 434 0195 40       		.byte	64
- 435 0196 2E       		.byte	46
- 436 0197 10       		.byte	16
- 437 0198 30       		.byte	48
- 438 0199 04       		.byte	4
- 439 019a 31       		.byte	49
- 440 019b 02       		.byte	2
- 441 019c 32       		.byte	50
- 442 019d 20       		.byte	32
- 443 019e 37       		.byte	55
- 444 019f 48       		.byte	72
- 445 01a0 38       		.byte	56
- 446 01a1 A0       		.byte	-96
- 447 01a2 3A       		.byte	58
- 448 01a3 22       		.byte	34
- 449 01a4 3E       		.byte	62
- 450 01a5 22       		.byte	34
- 451 01a6 45       		.byte	69
- 452 01a7 20       		.byte	32
- 453 01a8 4F       		.byte	79
- 454 01a9 02       		.byte	2
- 455 01aa 56       		.byte	86
- 456 01ab 02       		.byte	2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 9
+ 429 0190 84       		.byte	-124
+ 430 0191 1F       		.byte	31
+ 431 0192 85       		.byte	-123
+ 432 0193 0C       		.byte	12
+ 433 0194 87       		.byte	-121
+ 434 0195 50       		.byte	80
+ 435 0196 88       		.byte	-120
+ 436 0197 02       		.byte	2
+ 437 0198 8C       		.byte	-116
+ 438 0199 13       		.byte	19
+ 439 019a 8E       		.byte	-114
+ 440 019b 0C       		.byte	12
+ 441 019c 90       		.byte	-112
+ 442 019d 03       		.byte	3
+ 443 019e 94       		.byte	-108
+ 444 019f 0C       		.byte	12
+ 445 01a0 98       		.byte	-104
+ 446 01a1 04       		.byte	4
+ 447 01a2 99       		.byte	-103
+ 448 01a3 4D       		.byte	77
+ 449 01a4 9B       		.byte	-101
+ 450 01a5 30       		.byte	48
+ 451 01a6 9C       		.byte	-100
+ 452 01a7 08       		.byte	8
+ 453 01a8 A0       		.byte	-96
+ 454 01a9 0F       		.byte	15
+ 455 01aa A1       		.byte	-95
+ 456 01ab 28       		.byte	40
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 9
 
 
- 457 01ac 5D       		.byte	93
+ 457 01ac A2       		.byte	-94
  458 01ad 10       		.byte	16
- 459 01ae 5E       		.byte	94
- 460 01af 88       		.byte	-120
- 461 01b0 5F       		.byte	95
- 462 01b1 01       		.byte	1
- 463 01b2 60       		.byte	96
- 464 01b3 60       		.byte	96
- 465 01b4 62       		.byte	98
- 466 01b5 50       		.byte	80
- 467 01b6 80       		.byte	-128
- 468 01b7 40       		.byte	64
- 469 01b8 86       		.byte	-122
- 470 01b9 48       		.byte	72
- 471 01ba C0       		.byte	-64
- 472 01bb 77       		.byte	119
- 473 01bc C2       		.byte	-62
- 474 01bd AF       		.byte	-81
- 475 01be C4       		.byte	-60
- 476 01bf 8F       		.byte	-113
- 477 01c0 CA       		.byte	-54
- 478 01c1 A4       		.byte	-92
- 479 01c2 CC       		.byte	-52
- 480 01c3 57       		.byte	87
- 481 01c4 CE       		.byte	-50
- 482 01c5 AD       		.byte	-83
- 483 01c6 D0       		.byte	-48
- 484 01c7 20       		.byte	32
- 485 01c8 D6       		.byte	-42
- 486 01c9 F0       		.byte	-16
- 487 01ca D8       		.byte	-40
- 488 01cb 0F       		.byte	15
- 489 01cc 95       		.byte	-107
- 490 01cd 45       		.byte	69
- 491 01ce 96       		.byte	-106
- 492 01cf 01       		.byte	1
- 493 01d0 97       		.byte	-105
- 494 01d1 05       		.byte	5
- 495 01d2 98       		.byte	-104
- 496 01d3 44       		.byte	68
- 497 01d4 99       		.byte	-103
- 498 01d5 10       		.byte	16
- 499 01d6 9B       		.byte	-101
- 500 01d7 08       		.byte	8
- 501 01d8 9E       		.byte	-98
- 502 01d9 91       		.byte	-111
- 503 01da A1       		.byte	-95
- 504 01db 02       		.byte	2
- 505 01dc A4       		.byte	-92
- 506 01dd 08       		.byte	8
- 507 01de A5       		.byte	-91
- 508 01df 08       		.byte	8
- 509 01e0 A6       		.byte	-90
- 510 01e1 0C       		.byte	12
- 511 01e2 A7       		.byte	-89
- 512 01e3 08       		.byte	8
- 513 01e4 A8       		.byte	-88
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 10
+ 459 01ae A3       		.byte	-93
+ 460 01af 51       		.byte	81
+ 461 01b0 A6       		.byte	-90
+ 462 01b1 13       		.byte	19
+ 463 01b2 A8       		.byte	-88
+ 464 01b3 0C       		.byte	12
+ 465 01b4 A9       		.byte	-87
+ 466 01b5 4D       		.byte	77
+ 467 01b6 AA       		.byte	-86
+ 468 01b7 13       		.byte	19
+ 469 01b8 AB       		.byte	-85
+ 470 01b9 10       		.byte	16
+ 471 01ba AC       		.byte	-84
+ 472 01bb 01       		.byte	1
+ 473 01bc AD       		.byte	-83
+ 474 01bd 02       		.byte	2
+ 475 01be AF       		.byte	-81
+ 476 01bf 54       		.byte	84
+ 477 01c0 B0       		.byte	-80
+ 478 01c1 0F       		.byte	15
+ 479 01c2 B1       		.byte	-79
+ 480 01c3 03       		.byte	3
+ 481 01c4 B3       		.byte	-77
+ 482 01c5 40       		.byte	64
+ 483 01c6 B5       		.byte	-75
+ 484 01c7 3C       		.byte	60
+ 485 01c8 B6       		.byte	-74
+ 486 01c9 1C       		.byte	28
+ 487 01ca B9       		.byte	-71
+ 488 01cb 02       		.byte	2
+ 489 01cc BA       		.byte	-70
+ 490 01cd 82       		.byte	-126
+ 491 01ce BB       		.byte	-69
+ 492 01cf 20       		.byte	32
+ 493 01d0 BF       		.byte	-65
+ 494 01d1 04       		.byte	4
+ 495 01d2 C0       		.byte	-64
+ 496 01d3 65       		.byte	101
+ 497 01d4 C1       		.byte	-63
+ 498 01d5 02       		.byte	2
+ 499 01d6 C5       		.byte	-59
+ 500 01d7 0B       		.byte	11
+ 501 01d8 C6       		.byte	-58
+ 502 01d9 E0       		.byte	-32
+ 503 01da C7       		.byte	-57
+ 504 01db 0C       		.byte	12
+ 505 01dc C8       		.byte	-56
+ 506 01dd 19       		.byte	25
+ 507 01de C9       		.byte	-55
+ 508 01df FF       		.byte	-1
+ 509 01e0 CA       		.byte	-54
+ 510 01e1 FF       		.byte	-1
+ 511 01e2 CB       		.byte	-53
+ 512 01e3 FF       		.byte	-1
+ 513 01e4 CE       		.byte	-50
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 10
 
 
- 514 01e5 21       		.byte	33
- 515 01e6 B1       		.byte	-79
- 516 01e7 12       		.byte	18
- 517 01e8 84       		.byte	-124
- 518 01e9 01       		.byte	1
- 519 01ea B4       		.byte	-76
+ 514 01e5 F0       		.byte	-16
+ 515 01e6 CF       		.byte	-49
+ 516 01e7 44       		.byte	68
+ 517 01e8 D0       		.byte	-48
+ 518 01e9 0C       		.byte	12
+ 519 01ea D4       		.byte	-44
  520 01eb 01       		.byte	1
- 521 01ec BE       		.byte	-66
- 522 01ed 10       		.byte	16
- 523 01ee C0       		.byte	-64
- 524 01ef 24       		.byte	36
- 525 01f0 C1       		.byte	-63
- 526 01f1 03       		.byte	3
- 527 01f2 C5       		.byte	-59
- 528 01f3 E0       		.byte	-32
- 529 01f4 C6       		.byte	-58
- 530 01f5 EC       		.byte	-20
- 531 01f6 C7       		.byte	-57
- 532 01f7 0B       		.byte	11
- 533 01f8 C8       		.byte	-56
- 534 01f9 1E       		.byte	30
- 535 01fa C9       		.byte	-55
- 536 01fb FF       		.byte	-1
- 537 01fc CA       		.byte	-54
- 538 01fd FF       		.byte	-1
- 539 01fe CB       		.byte	-53
- 540 01ff FF       		.byte	-1
- 541 0200 CE       		.byte	-50
- 542 0201 F0       		.byte	-16
- 543 0202 CF       		.byte	-49
- 544 0203 44       		.byte	68
- 545 0204 D0       		.byte	-48
- 546 0205 0C       		.byte	12
- 547 0206 D8       		.byte	-40
- 548 0207 04       		.byte	4
- 549 0208 DA       		.byte	-38
- 550 0209 04       		.byte	4
- 551 020a DD       		.byte	-35
- 552 020b 03       		.byte	3
- 553 020c DF       		.byte	-33
- 554 020d 01       		.byte	1
- 555 020e E6       		.byte	-26
- 556 020f C0       		.byte	-64
- 557 0210 EA       		.byte	-22
+ 521 01ec D8       		.byte	-40
+ 522 01ed 04       		.byte	4
+ 523 01ee D9       		.byte	-39
+ 524 01ef 04       		.byte	4
+ 525 01f0 DA       		.byte	-38
+ 526 01f1 04       		.byte	4
+ 527 01f2 DB       		.byte	-37
+ 528 01f3 04       		.byte	4
+ 529 01f4 DC       		.byte	-36
+ 530 01f5 22       		.byte	34
+ 531 01f6 DD       		.byte	-35
+ 532 01f7 22       		.byte	34
+ 533 01f8 DF       		.byte	-33
+ 534 01f9 01       		.byte	1
+ 535 01fa E6       		.byte	-26
+ 536 01fb C0       		.byte	-64
+ 537 01fc EA       		.byte	-22
+ 538 01fd 40       		.byte	64
+ 539 01fe EB       		.byte	-21
+ 540 01ff 02       		.byte	2
+ 541 0200 00       		.byte	0
+ 542 0201 64       		.byte	100
+ 543 0202 04       		.byte	4
+ 544 0203 08       		.byte	8
+ 545 0204 06       		.byte	6
+ 546 0205 40       		.byte	64
+ 547 0206 07       		.byte	7
+ 548 0207 10       		.byte	16
+ 549 0208 09       		.byte	9
+ 550 0209 08       		.byte	8
+ 551 020a 0A       		.byte	10
+ 552 020b 81       		.byte	-127
+ 553 020c 0B       		.byte	11
+ 554 020d 04       		.byte	4
+ 555 020e 0E       		.byte	14
+ 556 020f 16       		.byte	22
+ 557 0210 10       		.byte	16
  558 0211 40       		.byte	64
- 559 0212 EB       		.byte	-21
- 560 0213 02       		.byte	2
- 561 0214 00       		.byte	0
- 562 0215 04       		.byte	4
- 563 0216 01       		.byte	1
- 564 0217 61       		.byte	97
- 565 0218 02       		.byte	2
+ 559 0212 11       		.byte	17
+ 560 0213 40       		.byte	64
+ 561 0214 12       		.byte	18
+ 562 0215 28       		.byte	40
+ 563 0216 16       		.byte	22
+ 564 0217 20       		.byte	32
+ 565 0218 18       		.byte	24
  566 0219 40       		.byte	64
- 567 021a 06       		.byte	6
- 568 021b 20       		.byte	32
- 569 021c 08       		.byte	8
- 570 021d 10       		.byte	16
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 11
+ 567 021a 1A       		.byte	26
+ 568 021b 02       		.byte	2
+ 569 021c 1D       		.byte	29
+ 570 021d 40       		.byte	64
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 11
 
 
- 571 021e 09       		.byte	9
- 572 021f 09       		.byte	9
- 573 0220 10       		.byte	16
- 574 0221 A8       		.byte	-88
- 575 0222 12       		.byte	18
- 576 0223 02       		.byte	2
- 577 0224 18       		.byte	24
- 578 0225 40       		.byte	64
- 579 0226 19       		.byte	25
- 580 0227 21       		.byte	33
- 581 0228 1E       		.byte	30
- 582 0229 08       		.byte	8
- 583 022a 20       		.byte	32
- 584 022b 04       		.byte	4
- 585 022c 21       		.byte	33
- 586 022d 0C       		.byte	12
- 587 022e 22       		.byte	34
- 588 022f 06       		.byte	6
- 589 0230 23       		.byte	35
- 590 0231 04       		.byte	4
- 591 0232 28       		.byte	40
- 592 0233 08       		.byte	8
- 593 0234 2A       		.byte	42
- 594 0235 41       		.byte	65
- 595 0236 30       		.byte	48
- 596 0237 10       		.byte	16
- 597 0238 31       		.byte	49
- 598 0239 18       		.byte	24
- 599 023a 32       		.byte	50
- 600 023b 42       		.byte	66
- 601 023c 38       		.byte	56
- 602 023d 80       		.byte	-128
- 603 023e 39       		.byte	57
- 604 023f 14       		.byte	20
- 605 0240 3D       		.byte	61
- 606 0241 02       		.byte	2
- 607 0242 3E       		.byte	62
- 608 0243 01       		.byte	1
- 609 0244 40       		.byte	64
- 610 0245 4C       		.byte	76
- 611 0246 41       		.byte	65
- 612 0247 04       		.byte	4
- 613 0248 44       		.byte	68
- 614 0249 44       		.byte	68
- 615 024a 47       		.byte	71
- 616 024b 08       		.byte	8
- 617 024c 48       		.byte	72
- 618 024d 80       		.byte	-128
- 619 024e 49       		.byte	73
- 620 024f 14       		.byte	20
- 621 0250 4A       		.byte	74
- 622 0251 01       		.byte	1
- 623 0252 4F       		.byte	79
- 624 0253 01       		.byte	1
- 625 0254 50       		.byte	80
- 626 0255 01       		.byte	1
- 627 0256 52       		.byte	82
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 12
+ 571 021e 1E       		.byte	30
+ 572 021f 14       		.byte	20
+ 573 0220 20       		.byte	32
+ 574 0221 18       		.byte	24
+ 575 0222 21       		.byte	33
+ 576 0223 01       		.byte	1
+ 577 0224 22       		.byte	34
+ 578 0225 10       		.byte	16
+ 579 0226 23       		.byte	35
+ 580 0227 08       		.byte	8
+ 581 0228 25       		.byte	37
+ 582 0229 44       		.byte	68
+ 583 022a 28       		.byte	40
+ 584 022b 08       		.byte	8
+ 585 022c 29       		.byte	41
+ 586 022d 92       		.byte	-110
+ 587 022e 2B       		.byte	43
+ 588 022f 01       		.byte	1
+ 589 0230 2F       		.byte	47
+ 590 0231 0A       		.byte	10
+ 591 0232 32       		.byte	50
+ 592 0233 10       		.byte	16
+ 593 0234 38       		.byte	56
+ 594 0235 08       		.byte	8
+ 595 0236 39       		.byte	57
+ 596 0237 02       		.byte	2
+ 597 0238 3D       		.byte	61
+ 598 0239 A8       		.byte	-88
+ 599 023a 3E       		.byte	62
+ 600 023b 60       		.byte	96
+ 601 023c 40       		.byte	64
+ 602 023d 08       		.byte	8
+ 603 023e 48       		.byte	72
+ 604 023f 04       		.byte	4
+ 605 0240 49       		.byte	73
+ 606 0241 80       		.byte	-128
+ 607 0242 4A       		.byte	74
+ 608 0243 10       		.byte	16
+ 609 0244 50       		.byte	80
+ 610 0245 04       		.byte	4
+ 611 0246 53       		.byte	83
+ 612 0247 10       		.byte	16
+ 613 0248 59       		.byte	89
+ 614 0249 04       		.byte	4
+ 615 024a 5B       		.byte	91
+ 616 024b 52       		.byte	82
+ 617 024c 5C       		.byte	92
+ 618 024d 02       		.byte	2
+ 619 024e 5D       		.byte	93
+ 620 024f 18       		.byte	24
+ 621 0250 5E       		.byte	94
+ 622 0251 40       		.byte	64
+ 623 0252 65       		.byte	101
+ 624 0253 40       		.byte	64
+ 625 0254 66       		.byte	102
+ 626 0255 02       		.byte	2
+ 627 0256 80       		.byte	-128
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 12
 
 
- 628 0257 19       		.byte	25
- 629 0258 56       		.byte	86
- 630 0259 A0       		.byte	-96
- 631 025a 57       		.byte	87
- 632 025b 08       		.byte	8
- 633 025c 62       		.byte	98
- 634 025d 80       		.byte	-128
- 635 025e 68       		.byte	104
- 636 025f 28       		.byte	40
- 637 0260 69       		.byte	105
- 638 0261 55       		.byte	85
- 639 0262 6A       		.byte	106
- 640 0263 80       		.byte	-128
- 641 0264 70       		.byte	112
- 642 0265 40       		.byte	64
- 643 0266 72       		.byte	114
- 644 0267 01       		.byte	1
- 645 0268 82       		.byte	-126
- 646 0269 41       		.byte	65
- 647 026a 85       		.byte	-123
- 648 026b 02       		.byte	2
- 649 026c 95       		.byte	-107
- 650 026d 45       		.byte	69
- 651 026e 96       		.byte	-106
- 652 026f 01       		.byte	1
- 653 0270 97       		.byte	-105
- 654 0271 05       		.byte	5
- 655 0272 98       		.byte	-104
- 656 0273 44       		.byte	68
- 657 0274 99       		.byte	-103
- 658 0275 10       		.byte	16
- 659 0276 9B       		.byte	-101
- 660 0277 08       		.byte	8
- 661 0278 9E       		.byte	-98
- 662 0279 91       		.byte	-111
- 663 027a A4       		.byte	-92
- 664 027b 08       		.byte	8
- 665 027c A5       		.byte	-91
- 666 027d 08       		.byte	8
- 667 027e A6       		.byte	-90
- 668 027f 0C       		.byte	12
- 669 0280 A7       		.byte	-89
- 670 0281 08       		.byte	8
- 671 0282 B5       		.byte	-75
- 672 0283 02       		.byte	2
- 673 0284 C0       		.byte	-64
- 674 0285 2F       		.byte	47
- 675 0286 C2       		.byte	-62
- 676 0287 0E       		.byte	14
- 677 0288 C4       		.byte	-60
- 678 0289 0F       		.byte	15
- 679 028a CA       		.byte	-54
+ 628 0257 10       		.byte	16
+ 629 0258 83       		.byte	-125
+ 630 0259 40       		.byte	64
+ 631 025a 84       		.byte	-124
+ 632 025b 02       		.byte	2
+ 633 025c 85       		.byte	-123
+ 634 025d 10       		.byte	16
+ 635 025e 8D       		.byte	-115
+ 636 025f 08       		.byte	8
+ 637 0260 9E       		.byte	-98
+ 638 0261 02       		.byte	2
+ 639 0262 C0       		.byte	-64
+ 640 0263 17       		.byte	23
+ 641 0264 C2       		.byte	-62
+ 642 0265 EF       		.byte	-17
+ 643 0266 C4       		.byte	-60
+ 644 0267 2F       		.byte	47
+ 645 0268 CA       		.byte	-54
+ 646 0269 3D       		.byte	61
+ 647 026a CC       		.byte	-52
+ 648 026b 04       		.byte	4
+ 649 026c CE       		.byte	-50
+ 650 026d 63       		.byte	99
+ 651 026e D0       		.byte	-48
+ 652 026f 04       		.byte	4
+ 653 0270 D2       		.byte	-46
+ 654 0271 0C       		.byte	12
+ 655 0272 D6       		.byte	-42
+ 656 0273 FF       		.byte	-1
+ 657 0274 D8       		.byte	-40
+ 658 0275 90       		.byte	-112
+ 659 0276 E0       		.byte	-32
+ 660 0277 40       		.byte	64
+ 661 0278 E8       		.byte	-24
+ 662 0279 10       		.byte	16
+ 663 027a 86       		.byte	-122
+ 664 027b 02       		.byte	2
+ 665 027c E2       		.byte	-30
+ 666 027d 20       		.byte	32
+ 667 027e 81       		.byte	-127
+ 668 027f 13       		.byte	19
+ 669 0280 82       		.byte	-126
+ 670 0281 01       		.byte	1
+ 671 0282 83       		.byte	-125
+ 672 0283 0C       		.byte	12
+ 673 0284 89       		.byte	-119
+ 674 0285 19       		.byte	25
+ 675 0286 8B       		.byte	-117
+ 676 0287 06       		.byte	6
+ 677 0288 91       		.byte	-111
+ 678 0289 02       		.byte	2
+ 679 028a 93       		.byte	-109
  680 028b 0D       		.byte	13
- 681 028c CC       		.byte	-52
- 682 028d 0F       		.byte	15
- 683 028e CE       		.byte	-50
- 684 028f 0E       		.byte	14
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 13
+ 681 028c 99       		.byte	-103
+ 682 028d 15       		.byte	21
+ 683 028e 9B       		.byte	-101
+ 684 028f 0A       		.byte	10
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 13
 
 
- 685 0290 D0       		.byte	-48
- 686 0291 E7       		.byte	-25
- 687 0292 D2       		.byte	-46
- 688 0293 0C       		.byte	12
- 689 0294 D8       		.byte	-40
- 690 0295 08       		.byte	8
- 691 0296 E0       		.byte	-32
+ 685 0290 B1       		.byte	-79
+ 686 0291 0F       		.byte	15
+ 687 0292 B2       		.byte	-78
+ 688 0293 01       		.byte	1
+ 689 0294 B7       		.byte	-73
+ 690 0295 10       		.byte	16
+ 691 0296 BB       		.byte	-69
  692 0297 02       		.byte	2
- 693 0298 E6       		.byte	-26
- 694 0299 01       		.byte	1
- 695 029a 82       		.byte	-126
- 696 029b 01       		.byte	1
- 697 029c 8C       		.byte	-116
- 698 029d 0E       		.byte	14
- 699 029e 8E       		.byte	-114
- 700 029f 10       		.byte	16
- 701 02a0 98       		.byte	-104
- 702 02a1 38       		.byte	56
- 703 02a2 A4       		.byte	-92
- 704 02a3 14       		.byte	20
- 705 02a4 A6       		.byte	-90
- 706 02a5 2B       		.byte	43
- 707 02a6 AC       		.byte	-84
- 708 02a7 10       		.byte	16
- 709 02a8 AE       		.byte	-82
- 710 02a9 27       		.byte	39
- 711 02aa B0       		.byte	-80
- 712 02ab 03       		.byte	3
- 713 02ac B4       		.byte	-76
- 714 02ad 3C       		.byte	60
- 715 02ae B8       		.byte	-72
- 716 02af 20       		.byte	32
- 717 02b0 D4       		.byte	-44
- 718 02b1 09       		.byte	9
- 719 02b2 D6       		.byte	-42
+ 693 0298 BF       		.byte	-65
+ 694 0299 40       		.byte	64
+ 695 029a C0       		.byte	-64
+ 696 029b 30       		.byte	48
+ 697 029c C1       		.byte	-63
+ 698 029d 02       		.byte	2
+ 699 029e C9       		.byte	-55
+ 700 029f FF       		.byte	-1
+ 701 02a0 CA       		.byte	-54
+ 702 02a1 FF       		.byte	-1
+ 703 02a2 CB       		.byte	-53
+ 704 02a3 FF       		.byte	-1
+ 705 02a4 CD       		.byte	-51
+ 706 02a5 A0       		.byte	-96
+ 707 02a6 CF       		.byte	-49
+ 708 02a7 04       		.byte	4
+ 709 02a8 D0       		.byte	-48
+ 710 02a9 18       		.byte	24
+ 711 02aa D2       		.byte	-46
+ 712 02ab 80       		.byte	-128
+ 713 02ac D8       		.byte	-40
+ 714 02ad 04       		.byte	4
+ 715 02ae D9       		.byte	-39
+ 716 02af 04       		.byte	4
+ 717 02b0 DA       		.byte	-38
+ 718 02b1 04       		.byte	4
+ 719 02b2 DB       		.byte	-37
  720 02b3 04       		.byte	4
- 721 02b4 D8       		.byte	-40
- 722 02b5 04       		.byte	4
- 723 02b6 DB       		.byte	-37
- 724 02b7 04       		.byte	4
- 725 02b8 DC       		.byte	-36
- 726 02b9 02       		.byte	2
- 727 02ba DD       		.byte	-35
- 728 02bb 10       		.byte	16
- 729 02bc DF       		.byte	-33
- 730 02bd 01       		.byte	1
- 731 02be 01       		.byte	1
- 732 02bf 02       		.byte	2
- 733 02c0 02       		.byte	2
- 734 02c1 02       		.byte	2
- 735 02c2 03       		.byte	3
- 736 02c3 01       		.byte	1
- 737 02c4 05       		.byte	5
- 738 02c5 08       		.byte	8
- 739 02c6 06       		.byte	6
- 740 02c7 88       		.byte	-120
- 741 02c8 07       		.byte	7
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 14
+ 721 02b4 DC       		.byte	-36
+ 722 02b5 13       		.byte	19
+ 723 02b6 DD       		.byte	-35
+ 724 02b7 33       		.byte	51
+ 725 02b8 DF       		.byte	-33
+ 726 02b9 01       		.byte	1
+ 727 02ba E0       		.byte	-32
+ 728 02bb 40       		.byte	64
+ 729 02bc E2       		.byte	-30
+ 730 02bd C0       		.byte	-64
+ 731 02be E4       		.byte	-28
+ 732 02bf 40       		.byte	64
+ 733 02c0 E5       		.byte	-27
+ 734 02c1 40       		.byte	64
+ 735 02c2 E6       		.byte	-26
+ 736 02c3 C0       		.byte	-64
+ 737 02c4 E8       		.byte	-24
+ 738 02c5 C0       		.byte	-64
+ 739 02c6 EA       		.byte	-22
+ 740 02c7 C0       		.byte	-64
+ 741 02c8 EC       		.byte	-20
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 14
 
 
- 742 02c9 50       		.byte	80
- 743 02ca 0A       		.byte	10
- 744 02cb 04       		.byte	4
- 745 02cc 0D       		.byte	13
- 746 02cd 60       		.byte	96
- 747 02ce 0E       		.byte	14
- 748 02cf 50       		.byte	80
- 749 02d0 11       		.byte	17
- 750 02d1 08       		.byte	8
- 751 02d2 12       		.byte	18
- 752 02d3 01       		.byte	1
- 753 02d4 15       		.byte	21
- 754 02d5 10       		.byte	16
- 755 02d6 16       		.byte	22
- 756 02d7 21       		.byte	33
- 757 02d8 17       		.byte	23
- 758 02d9 01       		.byte	1
- 759 02da 19       		.byte	25
- 760 02db 02       		.byte	2
- 761 02dc 1A       		.byte	26
- 762 02dd 04       		.byte	4
- 763 02de 1D       		.byte	29
- 764 02df 08       		.byte	8
- 765 02e0 1E       		.byte	30
- 766 02e1 40       		.byte	64
- 767 02e2 1F       		.byte	31
- 768 02e3 08       		.byte	8
- 769 02e4 24       		.byte	36
- 770 02e5 20       		.byte	32
- 771 02e6 25       		.byte	37
- 772 02e7 34       		.byte	52
- 773 02e8 26       		.byte	38
- 774 02e9 0A       		.byte	10
- 775 02ea 2C       		.byte	44
- 776 02eb 28       		.byte	40
- 777 02ec 2E       		.byte	46
- 778 02ed 82       		.byte	-126
- 779 02ee 35       		.byte	53
- 780 02ef 08       		.byte	8
- 781 02f0 36       		.byte	54
- 782 02f1 02       		.byte	2
- 783 02f2 3C       		.byte	60
- 784 02f3 80       		.byte	-128
- 785 02f4 3D       		.byte	61
- 786 02f5 28       		.byte	40
- 787 02f6 3E       		.byte	62
- 788 02f7 01       		.byte	1
- 789 02f8 44       		.byte	68
- 790 02f9 04       		.byte	4
- 791 02fa 45       		.byte	69
- 792 02fb 88       		.byte	-120
- 793 02fc 46       		.byte	70
- 794 02fd 03       		.byte	3
- 795 02fe 4D       		.byte	77
- 796 02ff 10       		.byte	16
- 797 0300 4E       		.byte	78
- 798 0301 0A       		.byte	10
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 15
+ 742 02c9 C0       		.byte	-64
+ 743 02ca EE       		.byte	-18
+ 744 02cb C0       		.byte	-64
+ 745 02cc 00       		.byte	0
+ 746 02cd 18       		.byte	24
+ 747 02ce 01       		.byte	1
+ 748 02cf 81       		.byte	-127
+ 749 02d0 05       		.byte	5
+ 750 02d1 82       		.byte	-126
+ 751 02d2 06       		.byte	6
+ 752 02d3 02       		.byte	2
+ 753 02d4 0A       		.byte	10
+ 754 02d5 50       		.byte	80
+ 755 02d6 0B       		.byte	11
+ 756 02d7 01       		.byte	1
+ 757 02d8 10       		.byte	16
+ 758 02d9 60       		.byte	96
+ 759 02da 12       		.byte	18
+ 760 02db 80       		.byte	-128
+ 761 02dc 13       		.byte	19
+ 762 02dd 60       		.byte	96
+ 763 02de 18       		.byte	24
+ 764 02df 50       		.byte	80
+ 765 02e0 1D       		.byte	29
+ 766 02e1 08       		.byte	8
+ 767 02e2 20       		.byte	32
+ 768 02e3 02       		.byte	2
+ 769 02e4 21       		.byte	33
+ 770 02e5 40       		.byte	64
+ 771 02e6 22       		.byte	34
+ 772 02e7 80       		.byte	-128
+ 773 02e8 23       		.byte	35
+ 774 02e9 60       		.byte	96
+ 775 02ea 26       		.byte	38
+ 776 02eb 02       		.byte	2
+ 777 02ec 27       		.byte	39
+ 778 02ed 01       		.byte	1
+ 779 02ee 28       		.byte	40
+ 780 02ef 40       		.byte	64
+ 781 02f0 29       		.byte	41
+ 782 02f1 10       		.byte	16
+ 783 02f2 2A       		.byte	42
+ 784 02f3 40       		.byte	64
+ 785 02f4 32       		.byte	50
+ 786 02f5 18       		.byte	24
+ 787 02f6 33       		.byte	51
+ 788 02f7 40       		.byte	64
+ 789 02f8 36       		.byte	54
+ 790 02f9 02       		.byte	2
+ 791 02fa 37       		.byte	55
+ 792 02fb 20       		.byte	32
+ 793 02fc 39       		.byte	57
+ 794 02fd 08       		.byte	8
+ 795 02fe 3A       		.byte	58
+ 796 02ff 22       		.byte	34
+ 797 0300 3B       		.byte	59
+ 798 0301 40       		.byte	64
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 15
 
 
- 799 0302 4F       		.byte	79
- 800 0303 01       		.byte	1
- 801 0304 54       		.byte	84
- 802 0305 41       		.byte	65
- 803 0306 56       		.byte	86
- 804 0307 58       		.byte	88
- 805 0308 58       		.byte	88
- 806 0309 20       		.byte	32
- 807 030a 59       		.byte	89
- 808 030b 05       		.byte	5
- 809 030c 5A       		.byte	90
- 810 030d 80       		.byte	-128
- 811 030e 61       		.byte	97
- 812 030f 42       		.byte	66
- 813 0310 66       		.byte	102
- 814 0311 10       		.byte	16
- 815 0312 67       		.byte	103
- 816 0313 21       		.byte	33
- 817 0314 88       		.byte	-120
- 818 0315 04       		.byte	4
- 819 0316 90       		.byte	-112
- 820 0317 02       		.byte	2
- 821 0318 92       		.byte	-110
- 822 0319 08       		.byte	8
- 823 031a 93       		.byte	-109
- 824 031b 04       		.byte	4
- 825 031c 96       		.byte	-106
- 826 031d 40       		.byte	64
- 827 031e 99       		.byte	-103
- 828 031f 15       		.byte	21
- 829 0320 9D       		.byte	-99
- 830 0321 02       		.byte	2
- 831 0322 A6       		.byte	-90
- 832 0323 80       		.byte	-128
- 833 0324 AD       		.byte	-83
- 834 0325 20       		.byte	32
- 835 0326 C0       		.byte	-64
- 836 0327 79       		.byte	121
- 837 0328 C2       		.byte	-62
- 838 0329 F2       		.byte	-14
- 839 032a C4       		.byte	-60
- 840 032b F5       		.byte	-11
- 841 032c CA       		.byte	-54
- 842 032d F0       		.byte	-16
- 843 032e CC       		.byte	-52
- 844 032f C0       		.byte	-64
- 845 0330 CE       		.byte	-50
- 846 0331 F0       		.byte	-16
- 847 0332 D0       		.byte	-48
- 848 0333 70       		.byte	112
- 849 0334 D2       		.byte	-46
- 850 0335 30       		.byte	48
- 851 0336 D6       		.byte	-42
- 852 0337 0F       		.byte	15
- 853 0338 D8       		.byte	-40
- 854 0339 79       		.byte	121
- 855 033a B8       		.byte	-72
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 16
+ 799 0302 3C       		.byte	60
+ 800 0303 02       		.byte	2
+ 801 0304 3E       		.byte	62
+ 802 0305 50       		.byte	80
+ 803 0306 3F       		.byte	63
+ 804 0307 80       		.byte	-128
+ 805 0308 40       		.byte	64
+ 806 0309 40       		.byte	64
+ 807 030a 42       		.byte	66
+ 808 030b 30       		.byte	48
+ 809 030c 43       		.byte	67
+ 810 030d 10       		.byte	16
+ 811 030e 45       		.byte	69
+ 812 030f 18       		.byte	24
+ 813 0310 46       		.byte	70
+ 814 0311 80       		.byte	-128
+ 815 0312 47       		.byte	71
+ 816 0313 01       		.byte	1
+ 817 0314 48       		.byte	72
+ 818 0315 01       		.byte	1
+ 819 0316 4B       		.byte	75
+ 820 0317 25       		.byte	37
+ 821 0318 50       		.byte	80
+ 822 0319 10       		.byte	16
+ 823 031a 52       		.byte	82
+ 824 031b 40       		.byte	64
+ 825 031c 53       		.byte	83
+ 826 031d 04       		.byte	4
+ 827 031e 59       		.byte	89
+ 828 031f 10       		.byte	16
+ 829 0320 5B       		.byte	91
+ 830 0321 30       		.byte	48
+ 831 0322 61       		.byte	97
+ 832 0323 08       		.byte	8
+ 833 0324 62       		.byte	98
+ 834 0325 06       		.byte	6
+ 835 0326 68       		.byte	104
+ 836 0327 24       		.byte	36
+ 837 0328 69       		.byte	105
+ 838 0329 0B       		.byte	11
+ 839 032a 6A       		.byte	106
+ 840 032b 60       		.byte	96
+ 841 032c 6B       		.byte	107
+ 842 032d 40       		.byte	64
+ 843 032e 70       		.byte	112
+ 844 032f 80       		.byte	-128
+ 845 0330 72       		.byte	114
+ 846 0331 02       		.byte	2
+ 847 0332 75       		.byte	117
+ 848 0333 02       		.byte	2
+ 849 0334 80       		.byte	-128
+ 850 0335 10       		.byte	16
+ 851 0336 82       		.byte	-126
+ 852 0337 10       		.byte	16
+ 853 0338 85       		.byte	-123
+ 854 0339 01       		.byte	1
+ 855 033a 87       		.byte	-121
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 16
 
 
- 856 033b 82       		.byte	-126
- 857 033c BE       		.byte	-66
- 858 033d 41       		.byte	65
- 859 033e D8       		.byte	-40
- 860 033f 04       		.byte	4
- 861 0340 DF       		.byte	-33
- 862 0341 01       		.byte	1
- 863 0342 18       		.byte	24
- 864 0343 01       		.byte	1
- 865 0344 1A       		.byte	26
- 866 0345 80       		.byte	-128
- 867 0346 9B       		.byte	-101
- 868 0347 04       		.byte	4
- 869 0348 E6       		.byte	-26
- 870 0349 80       		.byte	-128
- 871 034a 9B       		.byte	-101
- 872 034b 04       		.byte	4
- 873 034c B7       		.byte	-73
+ 856 033b 04       		.byte	4
+ 857 033c 88       		.byte	-120
+ 858 033d A0       		.byte	-96
+ 859 033e 8C       		.byte	-116
+ 860 033f 10       		.byte	16
+ 861 0340 8E       		.byte	-114
+ 862 0341 48       		.byte	72
+ 863 0342 92       		.byte	-110
+ 864 0343 10       		.byte	16
+ 865 0344 93       		.byte	-109
+ 866 0345 20       		.byte	32
+ 867 0346 94       		.byte	-108
+ 868 0347 40       		.byte	64
+ 869 0348 95       		.byte	-107
+ 870 0349 89       		.byte	-119
+ 871 034a 96       		.byte	-106
+ 872 034b 20       		.byte	32
+ 873 034c 97       		.byte	-105
  874 034d 04       		.byte	4
- 875 034e E0       		.byte	-32
- 876 034f 02       		.byte	2
- 877 0350 E6       		.byte	-26
- 878 0351 01       		.byte	1
- 879 0352 EC       		.byte	-20
- 880 0353 10       		.byte	16
- 881 0354 8A       		.byte	-118
- 882 0355 80       		.byte	-128
- 883 0356 A6       		.byte	-90
- 884 0357 80       		.byte	-128
- 885 0358 A8       		.byte	-88
- 886 0359 40       		.byte	64
- 887 035a AA       		.byte	-86
- 888 035b 80       		.byte	-128
- 889 035c AC       		.byte	-84
- 890 035d 01       		.byte	1
- 891 035e AD       		.byte	-83
- 892 035f 08       		.byte	8
- 893 0360 AE       		.byte	-82
- 894 0361 21       		.byte	33
- 895 0362 B2       		.byte	-78
- 896 0363 44       		.byte	68
- 897 0364 B3       		.byte	-77
- 898 0365 14       		.byte	20
- 899 0366 B7       		.byte	-73
- 900 0367 08       		.byte	8
- 901 0368 E6       		.byte	-26
- 902 0369 02       		.byte	2
- 903 036a 00       		.byte	0
- 904 036b 40       		.byte	64
- 905 036c 04       		.byte	4
- 906 036d 02       		.byte	2
- 907 036e 05       		.byte	5
- 908 036f 15       		.byte	21
- 909 0370 06       		.byte	6
- 910 0371 0D       		.byte	13
- 911 0372 07       		.byte	7
- 912 0373 0A       		.byte	10
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 17
+ 875 034e 9D       		.byte	-99
+ 876 034f 90       		.byte	-112
+ 877 0350 9E       		.byte	-98
+ 878 0351 E4       		.byte	-28
+ 879 0352 9F       		.byte	-97
+ 880 0353 20       		.byte	32
+ 881 0354 A1       		.byte	-95
+ 882 0355 10       		.byte	16
+ 883 0356 A7       		.byte	-89
+ 884 0357 40       		.byte	64
+ 885 0358 AF       		.byte	-81
+ 886 0359 10       		.byte	16
+ 887 035a B4       		.byte	-76
+ 888 035b 01       		.byte	1
+ 889 035c B5       		.byte	-75
+ 890 035d 08       		.byte	8
+ 891 035e B7       		.byte	-73
+ 892 035f 04       		.byte	4
+ 893 0360 C0       		.byte	-64
+ 894 0361 1F       		.byte	31
+ 895 0362 C2       		.byte	-62
+ 896 0363 0D       		.byte	13
+ 897 0364 C4       		.byte	-60
+ 898 0365 0F       		.byte	15
+ 899 0366 CA       		.byte	-54
+ 900 0367 0D       		.byte	13
+ 901 0368 CC       		.byte	-52
+ 902 0369 AE       		.byte	-82
+ 903 036a CE       		.byte	-50
+ 904 036b AF       		.byte	-81
+ 905 036c D0       		.byte	-48
+ 906 036d 67       		.byte	103
+ 907 036e D2       		.byte	-46
+ 908 036f 0C       		.byte	12
+ 909 0370 D8       		.byte	-40
+ 910 0371 01       		.byte	1
+ 911 0372 E0       		.byte	-32
+ 912 0373 04       		.byte	4
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 17
 
 
- 913 0374 08       		.byte	8
- 914 0375 62       		.byte	98
- 915 0376 0A       		.byte	10
- 916 0377 14       		.byte	20
- 917 0378 0C       		.byte	12
- 918 0379 8D       		.byte	-115
- 919 037a 10       		.byte	16
- 920 037b 8D       		.byte	-115
- 921 037c 11       		.byte	17
- 922 037d 13       		.byte	19
- 923 037e 13       		.byte	19
- 924 037f 0C       		.byte	12
- 925 0380 14       		.byte	20
- 926 0381 11       		.byte	17
- 927 0382 16       		.byte	22
- 928 0383 22       		.byte	34
- 929 0384 18       		.byte	24
- 930 0385 0D       		.byte	13
- 931 0386 19       		.byte	25
- 932 0387 02       		.byte	2
- 933 0388 1A       		.byte	26
- 934 0389 80       		.byte	-128
- 935 038a 1B       		.byte	27
- 936 038b 0D       		.byte	13
- 937 038c 1E       		.byte	30
- 938 038d 80       		.byte	-128
- 939 038e 20       		.byte	32
- 940 038f 42       		.byte	66
- 941 0390 21       		.byte	33
- 942 0391 19       		.byte	25
- 943 0392 22       		.byte	34
- 944 0393 08       		.byte	8
- 945 0394 23       		.byte	35
- 946 0395 06       		.byte	6
- 947 0396 24       		.byte	36
- 948 0397 8D       		.byte	-115
- 949 0398 28       		.byte	40
- 950 0399 8D       		.byte	-115
- 951 039a 31       		.byte	49
- 952 039b 10       		.byte	16
- 953 039c 32       		.byte	50
- 954 039d 0F       		.byte	15
- 955 039e 34       		.byte	52
- 956 039f 80       		.byte	-128
- 957 03a0 35       		.byte	53
- 958 03a1 0F       		.byte	15
- 959 03a2 36       		.byte	54
- 960 03a3 70       		.byte	112
- 961 03a4 3A       		.byte	58
- 962 03a5 88       		.byte	-120
- 963 03a6 3B       		.byte	59
- 964 03a7 20       		.byte	32
- 965 03a8 3E       		.byte	62
- 966 03a9 10       		.byte	16
- 967 03aa 3F       		.byte	63
- 968 03ab 01       		.byte	1
+ 913 0374 E2       		.byte	-30
+ 914 0375 10       		.byte	16
+ 915 0376 E4       		.byte	-28
+ 916 0377 0E       		.byte	14
+ 917 0378 EE       		.byte	-18
+ 918 0379 02       		.byte	2
+ 919 037a 01       		.byte	1
+ 920 037b 01       		.byte	1
+ 921 037c 05       		.byte	5
+ 922 037d 01       		.byte	1
+ 923 037e 08       		.byte	8
+ 924 037f 06       		.byte	6
+ 925 0380 21       		.byte	33
+ 926 0381 01       		.byte	1
+ 927 0382 26       		.byte	38
+ 928 0383 01       		.byte	1
+ 929 0384 2A       		.byte	42
+ 930 0385 03       		.byte	3
+ 931 0386 2C       		.byte	44
+ 932 0387 06       		.byte	6
+ 933 0388 31       		.byte	49
+ 934 0389 01       		.byte	1
+ 935 038a 32       		.byte	50
+ 936 038b 02       		.byte	2
+ 937 038c 34       		.byte	52
+ 938 038d 01       		.byte	1
+ 939 038e 36       		.byte	54
+ 940 038f 04       		.byte	4
+ 941 0390 3E       		.byte	62
+ 942 0391 10       		.byte	16
+ 943 0392 40       		.byte	64
+ 944 0393 20       		.byte	32
+ 945 0394 41       		.byte	65
+ 946 0395 03       		.byte	3
+ 947 0396 45       		.byte	69
+ 948 0397 D0       		.byte	-48
+ 949 0398 46       		.byte	70
+ 950 0399 20       		.byte	32
+ 951 039a 47       		.byte	71
+ 952 039b 01       		.byte	1
+ 953 039c 48       		.byte	72
+ 954 039d 3A       		.byte	58
+ 955 039e 49       		.byte	73
+ 956 039f FF       		.byte	-1
+ 957 03a0 4A       		.byte	74
+ 958 03a1 FF       		.byte	-1
+ 959 03a2 4B       		.byte	75
+ 960 03a3 FF       		.byte	-1
+ 961 03a4 4D       		.byte	77
+ 962 03a5 AF       		.byte	-81
+ 963 03a6 4E       		.byte	78
+ 964 03a7 0F       		.byte	15
+ 965 03a8 4F       		.byte	79
+ 966 03a9 04       		.byte	4
+ 967 03aa 50       		.byte	80
+ 968 03ab 18       		.byte	24
  969 03ac 54       		.byte	84
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 18
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 18
 
 
- 970 03ad 09       		.byte	9
- 971 03ae 58       		.byte	88
+ 970 03ad 05       		.byte	5
+ 971 03ae 56       		.byte	86
  972 03af 04       		.byte	4
- 973 03b0 59       		.byte	89
+ 973 03b0 58       		.byte	88
  974 03b1 04       		.byte	4
- 975 03b2 5B       		.byte	91
+ 975 03b2 59       		.byte	89
  976 03b3 04       		.byte	4
- 977 03b4 5C       		.byte	92
- 978 03b5 22       		.byte	34
- 979 03b6 5D       		.byte	93
- 980 03b7 20       		.byte	32
- 981 03b8 5F       		.byte	95
- 982 03b9 01       		.byte	1
- 983 03ba 82       		.byte	-126
- 984 03bb 10       		.byte	16
- 985 03bc 84       		.byte	-124
- 986 03bd 63       		.byte	99
- 987 03be 86       		.byte	-122
- 988 03bf 04       		.byte	4
- 989 03c0 87       		.byte	-121
- 990 03c1 04       		.byte	4
- 991 03c2 89       		.byte	-119
- 992 03c3 01       		.byte	1
- 993 03c4 93       		.byte	-109
- 994 03c5 01       		.byte	1
- 995 03c6 95       		.byte	-107
- 996 03c7 04       		.byte	4
- 997 03c8 98       		.byte	-104
- 998 03c9 0E       		.byte	14
- 999 03ca 9B       		.byte	-101
- 1000 03cb 04       		.byte	4
- 1001 03cc 9F       		.byte	-97
- 1002 03cd 01       		.byte	1
- 1003 03ce A4       		.byte	-92
- 1004 03cf 44       		.byte	68
- 1005 03d0 A6       		.byte	-90
- 1006 03d1 39       		.byte	57
- 1007 03d2 A7       		.byte	-89
- 1008 03d3 02       		.byte	2
- 1009 03d4 A8       		.byte	-88
- 1010 03d5 45       		.byte	69
- 1011 03d6 AA       		.byte	-86
- 1012 03d7 3A       		.byte	58
- 1013 03d8 AB       		.byte	-85
- 1014 03d9 02       		.byte	2
- 1015 03da B0       		.byte	-80
- 1016 03db 30       		.byte	48
- 1017 03dc B1       		.byte	-79
- 1018 03dd 01       		.byte	1
- 1019 03de B4       		.byte	-76
- 1020 03df 0F       		.byte	15
- 1021 03e0 B5       		.byte	-75
- 1022 03e1 02       		.byte	2
- 1023 03e2 B6       		.byte	-74
- 1024 03e3 40       		.byte	64
- 1025 03e4 B7       		.byte	-73
- 1026 03e5 04       		.byte	4
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 19
+ 977 03b4 5A       		.byte	90
+ 978 03b5 04       		.byte	4
+ 979 03b6 5B       		.byte	91
+ 980 03b7 04       		.byte	4
+ 981 03b8 5C       		.byte	92
+ 982 03b9 33       		.byte	51
+ 983 03ba 5D       		.byte	93
+ 984 03bb 33       		.byte	51
+ 985 03bc 5F       		.byte	95
+ 986 03bd 01       		.byte	1
+ 987 03be 60       		.byte	96
+ 988 03bf 40       		.byte	64
+ 989 03c0 62       		.byte	98
+ 990 03c1 C0       		.byte	-64
+ 991 03c2 64       		.byte	100
+ 992 03c3 40       		.byte	64
+ 993 03c4 65       		.byte	101
+ 994 03c5 40       		.byte	64
+ 995 03c6 66       		.byte	102
+ 996 03c7 C0       		.byte	-64
+ 997 03c8 68       		.byte	104
+ 998 03c9 C0       		.byte	-64
+ 999 03ca 6A       		.byte	106
+ 1000 03cb C0       		.byte	-64
+ 1001 03cc 6C       		.byte	108
+ 1002 03cd C0       		.byte	-64
+ 1003 03ce 6E       		.byte	110
+ 1004 03cf C0       		.byte	-64
+ 1005 03d0 80       		.byte	-128
+ 1006 03d1 02       		.byte	2
+ 1007 03d2 81       		.byte	-127
+ 1008 03d3 0D       		.byte	13
+ 1009 03d4 82       		.byte	-126
+ 1010 03d5 0D       		.byte	13
+ 1011 03d6 84       		.byte	-124
+ 1012 03d7 11       		.byte	17
+ 1013 03d8 85       		.byte	-123
+ 1014 03d9 0D       		.byte	13
+ 1015 03da 86       		.byte	-122
+ 1016 03db 22       		.byte	34
+ 1017 03dc 88       		.byte	-120
+ 1018 03dd 42       		.byte	66
+ 1019 03de 89       		.byte	-119
+ 1020 03df 42       		.byte	66
+ 1021 03e0 8A       		.byte	-118
+ 1022 03e1 08       		.byte	8
+ 1023 03e2 8B       		.byte	-117
+ 1024 03e3 98       		.byte	-104
+ 1025 03e4 8C       		.byte	-116
+ 1026 03e5 8D       		.byte	-115
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 19
 
 
- 1027 03e6 B8       		.byte	-72
- 1028 03e7 20       		.byte	32
- 1029 03e8 BE       		.byte	-66
- 1030 03e9 40       		.byte	64
- 1031 03ea BF       		.byte	-65
- 1032 03eb 41       		.byte	65
- 1033 03ec D6       		.byte	-42
- 1034 03ed 02       		.byte	2
- 1035 03ee D7       		.byte	-41
- 1036 03ef 24       		.byte	36
- 1037 03f0 D8       		.byte	-40
- 1038 03f1 04       		.byte	4
- 1039 03f2 D9       		.byte	-39
- 1040 03f3 04       		.byte	4
- 1041 03f4 DB       		.byte	-37
- 1042 03f5 04       		.byte	4
- 1043 03f6 DC       		.byte	-36
- 1044 03f7 51       		.byte	81
- 1045 03f8 DD       		.byte	-35
- 1046 03f9 20       		.byte	32
- 1047 03fa DF       		.byte	-33
- 1048 03fb 01       		.byte	1
- 1049 03fc 01       		.byte	1
- 1050 03fd 06       		.byte	6
- 1051 03fe 04       		.byte	4
- 1052 03ff 20       		.byte	32
- 1053 0400 05       		.byte	5
- 1054 0401 04       		.byte	4
- 1055 0402 06       		.byte	6
- 1056 0403 42       		.byte	66
- 1057 0404 0A       		.byte	10
- 1058 0405 04       		.byte	4
- 1059 0406 0C       		.byte	12
- 1060 0407 20       		.byte	32
- 1061 0408 0D       		.byte	13
- 1062 0409 09       		.byte	9
- 1063 040a 0F       		.byte	15
- 1064 040b 01       		.byte	1
- 1065 040c 10       		.byte	16
- 1066 040d 14       		.byte	20
- 1067 040e 14       		.byte	20
- 1068 040f 40       		.byte	64
- 1069 0410 17       		.byte	23
- 1070 0411 18       		.byte	24
- 1071 0412 19       		.byte	25
- 1072 0413 42       		.byte	66
- 1073 0414 1A       		.byte	26
- 1074 0415 04       		.byte	4
- 1075 0416 1D       		.byte	29
- 1076 0417 84       		.byte	-124
- 1077 0418 1F       		.byte	31
- 1078 0419 10       		.byte	16
- 1079 041a 20       		.byte	32
- 1080 041b 04       		.byte	4
- 1081 041c 22       		.byte	34
- 1082 041d 40       		.byte	64
- 1083 041e 23       		.byte	35
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 20
+ 1027 03e6 8D       		.byte	-115
+ 1028 03e7 31       		.byte	49
+ 1029 03e8 8F       		.byte	-113
+ 1030 03e9 42       		.byte	66
+ 1031 03ea 90       		.byte	-112
+ 1032 03eb 0D       		.byte	13
+ 1033 03ec 92       		.byte	-110
+ 1034 03ed 80       		.byte	-128
+ 1035 03ee 94       		.byte	-108
+ 1036 03ef 62       		.byte	98
+ 1037 03f0 95       		.byte	-107
+ 1038 03f1 02       		.byte	2
+ 1039 03f2 96       		.byte	-106
+ 1040 03f3 14       		.byte	20
+ 1041 03f4 97       		.byte	-105
+ 1042 03f5 0D       		.byte	13
+ 1043 03f6 98       		.byte	-104
+ 1044 03f7 40       		.byte	64
+ 1045 03f8 99       		.byte	-103
+ 1046 03f9 0D       		.byte	13
+ 1047 03fa 9C       		.byte	-100
+ 1048 03fb 8D       		.byte	-115
+ 1049 03fc 9D       		.byte	-99
+ 1050 03fd E0       		.byte	-32
+ 1051 03fe A1       		.byte	-95
+ 1052 03ff 0D       		.byte	13
+ 1053 0400 A2       		.byte	-94
+ 1054 0401 80       		.byte	-128
+ 1055 0402 A4       		.byte	-92
+ 1056 0403 8D       		.byte	-115
+ 1057 0404 A8       		.byte	-88
+ 1058 0405 8D       		.byte	-115
+ 1059 0406 A9       		.byte	-87
+ 1060 0407 52       		.byte	82
+ 1061 0408 AB       		.byte	-85
+ 1062 0409 A4       		.byte	-92
+ 1063 040a AD       		.byte	-83
+ 1064 040b 0D       		.byte	13
+ 1065 040c B0       		.byte	-80
+ 1066 040d 0F       		.byte	15
+ 1067 040e B3       		.byte	-77
+ 1068 040f 0F       		.byte	15
+ 1069 0410 B4       		.byte	-76
+ 1070 0411 80       		.byte	-128
+ 1071 0412 B6       		.byte	-74
+ 1072 0413 70       		.byte	112
+ 1073 0414 B7       		.byte	-73
+ 1074 0415 F0       		.byte	-16
+ 1075 0416 B9       		.byte	-71
+ 1076 0417 80       		.byte	-128
+ 1077 0418 BA       		.byte	-70
+ 1078 0419 82       		.byte	-126
+ 1079 041a BB       		.byte	-69
+ 1080 041b 08       		.byte	8
+ 1081 041c BE       		.byte	-66
+ 1082 041d 10       		.byte	16
+ 1083 041e D4       		.byte	-44
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 20
 
 
  1084 041f 40       		.byte	64
- 1085 0420 24       		.byte	36
- 1086 0421 80       		.byte	-128
- 1087 0422 26       		.byte	38
- 1088 0423 20       		.byte	32
- 1089 0424 28       		.byte	40
- 1090 0425 20       		.byte	32
- 1091 0426 2B       		.byte	43
- 1092 0427 08       		.byte	8
- 1093 0428 2C       		.byte	44
- 1094 0429 40       		.byte	64
- 1095 042a 30       		.byte	48
- 1096 042b 54       		.byte	84
- 1097 042c 31       		.byte	49
- 1098 042d 90       		.byte	-112
- 1099 042e 32       		.byte	50
- 1100 042f 06       		.byte	6
- 1101 0430 36       		.byte	54
- 1102 0431 22       		.byte	34
- 1103 0432 38       		.byte	56
- 1104 0433 20       		.byte	32
- 1105 0434 39       		.byte	57
- 1106 0435 04       		.byte	4
- 1107 0436 3B       		.byte	59
- 1108 0437 04       		.byte	4
- 1109 0438 3D       		.byte	61
- 1110 0439 08       		.byte	8
- 1111 043a 5C       		.byte	92
- 1112 043b 02       		.byte	2
- 1113 043c 5D       		.byte	93
+ 1085 0420 D6       		.byte	-42
+ 1086 0421 04       		.byte	4
+ 1087 0422 D8       		.byte	-40
+ 1088 0423 04       		.byte	4
+ 1089 0424 D9       		.byte	-39
+ 1090 0425 04       		.byte	4
+ 1091 0426 DB       		.byte	-37
+ 1092 0427 04       		.byte	4
+ 1093 0428 DC       		.byte	-36
+ 1094 0429 10       		.byte	16
+ 1095 042a DF       		.byte	-33
+ 1096 042b 01       		.byte	1
+ 1097 042c 00       		.byte	0
+ 1098 042d 80       		.byte	-128
+ 1099 042e 01       		.byte	1
+ 1100 042f 02       		.byte	2
+ 1101 0430 03       		.byte	3
+ 1102 0431 14       		.byte	20
+ 1103 0432 04       		.byte	4
+ 1104 0433 40       		.byte	64
+ 1105 0434 06       		.byte	6
+ 1106 0435 08       		.byte	8
+ 1107 0436 07       		.byte	7
+ 1108 0437 02       		.byte	2
+ 1109 0438 08       		.byte	8
+ 1110 0439 48       		.byte	72
+ 1111 043a 0A       		.byte	10
+ 1112 043b 40       		.byte	64
+ 1113 043c 0B       		.byte	11
  1114 043d 08       		.byte	8
- 1115 043e 5F       		.byte	95
- 1116 043f 50       		.byte	80
- 1117 0440 62       		.byte	98
- 1118 0441 20       		.byte	32
- 1119 0442 66       		.byte	102
+ 1115 043e 10       		.byte	16
+ 1116 043f 08       		.byte	8
+ 1117 0440 11       		.byte	17
+ 1118 0441 04       		.byte	4
+ 1119 0442 12       		.byte	18
  1120 0443 80       		.byte	-128
- 1121 0444 68       		.byte	104
- 1122 0445 08       		.byte	8
- 1123 0446 69       		.byte	105
- 1124 0447 82       		.byte	-126
- 1125 0448 6A       		.byte	106
- 1126 0449 10       		.byte	16
- 1127 044a 6B       		.byte	107
- 1128 044b 58       		.byte	88
- 1129 044c 72       		.byte	114
- 1130 044d 03       		.byte	3
- 1131 044e 80       		.byte	-128
- 1132 044f 04       		.byte	4
- 1133 0450 81       		.byte	-127
- 1134 0451 18       		.byte	24
- 1135 0452 82       		.byte	-126
- 1136 0453 02       		.byte	2
- 1137 0454 85       		.byte	-123
- 1138 0455 02       		.byte	2
- 1139 0456 8C       		.byte	-116
- 1140 0457 20       		.byte	32
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 21
+ 1121 0444 16       		.byte	22
+ 1122 0445 15       		.byte	21
+ 1123 0446 18       		.byte	24
+ 1124 0447 01       		.byte	1
+ 1125 0448 19       		.byte	25
+ 1126 0449 02       		.byte	2
+ 1127 044a 1B       		.byte	27
+ 1128 044b 10       		.byte	16
+ 1129 044c 1D       		.byte	29
+ 1130 044d 04       		.byte	4
+ 1131 044e 1E       		.byte	30
+ 1132 044f 08       		.byte	8
+ 1133 0450 1F       		.byte	31
+ 1134 0451 80       		.byte	-128
+ 1135 0452 22       		.byte	34
+ 1136 0453 44       		.byte	68
+ 1137 0454 27       		.byte	39
+ 1138 0455 80       		.byte	-128
+ 1139 0456 29       		.byte	41
+ 1140 0457 90       		.byte	-112
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 21
 
 
- 1141 0458 90       		.byte	-112
- 1142 0459 20       		.byte	32
- 1143 045a 92       		.byte	-110
- 1144 045b 08       		.byte	8
- 1145 045c 93       		.byte	-109
- 1146 045d 05       		.byte	5
- 1147 045e 95       		.byte	-107
- 1148 045f 80       		.byte	-128
- 1149 0460 96       		.byte	-106
- 1150 0461 91       		.byte	-111
- 1151 0462 97       		.byte	-105
- 1152 0463 20       		.byte	32
- 1153 0464 98       		.byte	-104
- 1154 0465 02       		.byte	2
- 1155 0466 99       		.byte	-103
- 1156 0467 10       		.byte	16
- 1157 0468 9A       		.byte	-102
- 1158 0469 40       		.byte	64
- 1159 046a 9D       		.byte	-99
- 1160 046b 40       		.byte	64
- 1161 046c 9E       		.byte	-98
- 1162 046d 20       		.byte	32
- 1163 046e 9F       		.byte	-97
- 1164 046f 50       		.byte	80
- 1165 0470 A0       		.byte	-96
- 1166 0471 21       		.byte	33
- 1167 0472 A1       		.byte	-95
- 1168 0473 04       		.byte	4
- 1169 0474 A2       		.byte	-94
- 1170 0475 02       		.byte	2
- 1171 0476 A4       		.byte	-92
- 1172 0477 08       		.byte	8
- 1173 0478 A5       		.byte	-91
- 1174 0479 80       		.byte	-128
- 1175 047a A6       		.byte	-90
- 1176 047b 80       		.byte	-128
- 1177 047c A8       		.byte	-88
- 1178 047d 20       		.byte	32
- 1179 047e A9       		.byte	-87
- 1180 047f 40       		.byte	64
- 1181 0480 AC       		.byte	-84
- 1182 0481 02       		.byte	2
- 1183 0482 AF       		.byte	-81
+ 1141 0458 2B       		.byte	43
+ 1142 0459 40       		.byte	64
+ 1143 045a 2F       		.byte	47
+ 1144 045b 80       		.byte	-128
+ 1145 045c 32       		.byte	50
+ 1146 045d 54       		.byte	84
+ 1147 045e 39       		.byte	57
+ 1148 045f 89       		.byte	-119
+ 1149 0460 3A       		.byte	58
+ 1150 0461 20       		.byte	32
+ 1151 0462 3C       		.byte	60
+ 1152 0463 02       		.byte	2
+ 1153 0464 3E       		.byte	62
+ 1154 0465 08       		.byte	8
+ 1155 0466 46       		.byte	70
+ 1156 0467 14       		.byte	20
+ 1157 0468 4F       		.byte	79
+ 1158 0469 01       		.byte	1
+ 1159 046a 54       		.byte	84
+ 1160 046b 01       		.byte	1
+ 1161 046c 55       		.byte	85
+ 1162 046d 10       		.byte	16
+ 1163 046e 56       		.byte	86
+ 1164 046f 19       		.byte	25
+ 1165 0470 5E       		.byte	94
+ 1166 0471 08       		.byte	8
+ 1167 0472 5F       		.byte	95
+ 1168 0473 81       		.byte	-127
+ 1169 0474 60       		.byte	96
+ 1170 0475 80       		.byte	-128
+ 1171 0476 62       		.byte	98
+ 1172 0477 A0       		.byte	-96
+ 1173 0478 63       		.byte	99
+ 1174 0479 20       		.byte	32
+ 1175 047a 66       		.byte	102
+ 1176 047b 02       		.byte	2
+ 1177 047c 88       		.byte	-120
+ 1178 047d 80       		.byte	-128
+ 1179 047e 91       		.byte	-111
+ 1180 047f 04       		.byte	4
+ 1181 0480 92       		.byte	-110
+ 1182 0481 50       		.byte	80
+ 1183 0482 93       		.byte	-109
  1184 0483 08       		.byte	8
- 1185 0484 B1       		.byte	-79
- 1186 0485 02       		.byte	2
- 1187 0486 B4       		.byte	-76
- 1188 0487 21       		.byte	33
- 1189 0488 C0       		.byte	-64
- 1190 0489 FC       		.byte	-4
- 1191 048a C2       		.byte	-62
- 1192 048b F2       		.byte	-14
- 1193 048c C4       		.byte	-60
- 1194 048d 76       		.byte	118
- 1195 048e CA       		.byte	-54
- 1196 048f 86       		.byte	-122
- 1197 0490 CC       		.byte	-52
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 22
+ 1185 0484 95       		.byte	-107
+ 1186 0485 80       		.byte	-128
+ 1187 0486 97       		.byte	-105
+ 1188 0487 04       		.byte	4
+ 1189 0488 98       		.byte	-104
+ 1190 0489 48       		.byte	72
+ 1191 048a 9B       		.byte	-101
+ 1192 048b 10       		.byte	16
+ 1193 048c 9D       		.byte	-99
+ 1194 048d 04       		.byte	4
+ 1195 048e 9E       		.byte	-98
+ 1196 048f C2       		.byte	-62
+ 1197 0490 9F       		.byte	-97
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 22
 
 
- 1198 0491 AF       		.byte	-81
- 1199 0492 CE       		.byte	-50
- 1200 0493 46       		.byte	70
- 1201 0494 D6       		.byte	-42
- 1202 0495 F0       		.byte	-16
- 1203 0496 D8       		.byte	-40
- 1204 0497 14       		.byte	20
- 1205 0498 E4       		.byte	-28
- 1206 0499 04       		.byte	4
- 1207 049a EE       		.byte	-18
- 1208 049b 21       		.byte	33
- 1209 049c 17       		.byte	23
- 1210 049d 01       		.byte	1
- 1211 049e 1F       		.byte	31
- 1212 049f 02       		.byte	2
- 1213 04a0 24       		.byte	36
- 1214 04a1 01       		.byte	1
- 1215 04a2 2B       		.byte	43
- 1216 04a3 01       		.byte	1
- 1217 04a4 33       		.byte	51
- 1218 04a5 02       		.byte	2
- 1219 04a6 35       		.byte	53
- 1220 04a7 01       		.byte	1
- 1221 04a8 36       		.byte	54
- 1222 04a9 01       		.byte	1
- 1223 04aa 3E       		.byte	62
- 1224 04ab 40       		.byte	64
- 1225 04ac 3F       		.byte	63
- 1226 04ad 10       		.byte	16
- 1227 04ae 40       		.byte	64
- 1228 04af 30       		.byte	48
- 1229 04b0 41       		.byte	65
- 1230 04b1 02       		.byte	2
- 1231 04b2 45       		.byte	69
- 1232 04b3 D0       		.byte	-48
- 1233 04b4 47       		.byte	71
- 1234 04b5 12       		.byte	18
- 1235 04b6 48       		.byte	72
- 1236 04b7 32       		.byte	50
- 1237 04b8 49       		.byte	73
- 1238 04b9 FF       		.byte	-1
- 1239 04ba 4A       		.byte	74
- 1240 04bb FF       		.byte	-1
- 1241 04bc 4B       		.byte	75
- 1242 04bd FF       		.byte	-1
- 1243 04be 4D       		.byte	77
- 1244 04bf A0       		.byte	-96
- 1245 04c0 4F       		.byte	79
- 1246 04c1 04       		.byte	4
- 1247 04c2 50       		.byte	80
- 1248 04c3 18       		.byte	24
- 1249 04c4 52       		.byte	82
- 1250 04c5 80       		.byte	-128
- 1251 04c6 58       		.byte	88
- 1252 04c7 04       		.byte	4
- 1253 04c8 59       		.byte	89
- 1254 04c9 04       		.byte	4
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 23
+ 1198 0491 22       		.byte	34
+ 1199 0492 A0       		.byte	-96
+ 1200 0493 48       		.byte	72
+ 1201 0494 A2       		.byte	-94
+ 1202 0495 A0       		.byte	-96
+ 1203 0496 A5       		.byte	-91
+ 1204 0497 08       		.byte	8
+ 1205 0498 A9       		.byte	-87
+ 1206 0499 01       		.byte	1
+ 1207 049a B0       		.byte	-80
+ 1208 049b 10       		.byte	16
+ 1209 049c B6       		.byte	-74
+ 1210 049d 48       		.byte	72
+ 1211 049e C0       		.byte	-64
+ 1212 049f 4F       		.byte	79
+ 1213 04a0 C2       		.byte	-62
+ 1214 04a1 0F       		.byte	15
+ 1215 04a2 C4       		.byte	-60
+ 1216 04a3 EE       		.byte	-18
+ 1217 04a4 CA       		.byte	-54
+ 1218 04a5 8D       		.byte	-115
+ 1219 04a6 CC       		.byte	-52
+ 1220 04a7 0E       		.byte	14
+ 1221 04a8 CE       		.byte	-50
+ 1222 04a9 CF       		.byte	-49
+ 1223 04aa D0       		.byte	-48
+ 1224 04ab 60       		.byte	96
+ 1225 04ac D6       		.byte	-42
+ 1226 04ad D0       		.byte	-48
+ 1227 04ae D8       		.byte	-40
+ 1228 04af 8F       		.byte	-113
+ 1229 04b0 E2       		.byte	-30
+ 1230 04b1 28       		.byte	40
+ 1231 04b2 EA       		.byte	-22
+ 1232 04b3 04       		.byte	4
+ 1233 04b4 EE       		.byte	-18
+ 1234 04b5 10       		.byte	16
+ 1235 04b6 00       		.byte	0
+ 1236 04b7 1C       		.byte	28
+ 1237 04b8 02       		.byte	2
+ 1238 04b9 02       		.byte	2
+ 1239 04ba 08       		.byte	8
+ 1240 04bb 0C       		.byte	12
+ 1241 04bc 0A       		.byte	10
+ 1242 04bd 11       		.byte	17
+ 1243 04be 0F       		.byte	15
+ 1244 04bf 01       		.byte	1
+ 1245 04c0 12       		.byte	18
+ 1246 04c1 03       		.byte	3
+ 1247 04c2 14       		.byte	20
+ 1248 04c3 14       		.byte	20
+ 1249 04c4 18       		.byte	24
+ 1250 04c5 10       		.byte	16
+ 1251 04c6 20       		.byte	32
+ 1252 04c7 09       		.byte	9
+ 1253 04c8 22       		.byte	34
+ 1254 04c9 10       		.byte	16
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 23
 
 
- 1255 04ca 5A       		.byte	90
- 1256 04cb 04       		.byte	4
- 1257 04cc 5B       		.byte	91
- 1258 04cd 04       		.byte	4
- 1259 04ce 5C       		.byte	92
- 1260 04cf 50       		.byte	80
- 1261 04d0 5D       		.byte	93
- 1262 04d1 55       		.byte	85
- 1263 04d2 5F       		.byte	95
+ 1255 04ca 24       		.byte	36
+ 1256 04cb 10       		.byte	16
+ 1257 04cc 26       		.byte	38
+ 1258 04cd 0C       		.byte	12
+ 1259 04ce 2F       		.byte	47
+ 1260 04cf 01       		.byte	1
+ 1261 04d0 30       		.byte	48
+ 1262 04d1 1F       		.byte	31
+ 1263 04d2 37       		.byte	55
  1264 04d3 01       		.byte	1
- 1265 04d4 60       		.byte	96
+ 1265 04d4 3F       		.byte	63
  1266 04d5 40       		.byte	64
- 1267 04d6 62       		.byte	98
- 1268 04d7 C0       		.byte	-64
- 1269 04d8 64       		.byte	100
- 1270 04d9 40       		.byte	64
- 1271 04da 65       		.byte	101
- 1272 04db 40       		.byte	64
- 1273 04dc 66       		.byte	102
- 1274 04dd C0       		.byte	-64
- 1275 04de 68       		.byte	104
- 1276 04df C0       		.byte	-64
- 1277 04e0 6A       		.byte	106
- 1278 04e1 C0       		.byte	-64
- 1279 04e2 6C       		.byte	108
- 1280 04e3 C0       		.byte	-64
- 1281 04e4 6E       		.byte	110
- 1282 04e5 C0       		.byte	-64
- 1283 04e6 81       		.byte	-127
- 1284 04e7 10       		.byte	16
- 1285 04e8 84       		.byte	-124
- 1286 04e9 33       		.byte	51
- 1287 04ea 85       		.byte	-123
+ 1267 04d6 40       		.byte	64
+ 1268 04d7 01       		.byte	1
+ 1269 04d8 47       		.byte	71
+ 1270 04d9 04       		.byte	4
+ 1271 04da 49       		.byte	73
+ 1272 04db FF       		.byte	-1
+ 1273 04dc 4A       		.byte	74
+ 1274 04dd 07       		.byte	7
+ 1275 04de 4B       		.byte	75
+ 1276 04df FF       		.byte	-1
+ 1277 04e0 4C       		.byte	76
+ 1278 04e1 40       		.byte	64
+ 1279 04e2 4D       		.byte	77
+ 1280 04e3 20       		.byte	32
+ 1281 04e4 4E       		.byte	78
+ 1282 04e5 F0       		.byte	-16
+ 1283 04e6 4F       		.byte	79
+ 1284 04e7 05       		.byte	5
+ 1285 04e8 50       		.byte	80
+ 1286 04e9 08       		.byte	8
+ 1287 04ea 54       		.byte	84
  1288 04eb 18       		.byte	24
- 1289 04ec 86       		.byte	-122
- 1290 04ed 0C       		.byte	12
- 1291 04ee 89       		.byte	-119
- 1292 04ef 08       		.byte	8
- 1293 04f0 8A       		.byte	-118
- 1294 04f1 23       		.byte	35
- 1295 04f2 8C       		.byte	-116
- 1296 04f3 02       		.byte	2
- 1297 04f4 8D       		.byte	-115
- 1298 04f5 40       		.byte	64
- 1299 04f6 90       		.byte	-112
- 1300 04f7 1C       		.byte	28
- 1301 04f8 91       		.byte	-111
- 1302 04f9 24       		.byte	36
- 1303 04fa 92       		.byte	-110
- 1304 04fb 23       		.byte	35
- 1305 04fc 94       		.byte	-108
- 1306 04fd 03       		.byte	3
- 1307 04fe 95       		.byte	-107
- 1308 04ff 7F       		.byte	127
- 1309 0500 98       		.byte	-104
- 1310 0501 3F       		.byte	63
- 1311 0502 99       		.byte	-103
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 24
+ 1289 04ec 56       		.byte	86
+ 1290 04ed 04       		.byte	4
+ 1291 04ee 58       		.byte	88
+ 1292 04ef 04       		.byte	4
+ 1293 04f0 59       		.byte	89
+ 1294 04f1 04       		.byte	4
+ 1295 04f2 5A       		.byte	90
+ 1296 04f3 04       		.byte	4
+ 1297 04f4 5B       		.byte	91
+ 1298 04f5 04       		.byte	4
+ 1299 04f6 5C       		.byte	92
+ 1300 04f7 02       		.byte	2
+ 1301 04f8 5D       		.byte	93
+ 1302 04f9 22       		.byte	34
+ 1303 04fa 5F       		.byte	95
+ 1304 04fb 01       		.byte	1
+ 1305 04fc 60       		.byte	96
+ 1306 04fd 40       		.byte	64
+ 1307 04fe 61       		.byte	97
+ 1308 04ff A8       		.byte	-88
+ 1309 0500 62       		.byte	98
+ 1310 0501 40       		.byte	64
+ 1311 0502 63       		.byte	99
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 24
 
 
- 1312 0503 60       		.byte	96
- 1313 0504 9C       		.byte	-100
- 1314 0505 1F       		.byte	31
- 1315 0506 9D       		.byte	-99
- 1316 0507 1C       		.byte	28
- 1317 0508 9E       		.byte	-98
- 1318 0509 20       		.byte	32
- 1319 050a 9F       		.byte	-97
- 1320 050b 62       		.byte	98
- 1321 050c A0       		.byte	-96
+ 1312 0503 20       		.byte	32
+ 1313 0504 81       		.byte	-127
+ 1314 0505 10       		.byte	16
+ 1315 0506 82       		.byte	-126
+ 1316 0507 04       		.byte	4
+ 1317 0508 84       		.byte	-124
+ 1318 0509 09       		.byte	9
+ 1319 050a 85       		.byte	-123
+ 1320 050b 18       		.byte	24
+ 1321 050c 89       		.byte	-119
  1322 050d 08       		.byte	8
- 1323 050e A1       		.byte	-95
- 1324 050f 1C       		.byte	28
- 1325 0510 A3       		.byte	-93
- 1326 0511 61       		.byte	97
- 1327 0512 A4       		.byte	-92
+ 1323 050e 8C       		.byte	-116
+ 1324 050f 09       		.byte	9
+ 1325 0510 8D       		.byte	-115
+ 1326 0511 44       		.byte	68
+ 1327 0512 93       		.byte	-109
  1328 0513 04       		.byte	4
- 1329 0514 A7       		.byte	-89
- 1330 0515 04       		.byte	4
- 1331 0516 A8       		.byte	-88
- 1332 0517 0C       		.byte	12
- 1333 0518 AB       		.byte	-85
- 1334 0519 63       		.byte	99
- 1335 051a AC       		.byte	-84
- 1336 051b 01       		.byte	1
- 1337 051c AD       		.byte	-83
- 1338 051d 67       		.byte	103
- 1339 051e AE       		.byte	-82
- 1340 051f 40       		.byte	64
- 1341 0520 AF       		.byte	-81
- 1342 0521 18       		.byte	24
- 1343 0522 B0       		.byte	-80
- 1344 0523 10       		.byte	16
- 1345 0524 B1       		.byte	-79
- 1346 0525 60       		.byte	96
- 1347 0526 B2       		.byte	-78
- 1348 0527 40       		.byte	64
- 1349 0528 B4       		.byte	-76
- 1350 0529 0F       		.byte	15
- 1351 052a B6       		.byte	-74
- 1352 052b 2C       		.byte	44
- 1353 052c B7       		.byte	-73
- 1354 052d 1F       		.byte	31
- 1355 052e BA       		.byte	-70
- 1356 052f A0       		.byte	-96
- 1357 0530 BB       		.byte	-69
- 1358 0531 88       		.byte	-120
- 1359 0532 BE       		.byte	-66
- 1360 0533 01       		.byte	1
- 1361 0534 D6       		.byte	-42
- 1362 0535 02       		.byte	2
- 1363 0536 D7       		.byte	-41
- 1364 0537 13       		.byte	19
- 1365 0538 D8       		.byte	-40
- 1366 0539 04       		.byte	4
- 1367 053a D9       		.byte	-39
- 1368 053b 04       		.byte	4
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 25
+ 1329 0514 94       		.byte	-108
+ 1330 0515 02       		.byte	2
+ 1331 0516 95       		.byte	-107
+ 1332 0517 3C       		.byte	60
+ 1333 0518 97       		.byte	-105
+ 1334 0519 C2       		.byte	-62
+ 1335 051a 9A       		.byte	-102
+ 1336 051b 04       		.byte	4
+ 1337 051c 9B       		.byte	-101
+ 1338 051d E3       		.byte	-29
+ 1339 051e 9C       		.byte	-100
+ 1340 051f 08       		.byte	8
+ 1341 0520 9D       		.byte	-99
+ 1342 0521 C0       		.byte	-64
+ 1343 0522 9E       		.byte	-98
+ 1344 0523 01       		.byte	1
+ 1345 0524 A1       		.byte	-95
+ 1346 0525 E7       		.byte	-25
+ 1347 0526 A3       		.byte	-93
+ 1348 0527 18       		.byte	24
+ 1349 0528 A5       		.byte	-91
+ 1350 0529 FF       		.byte	-1
+ 1351 052a A8       		.byte	-88
+ 1352 052b 08       		.byte	8
+ 1353 052c A9       		.byte	-87
+ 1354 052d 80       		.byte	-128
+ 1355 052e AA       		.byte	-86
+ 1356 052f 01       		.byte	1
+ 1357 0530 AD       		.byte	-83
+ 1358 0531 1C       		.byte	28
+ 1359 0532 AF       		.byte	-81
+ 1360 0533 E1       		.byte	-31
+ 1361 0534 B0       		.byte	-80
+ 1362 0535 08       		.byte	8
+ 1363 0536 B1       		.byte	-79
+ 1364 0537 38       		.byte	56
+ 1365 0538 B2       		.byte	-78
+ 1366 0539 02       		.byte	2
+ 1367 053a B3       		.byte	-77
+ 1368 053b 1F       		.byte	31
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 25
 
 
- 1369 053c DB       		.byte	-37
+ 1369 053c B4       		.byte	-76
  1370 053d 04       		.byte	4
- 1371 053e DC       		.byte	-36
- 1372 053f 33       		.byte	51
- 1373 0540 DD       		.byte	-35
- 1374 0541 30       		.byte	48
- 1375 0542 DF       		.byte	-33
- 1376 0543 01       		.byte	1
- 1377 0544 00       		.byte	0
- 1378 0545 44       		.byte	68
- 1379 0546 01       		.byte	1
- 1380 0547 20       		.byte	32
- 1381 0548 0A       		.byte	10
- 1382 0549 A9       		.byte	-87
- 1383 054a 10       		.byte	16
- 1384 054b 82       		.byte	-126
- 1385 054c 13       		.byte	19
- 1386 054d 14       		.byte	20
- 1387 054e 17       		.byte	23
+ 1371 053e B6       		.byte	-74
+ 1372 053f 01       		.byte	1
+ 1373 0540 B7       		.byte	-73
+ 1374 0541 C0       		.byte	-64
+ 1375 0542 B8       		.byte	-72
+ 1376 0543 80       		.byte	-128
+ 1377 0544 BB       		.byte	-69
+ 1378 0545 08       		.byte	8
+ 1379 0546 BE       		.byte	-66
+ 1380 0547 15       		.byte	21
+ 1381 0548 D6       		.byte	-42
+ 1382 0549 02       		.byte	2
+ 1383 054a D7       		.byte	-41
+ 1384 054b 13       		.byte	19
+ 1385 054c D8       		.byte	-40
+ 1386 054d 04       		.byte	4
+ 1387 054e D9       		.byte	-39
  1388 054f 04       		.byte	4
- 1389 0550 18       		.byte	24
+ 1389 0550 DB       		.byte	-37
  1390 0551 04       		.byte	4
- 1391 0552 19       		.byte	25
- 1392 0553 85       		.byte	-123
- 1393 0554 1A       		.byte	26
- 1394 0555 01       		.byte	1
- 1395 0556 1B       		.byte	27
- 1396 0557 80       		.byte	-128
- 1397 0558 1F       		.byte	31
- 1398 0559 40       		.byte	64
- 1399 055a 21       		.byte	33
+ 1391 0552 DC       		.byte	-36
+ 1392 0553 22       		.byte	34
+ 1393 0554 DD       		.byte	-35
+ 1394 0555 20       		.byte	32
+ 1395 0556 DF       		.byte	-33
+ 1396 0557 01       		.byte	1
+ 1397 0558 00       		.byte	0
+ 1398 0559 44       		.byte	68
+ 1399 055a 01       		.byte	1
  1400 055b 08       		.byte	8
- 1401 055c 22       		.byte	34
- 1402 055d 45       		.byte	69
- 1403 055e 25       		.byte	37
- 1404 055f 04       		.byte	4
- 1405 0560 26       		.byte	38
- 1406 0561 04       		.byte	4
- 1407 0562 27       		.byte	39
- 1408 0563 08       		.byte	8
- 1409 0564 29       		.byte	41
- 1410 0565 24       		.byte	36
- 1411 0566 2B       		.byte	43
- 1412 0567 82       		.byte	-126
- 1413 0568 2F       		.byte	47
- 1414 0569 08       		.byte	8
- 1415 056a 30       		.byte	48
- 1416 056b 02       		.byte	2
- 1417 056c 31       		.byte	49
+ 1401 055c 02       		.byte	2
+ 1402 055d 01       		.byte	1
+ 1403 055e 03       		.byte	3
+ 1404 055f 80       		.byte	-128
+ 1405 0560 05       		.byte	5
+ 1406 0561 12       		.byte	18
+ 1407 0562 08       		.byte	8
+ 1408 0563 40       		.byte	64
+ 1409 0564 0A       		.byte	10
+ 1410 0565 02       		.byte	2
+ 1411 0566 0B       		.byte	11
+ 1412 0567 28       		.byte	40
+ 1413 0568 0E       		.byte	14
+ 1414 0569 60       		.byte	96
+ 1415 056a 0F       		.byte	15
+ 1416 056b 08       		.byte	8
+ 1417 056c 12       		.byte	18
  1418 056d 08       		.byte	8
- 1419 056e 32       		.byte	50
- 1420 056f 50       		.byte	80
- 1421 0570 36       		.byte	54
- 1422 0571 04       		.byte	4
- 1423 0572 37       		.byte	55
- 1424 0573 80       		.byte	-128
- 1425 0574 38       		.byte	56
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 26
+ 1419 056e 15       		.byte	21
+ 1420 056f 02       		.byte	2
+ 1421 0570 17       		.byte	23
+ 1422 0571 08       		.byte	8
+ 1423 0572 19       		.byte	25
+ 1424 0573 25       		.byte	37
+ 1425 0574 1B       		.byte	27
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 26
 
 
- 1426 0575 68       		.byte	104
- 1427 0576 3A       		.byte	58
- 1428 0577 02       		.byte	2
- 1429 0578 45       		.byte	69
- 1430 0579 04       		.byte	4
- 1431 057a 46       		.byte	70
- 1432 057b 04       		.byte	4
- 1433 057c 4F       		.byte	79
+ 1426 0575 80       		.byte	-128
+ 1427 0576 1E       		.byte	30
+ 1428 0577 40       		.byte	64
+ 1429 0578 22       		.byte	34
+ 1430 0579 08       		.byte	8
+ 1431 057a 23       		.byte	35
+ 1432 057b 42       		.byte	66
+ 1433 057c 27       		.byte	39
  1434 057d 01       		.byte	1
- 1435 057e 55       		.byte	85
- 1436 057f 01       		.byte	1
- 1437 0580 56       		.byte	86
- 1438 0581 04       		.byte	4
- 1439 0582 57       		.byte	87
- 1440 0583 08       		.byte	8
- 1441 0584 59       		.byte	89
- 1442 0585 01       		.byte	1
- 1443 0586 69       		.byte	105
- 1444 0587 14       		.byte	20
- 1445 0588 6B       		.byte	107
- 1446 0589 02       		.byte	2
- 1447 058a 70       		.byte	112
- 1448 058b D4       		.byte	-44
- 1449 058c 72       		.byte	114
- 1450 058d 02       		.byte	2
- 1451 058e 73       		.byte	115
- 1452 058f 14       		.byte	20
- 1453 0590 77       		.byte	119
- 1454 0591 80       		.byte	-128
- 1455 0592 81       		.byte	-127
- 1456 0593 40       		.byte	64
- 1457 0594 87       		.byte	-121
- 1458 0595 40       		.byte	64
- 1459 0596 8C       		.byte	-116
- 1460 0597 04       		.byte	4
- 1461 0598 8E       		.byte	-114
- 1462 0599 04       		.byte	4
- 1463 059a 8F       		.byte	-113
- 1464 059b 02       		.byte	2
- 1465 059c 9B       		.byte	-101
+ 1435 057e 28       		.byte	40
+ 1436 057f 04       		.byte	4
+ 1437 0580 29       		.byte	41
+ 1438 0581 88       		.byte	-120
+ 1439 0582 2A       		.byte	42
+ 1440 0583 01       		.byte	1
+ 1441 0584 2F       		.byte	47
+ 1442 0585 02       		.byte	2
+ 1443 0586 32       		.byte	50
+ 1444 0587 6A       		.byte	106
+ 1445 0588 38       		.byte	56
+ 1446 0589 28       		.byte	40
+ 1447 058a 39       		.byte	57
+ 1448 058b 40       		.byte	64
+ 1449 058c 3B       		.byte	59
+ 1450 058d 01       		.byte	1
+ 1451 058e 3F       		.byte	63
+ 1452 058f 40       		.byte	64
+ 1453 0590 46       		.byte	70
+ 1454 0591 40       		.byte	64
+ 1455 0592 47       		.byte	71
+ 1456 0593 81       		.byte	-127
+ 1457 0594 4D       		.byte	77
+ 1458 0595 80       		.byte	-128
+ 1459 0596 4E       		.byte	78
+ 1460 0597 01       		.byte	1
+ 1461 0598 4F       		.byte	79
+ 1462 0599 02       		.byte	2
+ 1463 059a 56       		.byte	86
+ 1464 059b 04       		.byte	4
+ 1465 059c 57       		.byte	87
  1466 059d 04       		.byte	4
- 1467 059e AA       		.byte	-86
- 1468 059f 40       		.byte	64
- 1469 05a0 B4       		.byte	-76
- 1470 05a1 01       		.byte	1
- 1471 05a2 C0       		.byte	-64
- 1472 05a3 07       		.byte	7
- 1473 05a4 C2       		.byte	-62
- 1474 05a5 0F       		.byte	15
- 1475 05a6 C4       		.byte	-60
- 1476 05a7 2F       		.byte	47
- 1477 05a8 CA       		.byte	-54
- 1478 05a9 2F       		.byte	47
- 1479 05aa CC       		.byte	-52
- 1480 05ab 5F       		.byte	95
- 1481 05ac CE       		.byte	-50
- 1482 05ad 0F       		.byte	15
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 27
+ 1467 059e 59       		.byte	89
+ 1468 059f 01       		.byte	1
+ 1469 05a0 5F       		.byte	95
+ 1470 05a1 02       		.byte	2
+ 1471 05a2 65       		.byte	101
+ 1472 05a3 20       		.byte	32
+ 1473 05a4 66       		.byte	102
+ 1474 05a5 40       		.byte	64
+ 1475 05a6 67       		.byte	103
+ 1476 05a7 80       		.byte	-128
+ 1477 05a8 68       		.byte	104
+ 1478 05a9 28       		.byte	40
+ 1479 05aa 69       		.byte	105
+ 1480 05ab 94       		.byte	-108
+ 1481 05ac 70       		.byte	112
+ 1482 05ad 14       		.byte	20
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 27
 
 
- 1483 05ae D0       		.byte	-48
- 1484 05af 60       		.byte	96
- 1485 05b0 D6       		.byte	-42
+ 1483 05ae 71       		.byte	113
+ 1484 05af 08       		.byte	8
+ 1485 05b0 72       		.byte	114
  1486 05b1 01       		.byte	1
- 1487 05b2 E0       		.byte	-32
- 1488 05b3 08       		.byte	8
- 1489 05b4 E2       		.byte	-30
+ 1487 05b2 73       		.byte	115
+ 1488 05b3 05       		.byte	5
+ 1489 05b4 87       		.byte	-121
  1490 05b5 40       		.byte	64
- 1491 05b6 83       		.byte	-125
- 1492 05b7 03       		.byte	3
- 1493 05b8 84       		.byte	-124
+ 1491 05b6 90       		.byte	-112
+ 1492 05b7 40       		.byte	64
+ 1493 05b8 91       		.byte	-111
  1494 05b9 02       		.byte	2
- 1495 05ba 86       		.byte	-122
- 1496 05bb 0D       		.byte	13
- 1497 05bc 8D       		.byte	-115
- 1498 05bd 02       		.byte	2
+ 1495 05ba 92       		.byte	-110
+ 1496 05bb 02       		.byte	2
+ 1497 05bc 93       		.byte	-109
+ 1498 05bd 20       		.byte	32
  1499 05be 94       		.byte	-108
- 1500 05bf 05       		.byte	5
- 1501 05c0 96       		.byte	-106
- 1502 05c1 0A       		.byte	10
- 1503 05c2 9E       		.byte	-98
- 1504 05c3 10       		.byte	16
- 1505 05c4 A6       		.byte	-90
- 1506 05c5 10       		.byte	16
- 1507 05c6 A8       		.byte	-88
- 1508 05c7 03       		.byte	3
- 1509 05c8 AA       		.byte	-86
- 1510 05c9 0C       		.byte	12
- 1511 05ca AC       		.byte	-84
- 1512 05cb 09       		.byte	9
- 1513 05cc AE       		.byte	-82
- 1514 05cd 06       		.byte	6
- 1515 05ce B1       		.byte	-79
- 1516 05cf 02       		.byte	2
- 1517 05d0 B2       		.byte	-78
- 1518 05d1 0F       		.byte	15
- 1519 05d2 B6       		.byte	-74
- 1520 05d3 10       		.byte	16
- 1521 05d4 B7       		.byte	-73
+ 1500 05bf 04       		.byte	4
+ 1501 05c0 95       		.byte	-107
+ 1502 05c1 40       		.byte	64
+ 1503 05c2 96       		.byte	-106
+ 1504 05c3 81       		.byte	-127
+ 1505 05c4 97       		.byte	-105
+ 1506 05c5 04       		.byte	4
+ 1507 05c6 9B       		.byte	-101
+ 1508 05c7 08       		.byte	8
+ 1509 05c8 9C       		.byte	-100
+ 1510 05c9 40       		.byte	64
+ 1511 05ca 9D       		.byte	-99
+ 1512 05cb 16       		.byte	22
+ 1513 05cc A2       		.byte	-94
+ 1514 05cd 10       		.byte	16
+ 1515 05ce A4       		.byte	-92
+ 1516 05cf 10       		.byte	16
+ 1517 05d0 A5       		.byte	-91
+ 1518 05d1 18       		.byte	24
+ 1519 05d2 A6       		.byte	-90
+ 1520 05d3 28       		.byte	40
+ 1521 05d4 A7       		.byte	-89
  1522 05d5 01       		.byte	1
- 1523 05d6 BA       		.byte	-70
- 1524 05d7 08       		.byte	8
- 1525 05d8 BE       		.byte	-66
- 1526 05d9 40       		.byte	64
- 1527 05da D4       		.byte	-44
- 1528 05db 05       		.byte	5
- 1529 05dc D8       		.byte	-40
- 1530 05dd 04       		.byte	4
- 1531 05de D9       		.byte	-39
- 1532 05df 04       		.byte	4
- 1533 05e0 DB       		.byte	-37
- 1534 05e1 04       		.byte	4
- 1535 05e2 DC       		.byte	-36
- 1536 05e3 51       		.byte	81
- 1537 05e4 DD       		.byte	-35
- 1538 05e5 50       		.byte	80
- 1539 05e6 DF       		.byte	-33
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 28
+ 1523 05d6 A9       		.byte	-87
+ 1524 05d7 04       		.byte	4
+ 1525 05d8 AF       		.byte	-81
+ 1526 05d9 12       		.byte	18
+ 1527 05da B2       		.byte	-78
+ 1528 05db 40       		.byte	64
+ 1529 05dc B3       		.byte	-77
+ 1530 05dd 02       		.byte	2
+ 1531 05de B6       		.byte	-74
+ 1532 05df 11       		.byte	17
+ 1533 05e0 B7       		.byte	-73
+ 1534 05e1 08       		.byte	8
+ 1535 05e2 C0       		.byte	-64
+ 1536 05e3 5D       		.byte	93
+ 1537 05e4 C2       		.byte	-62
+ 1538 05e5 77       		.byte	119
+ 1539 05e6 C4       		.byte	-60
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 28
 
 
- 1540 05e7 01       		.byte	1
- 1541 05e8 00       		.byte	0
- 1542 05e9 40       		.byte	64
- 1543 05ea 05       		.byte	5
- 1544 05eb 04       		.byte	4
- 1545 05ec 0A       		.byte	10
- 1546 05ed 20       		.byte	32
- 1547 05ee 0D       		.byte	13
- 1548 05ef 40       		.byte	64
- 1549 05f0 0E       		.byte	14
- 1550 05f1 22       		.byte	34
- 1551 05f2 10       		.byte	16
- 1552 05f3 02       		.byte	2
- 1553 05f4 11       		.byte	17
- 1554 05f5 14       		.byte	20
- 1555 05f6 13       		.byte	19
- 1556 05f7 02       		.byte	2
- 1557 05f8 15       		.byte	21
- 1558 05f9 48       		.byte	72
- 1559 05fa 17       		.byte	23
- 1560 05fb 20       		.byte	32
- 1561 05fc 18       		.byte	24
- 1562 05fd 41       		.byte	65
- 1563 05fe 19       		.byte	25
- 1564 05ff 20       		.byte	32
- 1565 0600 1A       		.byte	26
- 1566 0601 20       		.byte	32
- 1567 0602 1D       		.byte	29
- 1568 0603 84       		.byte	-124
- 1569 0604 1F       		.byte	31
- 1570 0605 04       		.byte	4
- 1571 0606 21       		.byte	33
- 1572 0607 42       		.byte	66
- 1573 0608 23       		.byte	35
+ 1540 05e7 32       		.byte	50
+ 1541 05e8 CA       		.byte	-54
+ 1542 05e9 1F       		.byte	31
+ 1543 05ea CC       		.byte	-52
+ 1544 05eb 0F       		.byte	15
+ 1545 05ec CE       		.byte	-50
+ 1546 05ed 1F       		.byte	31
+ 1547 05ee D0       		.byte	-48
+ 1548 05ef 10       		.byte	16
+ 1549 05f0 D6       		.byte	-42
+ 1550 05f1 81       		.byte	-127
+ 1551 05f2 D8       		.byte	-40
+ 1552 05f3 B0       		.byte	-80
+ 1553 05f4 E8       		.byte	-24
+ 1554 05f5 10       		.byte	16
+ 1555 05f6 EC       		.byte	-20
+ 1556 05f7 80       		.byte	-128
+ 1557 05f8 EE       		.byte	-18
+ 1558 05f9 10       		.byte	16
+ 1559 05fa 01       		.byte	1
+ 1560 05fb 02       		.byte	2
+ 1561 05fc 03       		.byte	3
+ 1562 05fd 25       		.byte	37
+ 1563 05fe 05       		.byte	5
+ 1564 05ff 0E       		.byte	14
+ 1565 0600 09       		.byte	9
+ 1566 0601 0E       		.byte	14
+ 1567 0602 0D       		.byte	13
+ 1568 0603 08       		.byte	8
+ 1569 0604 10       		.byte	16
+ 1570 0605 01       		.byte	1
+ 1571 0606 12       		.byte	18
+ 1572 0607 06       		.byte	6
+ 1573 0608 14       		.byte	20
  1574 0609 04       		.byte	4
- 1575 060a 25       		.byte	37
- 1576 060b 40       		.byte	64
- 1577 060c 27       		.byte	39
- 1578 060d 80       		.byte	-128
- 1579 060e 29       		.byte	41
- 1580 060f A8       		.byte	-88
- 1581 0610 31       		.byte	49
- 1582 0611 2A       		.byte	42
- 1583 0612 32       		.byte	50
- 1584 0613 40       		.byte	64
- 1585 0614 38       		.byte	56
- 1586 0615 A8       		.byte	-88
- 1587 0616 3D       		.byte	61
- 1588 0617 82       		.byte	-126
- 1589 0618 40       		.byte	64
- 1590 0619 05       		.byte	5
- 1591 061a 41       		.byte	65
- 1592 061b 28       		.byte	40
- 1593 061c 49       		.byte	73
- 1594 061d 28       		.byte	40
- 1595 061e 4A       		.byte	74
- 1596 061f 01       		.byte	1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 29
+ 1575 060a 15       		.byte	21
+ 1576 060b 04       		.byte	4
+ 1577 060c 16       		.byte	22
+ 1578 060d 01       		.byte	1
+ 1579 060e 17       		.byte	23
+ 1580 060f 22       		.byte	34
+ 1581 0610 23       		.byte	35
+ 1582 0611 10       		.byte	16
+ 1583 0612 24       		.byte	36
+ 1584 0613 07       		.byte	7
+ 1585 0614 28       		.byte	40
+ 1586 0615 07       		.byte	7
+ 1587 0616 2C       		.byte	44
+ 1588 0617 02       		.byte	2
+ 1589 0618 2E       		.byte	46
+ 1590 0619 01       		.byte	1
+ 1591 061a 30       		.byte	48
+ 1592 061b 07       		.byte	7
+ 1593 061c 31       		.byte	49
+ 1594 061d 01       		.byte	1
+ 1595 061e 33       		.byte	51
+ 1596 061f 06       		.byte	6
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 29
 
 
- 1597 0620 51       		.byte	81
- 1598 0621 04       		.byte	4
- 1599 0622 5A       		.byte	90
- 1600 0623 02       		.byte	2
- 1601 0624 5F       		.byte	95
- 1602 0625 89       		.byte	-119
- 1603 0626 61       		.byte	97
- 1604 0627 80       		.byte	-128
- 1605 0628 63       		.byte	99
- 1606 0629 44       		.byte	68
- 1607 062a 87       		.byte	-121
- 1608 062b 40       		.byte	64
- 1609 062c 88       		.byte	-120
- 1610 062d 02       		.byte	2
- 1611 062e 8B       		.byte	-117
- 1612 062f 04       		.byte	4
- 1613 0630 90       		.byte	-112
- 1614 0631 AC       		.byte	-84
- 1615 0632 91       		.byte	-111
- 1616 0633 54       		.byte	84
- 1617 0634 92       		.byte	-110
- 1618 0635 82       		.byte	-126
- 1619 0636 93       		.byte	-109
- 1620 0637 01       		.byte	1
- 1621 0638 94       		.byte	-108
- 1622 0639 40       		.byte	64
- 1623 063a 96       		.byte	-106
- 1624 063b 20       		.byte	32
- 1625 063c 99       		.byte	-103
- 1626 063d 80       		.byte	-128
- 1627 063e 9B       		.byte	-101
- 1628 063f 2A       		.byte	42
- 1629 0640 9D       		.byte	-99
- 1630 0641 20       		.byte	32
- 1631 0642 A1       		.byte	-95
- 1632 0643 09       		.byte	9
- 1633 0644 A2       		.byte	-94
- 1634 0645 10       		.byte	16
- 1635 0646 A4       		.byte	-92
- 1636 0647 02       		.byte	2
- 1637 0648 B2       		.byte	-78
- 1638 0649 10       		.byte	16
- 1639 064a B3       		.byte	-77
- 1640 064b 20       		.byte	32
- 1641 064c B5       		.byte	-75
- 1642 064d 01       		.byte	1
- 1643 064e C0       		.byte	-64
- 1644 064f 21       		.byte	33
- 1645 0650 C2       		.byte	-62
- 1646 0651 A4       		.byte	-92
- 1647 0652 C4       		.byte	-60
- 1648 0653 EF       		.byte	-17
- 1649 0654 CA       		.byte	-54
- 1650 0655 0E       		.byte	14
- 1651 0656 CC       		.byte	-52
- 1652 0657 0F       		.byte	15
- 1653 0658 CE       		.byte	-50
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 30
+ 1597 0620 35       		.byte	53
+ 1598 0621 08       		.byte	8
+ 1599 0622 37       		.byte	55
+ 1600 0623 30       		.byte	48
+ 1601 0624 3A       		.byte	58
+ 1602 0625 20       		.byte	32
+ 1603 0626 3F       		.byte	63
+ 1604 0627 40       		.byte	64
+ 1605 0628 40       		.byte	64
+ 1606 0629 46       		.byte	70
+ 1607 062a 41       		.byte	65
+ 1608 062b 02       		.byte	2
+ 1609 062c 42       		.byte	66
+ 1610 062d 05       		.byte	5
+ 1611 062e 44       		.byte	68
+ 1612 062f 01       		.byte	1
+ 1613 0630 45       		.byte	69
+ 1614 0631 0E       		.byte	14
+ 1615 0632 47       		.byte	71
+ 1616 0633 C0       		.byte	-64
+ 1617 0634 48       		.byte	72
+ 1618 0635 21       		.byte	33
+ 1619 0636 49       		.byte	73
+ 1620 0637 FF       		.byte	-1
+ 1621 0638 4A       		.byte	74
+ 1622 0639 FF       		.byte	-1
+ 1623 063a 4B       		.byte	75
+ 1624 063b FF       		.byte	-1
+ 1625 063c 4C       		.byte	76
+ 1626 063d 62       		.byte	98
+ 1627 063e 4D       		.byte	77
+ 1628 063f A0       		.byte	-96
+ 1629 0640 4E       		.byte	78
+ 1630 0641 F0       		.byte	-16
+ 1631 0642 4F       		.byte	79
+ 1632 0643 41       		.byte	65
+ 1633 0644 50       		.byte	80
+ 1634 0645 0C       		.byte	12
+ 1635 0646 58       		.byte	88
+ 1636 0647 04       		.byte	4
+ 1637 0648 59       		.byte	89
+ 1638 0649 04       		.byte	4
+ 1639 064a 5A       		.byte	90
+ 1640 064b 04       		.byte	4
+ 1641 064c 5C       		.byte	92
+ 1642 064d 22       		.byte	34
+ 1643 064e 5D       		.byte	93
+ 1644 064f 02       		.byte	2
+ 1645 0650 5F       		.byte	95
+ 1646 0651 01       		.byte	1
+ 1647 0652 66       		.byte	102
+ 1648 0653 40       		.byte	64
+ 1649 0654 67       		.byte	103
+ 1650 0655 02       		.byte	2
+ 1651 0656 69       		.byte	105
+ 1652 0657 10       		.byte	16
+ 1653 0658 6A       		.byte	106
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 30
 
 
- 1654 0659 9E       		.byte	-98
- 1655 065a D0       		.byte	-48
- 1656 065b 0E       		.byte	14
- 1657 065c D2       		.byte	-46
- 1658 065d 0C       		.byte	12
- 1659 065e D6       		.byte	-42
- 1660 065f D1       		.byte	-47
- 1661 0660 D8       		.byte	-40
- 1662 0661 0D       		.byte	13
- 1663 0662 E2       		.byte	-30
- 1664 0663 80       		.byte	-128
- 1665 0664 E8       		.byte	-24
- 1666 0665 80       		.byte	-128
- 1667 0666 EA       		.byte	-22
- 1668 0667 10       		.byte	16
- 1669 0668 EC       		.byte	-20
- 1670 0669 20       		.byte	32
- 1671 066a 33       		.byte	51
- 1672 066b 88       		.byte	-120
- 1673 066c 37       		.byte	55
- 1674 066d 80       		.byte	-128
- 1675 066e 83       		.byte	-125
- 1676 066f 80       		.byte	-128
- 1677 0670 CC       		.byte	-52
- 1678 0671 70       		.byte	112
- 1679 0672 E6       		.byte	-26
- 1680 0673 20       		.byte	32
- 1681 0674 54       		.byte	84
- 1682 0675 02       		.byte	2
- 1683 0676 5C       		.byte	92
- 1684 0677 02       		.byte	2
- 1685 0678 67       		.byte	103
- 1686 0679 08       		.byte	8
- 1687 067a 9F       		.byte	-97
- 1688 067b 80       		.byte	-128
- 1689 067c A7       		.byte	-89
+ 1654 0659 30       		.byte	48
+ 1655 065a 6B       		.byte	107
+ 1656 065b 10       		.byte	16
+ 1657 065c 6D       		.byte	109
+ 1658 065d 10       		.byte	16
+ 1659 065e 6E       		.byte	110
+ 1660 065f 10       		.byte	16
+ 1661 0660 6F       		.byte	111
+ 1662 0661 12       		.byte	18
+ 1663 0662 83       		.byte	-125
+ 1664 0663 02       		.byte	2
+ 1665 0664 88       		.byte	-120
+ 1666 0665 08       		.byte	8
+ 1667 0666 8A       		.byte	-118
+ 1668 0667 13       		.byte	19
+ 1669 0668 8F       		.byte	-113
+ 1670 0669 01       		.byte	1
+ 1671 066a 90       		.byte	-112
+ 1672 066b 20       		.byte	32
+ 1673 066c 91       		.byte	-111
+ 1674 066d 04       		.byte	4
+ 1675 066e 95       		.byte	-107
+ 1676 066f 06       		.byte	6
+ 1677 0670 9B       		.byte	-101
+ 1678 0671 01       		.byte	1
+ 1679 0672 9C       		.byte	-100
+ 1680 0673 16       		.byte	22
+ 1681 0674 9D       		.byte	-99
+ 1682 0675 01       		.byte	1
+ 1683 0676 9E       		.byte	-98
+ 1684 0677 09       		.byte	9
+ 1685 0678 A1       		.byte	-95
+ 1686 0679 01       		.byte	1
+ 1687 067a A2       		.byte	-94
+ 1688 067b 16       		.byte	22
+ 1689 067c A4       		.byte	-92
  1690 067d 08       		.byte	8
- 1691 067e D6       		.byte	-42
- 1692 067f A0       		.byte	-96
- 1693 0680 D8       		.byte	-40
- 1694 0681 80       		.byte	-128
- 1695 0682 53       		.byte	83
- 1696 0683 80       		.byte	-128
- 1697 0684 56       		.byte	86
- 1698 0685 20       		.byte	32
- 1699 0686 82       		.byte	-126
- 1700 0687 20       		.byte	32
- 1701 0688 87       		.byte	-121
- 1702 0689 81       		.byte	-127
- 1703 068a 97       		.byte	-105
- 1704 068b 08       		.byte	8
- 1705 068c 9C       		.byte	-100
- 1706 068d 02       		.byte	2
- 1707 068e 9F       		.byte	-97
- 1708 068f 80       		.byte	-128
- 1709 0690 A4       		.byte	-92
- 1710 0691 02       		.byte	2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 31
+ 1691 067e A5       		.byte	-91
+ 1692 067f 06       		.byte	6
+ 1693 0680 A6       		.byte	-90
+ 1694 0681 15       		.byte	21
+ 1695 0682 A9       		.byte	-87
+ 1696 0683 01       		.byte	1
+ 1697 0684 AA       		.byte	-86
+ 1698 0685 02       		.byte	2
+ 1699 0686 AD       		.byte	-83
+ 1700 0687 01       		.byte	1
+ 1701 0688 AE       		.byte	-82
+ 1702 0689 09       		.byte	9
+ 1703 068a B1       		.byte	-79
+ 1704 068b 06       		.byte	6
+ 1705 068c B2       		.byte	-78
+ 1706 068d 20       		.byte	32
+ 1707 068e B4       		.byte	-76
+ 1708 068f 07       		.byte	7
+ 1709 0690 B5       		.byte	-75
+ 1710 0691 01       		.byte	1
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 31
 
 
- 1711 0692 A7       		.byte	-89
- 1712 0693 08       		.byte	8
- 1713 0694 D4       		.byte	-44
- 1714 0695 60       		.byte	96
- 1715 0696 E0       		.byte	-32
- 1716 0697 40       		.byte	64
- 1717 0698 E2       		.byte	-30
- 1718 0699 20       		.byte	32
- 1719 069a E6       		.byte	-26
- 1720 069b 10       		.byte	16
- 1721 069c 63       		.byte	99
- 1722 069d 20       		.byte	32
- 1723 069e 97       		.byte	-105
- 1724 069f 08       		.byte	8
- 1725 06a0 9F       		.byte	-97
- 1726 06a1 81       		.byte	-127
- 1727 06a2 A4       		.byte	-92
- 1728 06a3 02       		.byte	2
- 1729 06a4 A7       		.byte	-89
- 1730 06a5 08       		.byte	8
- 1731 06a6 AC       		.byte	-84
- 1732 06a7 02       		.byte	2
- 1733 06a8 D8       		.byte	-40
- 1734 06a9 40       		.byte	64
- 1735 06aa EE       		.byte	-18
- 1736 06ab 40       		.byte	64
- 1737 06ac 7D       		.byte	125
- 1738 06ad 20       		.byte	32
- 1739 06ae DE       		.byte	-34
- 1740 06af 01       		.byte	1
- 1741 06b0 03       		.byte	3
- 1742 06b1 40       		.byte	64
- 1743 06b2 A5       		.byte	-91
- 1744 06b3 10       		.byte	16
- 1745 06b4 C0       		.byte	-64
- 1746 06b5 08       		.byte	8
- 1747 06b6 45       		.byte	69
- 1748 06b7 08       		.byte	8
- 1749 06b8 83       		.byte	-125
- 1750 06b9 40       		.byte	64
- 1751 06ba 85       		.byte	-123
- 1752 06bb 08       		.byte	8
- 1753 06bc 9B       		.byte	-101
- 1754 06bd 40       		.byte	64
- 1755 06be A5       		.byte	-91
- 1756 06bf 10       		.byte	16
- 1757 06c0 D0       		.byte	-48
+ 1711 0692 B6       		.byte	-74
+ 1712 0693 1B       		.byte	27
+ 1713 0694 B9       		.byte	-71
+ 1714 0695 02       		.byte	2
+ 1715 0696 BA       		.byte	-70
+ 1716 0697 A0       		.byte	-96
+ 1717 0698 BE       		.byte	-66
+ 1718 0699 04       		.byte	4
+ 1719 069a BF       		.byte	-65
+ 1720 069b 11       		.byte	17
+ 1721 069c D4       		.byte	-44
+ 1722 069d 40       		.byte	64
+ 1723 069e D8       		.byte	-40
+ 1724 069f 04       		.byte	4
+ 1725 06a0 D9       		.byte	-39
+ 1726 06a1 04       		.byte	4
+ 1727 06a2 DB       		.byte	-37
+ 1728 06a3 04       		.byte	4
+ 1729 06a4 DC       		.byte	-36
+ 1730 06a5 02       		.byte	2
+ 1731 06a6 DD       		.byte	-35
+ 1732 06a7 10       		.byte	16
+ 1733 06a8 DF       		.byte	-33
+ 1734 06a9 01       		.byte	1
+ 1735 06aa 05       		.byte	5
+ 1736 06ab 10       		.byte	16
+ 1737 06ac 09       		.byte	9
+ 1738 06ad 08       		.byte	8
+ 1739 06ae 0A       		.byte	10
+ 1740 06af 80       		.byte	-128
+ 1741 06b0 0E       		.byte	14
+ 1742 06b1 42       		.byte	66
+ 1743 06b2 10       		.byte	16
+ 1744 06b3 A8       		.byte	-88
+ 1745 06b4 11       		.byte	17
+ 1746 06b5 40       		.byte	64
+ 1747 06b6 13       		.byte	19
+ 1748 06b7 01       		.byte	1
+ 1749 06b8 15       		.byte	21
+ 1750 06b9 02       		.byte	2
+ 1751 06ba 16       		.byte	22
+ 1752 06bb 06       		.byte	6
+ 1753 06bc 17       		.byte	23
+ 1754 06bd 08       		.byte	8
+ 1755 06be 18       		.byte	24
+ 1756 06bf 04       		.byte	4
+ 1757 06c0 19       		.byte	25
  1758 06c1 01       		.byte	1
- 1759 06c2 89       		.byte	-119
- 1760 06c3 20       		.byte	32
- 1761 06c4 A5       		.byte	-91
- 1762 06c5 10       		.byte	16
- 1763 06c6 E6       		.byte	-26
- 1764 06c7 01       		.byte	1
- 1765 06c8 27       		.byte	39
- 1766 06c9 01       		.byte	1
- 1767 06ca 80       		.byte	-128
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 32
+ 1759 06c2 1A       		.byte	26
+ 1760 06c3 80       		.byte	-128
+ 1761 06c4 1D       		.byte	29
+ 1762 06c5 14       		.byte	20
+ 1763 06c6 1E       		.byte	30
+ 1764 06c7 02       		.byte	2
+ 1765 06c8 1F       		.byte	31
+ 1766 06c9 10       		.byte	16
+ 1767 06ca 20       		.byte	32
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 32
 
 
- 1768 06cb 02       		.byte	2
- 1769 06cc 87       		.byte	-121
- 1770 06cd 04       		.byte	4
- 1771 06ce 97       		.byte	-105
- 1772 06cf 08       		.byte	8
- 1773 06d0 9F       		.byte	-97
- 1774 06d1 01       		.byte	1
- 1775 06d2 A4       		.byte	-92
- 1776 06d3 02       		.byte	2
- 1777 06d4 A7       		.byte	-89
- 1778 06d5 08       		.byte	8
- 1779 06d6 AB       		.byte	-85
- 1780 06d7 10       		.byte	16
- 1781 06d8 B3       		.byte	-77
- 1782 06d9 80       		.byte	-128
- 1783 06da C8       		.byte	-56
- 1784 06db 20       		.byte	32
- 1785 06dc E2       		.byte	-30
- 1786 06dd 20       		.byte	32
- 1787 06de E6       		.byte	-26
- 1788 06df 10       		.byte	16
- 1789 06e0 EE       		.byte	-18
- 1790 06e1 80       		.byte	-128
- 1791 06e2 87       		.byte	-121
- 1792 06e3 08       		.byte	8
- 1793 06e4 A7       		.byte	-89
- 1794 06e5 08       		.byte	8
- 1795 06e6 E6       		.byte	-26
- 1796 06e7 40       		.byte	64
- 1797 06e8 09       		.byte	9
- 1798 06e9 20       		.byte	32
- 1799 06ea 87       		.byte	-121
- 1800 06eb 10       		.byte	16
- 1801 06ec A5       		.byte	-91
- 1802 06ed 20       		.byte	32
- 1803 06ee B5       		.byte	-75
+ 1768 06cb 29       		.byte	41
+ 1769 06cc 21       		.byte	33
+ 1770 06cd 08       		.byte	8
+ 1771 06ce 22       		.byte	34
+ 1772 06cf 22       		.byte	34
+ 1773 06d0 25       		.byte	37
+ 1774 06d1 10       		.byte	16
+ 1775 06d2 27       		.byte	39
+ 1776 06d3 80       		.byte	-128
+ 1777 06d4 29       		.byte	41
+ 1778 06d5 01       		.byte	1
+ 1779 06d6 2E       		.byte	46
+ 1780 06d7 80       		.byte	-128
+ 1781 06d8 2F       		.byte	47
+ 1782 06d9 58       		.byte	88
+ 1783 06da 30       		.byte	48
+ 1784 06db 04       		.byte	4
+ 1785 06dc 31       		.byte	49
+ 1786 06dd 08       		.byte	8
+ 1787 06de 35       		.byte	53
+ 1788 06df 02       		.byte	2
+ 1789 06e0 36       		.byte	54
+ 1790 06e1 81       		.byte	-127
+ 1791 06e2 37       		.byte	55
+ 1792 06e3 18       		.byte	24
+ 1793 06e4 38       		.byte	56
+ 1794 06e5 02       		.byte	2
+ 1795 06e6 39       		.byte	57
+ 1796 06e7 94       		.byte	-108
+ 1797 06e8 3E       		.byte	62
+ 1798 06e9 02       		.byte	2
+ 1799 06ea 3F       		.byte	63
+ 1800 06eb 82       		.byte	-126
+ 1801 06ec 40       		.byte	64
+ 1802 06ed 45       		.byte	69
+ 1803 06ee 45       		.byte	69
  1804 06ef 10       		.byte	16
- 1805 06f0 C2       		.byte	-62
- 1806 06f1 02       		.byte	2
- 1807 06f2 EC       		.byte	-20
- 1808 06f3 08       		.byte	8
- 1809 06f4 10       		.byte	16
- 1810 06f5 80       		.byte	-128
- 1811 06f6 73       		.byte	115
- 1812 06f7 10       		.byte	16
- 1813 06f8 88       		.byte	-120
- 1814 06f9 80       		.byte	-128
- 1815 06fa 93       		.byte	-109
- 1816 06fb 10       		.byte	16
- 1817 06fc C4       		.byte	-60
- 1818 06fd 08       		.byte	8
- 1819 06fe DC       		.byte	-36
- 1820 06ff 01       		.byte	1
- 1821 0700 E6       		.byte	-26
- 1822 0701 01       		.byte	1
- 1823 0702 00       		.byte	0
- 1824 0703 0E       		.byte	14
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 33
+ 1805 06f0 46       		.byte	70
+ 1806 06f1 08       		.byte	8
+ 1807 06f2 48       		.byte	72
+ 1808 06f3 04       		.byte	4
+ 1809 06f4 4B       		.byte	75
+ 1810 06f5 48       		.byte	72
+ 1811 06f6 53       		.byte	83
+ 1812 06f7 02       		.byte	2
+ 1813 06f8 64       		.byte	100
+ 1814 06f9 08       		.byte	8
+ 1815 06fa 66       		.byte	102
+ 1816 06fb 08       		.byte	8
+ 1817 06fc 67       		.byte	103
+ 1818 06fd 01       		.byte	1
+ 1819 06fe 80       		.byte	-128
+ 1820 06ff 80       		.byte	-128
+ 1821 0700 81       		.byte	-127
+ 1822 0701 04       		.byte	4
+ 1823 0702 82       		.byte	-126
+ 1824 0703 80       		.byte	-128
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 33
 
 
- 1825 0704 08       		.byte	8
- 1826 0705 0A       		.byte	10
- 1827 0706 0A       		.byte	10
- 1828 0707 0E       		.byte	14
- 1829 0708 10       		.byte	16
- 1830 0709 2E       		.byte	46
- 1831 070a 1A       		.byte	26
- 1832 070b 26       		.byte	38
- 1833 070c 1C       		.byte	28
- 1834 070d 2A       		.byte	42
- 1835 070e 00       		.byte	0
- 1836 070f 3F       		.byte	63
- 1837 0710 08       		.byte	8
- 1838 0711 8C       		.byte	-116
- 1839 0712 00       		.byte	0
- 1840 0713 00       		.byte	0
- 1841 0714 40       		.byte	64
- 1842 0715 00       		.byte	0
- 1843 0716 00       		.byte	0
- 1844 0717 00       		.byte	0
- 1845 0718 84       		.byte	-124
- 1846 0719 00       		.byte	0
- 1847 071a 00       		.byte	0
- 1848 071b 00       		.byte	0
- 1849 071c 07       		.byte	7
- 1850 071d 98       		.byte	-104
- 1851 071e 38       		.byte	56
- 1852 071f 02       		.byte	2
- 1853 0720 01       		.byte	1
- 1854 0721 02       		.byte	2
- 1855 0722 00       		.byte	0
- 1856 0723 98       		.byte	-104
- 1857 0724 04       		.byte	4
- 1858 0725 9A       		.byte	-102
- 1859 0726 80       		.byte	-128
- 1860 0727 00       		.byte	0
- 1861 0728 84       		.byte	-124
- 1862 0729 38       		.byte	56
- 1863 072a 00       		.byte	0
- 1864 072b C0       		.byte	-64
- 1865 072c 0A       		.byte	10
- 1866 072d 21       		.byte	33
- 1867 072e 10       		.byte	16
- 1868 072f D8       		.byte	-40
- 1869 0730 56       		.byte	86
- 1870 0731 FC       		.byte	-4
- 1871 0732 09       		.byte	9
- 1872 0733 03       		.byte	3
- 1873 0734 00       		.byte	0
- 1874 0735 98       		.byte	-104
- 1875 0736 00       		.byte	0
+ 1825 0704 83       		.byte	-125
+ 1826 0705 10       		.byte	16
+ 1827 0706 84       		.byte	-124
+ 1828 0707 08       		.byte	8
+ 1829 0708 87       		.byte	-121
+ 1830 0709 08       		.byte	8
+ 1831 070a 8A       		.byte	-118
+ 1832 070b 80       		.byte	-128
+ 1833 070c 8B       		.byte	-117
+ 1834 070d 40       		.byte	64
+ 1835 070e 8C       		.byte	-116
+ 1836 070f 01       		.byte	1
+ 1837 0710 8D       		.byte	-115
+ 1838 0711 40       		.byte	64
+ 1839 0712 8F       		.byte	-113
+ 1840 0713 40       		.byte	64
+ 1841 0714 90       		.byte	-112
+ 1842 0715 40       		.byte	64
+ 1843 0716 91       		.byte	-111
+ 1844 0717 96       		.byte	-106
+ 1845 0718 92       		.byte	-110
+ 1846 0719 40       		.byte	64
+ 1847 071a 93       		.byte	-109
+ 1848 071b 40       		.byte	64
+ 1849 071c 94       		.byte	-108
+ 1850 071d 04       		.byte	4
+ 1851 071e 95       		.byte	-107
+ 1852 071f 40       		.byte	64
+ 1853 0720 96       		.byte	-106
+ 1854 0721 80       		.byte	-128
+ 1855 0722 97       		.byte	-105
+ 1856 0723 08       		.byte	8
+ 1857 0724 9A       		.byte	-102
+ 1858 0725 04       		.byte	4
+ 1859 0726 9B       		.byte	-101
+ 1860 0727 08       		.byte	8
+ 1861 0728 9C       		.byte	-100
+ 1862 0729 04       		.byte	4
+ 1863 072a 9D       		.byte	-99
+ 1864 072b 12       		.byte	18
+ 1865 072c 9F       		.byte	-97
+ 1866 072d 80       		.byte	-128
+ 1867 072e A0       		.byte	-96
+ 1868 072f 28       		.byte	40
+ 1869 0730 A3       		.byte	-93
+ 1870 0731 01       		.byte	1
+ 1871 0732 A4       		.byte	-92
+ 1872 0733 10       		.byte	16
+ 1873 0734 A6       		.byte	-90
+ 1874 0735 22       		.byte	34
+ 1875 0736 A7       		.byte	-89
  1876 0737 02       		.byte	2
- 1877 0738 60       		.byte	96
- 1878 0739 02       		.byte	2
- 1879 073a 00       		.byte	0
- 1880 073b 00       		.byte	0
- 1881 073c 84       		.byte	-124
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 34
+ 1877 0738 B5       		.byte	-75
+ 1878 0739 10       		.byte	16
+ 1879 073a C0       		.byte	-64
+ 1880 073b 40       		.byte	64
+ 1881 073c C2       		.byte	-62
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 34
 
 
- 1882 073d 00       		.byte	0
- 1883 073e 00       		.byte	0
- 1884 073f 00       		.byte	0
- 1885 0740 80       		.byte	-128
- 1886 0741 13       		.byte	19
- 1887 0742 04       		.byte	4
- 1888 0743 64       		.byte	100
- 1889 0744 04       		.byte	4
- 1890 0745 9A       		.byte	-102
- 1891 0746 00       		.byte	0
- 1892 0747 00       		.byte	0
- 1893 0748 80       		.byte	-128
- 1894 0749 E0       		.byte	-32
- 1895 074a 00       		.byte	0
- 1896 074b 0F       		.byte	15
- 1897 074c 7F       		.byte	127
- 1898 074d 13       		.byte	19
- 1899 074e 00       		.byte	0
- 1900 074f 00       		.byte	0
- 1901 0750 20       		.byte	32
- 1902 0751 00       		.byte	0
- 1903 0752 00       		.byte	0
- 1904 0753 0A       		.byte	10
- 1905 0754 00       		.byte	0
- 1906 0755 00       		.byte	0
- 1907 0756 01       		.byte	1
- 1908 0757 00       		.byte	0
- 1909 0758 36       		.byte	54
- 1910 0759 02       		.byte	2
- 1911 075a 40       		.byte	64
- 1912 075b 00       		.byte	0
- 1913 075c 05       		.byte	5
- 1914 075d BE       		.byte	-66
- 1915 075e F0       		.byte	-16
- 1916 075f CD       		.byte	-51
- 1917 0760 3B       		.byte	59
- 1918 0761 FF       		.byte	-1
- 1919 0762 FF       		.byte	-1
- 1920 0763 FF       		.byte	-1
- 1921 0764 22       		.byte	34
- 1922 0765 00       		.byte	0
- 1923 0766 F0       		.byte	-16
- 1924 0767 08       		.byte	8
- 1925 0768 04       		.byte	4
- 1926 0769 00       		.byte	0
- 1927 076a 00       		.byte	0
- 1928 076b 00       		.byte	0
- 1929 076c 00       		.byte	0
- 1930 076d 00       		.byte	0
- 1931 076e 02       		.byte	2
- 1932 076f 20       		.byte	32
- 1933 0770 04       		.byte	4
+ 1882 073d 9C       		.byte	-100
+ 1883 073e C4       		.byte	-60
+ 1884 073f F7       		.byte	-9
+ 1885 0740 CA       		.byte	-54
+ 1886 0741 F1       		.byte	-15
+ 1887 0742 CC       		.byte	-52
+ 1888 0743 F2       		.byte	-14
+ 1889 0744 CE       		.byte	-50
+ 1890 0745 9F       		.byte	-97
+ 1891 0746 D0       		.byte	-48
+ 1892 0747 0D       		.byte	13
+ 1893 0748 D2       		.byte	-46
+ 1894 0749 0C       		.byte	12
+ 1895 074a D8       		.byte	-40
+ 1896 074b 70       		.byte	112
+ 1897 074c E4       		.byte	-28
+ 1898 074d E1       		.byte	-31
+ 1899 074e EC       		.byte	-20
+ 1900 074f 10       		.byte	16
+ 1901 0750 EE       		.byte	-18
+ 1902 0751 02       		.byte	2
+ 1903 0752 30       		.byte	48
+ 1904 0753 10       		.byte	16
+ 1905 0754 32       		.byte	50
+ 1906 0755 04       		.byte	4
+ 1907 0756 36       		.byte	54
+ 1908 0757 10       		.byte	16
+ 1909 0758 37       		.byte	55
+ 1910 0759 08       		.byte	8
+ 1911 075a CC       		.byte	-52
+ 1912 075b F0       		.byte	-16
+ 1913 075c 60       		.byte	96
+ 1914 075d 01       		.byte	1
+ 1915 075e 63       		.byte	99
+ 1916 075f 20       		.byte	32
+ 1917 0760 96       		.byte	-106
+ 1918 0761 08       		.byte	8
+ 1919 0762 9C       		.byte	-100
+ 1920 0763 10       		.byte	16
+ 1921 0764 9F       		.byte	-97
+ 1922 0765 08       		.byte	8
+ 1923 0766 A6       		.byte	-90
+ 1924 0767 10       		.byte	16
+ 1925 0768 D6       		.byte	-42
+ 1926 0769 40       		.byte	64
+ 1927 076a D8       		.byte	-40
+ 1928 076b 40       		.byte	64
+ 1929 076c 51       		.byte	81
+ 1930 076d 08       		.byte	8
+ 1931 076e 86       		.byte	-122
+ 1932 076f 10       		.byte	16
+ 1933 0770 8A       		.byte	-118
  1934 0771 04       		.byte	4
- 1935 0772 04       		.byte	4
- 1936 0773 04       		.byte	4
- 1937 0774 11       		.byte	17
- 1938 0775 11       		.byte	17
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 35
+ 1935 0772 94       		.byte	-108
+ 1936 0773 01       		.byte	1
+ 1937 0774 96       		.byte	-106
+ 1938 0775 08       		.byte	8
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 35
 
 
- 1939 0776 00       		.byte	0
- 1940 0777 01       		.byte	1
- 1941 0778 00       		.byte	0
- 1942 0779 00       		.byte	0
- 1943 077a C0       		.byte	-64
- 1944 077b 00       		.byte	0
- 1945 077c 40       		.byte	64
- 1946 077d 01       		.byte	1
- 1947 077e 10       		.byte	16
- 1948 077f 11       		.byte	17
- 1949 0780 C0       		.byte	-64
- 1950 0781 01       		.byte	1
- 1951 0782 00       		.byte	0
- 1952 0783 11       		.byte	17
- 1953 0784 40       		.byte	64
- 1954 0785 01       		.byte	1
- 1955 0786 40       		.byte	64
+ 1939 0776 9C       		.byte	-100
+ 1940 0777 10       		.byte	16
+ 1941 0778 9F       		.byte	-97
+ 1942 0779 08       		.byte	8
+ 1943 077a A6       		.byte	-90
+ 1944 077b 10       		.byte	16
+ 1945 077c A7       		.byte	-89
+ 1946 077d 10       		.byte	16
+ 1947 077e D4       		.byte	-44
+ 1948 077f 20       		.byte	32
+ 1949 0780 E6       		.byte	-26
+ 1950 0781 10       		.byte	16
+ 1951 0782 85       		.byte	-123
+ 1952 0783 08       		.byte	8
+ 1953 0784 8F       		.byte	-113
+ 1954 0785 10       		.byte	16
+ 1955 0786 94       		.byte	-108
  1956 0787 01       		.byte	1
- 1957 0788 00       		.byte	0
- 1958 0789 00       		.byte	0
- 1959 078a 00       		.byte	0
- 1960 078b 00       		.byte	0
- 1961 078c 00       		.byte	0
- 1962 078d 00       		.byte	0
- 1963 078e 00       		.byte	0
- 1964 078f 00       		.byte	0
- 1965 0790 00       		.byte	0
- 1966 0791 00       		.byte	0
- 1967 0792 00       		.byte	0
- 1968 0793 00       		.byte	0
- 1969 0794 00       		.byte	0
- 1970 0795 00       		.byte	0
- 1971 0796 00       		.byte	0
- 1972 0797 00       		.byte	0
- 1973 0798 84       		.byte	-124
- 1974 0799 9A       		.byte	-102
- 1975 079a 00       		.byte	0
- 1976 079b 00       		.byte	0
- 1977 079c 84       		.byte	-124
- 1978 079d 21       		.byte	33
- 1979 079e 00       		.byte	0
- 1980 079f D8       		.byte	-40
- 1981 07a0 60       		.byte	96
- 1982 07a1 38       		.byte	56
- 1983 07a2 00       		.byte	0
- 1984 07a3 C0       		.byte	-64
- 1985 07a4 00       		.byte	0
- 1986 07a5 02       		.byte	2
- 1987 07a6 00       		.byte	0
- 1988 07a7 00       		.byte	0
- 1989 07a8 01       		.byte	1
- 1990 07a9 13       		.byte	19
- 1991 07aa 00       		.byte	0
- 1992 07ab 64       		.byte	100
- 1993 07ac 80       		.byte	-128
- 1994 07ad 98       		.byte	-104
- 1995 07ae 04       		.byte	4
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 36
+ 1957 0788 9C       		.byte	-100
+ 1958 0789 10       		.byte	16
+ 1959 078a 9F       		.byte	-97
+ 1960 078b 08       		.byte	8
+ 1961 078c A5       		.byte	-91
+ 1962 078d 08       		.byte	8
+ 1963 078e A7       		.byte	-89
+ 1964 078f 10       		.byte	16
+ 1965 0790 E2       		.byte	-30
+ 1966 0791 40       		.byte	64
+ 1967 0792 02       		.byte	2
+ 1968 0793 20       		.byte	32
+ 1969 0794 5C       		.byte	92
+ 1970 0795 02       		.byte	2
+ 1971 0796 8A       		.byte	-118
+ 1972 0797 20       		.byte	32
+ 1973 0798 C0       		.byte	-64
+ 1974 0799 08       		.byte	8
+ 1975 079a D6       		.byte	-42
+ 1976 079b 01       		.byte	1
+ 1977 079c E2       		.byte	-30
+ 1978 079d 04       		.byte	4
+ 1979 079e 9C       		.byte	-100
+ 1980 079f 02       		.byte	2
+ 1981 07a0 B4       		.byte	-76
+ 1982 07a1 02       		.byte	2
+ 1983 07a2 E8       		.byte	-24
+ 1984 07a3 08       		.byte	8
+ 1985 07a4 87       		.byte	-121
+ 1986 07a5 08       		.byte	8
+ 1987 07a6 88       		.byte	-120
+ 1988 07a7 10       		.byte	16
+ 1989 07a8 9C       		.byte	-100
+ 1990 07a9 10       		.byte	16
+ 1991 07aa 9F       		.byte	-97
+ 1992 07ab 08       		.byte	8
+ 1993 07ac B4       		.byte	-76
+ 1994 07ad 01       		.byte	1
+ 1995 07ae E2       		.byte	-30
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 36
 
 
- 1996 07af 02       		.byte	2
- 1997 07b0 04       		.byte	4
- 1998 07b1 00       		.byte	0
- 1999 07b2 00       		.byte	0
- 2000 07b3 00       		.byte	0
- 2001 07b4 04       		.byte	4
- 2002 07b5 00       		.byte	0
- 2003 07b6 80       		.byte	-128
- 2004 07b7 00       		.byte	0
- 2005 07b8 07       		.byte	7
- 2006 07b9 FC       		.byte	-4
- 2007 07ba 38       		.byte	56
- 2008 07bb 03       		.byte	3
- 2009 07bc 84       		.byte	-124
- 2010 07bd 98       		.byte	-104
- 2011 07be 00       		.byte	0
- 2012 07bf 02       		.byte	2
- 2013 07c0 0A       		.byte	10
- 2014 07c1 02       		.byte	2
- 2015 07c2 10       		.byte	16
- 2016 07c3 98       		.byte	-104
- 2017 07c4 56       		.byte	86
- 2018 07c5 9A       		.byte	-102
- 2019 07c6 09       		.byte	9
- 2020 07c7 00       		.byte	0
- 2021 07c8 7F       		.byte	127
- 2022 07c9 13       		.byte	19
- 2023 07ca 80       		.byte	-128
- 2024 07cb 0F       		.byte	15
- 2025 07cc 00       		.byte	0
- 2026 07cd E0       		.byte	-32
- 2027 07ce 00       		.byte	0
- 2028 07cf 00       		.byte	0
- 2029 07d0 02       		.byte	2
- 2030 07d1 00       		.byte	0
- 2031 07d2 00       		.byte	0
- 2032 07d3 28       		.byte	40
- 2033 07d4 00       		.byte	0
- 2034 07d5 00       		.byte	0
- 2035 07d6 04       		.byte	4
- 2036 07d7 00       		.byte	0
- 2037 07d8 61       		.byte	97
- 2038 07d9 05       		.byte	5
- 2039 07da 30       		.byte	48
+ 1996 07af 10       		.byte	16
+ 1997 07b0 7C       		.byte	124
+ 1998 07b1 80       		.byte	-128
+ 1999 07b2 8C       		.byte	-116
+ 2000 07b3 80       		.byte	-128
+ 2001 07b4 DE       		.byte	-34
+ 2002 07b5 20       		.byte	32
+ 2003 07b6 08       		.byte	8
+ 2004 07b7 80       		.byte	-128
+ 2005 07b8 C2       		.byte	-62
+ 2006 07b9 02       		.byte	2
+ 2007 07ba 12       		.byte	18
+ 2008 07bb 80       		.byte	-128
+ 2009 07bc 70       		.byte	112
+ 2010 07bd 04       		.byte	4
+ 2011 07be 80       		.byte	-128
+ 2012 07bf 04       		.byte	4
+ 2013 07c0 8E       		.byte	-114
+ 2014 07c1 80       		.byte	-128
+ 2015 07c2 AC       		.byte	-84
+ 2016 07c3 80       		.byte	-128
+ 2017 07c4 C4       		.byte	-60
+ 2018 07c5 08       		.byte	8
+ 2019 07c6 DC       		.byte	-36
+ 2020 07c7 01       		.byte	1
+ 2021 07c8 E2       		.byte	-30
+ 2022 07c9 02       		.byte	2
+ 2023 07ca 00       		.byte	0
+ 2024 07cb 07       		.byte	7
+ 2025 07cc 0A       		.byte	10
+ 2026 07cd 03       		.byte	3
+ 2027 07ce 0C       		.byte	12
+ 2028 07cf 05       		.byte	5
+ 2029 07d0 10       		.byte	16
+ 2030 07d1 0F       		.byte	15
+ 2031 07d2 1A       		.byte	26
+ 2032 07d3 0B       		.byte	11
+ 2033 07d4 1C       		.byte	28
+ 2034 07d5 06       		.byte	6
+ 2035 07d6 00       		.byte	0
+ 2036 07d7 FF       		.byte	-1
+ 2037 07d8 08       		.byte	8
+ 2038 07d9 84       		.byte	-124
+ 2039 07da 00       		.byte	0
  2040 07db 00       		.byte	0
- 2041 07dc 02       		.byte	2
- 2042 07dd D0       		.byte	-48
- 2043 07de FC       		.byte	-4
- 2044 07df EB       		.byte	-21
- 2045 07e0 3E       		.byte	62
- 2046 07e1 FF       		.byte	-1
- 2047 07e2 FF       		.byte	-1
- 2048 07e3 FF       		.byte	-1
- 2049 07e4 22       		.byte	34
- 2050 07e5 00       		.byte	0
- 2051 07e6 F0       		.byte	-16
- 2052 07e7 08       		.byte	8
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 37
+ 2041 07dc 40       		.byte	64
+ 2042 07dd 00       		.byte	0
+ 2043 07de 00       		.byte	0
+ 2044 07df 00       		.byte	0
+ 2045 07e0 60       		.byte	96
+ 2046 07e1 9A       		.byte	-102
+ 2047 07e2 00       		.byte	0
+ 2048 07e3 00       		.byte	0
+ 2049 07e4 07       		.byte	7
+ 2050 07e5 02       		.byte	2
+ 2051 07e6 38       		.byte	56
+ 2052 07e7 00       		.byte	0
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 37
 
 
- 2053 07e8 04       		.byte	4
- 2054 07e9 00       		.byte	0
+ 2053 07e8 01       		.byte	1
+ 2054 07e9 FC       		.byte	-4
  2055 07ea 00       		.byte	0
- 2056 07eb 00       		.byte	0
- 2057 07ec 40       		.byte	64
+ 2056 07eb 03       		.byte	3
+ 2057 07ec 84       		.byte	-124
  2058 07ed 00       		.byte	0
  2059 07ee 00       		.byte	0
  2060 07ef 00       		.byte	0
  2061 07f0 04       		.byte	4
- 2062 07f1 04       		.byte	4
- 2063 07f2 04       		.byte	4
- 2064 07f3 04       		.byte	4
- 2065 07f4 22       		.byte	34
- 2066 07f5 22       		.byte	34
- 2067 07f6 00       		.byte	0
- 2068 07f7 01       		.byte	1
- 2069 07f8 00       		.byte	0
- 2070 07f9 00       		.byte	0
- 2071 07fa C0       		.byte	-64
- 2072 07fb 00       		.byte	0
- 2073 07fc 40       		.byte	64
- 2074 07fd 01       		.byte	1
- 2075 07fe 10       		.byte	16
- 2076 07ff 11       		.byte	17
- 2077 0800 C0       		.byte	-64
- 2078 0801 01       		.byte	1
+ 2062 07f1 38       		.byte	56
+ 2063 07f2 80       		.byte	-128
+ 2064 07f3 C0       		.byte	-64
+ 2065 07f4 56       		.byte	86
+ 2066 07f5 02       		.byte	2
+ 2067 07f6 09       		.byte	9
+ 2068 07f7 98       		.byte	-104
+ 2069 07f8 0A       		.byte	10
+ 2070 07f9 98       		.byte	-104
+ 2071 07fa 10       		.byte	16
+ 2072 07fb 02       		.byte	2
+ 2073 07fc 84       		.byte	-124
+ 2074 07fd 9A       		.byte	-102
+ 2075 07fe 00       		.byte	0
+ 2076 07ff 00       		.byte	0
+ 2077 0800 00       		.byte	0
+ 2078 0801 00       		.byte	0
  2079 0802 00       		.byte	0
- 2080 0803 11       		.byte	17
- 2081 0804 40       		.byte	64
- 2082 0805 01       		.byte	1
- 2083 0806 40       		.byte	64
- 2084 0807 01       		.byte	1
- 2085 0808 00       		.byte	0
- 2086 0809 00       		.byte	0
- 2087 080a 00       		.byte	0
- 2088 080b 00       		.byte	0
- 2089 080c 00       		.byte	0
- 2090 080d 00       		.byte	0
+ 2080 0803 00       		.byte	0
+ 2081 0804 84       		.byte	-124
+ 2082 0805 13       		.byte	19
+ 2083 0806 00       		.byte	0
+ 2084 0807 64       		.byte	100
+ 2085 0808 80       		.byte	-128
+ 2086 0809 21       		.byte	33
+ 2087 080a 04       		.byte	4
+ 2088 080b D8       		.byte	-40
+ 2089 080c 04       		.byte	4
+ 2090 080d 98       		.byte	-104
  2091 080e 00       		.byte	0
- 2092 080f 00       		.byte	0
+ 2092 080f 02       		.byte	2
  2093 0810 00       		.byte	0
- 2094 0811 00       		.byte	0
- 2095 0812 00       		.byte	0
- 2096 0813 00       		.byte	0
- 2097 0814 00       		.byte	0
+ 2094 0811 E0       		.byte	-32
+ 2095 0812 7F       		.byte	127
+ 2096 0813 0F       		.byte	15
+ 2097 0814 80       		.byte	-128
  2098 0815 00       		.byte	0
  2099 0816 00       		.byte	0
- 2100 0817 00       		.byte	0
- 2101 0818 00       		.byte	0
+ 2100 0817 13       		.byte	19
+ 2101 0818 08       		.byte	8
  2102 0819 00       		.byte	0
  2103 081a 00       		.byte	0
- 2104 081b 00       		.byte	0
+ 2104 081b 0A       		.byte	10
  2105 081c 00       		.byte	0
- 2106 081d 0C       		.byte	12
- 2107 081e 00       		.byte	0
+ 2106 081d 00       		.byte	0
+ 2107 081e 10       		.byte	16
  2108 081f 00       		.byte	0
- 2109 0820 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 38
+ 2109 0820 63       		.byte	99
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 38
 
 
- 2110 0821 04       		.byte	4
- 2111 0822 00       		.byte	0
+ 2110 0821 02       		.byte	2
+ 2111 0822 40       		.byte	64
  2112 0823 00       		.byte	0
- 2113 0824 44       		.byte	68
- 2114 0825 08       		.byte	8
- 2115 0826 31       		.byte	49
- 2116 0827 00       		.byte	0
- 2117 0828 00       		.byte	0
- 2118 0829 00       		.byte	0
- 2119 082a 00       		.byte	0
- 2120 082b 10       		.byte	16
- 2121 082c 01       		.byte	1
- 2122 082d 0F       		.byte	15
- 2123 082e 0E       		.byte	14
- 2124 082f 00       		.byte	0
- 2125 0830 00       		.byte	0
- 2126 0831 03       		.byte	3
+ 2113 0824 05       		.byte	5
+ 2114 0825 BC       		.byte	-68
+ 2115 0826 FD       		.byte	-3
+ 2116 0827 E0       		.byte	-32
+ 2117 0828 2F       		.byte	47
+ 2118 0829 FF       		.byte	-1
+ 2119 082a FF       		.byte	-1
+ 2120 082b FF       		.byte	-1
+ 2121 082c 22       		.byte	34
+ 2122 082d 00       		.byte	0
+ 2123 082e F0       		.byte	-16
+ 2124 082f 08       		.byte	8
+ 2125 0830 04       		.byte	4
+ 2126 0831 00       		.byte	0
  2127 0832 00       		.byte	0
- 2128 0833 0C       		.byte	12
+ 2128 0833 00       		.byte	0
  2129 0834 00       		.byte	0
- 2130 0835 0E       		.byte	14
- 2131 0836 00       		.byte	0
- 2132 0837 01       		.byte	1
- 2133 0838 80       		.byte	-128
- 2134 0839 00       		.byte	0
- 2135 083a 00       		.byte	0
- 2136 083b 00       		.byte	0
- 2137 083c E7       		.byte	-25
+ 2130 0835 00       		.byte	0
+ 2131 0836 02       		.byte	2
+ 2132 0837 2C       		.byte	44
+ 2133 0838 04       		.byte	4
+ 2134 0839 04       		.byte	4
+ 2135 083a 04       		.byte	4
+ 2136 083b 04       		.byte	4
+ 2137 083c 00       		.byte	0
  2138 083d 00       		.byte	0
  2139 083e 00       		.byte	0
- 2140 083f 10       		.byte	16
- 2141 0840 E7       		.byte	-25
+ 2140 083f 01       		.byte	1
+ 2141 0840 00       		.byte	0
  2142 0841 00       		.byte	0
- 2143 0842 00       		.byte	0
- 2144 0843 02       		.byte	2
- 2145 0844 22       		.byte	34
- 2146 0845 0C       		.byte	12
- 2147 0846 51       		.byte	81
- 2148 0847 03       		.byte	3
- 2149 0848 60       		.byte	96
+ 2143 0842 C0       		.byte	-64
+ 2144 0843 00       		.byte	0
+ 2145 0844 40       		.byte	64
+ 2146 0845 01       		.byte	1
+ 2147 0846 10       		.byte	16
+ 2148 0847 11       		.byte	17
+ 2149 0848 C0       		.byte	-64
  2150 0849 01       		.byte	1
- 2151 084a 07       		.byte	7
- 2152 084b 00       		.byte	0
- 2153 084c 80       		.byte	-128
- 2154 084d 10       		.byte	16
- 2155 084e 18       		.byte	24
- 2156 084f 0E       		.byte	14
+ 2151 084a 00       		.byte	0
+ 2152 084b 11       		.byte	17
+ 2153 084c 40       		.byte	64
+ 2154 084d 01       		.byte	1
+ 2155 084e 40       		.byte	64
+ 2156 084f 01       		.byte	1
  2157 0850 00       		.byte	0
- 2158 0851 02       		.byte	2
+ 2158 0851 00       		.byte	0
  2159 0852 00       		.byte	0
  2160 0853 00       		.byte	0
  2161 0854 00       		.byte	0
  2162 0855 00       		.byte	0
- 2163 0856 40       		.byte	64
- 2164 0857 10       		.byte	16
- 2165 0858 26       		.byte	38
- 2166 0859 03       		.byte	3
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 39
+ 2163 0856 00       		.byte	0
+ 2164 0857 00       		.byte	0
+ 2165 0858 00       		.byte	0
+ 2166 0859 00       		.byte	0
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 39
 
 
- 2167 085a 05       		.byte	5
+ 2167 085a 00       		.byte	0
  2168 085b 00       		.byte	0
- 2169 085c 01       		.byte	1
- 2170 085d 0E       		.byte	14
+ 2169 085c 00       		.byte	0
+ 2170 085d 00       		.byte	0
  2171 085e 00       		.byte	0
- 2172 085f 0C       		.byte	12
- 2173 0860 11       		.byte	17
- 2174 0861 FF       		.byte	-1
- 2175 0862 FF       		.byte	-1
- 2176 0863 FF       		.byte	-1
- 2177 0864 62       		.byte	98
- 2178 0865 A0       		.byte	-96
- 2179 0866 F0       		.byte	-16
- 2180 0867 41       		.byte	65
- 2181 0868 0C       		.byte	12
- 2182 0869 00       		.byte	0
+ 2172 085f 00       		.byte	0
+ 2173 0860 84       		.byte	-124
+ 2174 0861 9A       		.byte	-102
+ 2175 0862 00       		.byte	0
+ 2176 0863 00       		.byte	0
+ 2177 0864 80       		.byte	-128
+ 2178 0865 98       		.byte	-104
+ 2179 0866 04       		.byte	4
+ 2180 0867 02       		.byte	2
+ 2181 0868 01       		.byte	1
+ 2182 0869 FC       		.byte	-4
  2183 086a 00       		.byte	0
- 2184 086b 00       		.byte	0
- 2185 086c 18       		.byte	24
- 2186 086d 00       		.byte	0
- 2187 086e 04       		.byte	4
- 2188 086f 00       		.byte	0
+ 2184 086b 03       		.byte	3
+ 2185 086c 84       		.byte	-124
+ 2186 086d 38       		.byte	56
+ 2187 086e 00       		.byte	0
+ 2188 086f C0       		.byte	-64
  2189 0870 04       		.byte	4
- 2190 0871 04       		.byte	4
- 2191 0872 04       		.byte	4
- 2192 0873 04       		.byte	4
- 2193 0874 33       		.byte	51
- 2194 0875 33       		.byte	51
- 2195 0876 00       		.byte	0
- 2196 0877 01       		.byte	1
+ 2190 0871 00       		.byte	0
+ 2191 0872 80       		.byte	-128
+ 2192 0873 00       		.byte	0
+ 2193 0874 56       		.byte	86
+ 2194 0875 98       		.byte	-104
+ 2195 0876 09       		.byte	9
+ 2196 0877 02       		.byte	2
  2197 0878 00       		.byte	0
- 2198 0879 00       		.byte	0
+ 2198 0879 02       		.byte	2
  2199 087a 00       		.byte	0
- 2200 087b 00       		.byte	0
- 2201 087c 00       		.byte	0
- 2202 087d 00       		.byte	0
- 2203 087e 40       		.byte	64
- 2204 087f 02       		.byte	2
- 2205 0880 00       		.byte	0
- 2206 0881 10       		.byte	16
- 2207 0882 30       		.byte	48
- 2208 0883 10       		.byte	16
- 2209 0884 00       		.byte	0
- 2210 0885 10       		.byte	16
- 2211 0886 10       		.byte	16
- 2212 0887 12       		.byte	18
- 2213 0888 00       		.byte	0
- 2214 0889 00       		.byte	0
- 2215 088a 00       		.byte	0
- 2216 088b 00       		.byte	0
- 2217 088c 00       		.byte	0
- 2218 088d 00       		.byte	0
+ 2200 087b 98       		.byte	-104
+ 2201 087c 60       		.byte	96
+ 2202 087d 9A       		.byte	-102
+ 2203 087e 00       		.byte	0
+ 2204 087f 00       		.byte	0
+ 2205 0880 07       		.byte	7
+ 2206 0881 13       		.byte	19
+ 2207 0882 38       		.byte	56
+ 2208 0883 64       		.byte	100
+ 2209 0884 84       		.byte	-124
+ 2210 0885 00       		.byte	0
+ 2211 0886 00       		.byte	0
+ 2212 0887 00       		.byte	0
+ 2213 0888 0A       		.byte	10
+ 2214 0889 21       		.byte	33
+ 2215 088a 10       		.byte	16
+ 2216 088b D8       		.byte	-40
+ 2217 088c 04       		.byte	4
+ 2218 088d 02       		.byte	2
  2219 088e 00       		.byte	0
  2220 088f 00       		.byte	0
- 2221 0890 00       		.byte	0
- 2222 0891 00       		.byte	0
- 2223 0892 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 40
+ 2221 0890 80       		.byte	-128
+ 2222 0891 E0       		.byte	-32
+ 2223 0892 7F       		.byte	127
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 40
 
 
- 2224 0893 00       		.byte	0
+ 2224 0893 0F       		.byte	15
  2225 0894 00       		.byte	0
  2226 0895 00       		.byte	0
  2227 0896 00       		.byte	0
- 2228 0897 00       		.byte	0
- 2229 0898 00       		.byte	0
- 2230 0899 61       		.byte	97
- 2231 089a 61       		.byte	97
- 2232 089b 00       		.byte	0
- 2233 089c 61       		.byte	97
+ 2228 0897 13       		.byte	19
+ 2229 0898 08       		.byte	8
+ 2230 0899 00       		.byte	0
+ 2231 089a 00       		.byte	0
+ 2232 089b 0A       		.byte	10
+ 2233 089c 00       		.byte	0
  2234 089d 00       		.byte	0
- 2235 089e 00       		.byte	0
+ 2235 089e 01       		.byte	1
  2236 089f 00       		.byte	0
- 2237 08a0 80       		.byte	-128
- 2238 08a1 00       		.byte	0
- 2239 08a2 50       		.byte	80
- 2240 08a3 8C       		.byte	-116
- 2241 08a4 8C       		.byte	-116
- 2242 08a5 00       		.byte	0
- 2243 08a6 8C       		.byte	-116
- 2244 08a7 00       		.byte	0
- 2245 08a8 00       		.byte	0
- 2246 08a9 00       		.byte	0
- 2247 08aa 00       		.byte	0
- 2248 08ab 00       		.byte	0
- 2249 08ac 80       		.byte	-128
+ 2237 08a0 23       		.byte	35
+ 2238 08a1 05       		.byte	5
+ 2239 08a2 40       		.byte	64
+ 2240 08a3 00       		.byte	0
+ 2241 08a4 06       		.byte	6
+ 2242 08a5 BE       		.byte	-66
+ 2243 08a6 DC       		.byte	-36
+ 2244 08a7 0F       		.byte	15
+ 2245 08a8 1F       		.byte	31
+ 2246 08a9 FF       		.byte	-1
+ 2247 08aa FF       		.byte	-1
+ 2248 08ab FF       		.byte	-1
+ 2249 08ac 22       		.byte	34
  2250 08ad 00       		.byte	0
- 2251 08ae 40       		.byte	64
- 2252 08af 8B       		.byte	-117
- 2253 08b0 8B       		.byte	-117
+ 2251 08ae F0       		.byte	-16
+ 2252 08af 08       		.byte	8
+ 2253 08b0 04       		.byte	4
  2254 08b1 00       		.byte	0
  2255 08b2 00       		.byte	0
  2256 08b3 00       		.byte	0
  2257 08b4 00       		.byte	0
  2258 08b5 00       		.byte	0
- 2259 08b6 00       		.byte	0
- 2260 08b7 00       		.byte	0
- 2261 08b8 90       		.byte	-112
- 2262 08b9 00       		.byte	0
- 2263 08ba 01       		.byte	1
- 2264 08bb 94       		.byte	-108
- 2265 08bc 94       		.byte	-108
- 2266 08bd 00       		.byte	0
+ 2259 08b6 02       		.byte	2
+ 2260 08b7 2C       		.byte	44
+ 2261 08b8 04       		.byte	4
+ 2262 08b9 04       		.byte	4
+ 2263 08ba 04       		.byte	4
+ 2264 08bb 04       		.byte	4
+ 2265 08bc 11       		.byte	17
+ 2266 08bd 11       		.byte	17
  2267 08be 00       		.byte	0
- 2268 08bf 00       		.byte	0
+ 2268 08bf 01       		.byte	1
  2269 08c0 00       		.byte	0
  2270 08c1 00       		.byte	0
- 2271 08c2 00       		.byte	0
+ 2271 08c2 C0       		.byte	-64
  2272 08c3 00       		.byte	0
- 2273 08c4 00       		.byte	0
- 2274 08c5 00       		.byte	0
- 2275 08c6 00       		.byte	0
- 2276 08c7 00       		.byte	0
- 2277 08c8 00       		.byte	0
- 2278 08c9 00       		.byte	0
- 2279 08ca 10       		.byte	16
- 2280 08cb 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 41
+ 2273 08c4 40       		.byte	64
+ 2274 08c5 01       		.byte	1
+ 2275 08c6 10       		.byte	16
+ 2276 08c7 11       		.byte	17
+ 2277 08c8 C0       		.byte	-64
+ 2278 08c9 01       		.byte	1
+ 2279 08ca 00       		.byte	0
+ 2280 08cb 11       		.byte	17
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 41
 
 
- 2281 08cc 08       		.byte	8
- 2282 08cd 00       		.byte	0
- 2283 08ce 18       		.byte	24
+ 2281 08cc 40       		.byte	64
+ 2282 08cd 01       		.byte	1
+ 2283 08ce 40       		.byte	64
  2284 08cf 01       		.byte	1
- 2285              		.section	.cywolatch,"a",%progbits
- 2286              		.align	2
- 2287              		.type	cy_meta_wonvl, %object
- 2288              		.size	cy_meta_wonvl, 4
- 2289              	cy_meta_wonvl:
- 2290 0000 BC       		.byte	-68
- 2291 0001 90       		.byte	-112
- 2292 0002 AC       		.byte	-84
- 2293 0003 AF       		.byte	-81
- 2294              		.section	.cycustnvl,"a",%progbits
- 2295              		.align	2
- 2296              		.type	cy_meta_custnvl, %object
- 2297              		.size	cy_meta_custnvl, 4
- 2298              	cy_meta_custnvl:
- 2299 0000 00       		.byte	0
- 2300 0001 00       		.byte	0
- 2301 0002 40       		.byte	64
- 2302 0003 05       		.byte	5
- 2303              		.section	.cymeta,"a",%progbits
- 2304              		.align	2
- 2305              		.type	cy_metadata, %object
- 2306              		.size	cy_metadata, 12
- 2307              	cy_metadata:
- 2308 0000 00       		.byte	0
- 2309 0001 01       		.byte	1
- 2310 0002 2E       		.byte	46
- 2311 0003 16       		.byte	22
- 2312 0004 10       		.byte	16
- 2313 0005 69       		.byte	105
- 2314 0006 00       		.byte	0
- 2315 0007 01       		.byte	1
- 2316 0008 00       		.byte	0
- 2317 0009 00       		.byte	0
- 2318 000a 00       		.byte	0
- 2319 000b 00       		.byte	0
- 2320              		.section	.cyflashprotect,"a",%progbits
- 2321              		.align	2
- 2322              		.type	cy_meta_flashprotect, %object
- 2323              		.size	cy_meta_flashprotect, 256
- 2324              	cy_meta_flashprotect:
- 2325 0000 00000000 		.space	256
- 2325      00000000 
- 2325      00000000 
- 2325      00000000 
- 2325      00000000 
- 2326              		.text
- 2327              	.Letext0:
- 2328              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
- 2329              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
- 2330              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
- 2331              		.section	.debug_info,"",%progbits
- 2332              	.Ldebug_info0:
- 2333 0000 35010000 		.4byte	0x135
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 42
+ 2285 08d0 00       		.byte	0
+ 2286 08d1 00       		.byte	0
+ 2287 08d2 00       		.byte	0
+ 2288 08d3 00       		.byte	0
+ 2289 08d4 00       		.byte	0
+ 2290 08d5 00       		.byte	0
+ 2291 08d6 00       		.byte	0
+ 2292 08d7 00       		.byte	0
+ 2293 08d8 00       		.byte	0
+ 2294 08d9 00       		.byte	0
+ 2295 08da 00       		.byte	0
+ 2296 08db 00       		.byte	0
+ 2297 08dc 00       		.byte	0
+ 2298 08dd 00       		.byte	0
+ 2299 08de 00       		.byte	0
+ 2300 08df 00       		.byte	0
+ 2301 08e0 00       		.byte	0
+ 2302 08e1 60       		.byte	96
+ 2303 08e2 60       		.byte	96
+ 2304 08e3 00       		.byte	0
+ 2305 08e4 60       		.byte	96
+ 2306 08e5 00       		.byte	0
+ 2307 08e6 00       		.byte	0
+ 2308 08e7 00       		.byte	0
+ 2309 08e8 80       		.byte	-128
+ 2310 08e9 00       		.byte	0
+ 2311 08ea 50       		.byte	80
+ 2312 08eb 8C       		.byte	-116
+ 2313 08ec 8C       		.byte	-116
+ 2314 08ed 00       		.byte	0
+ 2315 08ee 8C       		.byte	-116
+ 2316 08ef 00       		.byte	0
+ 2317 08f0 00       		.byte	0
+ 2318 08f1 00       		.byte	0
+ 2319 08f2 00       		.byte	0
+ 2320 08f3 00       		.byte	0
+ 2321 08f4 80       		.byte	-128
+ 2322 08f5 00       		.byte	0
+ 2323 08f6 40       		.byte	64
+ 2324 08f7 8B       		.byte	-117
+ 2325 08f8 8B       		.byte	-117
+ 2326 08f9 00       		.byte	0
+ 2327 08fa 00       		.byte	0
+ 2328 08fb 00       		.byte	0
+ 2329 08fc 00       		.byte	0
+ 2330 08fd 00       		.byte	0
+ 2331 08fe 00       		.byte	0
+ 2332 08ff 00       		.byte	0
+ 2333 0900 90       		.byte	-112
+ 2334 0901 00       		.byte	0
+ 2335 0902 01       		.byte	1
+ 2336 0903 94       		.byte	-108
+ 2337 0904 94       		.byte	-108
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 42
 
 
- 2334 0004 0400     		.2byte	0x4
- 2335 0006 00000000 		.4byte	.Ldebug_abbrev0
- 2336 000a 04       		.byte	0x4
- 2337 000b 01       		.uleb128 0x1
- 2338 000c 75000000 		.4byte	.LASF17
- 2339 0010 0C       		.byte	0xc
- 2340 0011 CF010000 		.4byte	.LASF18
- 2341 0015 0A000000 		.4byte	.LASF19
- 2342 0019 00000000 		.4byte	.Ldebug_line0
- 2343 001d 02       		.uleb128 0x2
- 2344 001e 01       		.byte	0x1
- 2345 001f 06       		.byte	0x6
- 2346 0020 C3010000 		.4byte	.LASF0
- 2347 0024 03       		.uleb128 0x3
- 2348 0025 00000000 		.4byte	.LASF9
- 2349 0029 01       		.byte	0x1
- 2350 002a 1D       		.byte	0x1d
- 2351 002b 2F000000 		.4byte	0x2f
- 2352 002f 02       		.uleb128 0x2
- 2353 0030 01       		.byte	0x1
- 2354 0031 08       		.byte	0x8
- 2355 0032 67000000 		.4byte	.LASF1
- 2356 0036 02       		.uleb128 0x2
- 2357 0037 02       		.byte	0x2
- 2358 0038 05       		.byte	0x5
- 2359 0039 B0010000 		.4byte	.LASF2
- 2360 003d 02       		.uleb128 0x2
- 2361 003e 02       		.byte	0x2
- 2362 003f 07       		.byte	0x7
- 2363 0040 15010000 		.4byte	.LASF3
- 2364 0044 02       		.uleb128 0x2
- 2365 0045 04       		.byte	0x4
- 2366 0046 05       		.byte	0x5
- 2367 0047 BA010000 		.4byte	.LASF4
- 2368 004b 02       		.uleb128 0x2
- 2369 004c 04       		.byte	0x4
- 2370 004d 07       		.byte	0x7
- 2371 004e 03010000 		.4byte	.LASF5
- 2372 0052 02       		.uleb128 0x2
- 2373 0053 08       		.byte	0x8
- 2374 0054 05       		.byte	0x5
- 2375 0055 A2010000 		.4byte	.LASF6
- 2376 0059 02       		.uleb128 0x2
- 2377 005a 08       		.byte	0x8
- 2378 005b 07       		.byte	0x7
- 2379 005c 57010000 		.4byte	.LASF7
- 2380 0060 04       		.uleb128 0x4
- 2381 0061 04       		.byte	0x4
- 2382 0062 05       		.byte	0x5
- 2383 0063 696E7400 		.ascii	"int\000"
- 2384 0067 02       		.uleb128 0x2
- 2385 0068 04       		.byte	0x4
- 2386 0069 07       		.byte	0x7
- 2387 006a 4A010000 		.4byte	.LASF8
- 2388 006e 03       		.uleb128 0x3
- 2389 006f 6E010000 		.4byte	.LASF10
- 2390 0073 02       		.byte	0x2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 43
+ 2338 0905 00       		.byte	0
+ 2339 0906 80       		.byte	-128
+ 2340 0907 00       		.byte	0
+ 2341 0908 00       		.byte	0
+ 2342 0909 00       		.byte	0
+ 2343 090a 00       		.byte	0
+ 2344 090b 00       		.byte	0
+ 2345 090c 10       		.byte	16
+ 2346 090d 00       		.byte	0
+ 2347 090e 00       		.byte	0
+ 2348 090f 00       		.byte	0
+ 2349 0910 00       		.byte	0
+ 2350 0911 00       		.byte	0
+ 2351 0912 00       		.byte	0
+ 2352 0913 00       		.byte	0
+ 2353              		.section	.cywolatch,"a",%progbits
+ 2354              		.align	2
+ 2355              		.type	cy_meta_wonvl, %object
+ 2356              		.size	cy_meta_wonvl, 4
+ 2357              	cy_meta_wonvl:
+ 2358 0000 BC       		.byte	-68
+ 2359 0001 90       		.byte	-112
+ 2360 0002 AC       		.byte	-84
+ 2361 0003 AF       		.byte	-81
+ 2362              		.section	.cycustnvl,"a",%progbits
+ 2363              		.align	2
+ 2364              		.type	cy_meta_custnvl, %object
+ 2365              		.size	cy_meta_custnvl, 4
+ 2366              	cy_meta_custnvl:
+ 2367 0000 00       		.byte	0
+ 2368 0001 00       		.byte	0
+ 2369 0002 40       		.byte	64
+ 2370 0003 05       		.byte	5
+ 2371              		.section	.cymeta,"a",%progbits
+ 2372              		.align	2
+ 2373              		.type	cy_metadata, %object
+ 2374              		.size	cy_metadata, 12
+ 2375              	cy_metadata:
+ 2376 0000 00       		.byte	0
+ 2377 0001 01       		.byte	1
+ 2378 0002 2E       		.byte	46
+ 2379 0003 16       		.byte	22
+ 2380 0004 10       		.byte	16
+ 2381 0005 69       		.byte	105
+ 2382 0006 00       		.byte	0
+ 2383 0007 01       		.byte	1
+ 2384 0008 00       		.byte	0
+ 2385 0009 00       		.byte	0
+ 2386 000a 00       		.byte	0
+ 2387 000b 00       		.byte	0
+ 2388              		.section	.cyflashprotect,"a",%progbits
+ 2389              		.align	2
+ 2390              		.type	cy_meta_flashprotect, %object
+ 2391              		.size	cy_meta_flashprotect, 256
+ 2392              	cy_meta_flashprotect:
+ 2393 0000 00000000 		.space	256
+ 2393      00000000 
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 43
 
 
- 2391 0074 18       		.byte	0x18
- 2392 0075 24000000 		.4byte	0x24
- 2393 0079 05       		.uleb128 0x5
- 2394 007a 91000000 		.4byte	0x91
- 2395 007e 8A000000 		.4byte	0x8a
- 2396 0082 06       		.uleb128 0x6
- 2397 0083 8A000000 		.4byte	0x8a
- 2398 0087 CF08     		.2byte	0x8cf
- 2399 0089 00       		.byte	0
- 2400 008a 02       		.uleb128 0x2
- 2401 008b 04       		.byte	0x4
- 2402 008c 07       		.byte	0x7
- 2403 008d 99010000 		.4byte	.LASF11
- 2404 0091 07       		.uleb128 0x7
- 2405 0092 6E000000 		.4byte	0x6e
- 2406 0096 08       		.uleb128 0x8
- 2407 0097 38010000 		.4byte	.LASF12
- 2408 009b 03       		.byte	0x3
- 2409 009c 1F       		.byte	0x1f
- 2410 009d A7000000 		.4byte	0xa7
- 2411 00a1 05       		.uleb128 0x5
- 2412 00a2 03       		.byte	0x3
- 2413 00a3 00000000 		.4byte	cy_meta_configecc
- 2414 00a7 07       		.uleb128 0x7
- 2415 00a8 79000000 		.4byte	0x79
- 2416 00ac 05       		.uleb128 0x5
- 2417 00ad 91000000 		.4byte	0x91
- 2418 00b1 BC000000 		.4byte	0xbc
- 2419 00b5 09       		.uleb128 0x9
- 2420 00b6 8A000000 		.4byte	0x8a
- 2421 00ba 03       		.byte	0x3
- 2422 00bb 00       		.byte	0
- 2423 00bc 0A       		.uleb128 0xa
- 2424 00bd 28010000 		.4byte	.LASF13
- 2425 00c1 03       		.byte	0x3
- 2426 00c2 4601     		.2byte	0x146
- 2427 00c4 CE000000 		.4byte	0xce
- 2428 00c8 05       		.uleb128 0x5
- 2429 00c9 03       		.byte	0x3
- 2430 00ca 00000000 		.4byte	cy_meta_custnvl
- 2431 00ce 07       		.uleb128 0x7
- 2432 00cf AC000000 		.4byte	0xac
- 2433 00d3 0A       		.uleb128 0xa
- 2434 00d4 8B010000 		.4byte	.LASF14
- 2435 00d8 03       		.byte	0x3
- 2436 00d9 5401     		.2byte	0x154
- 2437 00db E5000000 		.4byte	0xe5
- 2438 00df 05       		.uleb128 0x5
- 2439 00e0 03       		.byte	0x3
- 2440 00e1 00000000 		.4byte	cy_meta_wonvl
- 2441 00e5 07       		.uleb128 0x7
- 2442 00e6 AC000000 		.4byte	0xac
- 2443 00ea 05       		.uleb128 0x5
- 2444 00eb 91000000 		.4byte	0x91
- 2445 00ef FA000000 		.4byte	0xfa
- 2446 00f3 09       		.uleb128 0x9
- 2447 00f4 8A000000 		.4byte	0x8a
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 44
+ 2393      00000000 
+ 2393      00000000 
+ 2393      00000000 
+ 2394              		.text
+ 2395              	.Letext0:
+ 2396              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2397              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2398              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 2399              		.section	.debug_info,"",%progbits
+ 2400              	.Ldebug_info0:
+ 2401 0000 35010000 		.4byte	0x135
+ 2402 0004 0400     		.2byte	0x4
+ 2403 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 2404 000a 04       		.byte	0x4
+ 2405 000b 01       		.uleb128 0x1
+ 2406 000c 75000000 		.4byte	.LASF17
+ 2407 0010 0C       		.byte	0xc
+ 2408 0011 CF010000 		.4byte	.LASF18
+ 2409 0015 0A000000 		.4byte	.LASF19
+ 2410 0019 00000000 		.4byte	.Ldebug_line0
+ 2411 001d 02       		.uleb128 0x2
+ 2412 001e 01       		.byte	0x1
+ 2413 001f 06       		.byte	0x6
+ 2414 0020 C3010000 		.4byte	.LASF0
+ 2415 0024 03       		.uleb128 0x3
+ 2416 0025 00000000 		.4byte	.LASF9
+ 2417 0029 01       		.byte	0x1
+ 2418 002a 1D       		.byte	0x1d
+ 2419 002b 2F000000 		.4byte	0x2f
+ 2420 002f 02       		.uleb128 0x2
+ 2421 0030 01       		.byte	0x1
+ 2422 0031 08       		.byte	0x8
+ 2423 0032 67000000 		.4byte	.LASF1
+ 2424 0036 02       		.uleb128 0x2
+ 2425 0037 02       		.byte	0x2
+ 2426 0038 05       		.byte	0x5
+ 2427 0039 B0010000 		.4byte	.LASF2
+ 2428 003d 02       		.uleb128 0x2
+ 2429 003e 02       		.byte	0x2
+ 2430 003f 07       		.byte	0x7
+ 2431 0040 15010000 		.4byte	.LASF3
+ 2432 0044 02       		.uleb128 0x2
+ 2433 0045 04       		.byte	0x4
+ 2434 0046 05       		.byte	0x5
+ 2435 0047 BA010000 		.4byte	.LASF4
+ 2436 004b 02       		.uleb128 0x2
+ 2437 004c 04       		.byte	0x4
+ 2438 004d 07       		.byte	0x7
+ 2439 004e 03010000 		.4byte	.LASF5
+ 2440 0052 02       		.uleb128 0x2
+ 2441 0053 08       		.byte	0x8
+ 2442 0054 05       		.byte	0x5
+ 2443 0055 A2010000 		.4byte	.LASF6
+ 2444 0059 02       		.uleb128 0x2
+ 2445 005a 08       		.byte	0x8
+ 2446 005b 07       		.byte	0x7
+ 2447 005c 57010000 		.4byte	.LASF7
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 44
 
 
- 2448 00f8 FF       		.byte	0xff
- 2449 00f9 00       		.byte	0
- 2450 00fa 0A       		.uleb128 0xa
- 2451 00fb 76010000 		.4byte	.LASF15
- 2452 00ff 03       		.byte	0x3
- 2453 0100 6201     		.2byte	0x162
- 2454 0102 0C010000 		.4byte	0x10c
- 2455 0106 05       		.uleb128 0x5
- 2456 0107 03       		.byte	0x3
- 2457 0108 00000000 		.4byte	cy_meta_flashprotect
- 2458 010c 07       		.uleb128 0x7
- 2459 010d EA000000 		.4byte	0xea
- 2460 0111 05       		.uleb128 0x5
- 2461 0112 91000000 		.4byte	0x91
- 2462 0116 21010000 		.4byte	0x121
- 2463 011a 09       		.uleb128 0x9
- 2464 011b 8A000000 		.4byte	0x8a
- 2465 011f 0B       		.byte	0xb
- 2466 0120 00       		.byte	0
- 2467 0121 0A       		.uleb128 0xa
- 2468 0122 5B000000 		.4byte	.LASF16
- 2469 0126 03       		.byte	0x3
- 2470 0127 8F01     		.2byte	0x18f
- 2471 0129 33010000 		.4byte	0x133
- 2472 012d 05       		.uleb128 0x5
- 2473 012e 03       		.byte	0x3
- 2474 012f 00000000 		.4byte	cy_metadata
- 2475 0133 07       		.uleb128 0x7
- 2476 0134 11010000 		.4byte	0x111
- 2477 0138 00       		.byte	0
- 2478              		.section	.debug_abbrev,"",%progbits
- 2479              	.Ldebug_abbrev0:
- 2480 0000 01       		.uleb128 0x1
- 2481 0001 11       		.uleb128 0x11
- 2482 0002 01       		.byte	0x1
- 2483 0003 25       		.uleb128 0x25
- 2484 0004 0E       		.uleb128 0xe
- 2485 0005 13       		.uleb128 0x13
- 2486 0006 0B       		.uleb128 0xb
- 2487 0007 03       		.uleb128 0x3
- 2488 0008 0E       		.uleb128 0xe
- 2489 0009 1B       		.uleb128 0x1b
- 2490 000a 0E       		.uleb128 0xe
- 2491 000b 10       		.uleb128 0x10
- 2492 000c 17       		.uleb128 0x17
- 2493 000d 00       		.byte	0
- 2494 000e 00       		.byte	0
- 2495 000f 02       		.uleb128 0x2
- 2496 0010 24       		.uleb128 0x24
- 2497 0011 00       		.byte	0
- 2498 0012 0B       		.uleb128 0xb
- 2499 0013 0B       		.uleb128 0xb
- 2500 0014 3E       		.uleb128 0x3e
- 2501 0015 0B       		.uleb128 0xb
- 2502 0016 03       		.uleb128 0x3
- 2503 0017 0E       		.uleb128 0xe
- 2504 0018 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 45
+ 2448 0060 04       		.uleb128 0x4
+ 2449 0061 04       		.byte	0x4
+ 2450 0062 05       		.byte	0x5
+ 2451 0063 696E7400 		.ascii	"int\000"
+ 2452 0067 02       		.uleb128 0x2
+ 2453 0068 04       		.byte	0x4
+ 2454 0069 07       		.byte	0x7
+ 2455 006a 4A010000 		.4byte	.LASF8
+ 2456 006e 03       		.uleb128 0x3
+ 2457 006f 6E010000 		.4byte	.LASF10
+ 2458 0073 02       		.byte	0x2
+ 2459 0074 18       		.byte	0x18
+ 2460 0075 24000000 		.4byte	0x24
+ 2461 0079 05       		.uleb128 0x5
+ 2462 007a 91000000 		.4byte	0x91
+ 2463 007e 8A000000 		.4byte	0x8a
+ 2464 0082 06       		.uleb128 0x6
+ 2465 0083 8A000000 		.4byte	0x8a
+ 2466 0087 1309     		.2byte	0x913
+ 2467 0089 00       		.byte	0
+ 2468 008a 02       		.uleb128 0x2
+ 2469 008b 04       		.byte	0x4
+ 2470 008c 07       		.byte	0x7
+ 2471 008d 99010000 		.4byte	.LASF11
+ 2472 0091 07       		.uleb128 0x7
+ 2473 0092 6E000000 		.4byte	0x6e
+ 2474 0096 08       		.uleb128 0x8
+ 2475 0097 38010000 		.4byte	.LASF12
+ 2476 009b 03       		.byte	0x3
+ 2477 009c 1F       		.byte	0x1f
+ 2478 009d A7000000 		.4byte	0xa7
+ 2479 00a1 05       		.uleb128 0x5
+ 2480 00a2 03       		.byte	0x3
+ 2481 00a3 00000000 		.4byte	cy_meta_configecc
+ 2482 00a7 07       		.uleb128 0x7
+ 2483 00a8 79000000 		.4byte	0x79
+ 2484 00ac 05       		.uleb128 0x5
+ 2485 00ad 91000000 		.4byte	0x91
+ 2486 00b1 BC000000 		.4byte	0xbc
+ 2487 00b5 09       		.uleb128 0x9
+ 2488 00b6 8A000000 		.4byte	0x8a
+ 2489 00ba 03       		.byte	0x3
+ 2490 00bb 00       		.byte	0
+ 2491 00bc 0A       		.uleb128 0xa
+ 2492 00bd 28010000 		.4byte	.LASF13
+ 2493 00c1 03       		.byte	0x3
+ 2494 00c2 4F01     		.2byte	0x14f
+ 2495 00c4 CE000000 		.4byte	0xce
+ 2496 00c8 05       		.uleb128 0x5
+ 2497 00c9 03       		.byte	0x3
+ 2498 00ca 00000000 		.4byte	cy_meta_custnvl
+ 2499 00ce 07       		.uleb128 0x7
+ 2500 00cf AC000000 		.4byte	0xac
+ 2501 00d3 0A       		.uleb128 0xa
+ 2502 00d4 8B010000 		.4byte	.LASF14
+ 2503 00d8 03       		.byte	0x3
+ 2504 00d9 5D01     		.2byte	0x15d
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 45
 
 
- 2505 0019 00       		.byte	0
- 2506 001a 03       		.uleb128 0x3
- 2507 001b 16       		.uleb128 0x16
- 2508 001c 00       		.byte	0
- 2509 001d 03       		.uleb128 0x3
- 2510 001e 0E       		.uleb128 0xe
- 2511 001f 3A       		.uleb128 0x3a
- 2512 0020 0B       		.uleb128 0xb
- 2513 0021 3B       		.uleb128 0x3b
- 2514 0022 0B       		.uleb128 0xb
- 2515 0023 49       		.uleb128 0x49
- 2516 0024 13       		.uleb128 0x13
- 2517 0025 00       		.byte	0
- 2518 0026 00       		.byte	0
- 2519 0027 04       		.uleb128 0x4
- 2520 0028 24       		.uleb128 0x24
- 2521 0029 00       		.byte	0
- 2522 002a 0B       		.uleb128 0xb
- 2523 002b 0B       		.uleb128 0xb
- 2524 002c 3E       		.uleb128 0x3e
- 2525 002d 0B       		.uleb128 0xb
- 2526 002e 03       		.uleb128 0x3
- 2527 002f 08       		.uleb128 0x8
- 2528 0030 00       		.byte	0
- 2529 0031 00       		.byte	0
- 2530 0032 05       		.uleb128 0x5
- 2531 0033 01       		.uleb128 0x1
- 2532 0034 01       		.byte	0x1
- 2533 0035 49       		.uleb128 0x49
- 2534 0036 13       		.uleb128 0x13
- 2535 0037 01       		.uleb128 0x1
- 2536 0038 13       		.uleb128 0x13
- 2537 0039 00       		.byte	0
- 2538 003a 00       		.byte	0
- 2539 003b 06       		.uleb128 0x6
- 2540 003c 21       		.uleb128 0x21
- 2541 003d 00       		.byte	0
- 2542 003e 49       		.uleb128 0x49
- 2543 003f 13       		.uleb128 0x13
- 2544 0040 2F       		.uleb128 0x2f
- 2545 0041 05       		.uleb128 0x5
- 2546 0042 00       		.byte	0
- 2547 0043 00       		.byte	0
- 2548 0044 07       		.uleb128 0x7
- 2549 0045 26       		.uleb128 0x26
- 2550 0046 00       		.byte	0
- 2551 0047 49       		.uleb128 0x49
- 2552 0048 13       		.uleb128 0x13
- 2553 0049 00       		.byte	0
- 2554 004a 00       		.byte	0
- 2555 004b 08       		.uleb128 0x8
- 2556 004c 34       		.uleb128 0x34
- 2557 004d 00       		.byte	0
- 2558 004e 03       		.uleb128 0x3
- 2559 004f 0E       		.uleb128 0xe
- 2560 0050 3A       		.uleb128 0x3a
- 2561 0051 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 46
+ 2505 00db E5000000 		.4byte	0xe5
+ 2506 00df 05       		.uleb128 0x5
+ 2507 00e0 03       		.byte	0x3
+ 2508 00e1 00000000 		.4byte	cy_meta_wonvl
+ 2509 00e5 07       		.uleb128 0x7
+ 2510 00e6 AC000000 		.4byte	0xac
+ 2511 00ea 05       		.uleb128 0x5
+ 2512 00eb 91000000 		.4byte	0x91
+ 2513 00ef FA000000 		.4byte	0xfa
+ 2514 00f3 09       		.uleb128 0x9
+ 2515 00f4 8A000000 		.4byte	0x8a
+ 2516 00f8 FF       		.byte	0xff
+ 2517 00f9 00       		.byte	0
+ 2518 00fa 0A       		.uleb128 0xa
+ 2519 00fb 76010000 		.4byte	.LASF15
+ 2520 00ff 03       		.byte	0x3
+ 2521 0100 6B01     		.2byte	0x16b
+ 2522 0102 0C010000 		.4byte	0x10c
+ 2523 0106 05       		.uleb128 0x5
+ 2524 0107 03       		.byte	0x3
+ 2525 0108 00000000 		.4byte	cy_meta_flashprotect
+ 2526 010c 07       		.uleb128 0x7
+ 2527 010d EA000000 		.4byte	0xea
+ 2528 0111 05       		.uleb128 0x5
+ 2529 0112 91000000 		.4byte	0x91
+ 2530 0116 21010000 		.4byte	0x121
+ 2531 011a 09       		.uleb128 0x9
+ 2532 011b 8A000000 		.4byte	0x8a
+ 2533 011f 0B       		.byte	0xb
+ 2534 0120 00       		.byte	0
+ 2535 0121 0A       		.uleb128 0xa
+ 2536 0122 5B000000 		.4byte	.LASF16
+ 2537 0126 03       		.byte	0x3
+ 2538 0127 9801     		.2byte	0x198
+ 2539 0129 33010000 		.4byte	0x133
+ 2540 012d 05       		.uleb128 0x5
+ 2541 012e 03       		.byte	0x3
+ 2542 012f 00000000 		.4byte	cy_metadata
+ 2543 0133 07       		.uleb128 0x7
+ 2544 0134 11010000 		.4byte	0x111
+ 2545 0138 00       		.byte	0
+ 2546              		.section	.debug_abbrev,"",%progbits
+ 2547              	.Ldebug_abbrev0:
+ 2548 0000 01       		.uleb128 0x1
+ 2549 0001 11       		.uleb128 0x11
+ 2550 0002 01       		.byte	0x1
+ 2551 0003 25       		.uleb128 0x25
+ 2552 0004 0E       		.uleb128 0xe
+ 2553 0005 13       		.uleb128 0x13
+ 2554 0006 0B       		.uleb128 0xb
+ 2555 0007 03       		.uleb128 0x3
+ 2556 0008 0E       		.uleb128 0xe
+ 2557 0009 1B       		.uleb128 0x1b
+ 2558 000a 0E       		.uleb128 0xe
+ 2559 000b 10       		.uleb128 0x10
+ 2560 000c 17       		.uleb128 0x17
+ 2561 000d 00       		.byte	0
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 46
 
 
- 2562 0052 3B       		.uleb128 0x3b
- 2563 0053 0B       		.uleb128 0xb
- 2564 0054 49       		.uleb128 0x49
- 2565 0055 13       		.uleb128 0x13
- 2566 0056 3F       		.uleb128 0x3f
- 2567 0057 19       		.uleb128 0x19
- 2568 0058 02       		.uleb128 0x2
- 2569 0059 18       		.uleb128 0x18
- 2570 005a 00       		.byte	0
- 2571 005b 00       		.byte	0
- 2572 005c 09       		.uleb128 0x9
- 2573 005d 21       		.uleb128 0x21
- 2574 005e 00       		.byte	0
- 2575 005f 49       		.uleb128 0x49
- 2576 0060 13       		.uleb128 0x13
- 2577 0061 2F       		.uleb128 0x2f
- 2578 0062 0B       		.uleb128 0xb
- 2579 0063 00       		.byte	0
- 2580 0064 00       		.byte	0
- 2581 0065 0A       		.uleb128 0xa
- 2582 0066 34       		.uleb128 0x34
- 2583 0067 00       		.byte	0
- 2584 0068 03       		.uleb128 0x3
- 2585 0069 0E       		.uleb128 0xe
- 2586 006a 3A       		.uleb128 0x3a
- 2587 006b 0B       		.uleb128 0xb
- 2588 006c 3B       		.uleb128 0x3b
- 2589 006d 05       		.uleb128 0x5
- 2590 006e 49       		.uleb128 0x49
- 2591 006f 13       		.uleb128 0x13
- 2592 0070 3F       		.uleb128 0x3f
- 2593 0071 19       		.uleb128 0x19
- 2594 0072 02       		.uleb128 0x2
- 2595 0073 18       		.uleb128 0x18
- 2596 0074 00       		.byte	0
- 2597 0075 00       		.byte	0
- 2598 0076 00       		.byte	0
- 2599              		.section	.debug_aranges,"",%progbits
- 2600 0000 14000000 		.4byte	0x14
- 2601 0004 0200     		.2byte	0x2
- 2602 0006 00000000 		.4byte	.Ldebug_info0
- 2603 000a 04       		.byte	0x4
- 2604 000b 00       		.byte	0
- 2605 000c 0000     		.2byte	0
- 2606 000e 0000     		.2byte	0
- 2607 0010 00000000 		.4byte	0
- 2608 0014 00000000 		.4byte	0
- 2609              		.section	.debug_line,"",%progbits
- 2610              	.Ldebug_line0:
- 2611 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
- 2611      02003701 
- 2611      00000201 
- 2611      FB0E0D00 
- 2611      01010101 
- 2612              	.LASF9:
- 2613 0000 5F5F7569 		.ascii	"__uint8_t\000"
- 2613      6E74385F 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 47
+ 2562 000e 00       		.byte	0
+ 2563 000f 02       		.uleb128 0x2
+ 2564 0010 24       		.uleb128 0x24
+ 2565 0011 00       		.byte	0
+ 2566 0012 0B       		.uleb128 0xb
+ 2567 0013 0B       		.uleb128 0xb
+ 2568 0014 3E       		.uleb128 0x3e
+ 2569 0015 0B       		.uleb128 0xb
+ 2570 0016 03       		.uleb128 0x3
+ 2571 0017 0E       		.uleb128 0xe
+ 2572 0018 00       		.byte	0
+ 2573 0019 00       		.byte	0
+ 2574 001a 03       		.uleb128 0x3
+ 2575 001b 16       		.uleb128 0x16
+ 2576 001c 00       		.byte	0
+ 2577 001d 03       		.uleb128 0x3
+ 2578 001e 0E       		.uleb128 0xe
+ 2579 001f 3A       		.uleb128 0x3a
+ 2580 0020 0B       		.uleb128 0xb
+ 2581 0021 3B       		.uleb128 0x3b
+ 2582 0022 0B       		.uleb128 0xb
+ 2583 0023 49       		.uleb128 0x49
+ 2584 0024 13       		.uleb128 0x13
+ 2585 0025 00       		.byte	0
+ 2586 0026 00       		.byte	0
+ 2587 0027 04       		.uleb128 0x4
+ 2588 0028 24       		.uleb128 0x24
+ 2589 0029 00       		.byte	0
+ 2590 002a 0B       		.uleb128 0xb
+ 2591 002b 0B       		.uleb128 0xb
+ 2592 002c 3E       		.uleb128 0x3e
+ 2593 002d 0B       		.uleb128 0xb
+ 2594 002e 03       		.uleb128 0x3
+ 2595 002f 08       		.uleb128 0x8
+ 2596 0030 00       		.byte	0
+ 2597 0031 00       		.byte	0
+ 2598 0032 05       		.uleb128 0x5
+ 2599 0033 01       		.uleb128 0x1
+ 2600 0034 01       		.byte	0x1
+ 2601 0035 49       		.uleb128 0x49
+ 2602 0036 13       		.uleb128 0x13
+ 2603 0037 01       		.uleb128 0x1
+ 2604 0038 13       		.uleb128 0x13
+ 2605 0039 00       		.byte	0
+ 2606 003a 00       		.byte	0
+ 2607 003b 06       		.uleb128 0x6
+ 2608 003c 21       		.uleb128 0x21
+ 2609 003d 00       		.byte	0
+ 2610 003e 49       		.uleb128 0x49
+ 2611 003f 13       		.uleb128 0x13
+ 2612 0040 2F       		.uleb128 0x2f
+ 2613 0041 05       		.uleb128 0x5
+ 2614 0042 00       		.byte	0
+ 2615 0043 00       		.byte	0
+ 2616 0044 07       		.uleb128 0x7
+ 2617 0045 26       		.uleb128 0x26
+ 2618 0046 00       		.byte	0
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 47
 
 
- 2613      7400
- 2614              	.LASF19:
- 2615 000a 433A5C55 		.ascii	"C:\\Users\\Ilaria\\Documents\\GitHub\\FINAL-PROJECT"
- 2615      73657273 
- 2615      5C496C61 
- 2615      7269615C 
- 2615      446F6375 
- 2616 0038 2D47524F 		.ascii	"-GROUP5\\Final_Project_Group5.cydsn\000"
- 2616      5550355C 
- 2616      46696E61 
- 2616      6C5F5072 
- 2616      6F6A6563 
- 2617              	.LASF16:
- 2618 005b 63795F6D 		.ascii	"cy_metadata\000"
- 2618      65746164 
- 2618      61746100 
- 2619              	.LASF1:
- 2620 0067 756E7369 		.ascii	"unsigned char\000"
- 2620      676E6564 
- 2620      20636861 
- 2620      7200
- 2621              	.LASF17:
- 2622 0075 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 2622      43313120 
- 2622      352E342E 
- 2622      31203230 
- 2622      31363036 
- 2623 00a8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 2623      20726576 
- 2623      6973696F 
- 2623      6E203233 
- 2623      37373135 
- 2624 00db 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2624      66756E63 
- 2624      74696F6E 
- 2624      2D736563 
- 2624      74696F6E 
- 2625              	.LASF5:
- 2626 0103 6C6F6E67 		.ascii	"long unsigned int\000"
- 2626      20756E73 
- 2626      69676E65 
- 2626      6420696E 
- 2626      7400
- 2627              	.LASF3:
- 2628 0115 73686F72 		.ascii	"short unsigned int\000"
- 2628      7420756E 
- 2628      7369676E 
- 2628      65642069 
- 2628      6E7400
- 2629              	.LASF13:
- 2630 0128 63795F6D 		.ascii	"cy_meta_custnvl\000"
- 2630      6574615F 
- 2630      63757374 
- 2630      6E766C00 
- 2631              	.LASF12:
- 2632 0138 63795F6D 		.ascii	"cy_meta_configecc\000"
- 2632      6574615F 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cca1142l.s 			page 48
+ 2619 0047 49       		.uleb128 0x49
+ 2620 0048 13       		.uleb128 0x13
+ 2621 0049 00       		.byte	0
+ 2622 004a 00       		.byte	0
+ 2623 004b 08       		.uleb128 0x8
+ 2624 004c 34       		.uleb128 0x34
+ 2625 004d 00       		.byte	0
+ 2626 004e 03       		.uleb128 0x3
+ 2627 004f 0E       		.uleb128 0xe
+ 2628 0050 3A       		.uleb128 0x3a
+ 2629 0051 0B       		.uleb128 0xb
+ 2630 0052 3B       		.uleb128 0x3b
+ 2631 0053 0B       		.uleb128 0xb
+ 2632 0054 49       		.uleb128 0x49
+ 2633 0055 13       		.uleb128 0x13
+ 2634 0056 3F       		.uleb128 0x3f
+ 2635 0057 19       		.uleb128 0x19
+ 2636 0058 02       		.uleb128 0x2
+ 2637 0059 18       		.uleb128 0x18
+ 2638 005a 00       		.byte	0
+ 2639 005b 00       		.byte	0
+ 2640 005c 09       		.uleb128 0x9
+ 2641 005d 21       		.uleb128 0x21
+ 2642 005e 00       		.byte	0
+ 2643 005f 49       		.uleb128 0x49
+ 2644 0060 13       		.uleb128 0x13
+ 2645 0061 2F       		.uleb128 0x2f
+ 2646 0062 0B       		.uleb128 0xb
+ 2647 0063 00       		.byte	0
+ 2648 0064 00       		.byte	0
+ 2649 0065 0A       		.uleb128 0xa
+ 2650 0066 34       		.uleb128 0x34
+ 2651 0067 00       		.byte	0
+ 2652 0068 03       		.uleb128 0x3
+ 2653 0069 0E       		.uleb128 0xe
+ 2654 006a 3A       		.uleb128 0x3a
+ 2655 006b 0B       		.uleb128 0xb
+ 2656 006c 3B       		.uleb128 0x3b
+ 2657 006d 05       		.uleb128 0x5
+ 2658 006e 49       		.uleb128 0x49
+ 2659 006f 13       		.uleb128 0x13
+ 2660 0070 3F       		.uleb128 0x3f
+ 2661 0071 19       		.uleb128 0x19
+ 2662 0072 02       		.uleb128 0x2
+ 2663 0073 18       		.uleb128 0x18
+ 2664 0074 00       		.byte	0
+ 2665 0075 00       		.byte	0
+ 2666 0076 00       		.byte	0
+ 2667              		.section	.debug_aranges,"",%progbits
+ 2668 0000 14000000 		.4byte	0x14
+ 2669 0004 0200     		.2byte	0x2
+ 2670 0006 00000000 		.4byte	.Ldebug_info0
+ 2671 000a 04       		.byte	0x4
+ 2672 000b 00       		.byte	0
+ 2673 000c 0000     		.2byte	0
+ 2674 000e 0000     		.2byte	0
+ 2675 0010 00000000 		.4byte	0
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 48
 
 
- 2632      636F6E66 
- 2632      69676563 
- 2632      6300
- 2633              	.LASF8:
- 2634 014a 756E7369 		.ascii	"unsigned int\000"
- 2634      676E6564 
- 2634      20696E74 
- 2634      00
- 2635              	.LASF7:
- 2636 0157 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2636      206C6F6E 
- 2636      6720756E 
- 2636      7369676E 
- 2636      65642069 
- 2637              	.LASF10:
- 2638 016e 75696E74 		.ascii	"uint8_t\000"
- 2638      385F7400 
- 2639              	.LASF15:
- 2640 0176 63795F6D 		.ascii	"cy_meta_flashprotect\000"
- 2640      6574615F 
- 2640      666C6173 
- 2640      6870726F 
- 2640      74656374 
- 2641              	.LASF14:
- 2642 018b 63795F6D 		.ascii	"cy_meta_wonvl\000"
- 2642      6574615F 
- 2642      776F6E76 
- 2642      6C00
- 2643              	.LASF11:
- 2644 0199 73697A65 		.ascii	"sizetype\000"
- 2644      74797065 
- 2644      00
- 2645              	.LASF6:
- 2646 01a2 6C6F6E67 		.ascii	"long long int\000"
- 2646      206C6F6E 
- 2646      6720696E 
- 2646      7400
- 2647              	.LASF2:
- 2648 01b0 73686F72 		.ascii	"short int\000"
- 2648      7420696E 
- 2648      7400
- 2649              	.LASF4:
- 2650 01ba 6C6F6E67 		.ascii	"long int\000"
- 2650      20696E74 
- 2650      00
- 2651              	.LASF0:
- 2652 01c3 7369676E 		.ascii	"signed char\000"
- 2652      65642063 
- 2652      68617200 
- 2653              	.LASF18:
- 2654 01cf 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
- 2654      72617465 
- 2654      645F536F 
- 2654      75726365 
- 2654      5C50536F 
- 2655              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 2676 0014 00000000 		.4byte	0
+ 2677              		.section	.debug_line,"",%progbits
+ 2678              	.Ldebug_line0:
+ 2679 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 2679      02003701 
+ 2679      00000201 
+ 2679      FB0E0D00 
+ 2679      01010101 
+ 2680              	.LASF9:
+ 2681 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 2681      6E74385F 
+ 2681      7400
+ 2682              	.LASF19:
+ 2683 000a 433A5C55 		.ascii	"C:\\Users\\Ilaria\\Documents\\GitHub\\FINAL-PROJECT"
+ 2683      73657273 
+ 2683      5C496C61 
+ 2683      7269615C 
+ 2683      446F6375 
+ 2684 0038 2D47524F 		.ascii	"-GROUP5\\Final_Project_Group5.cydsn\000"
+ 2684      5550355C 
+ 2684      46696E61 
+ 2684      6C5F5072 
+ 2684      6F6A6563 
+ 2685              	.LASF16:
+ 2686 005b 63795F6D 		.ascii	"cy_metadata\000"
+ 2686      65746164 
+ 2686      61746100 
+ 2687              	.LASF1:
+ 2688 0067 756E7369 		.ascii	"unsigned char\000"
+ 2688      676E6564 
+ 2688      20636861 
+ 2688      7200
+ 2689              	.LASF17:
+ 2690 0075 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2690      43313120 
+ 2690      352E342E 
+ 2690      31203230 
+ 2690      31363036 
+ 2691 00a8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2691      20726576 
+ 2691      6973696F 
+ 2691      6E203233 
+ 2691      37373135 
+ 2692 00db 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2692      66756E63 
+ 2692      74696F6E 
+ 2692      2D736563 
+ 2692      74696F6E 
+ 2693              	.LASF5:
+ 2694 0103 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2694      20756E73 
+ 2694      69676E65 
+ 2694      6420696E 
+ 2694      7400
+ 2695              	.LASF3:
+ 2696 0115 73686F72 		.ascii	"short unsigned int\000"
+ 2696      7420756E 
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 49
+
+
+ 2696      7369676E 
+ 2696      65642069 
+ 2696      6E7400
+ 2697              	.LASF13:
+ 2698 0128 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 2698      6574615F 
+ 2698      63757374 
+ 2698      6E766C00 
+ 2699              	.LASF12:
+ 2700 0138 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 2700      6574615F 
+ 2700      636F6E66 
+ 2700      69676563 
+ 2700      6300
+ 2701              	.LASF8:
+ 2702 014a 756E7369 		.ascii	"unsigned int\000"
+ 2702      676E6564 
+ 2702      20696E74 
+ 2702      00
+ 2703              	.LASF7:
+ 2704 0157 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2704      206C6F6E 
+ 2704      6720756E 
+ 2704      7369676E 
+ 2704      65642069 
+ 2705              	.LASF10:
+ 2706 016e 75696E74 		.ascii	"uint8_t\000"
+ 2706      385F7400 
+ 2707              	.LASF15:
+ 2708 0176 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 2708      6574615F 
+ 2708      666C6173 
+ 2708      6870726F 
+ 2708      74656374 
+ 2709              	.LASF14:
+ 2710 018b 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 2710      6574615F 
+ 2710      776F6E76 
+ 2710      6C00
+ 2711              	.LASF11:
+ 2712 0199 73697A65 		.ascii	"sizetype\000"
+ 2712      74797065 
+ 2712      00
+ 2713              	.LASF6:
+ 2714 01a2 6C6F6E67 		.ascii	"long long int\000"
+ 2714      206C6F6E 
+ 2714      6720696E 
+ 2714      7400
+ 2715              	.LASF2:
+ 2716 01b0 73686F72 		.ascii	"short int\000"
+ 2716      7420696E 
+ 2716      7400
+ 2717              	.LASF4:
+ 2718 01ba 6C6F6E67 		.ascii	"long int\000"
+ 2718      20696E74 
+ 2718      00
+ 2719              	.LASF0:
+ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccUN6IkI.s 			page 50
+
+
+ 2720 01c3 7369676E 		.ascii	"signed char\000"
+ 2720      65642063 
+ 2720      68617200 
+ 2721              	.LASF18:
+ 2722 01cf 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 2722      72617465 
+ 2722      645F536F 
+ 2722      75726365 
+ 2722      5C50536F 
+ 2723              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

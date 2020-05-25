@@ -15,7 +15,6 @@
 #include "stdio.h"
 #include "string.h"
 #include "InterruptRoutines.h"
-#include "Functions.h"
 
 //Define buffer for UART
 #define UART_1_PutBuffer UART_1_PutString(bufferUART)
@@ -25,7 +24,6 @@ char bufferUART[100];
 #include "25LC256.h"
 /* EEPROM LIS3DH Library */
 #include "LIS3DH.h"
-
 
 
 int main(void) {
@@ -42,20 +40,10 @@ int main(void) {
     /* Start SPI Master 2*/
     SPIM_2_Start();
     
-    /* Start ADC */
-    ADC_DelSig_Start();
-    
     /* Start ISR_RX */
     isr_RX_StartEx(Custom_ISR_RX);
     
-    /* Start ISR_FIFO */
-    isr_FIFO_StartEx(Custom_isr_FIFO);
-    
-    /* Start ISR_ADC */
-    isr_ADC_StartEx(Custom_ISR_ADC);  
-    
-    /* Start ADC conversion */
-    ADC_DelSig_StartConvert();
+        
     
     CyDelay(10); //"The boot procedure is complete about 10 milliseconds after device power-up."
         
@@ -107,7 +95,7 @@ int main(void) {
     /*Setting control register 1*/
      uint8_t ctrl_reg1;    
     //Enable the ODR
-    ACC_writeRegister(LIS3DH_CTRL_REG1, LIS3DH_CTRL_REG1_ODR_START_1HZ);
+    ACC_writeRegister(LIS3DH_CTRL_REG1, LIS3DH_CTRL_REG1_ODR_START);
                 
     ctrl_reg1 = ACC_readRegister(LIS3DH_CTRL_REG5);
     sprintf(bufferUART, " Control register 1 has been set to = 0x%02X \r\n", ctrl_reg1);
@@ -145,19 +133,34 @@ int main(void) {
     
     UART_1_PutString("********************************************\r\n");
     /**/
-
-    
+    uint8_t new_data;
             
-
-    
-    // show the menu
-    show_menu();
-
-
     for(;;){
-        
-        
-        
+        new_data = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
+        //sprintf(bufferUART, " data 0x%02X  \r\n", INT1_Read());
+        //UART_1_PutBuffer;
+        if ( new_data & LIS3DH_FIFO_SRC_REG_OVRN_FIFO ) //      
+        {              
+            /* non funziona :
+            for (i = 0; i<32; i++)
+            {
+                ACC_Multi_Read(LIS3DH_OUT_X_L, &data[0], 6);
+                               
+                sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[0], data[1]);
+                UART_1_PutBuffer;
+            }
+            DA PROVARE COME LA EEPROM DOPO*/
+            
+            UART_1_PutString(" Overrun occurred! \r\n");
+                        
+            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);
+            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
+        }
+        else
+        {           
+            /*sprintf(bufferUART, " OVerrun not occurred 0x%02X \r\n", new_data);
+            UART_1_PutBuffer;  */          
+        }
         
     }
 }
