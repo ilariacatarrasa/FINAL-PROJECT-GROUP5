@@ -4336,6 +4336,7 @@
       </addressBlock>
       <registers>
         <register>
+<<<<<<< HEAD
           <name>TX_UART_1_TX_DATA</name>
           <description>TX Data Register</description>
           <addressOffset>0x40006445</addressOffset>
@@ -4348,6 +4349,11 @@
           <name>TX_UART_1_TX_STATUS</name>
           <description>TX status register</description>
           <addressOffset>0x40006461</addressOffset>
+=======
+          <name>TX_UART_1_TX_STATUS</name>
+          <description>TX status register</description>
+          <addressOffset>0x40006469</addressOffset>
+>>>>>>> af9e2913248f18a3e4efd7bc80231318e6db9f23
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4386,7 +4392,11 @@
         <register>
           <name>RX_UART_1_RX_ADDRESS1</name>
           <description>RX Address1 Register</description>
+<<<<<<< HEAD
           <addressOffset>0x4000652A</addressOffset>
+=======
+          <addressOffset>0x4000652B</addressOffset>
+>>>>>>> af9e2913248f18a3e4efd7bc80231318e6db9f23
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4395,7 +4405,20 @@
         <register>
           <name>RX_UART_1_RX_ADDRESS2</name>
           <description>RX Address2 Register</description>
+<<<<<<< HEAD
           <addressOffset>0x4000653A</addressOffset>
+=======
+          <addressOffset>0x4000653B</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>TX_UART_1_TX_DATA</name>
+          <description>TX Data Register</description>
+          <addressOffset>0x40006549</addressOffset>
+>>>>>>> af9e2913248f18a3e4efd7bc80231318e6db9f23
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4404,7 +4427,11 @@
         <register>
           <name>RX_UART_1_RX_DATA</name>
           <description>RX Data Register</description>
+<<<<<<< HEAD
           <addressOffset>0x4000654A</addressOffset>
+=======
+          <addressOffset>0x4000654B</addressOffset>
+>>>>>>> af9e2913248f18a3e4efd7bc80231318e6db9f23
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4473,7 +4500,11 @@
       </registers>
     </peripheral>
     <peripheral>
+<<<<<<< HEAD
       <name>PWM_1</name>
+=======
+      <name>PWM_OnboardLED</name>
+>>>>>>> af9e2913248f18a3e4efd7bc80231318e6db9f23
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -4483,6 +4514,7 @@
       </addressBlock>
       <registers>
         <register>
+<<<<<<< HEAD
           <name>PWM_1_COMPARE_Reg_</name>
           <description>UDB.D0 - Assigned Compare Value</description>
           <addressOffset>0x40006528</addressOffset>
@@ -4495,6 +4527,11 @@
           <name>PWM_1_Control_Reg</name>
           <description>UDB Control Register - Assigned Control Register Value</description>
           <addressOffset>0x40006578</addressOffset>
+=======
+          <name>PWM_OnboardLED_Control_Reg</name>
+          <description>UDB Control Register - Assigned Control Register Value</description>
+          <addressOffset>0x40006478</addressOffset>
+>>>>>>> af9e2913248f18a3e4efd7bc80231318e6db9f23
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4524,9 +4561,15 @@
           </fields>
         </register>
         <register>
+<<<<<<< HEAD
           <name>PWM_1_STATUS_MASK</name>
           <description>UDB Status bits Interrupt Mask Enable Register</description>
           <addressOffset>0x4000658B</addressOffset>
+=======
+          <name>PWM_OnboardLED_STATUS_MASK</name>
+          <description>UDB Status bits Interrupt Mask Enable Register</description>
+          <addressOffset>0x40006488</addressOffset>
+>>>>>>> af9e2913248f18a3e4efd7bc80231318e6db9f23
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4570,9 +4613,24 @@
           </fields>
         </register>
         <register>
+<<<<<<< HEAD
           <name>PWM_1_STATUS_AUX_CTRL</name>
           <description>UDB Auxilliary Control Register</description>
           <addressOffset>0x40006598</addressOffset>
+=======
+          <name>PWM_OnboardLED_COMPARE_Reg_</name>
+          <description>UDB.D0 - Assigned Compare Value</description>
+          <addressOffset>0x40006527</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>PWM_OnboardLED_STATUS_AUX_CTRL</name>
+          <description>UDB Auxilliary Control Register</description>
+          <addressOffset>0x40006597</addressOffset>
+>>>>>>> af9e2913248f18a3e4efd7bc80231318e6db9f23
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
