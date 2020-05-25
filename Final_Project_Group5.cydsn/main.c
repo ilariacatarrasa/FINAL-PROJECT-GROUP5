@@ -27,6 +27,7 @@ char bufferUART[100];
 #include "LIS3DH.h"
 
 
+
 int main(void) {
     
     /* Enable global interrupts. */
@@ -48,7 +49,7 @@ int main(void) {
     isr_RX_StartEx(Custom_ISR_RX);
     
     /* Start ISR_FIFO */
-    //isr_FIFO_StartEx(Custom_isr_FIFO);
+    isr_FIFO_StartEx(Custom_isr_FIFO);
     
     /* Start ISR_ADC */
     isr_ADC_StartEx(Custom_ISR_ADC);  
@@ -145,8 +146,8 @@ int main(void) {
     UART_1_PutString("********************************************\r\n");
     /**/
 
-    uint8_t new_data;
-    uint8_t data[6];        
+    
+            
 
     
     // show the menu
@@ -154,37 +155,8 @@ int main(void) {
 
 
     for(;;){
-        new_data = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
-        //sprintf(bufferUART, " data 0x%02X  \r\n", INT1_Read());
-        //UART_1_PutBuffer;
-        if ( new_data & LIS3DH_FIFO_SRC_REG_OVRN_FIFO ) //      
-        {              
-            /* non funziona :
-            for (i = 0; i<32; i++)
-            {
-                //ACC_Multi_Read(LIS3DH_OUT_X_L, &data[0], 6); 
-            
-            }
-            //DA PROVARE COME LA EEPROM DOPO*/
-            
-            
-            UART_1_PutString(" Overrun occurred! \r\n");
-                        
-            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);            
-            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
-        }
-        else
-        {               
-            data[0] = ACC_readRegister(LIS3DH_OUT_Z_L);
-            data[1] = ACC_readRegister(LIS3DH_OUT_Z_H);
-            if (data[0]||data[1] != 0)
-            {
-                sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[0], data[1]);
-                UART_1_PutBuffer;
-            }
-            /*sprintf(bufferUART, " OVerrun not occurred 0x%02X \r\n", new_data);
-            UART_1_PutBuffer;  */          
-        }
+        
+        
         
         
     }

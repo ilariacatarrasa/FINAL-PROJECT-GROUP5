@@ -35,6 +35,13 @@
     /*Flag for packet ready*/
     volatile uint8 PacketReadyFlag;
     
+    /*prove per ISR FIFO*/
+    uint8_t data[6];
+    uint8_t new_data;
+    #define UART_1_PutBuffer UART_1_PutString(bufferUART)
+    char bufferUART[100];
+    
+    
 #endif
 
 

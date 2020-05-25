@@ -36,9 +36,53 @@ uint8 FahrenheitFlag=0;
 int   value_temp;
 int32 value_digit;
 int   value_mv; 
+int i = 0 ;
 
 CY_ISR_PROTO (Custom_isr_FIFO)
 {
+    new_data = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
+    UART_1_PutString(" Overrun occurred! \r\n");
+    /*data[0] = ACC_readRegister(LIS3DH_OUT_Z_L);
+    data[1] = ACC_readRegister(LIS3DH_OUT_Z_H);
+    if (data[0]||data[1] != 0)
+    {
+        sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[0], data[1]);
+        UART_1_PutBuffer;
+    }*/
+        //non funziona :
+        //for (i = 0; i<32; i++)
+        //{
+            ACC_Multi_Read(LIS3DH_OUT_X_L, &data[0], 6); 
+            sprintf(bufferUART, " data 0x%02X 0x%02X 0x%02X 0x%02X  \r\n", data[0], data[1], data[2], data[3]);
+            UART_1_PutBuffer;
+        //}
+        //DA PROVARE COME LA EEPROM DOPO*/
+        /*
+        for (i = 0; i<LENGTH_BYTE; i+=4)
+            {                                                 
+                Out_ms2 = (int16)((xyz_positioning[i/2] | (xyz_positioning[i/2+1]<<8))) >> 4; //
+                
+                Out_ms2 = (float) Out_ms2*2*9.81*0.001*1000;   //  conversion from mg into m/s2: 
+                                                               // * 2 is Typ. spec. from datasheet,                                                            
+                                                               // * 9.8 is the conversion factor to m/s2 
+                                                               // * 0.001 is to convert from msec to sec
+                                                               // * 1000 conversion into mm/s2 for saving decimal values
+                
+                Out_mms2 = (int32) Out_ms2;             //
+                OutArray[i+1] = (uint8_t)(Out_mms2 & 0xFF);  //I send the data in 4 byte to save also the decimals
+                OutArray[i+2] = (uint8_t)(Out_mms2 >> 8);
+                OutArray[i+3] = (uint8_t)(Out_mms2 >> 16);
+                OutArray[i+4] = (uint8_t)(Out_mms2 >> 24);
+            
+                    
+                    //UART_Debug_PutString("Read data complete.\r\n");    
+                    UART_Debug_PutArray(OutArray, TRANSMIT_BUFFER_SIZE); 
+            }    
+    
+        */
+                     
+        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);            
+        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
     /*Send data to EEPROM*/
 }
 
