@@ -145,17 +145,33 @@ int main(void) {
 
     uint8_t new_data;
     uint8_t data[6];        
-
     
     // show the menu
     show_menu();
 
-
     for(;;){
-       
-
-
         
+//             //PROVA PER MULTIREAD:
+//                ACC_writeRegister(LIS3DH_CTRL_REG5, 0x00);            
+//                ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, 0x00);
+//                ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, 0x00);
+//                ACC_writeRegister(LIS3DH_CTRL_REG3, 0x00);
+//                ACC_writeRegister(LIS3DH_CTRL_REG1, LIS3DH_CTRL_REG1_ODR_START_50HZ);
+//        
+//                sprintf(bufferUART, "********************\r\n");
+//                UART_1_PutBuffer;
+//                ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) data, 6); 
+//                sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[0], data[1]);
+//                UART_1_PutBuffer;
+//                sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[2], data[3]);
+//                UART_1_PutBuffer;
+//                sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[4], data[5]);
+//                UART_1_PutBuffer;
+//                
+//                sprintf(bufferUART, "********************\r\n");
+//                UART_1_PutBuffer;
+//            //FINE PROVA PER MULTIREAD
+             
         new_data = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
         //sprintf(bufferUART, " data 0x%02X  \r\n", INT1_Read());
         //UART_1_PutBuffer;
