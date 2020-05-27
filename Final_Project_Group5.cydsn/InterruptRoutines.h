@@ -37,8 +37,13 @@
     /*save buffer array*/
     uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];    
     
-    /*Flag for packet ready*/
-    volatile uint8 PacketReadyFlag;
+    
+    volatile uint8 PacketReadyFlag; /*Flag for packet ready*/
+    volatile uint8 StartFlag;
+    volatile uint8 FSRFlag;
+    volatile uint8 SamplingFreqFlag;
+    uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];
+    
     
 #endif
 

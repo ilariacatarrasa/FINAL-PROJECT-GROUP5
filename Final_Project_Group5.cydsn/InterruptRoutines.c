@@ -29,9 +29,6 @@
 
 // Variabile declaration
 uint8 ch_received;
-// uint8 StartFlag=0;
-uint8 FSRFlag=0;
-uint8 SamplingFreqFlag=0;
 uint8 TemperatureMode=0;
 uint8 FahrenheitFlag=0;
 int   value_temp;
@@ -83,7 +80,7 @@ CY_ISR(Custom_ISR_RX)
         case 'B':
         case 'b':
             
-            // StartFlag=1;
+            StartFlag=1;
             // Start data acquisition from the accelerometer
             // Start sampling Temperature values every Timer overflow
             Timer_Start();
@@ -99,7 +96,7 @@ CY_ISR(Custom_ISR_RX)
         case 'S':
         case 's':
             
-            // StartFlag=0;
+            StartFlag=0;
             // Stop data acquisition from the accelerometer
             // Stop sampling Temperature values every Timer overflow
             Timer_Stop();
@@ -130,7 +127,7 @@ CY_ISR(Custom_ISR_RX)
                 UART_1_PutString("----------------------------------------------------\r\n");
                 UART_1_PutString("4           | +- 16g \r\n");
                 UART_1_PutString("----------------------------------------------------\r\n");
-                FSRFlag=1;
+                FSRFlag=5;
             }
             // Temperature in Fahrenheit command on UART
             if (TemperatureMode==1)
@@ -157,13 +154,13 @@ CY_ISR(Custom_ISR_RX)
             UART_1_PutString("------------------------------------------------------\r\n");
             UART_1_PutString("4               | 50Hz \r\n");
             UART_1_PutString("------------------------------------------------------\r\n");
-            SamplingFreqFlag=1;
+            SamplingFreqFlag=5;
               
         break;
             
         // 1 command on UART
         case '1':
-            if (FSRFlag==1) // +- 2g
+            if (FSRFlag==5) // +- 2g
             {
                 // Read register
                 // communicate on UART if this FSR is already setted
@@ -178,11 +175,9 @@ CY_ISR(Custom_ISR_RX)
                     UART_1_PutString("The change was successful \r\n");
                 }
                 
-                // delate previous data in EEPROM + reset counter stooring data
-                // save new configuration in EEPROM memory
-                FSRFlag=0; 
+                FSRFlag=1; 
             }
-            if (SamplingFreqFlag==1) // 1Hz
+            if (SamplingFreqFlag==5) // 1Hz
             {
                 // Read register
                 // communicate on UART if this freq is already setted
@@ -199,13 +194,13 @@ CY_ISR(Custom_ISR_RX)
                 
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
-                SamplingFreqFlag=0;
+                SamplingFreqFlag=1;
             }
         break;
             
         // 2 command on UART
         case '2':
-            if (FSRFlag==1) // +- 4g
+            if (FSRFlag==5) // +- 4g
             {
                 // Read register
                 // communicate on UART if this FSR is already setted
@@ -222,9 +217,9 @@ CY_ISR(Custom_ISR_RX)
                 
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
-                FSRFlag=0; 
+                FSRFlag=2; 
             }
-            if (SamplingFreqFlag==1) // 10Hz
+            if (SamplingFreqFlag==5) // 10Hz
             {
                 // Read register
                 // communicate on UART if this freq is already setted
@@ -241,13 +236,13 @@ CY_ISR(Custom_ISR_RX)
                 
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
-                SamplingFreqFlag=0;
+                SamplingFreqFlag=2;
             }
         break;
             
         // 3 command on UART
         case '3':
-            if (FSRFlag==1) // +- 8g
+            if (FSRFlag==5) // +- 8g
             {
                 // Read register
                 // communicate on UART if this FSR is already setted
@@ -264,9 +259,9 @@ CY_ISR(Custom_ISR_RX)
                 
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
-                FSRFlag=0; 
+                FSRFlag=3; 
             }
-            if (SamplingFreqFlag==1) // 25Hz
+            if (SamplingFreqFlag==5) // 25Hz
             {
                 // Read register
                 // communicate on UART if this freq is already setted
@@ -283,13 +278,13 @@ CY_ISR(Custom_ISR_RX)
                 
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
-                SamplingFreqFlag=0;
+                SamplingFreqFlag=3;
             }
         break;
             
         // 4 command on UART
         case '4':
-            if (FSRFlag==1) // +- 16g
+            if (FSRFlag==5) // +- 16g
             {
                 // Read register
                 // communicate on UART if this FSR is already setted
@@ -306,9 +301,9 @@ CY_ISR(Custom_ISR_RX)
                 
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
-                FSRFlag=0; 
+                FSRFlag=4; 
             }
-            if (SamplingFreqFlag==1) // 50Hz
+            if (SamplingFreqFlag==5) // 50Hz
             {
                 // Read register
                 // communicate on UART if this freq is already setted
@@ -325,7 +320,7 @@ CY_ISR(Custom_ISR_RX)
                 
                 // delate previous data in EEPROM + reset counter stooring data
                 // save new configuration in EEPROM memory
-                SamplingFreqFlag=0;
+                SamplingFreqFlag=4;
             }
         break;
             

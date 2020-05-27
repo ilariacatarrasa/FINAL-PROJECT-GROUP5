@@ -28,32 +28,29 @@ char bufferUART[100];
 
 //Define data_acc dimension
 #define DATA_BYTES 6
-#define DATA_BYTES_EEPROM 4
+//Define data to store in EEPROM: 4bytes ACC + 2bytes TEMP
+#define DATA_BYTES_EEPROM 6
+//Define max number of byte to write in a single operation
+#define MAX_BYTE_PAGE 64
 
 /* Define configurations to save in EEPROM */
 //Configuration ON-OFF
-#define ON_TEMP  0b10000000
-#define OFF_TEMP 0b01000000
-//ON-OFF ACC + FSR config is saved in LIS3DH_CTRL_REG4
+#define ON   0b10000000
+#define OFF  0b01000000
+//FSR config is saved in LIS3DH_CTRL_REG4
 //SF config is saved in LIS3DH_CTRL_REG1
 
 /* Define addresses in EEPROM */
 //Configurations for accelerometer address
-#define ACC_CONFIG_ONOFF_FSR 0x0000
-#define ACC_CONFIG_SF  0x0001
-//Configuration ON-OFF for temperature mode address
-#define TEMP_ONOFF_ADD 0x0002
-//Counter for accelerometer data address
-#define COUNTER_ACC_ADD_H 0x0003 //MSB
-#define COUNTER_ACC_ADD_L 0x0004 //LSB
-//Counter for temperature data address
-#define COUNTER_TEMP_ADD_H 0x0005 //MSB
-#define COUNTER_TEMP_ADD_L 0x0006 //LSB
-//First accelerometer data address
-#define DATA_ACC 0x0007  //7
-//First temperature data address
-#define DATA_TEMP 0x4003 //16387
-//Highest address 0x7FFF //32767
+#define ACC_CONFIG_FSR_AD 0x0000
+#define ACC_CONFIG_SF_AD  0x0001
+//Configuration ON-OFF for accelerometer and temperature mode address
+#define ONOFF_ADD 0x0002
+//Counter for data address
+#define COUNTER_AD 0x0003
+//First data address
+#define DATA_AD 0x0004
+#define HIGHEST_ADDRESS 0x7FFF //32767
 
 
 int main(void) {
@@ -88,9 +85,32 @@ int main(void) {
     /* Initialize PWM so that the Onboard LED is OFF */
     PWM_OnboardLED_Start();
     
+    
     CyDelay(10); //"The boot procedure is complete about 10 milliseconds after device power-up."
         
-  
+//    /* PROJECT 1 */    
+//    /* Definition of the extern from 25LC256.c */
+//    uint8_t eeprom_Status = 0;
+//    
+//    eeprom_Status = EEPROM_readStatus();
+//    
+//    sprintf(bufferUART, "** EEPROM Status = 0x%02x\r\n", eeprom_Status);
+//    UART_1_PutBuffer;
+//    
+//    /* PROJECT 2 */
+//    /* Value to Write */
+//    uint8_t data = 94;
+//    
+//    /* Write */
+//    EEPROM_writeByte(0x0000, data);
+//    EEPROM_waitForWriteComplete();
+//    
+//    /* Read */
+//    uint8_t data_read = EEPROM_readByte(0x0000);
+//    
+//    sprintf(bufferUART, "** EEPROM Status = %d (%d)\r\n", data_read, data);
+//    UART_1_PutBuffer;
+ 
 //    /* Data to Write */
 //    int16_t data[DATA_SIZE] = {15, -32, 258};
 //    
@@ -172,8 +192,25 @@ int main(void) {
     UART_1_PutString("********************************************\r\n");
     /**/
 
+    // Variables definitions
     uint8_t new_data;
-    uint8_t data[6];
+    uint8_t data[DATA_BYTES];
+    uint8_t data_EEPROM[DATA_BYTES_EEPROM];
+    uint8_t counter=0;
+    char ZEROARRAY[64] = {0};
+    int i=0;
+    uint8_t data_read;
+    
+    //save counter in EEPROM at the address of COUNTER_ADD
+    EEPROM_writeByte(COUNTER_AD, counter);
+    EEPROM_waitForWriteComplete();
+    
+    
+    /* Variable initialization */
+    PacketReadyFlag=0;
+    StartFlag=0;                    //può creare problemi al reset??
+    FSRFlag=0;
+    SamplingFreqFlag=0;
     
     
     // show the menu
@@ -233,9 +270,110 @@ int main(void) {
             //UART_1_PutBuffer;            
        }*/
         
+        /* EEPROM */
         
-    }
+        //istituire un flag per ogni caso in isr_RX? perchè avendo i wait non può stare nella isr
+        // if START
+        if(StartFlag==1)
+        {
+            /* Storing data in EEPROM */
+            //Data to store in EEPROM: 4bytes ACC (transform from 6 to 4 bytes) + 2bytes TEMP 
+            //Data operations--> obtain data_EEPROM
+            //update the storage counter in EEPROM at the address of COUNTER_ADD
+            counter= counter+DATA_BYTES_EEPROM;
+            EEPROM_writeByte(COUNTER_AD, counter);
+            EEPROM_waitForWriteComplete();
+            //Storing new set of data in EEPROM
+            EEPROM_writePage((DATA_AD + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPROM);
+            EEPROM_waitForWriteComplete();
+            data_read = EEPROM_readByte(ONOFF_ADD);
+            if(data_read!=ON)
+            {
+                EEPROM_writeByte(ONOFF_ADD, ON);
+                EEPROM_waitForWriteComplete();
+            }
+        }
+        // if STOP
+        else if(StartFlag==0)
+        {
+            if(data_read==ON)
+            {
+                EEPROM_writeByte(ONOFF_ADD, OFF);
+                EEPROM_waitForWriteComplete();
+            }
+        }
+        
+        // if there is any change in accelerometer configuration of FSR or SF
+        if(FSRFlag!=0 | SamplingFreqFlag!=0)
+        {
+            // delate previous data in EEPROM
+            for (i=0;i<((counter-DATA_AD)/MAX_BYTE_PAGE);i++)
+            {
+                EEPROM_writePage((DATA_AD), (uint8_t*) ZEROARRAY, MAX_BYTE_PAGE);
+                EEPROM_waitForWriteComplete();
+            }
+            // reset counter stooring data
+            counter=0;
+            EEPROM_writeByte(COUNTER_AD, counter);
+            EEPROM_waitForWriteComplete();
+            // save new configuration in EEPROM memory
+            // FSR configuration
+            if(FSRFlag==1)
+            {
+               EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
+               FSRFlag=0;
+            }
+            else if(FSRFlag==2)
+            {
+               EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_4); 
+               FSRFlag=0;
+            }
+            else if(FSRFlag==3)
+            {
+               EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_8);
+               FSRFlag=0;
+            }
+            else if(FSRFlag==4)
+            {
+               EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_16); 
+               FSRFlag=0;
+            }
+            // SF configuration
+            if(SamplingFreqFlag==1)
+            {
+               EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
+               SamplingFreqFlag=0;
+            }
+            else if(SamplingFreqFlag==2)
+            {
+               EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_10HZ); 
+               SamplingFreqFlag=0;
+            }
+            else if(SamplingFreqFlag==3)
+            {
+               EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_25HZ);
+               SamplingFreqFlag=0;
+            }
+            else if(SamplingFreqFlag==4)
+            {
+               EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_50HZ); 
+               SamplingFreqFlag=0;
+            }
+            
+            EEPROM_waitForWriteComplete();
+                    
+            // Read: making sure the writing was sussesful           serve farlo??? :(
+    //      uint8_t data_read = EEPROM_readByte(0x0000);   
+    //      sprintf(bufferUART, "** EEPROM Status = %d (%d)\r\n", data_read, data);
+    //      UART_1_PutBuffer;
+        }
+        
+        
+        
+        
+        
 }
-
+    
+}
 
 /* [] END OF FILE */
