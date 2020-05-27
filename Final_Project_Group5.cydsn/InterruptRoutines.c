@@ -85,6 +85,8 @@ CY_ISR(Custom_ISR_RX)
             
             // StartFlag=1;
             // Start data acquisition from the accelerometer
+            // Start sampling Temperature values every Timer overflow
+            Timer_Start();
             //Onboard LED tells the user that data acquisition is ON
             PWM_OnboardLED_WritePeriod(255);  //1s period
             PWM_OnboardLED_WriteCompare(128); //50% DC (SISTEMARE CON DEFINE)
@@ -99,10 +101,12 @@ CY_ISR(Custom_ISR_RX)
             
             // StartFlag=0;
             // Stop data acquisition from the accelerometer
-            // Stop data storage on the EEPROM
+            // Stop sampling Temperature values every Timer overflow
+            Timer_Stop();
             //Onboard LED tells the user that data acquisition is OFF
             PWM_OnboardLED_WritePeriod(255);  //1s period
             PWM_OnboardLED_WriteCompare(0);   //Onboard LED OFF
+            // Stop data storage on the EEPROM
             // Save the configuration on the EEPROM
            
             
@@ -110,21 +114,31 @@ CY_ISR(Custom_ISR_RX)
             
         case 'F':
         case 'f':
-            // Selection full scale range command on UART
-            /* SHOW FSR MENU' ON UART*/
-            UART_1_PutString("Configuration of the accelerometer full scale range \r\n");
-            UART_1_PutString("Character            Full scale range \r\n");
-            UART_1_PutString("1                    +- 2g \r\n");
-            UART_1_PutString("2                    +- 4g \r\n");
-            UART_1_PutString("3                    +- 8g \r\n");
-            UART_1_PutString("4                    +- 16g \r\n");
-            FSRFlag=1;
-         
+            if (TemperatureMode==0)
+            {
+                // Selection full scale range command on UART
+                /* SHOW FSR MENU' ON UART*/
+                UART_1_PutString("Configuration of the accelerometer full scale range \r\n");
+                UART_1_PutString("----------------------------------------------------\r\n");
+                UART_1_PutString("Character   | Full scale range \r\n");
+                UART_1_PutString("----------------------------------------------------\r\n");
+                UART_1_PutString("1           | +- 2g \r\n");
+                UART_1_PutString("----------------------------------------------------\r\n");
+                UART_1_PutString("2           | +- 4g \r\n");
+                UART_1_PutString("----------------------------------------------------\r\n");
+                UART_1_PutString("3           | +- 8g \r\n");
+                UART_1_PutString("----------------------------------------------------\r\n");
+                UART_1_PutString("4           | +- 16g \r\n");
+                UART_1_PutString("----------------------------------------------------\r\n");
+                FSRFlag=1;
+            }
             // Temperature in Fahrenheit command on UART
             if (TemperatureMode==1)
             {
                 FahrenheitFlag=1;
             }
+            TemperatureMode=0;
+            
         break;
             
         // Selection sampling frequency command on UART
@@ -132,11 +146,17 @@ CY_ISR(Custom_ISR_RX)
         case 'p':
             /* SHOW SAMPLING FREQUENCY MENU' ON UART*/
             UART_1_PutString("Configuration of the accelerometer sampling frequency \r\n");
-            UART_1_PutString("Character            Sampling Frequency \r\n");
-            UART_1_PutString("1                    1Hz \r\n");
-            UART_1_PutString("2                    10Hz \r\n");
-            UART_1_PutString("3                    25Hz \r\n");
-            UART_1_PutString("4                    50Hz \r\n");
+            UART_1_PutString("------------------------------------------------------\r\n");
+            UART_1_PutString("Character       | Sampling Frequency \r\n");
+            UART_1_PutString("------------------------------------------------------\r\n");
+            UART_1_PutString("1               | 1Hz \r\n");
+            UART_1_PutString("------------------------------------------------------\r\n");
+            UART_1_PutString("2               | 10Hz \r\n");
+            UART_1_PutString("------------------------------------------------------\r\n");
+            UART_1_PutString("3               | 25Hz \r\n");
+            UART_1_PutString("------------------------------------------------------\r\n");
+            UART_1_PutString("4               | 50Hz \r\n");
+            UART_1_PutString("------------------------------------------------------\r\n");
             SamplingFreqFlag=1;
               
         break;
@@ -337,18 +357,17 @@ CY_ISR(Custom_ISR_RX)
         // Temperature mode command on UART
         case 'T':
         case 't':
-            if ( TemperatureMode == 0 )
-            {
-                Timer_Start(); // Start sampling Temperature values every Timer overflow
-            }
             /* SHOW TEMPERATURE MENU' ON UART*/
             UART_1_PutString("Store the temperature data \r\n");
-            UART_1_PutString("Character            Temperature format \r\n");
-            UART_1_PutString("c                    Store data in Celsius format \r\n");
-            UART_1_PutString("f                    Store data in Fahrenheit format  \r\n");
+            UART_1_PutString("----------------------------------------------------\r\n");
+            UART_1_PutString("Character      | Temperature format \r\n");
+            UART_1_PutString("----------------------------------------------------\r\n");
+            UART_1_PutString("c              | Store data in Celsius format \r\n");
+            UART_1_PutString("----------------------------------------------------\r\n");
+            UART_1_PutString("f              | Store data in Fahrenheit format  \r\n");
+            UART_1_PutString("----------------------------------------------------\r\n");
             TemperatureMode=1;
             
-            // Timer_Stop(); in usvita dalla modalità temp?
         break;
             
         // Temperature in Celsius command on UART
@@ -358,6 +377,7 @@ CY_ISR(Custom_ISR_RX)
             {
                 FahrenheitFlag=0;
             }
+            TemperatureMode=0;
             
         break;
         

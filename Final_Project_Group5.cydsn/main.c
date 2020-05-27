@@ -17,14 +17,43 @@
 #include "InterruptRoutines.h"
 #include "Functions.h"
 
-//Define buffer for UART
-#define UART_1_PutBuffer UART_1_PutString(bufferUART)
-char bufferUART[100];
-
 /* EEPROM 25LC256 Library */
 #include "25LC256.h"
 /* EEPROM LIS3DH Library */
 #include "LIS3DH.h"
+
+//Define buffer for UART
+#define UART_1_PutBuffer UART_1_PutString(bufferUART)
+char bufferUART[100];
+
+//Define data_acc dimension
+#define DATA_BYTES 6
+#define DATA_BYTES_EEPROM 4
+
+/* Define configurations to save in EEPROM */
+//Configuration ON-OFF
+#define ON_TEMP  0b10000000
+#define OFF_TEMP 0b01000000
+//ON-OFF ACC + FSR config is saved in LIS3DH_CTRL_REG4
+//SF config is saved in LIS3DH_CTRL_REG1
+
+/* Define addresses in EEPROM */
+//Configurations for accelerometer address
+#define ACC_CONFIG_ONOFF_FSR 0x0000
+#define ACC_CONFIG_SF  0x0001
+//Configuration ON-OFF for temperature mode address
+#define TEMP_ONOFF_ADD 0x0002
+//Counter for accelerometer data address
+#define COUNTER_ACC_ADD_H 0x0003 //MSB
+#define COUNTER_ACC_ADD_L 0x0004 //LSB
+//Counter for temperature data address
+#define COUNTER_TEMP_ADD_H 0x0005 //MSB
+#define COUNTER_TEMP_ADD_L 0x0006 //LSB
+//First accelerometer data address
+#define DATA_ACC 0x0007  //7
+//First temperature data address
+#define DATA_TEMP 0x4003 //16387
+//Highest address 0x7FFF //32767
 
 
 int main(void) {
