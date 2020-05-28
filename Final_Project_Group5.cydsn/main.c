@@ -218,7 +218,7 @@ int main(void) {
 
     for(;;){
         
-             //PROVA PER MULTIREAD:          
+        //PROVA PER MULTIREAD:          
         new_data = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
                 
         //sprintf(bufferUART, "********************\r\n");
@@ -291,6 +291,10 @@ int main(void) {
             {
                 EEPROM_writeByte(ONOFF_ADD, ON);
                 EEPROM_waitForWriteComplete();
+                // Read: making sure the writing was sussesful
+                data_read = EEPROM_readByte(ONOFF_ADD);   
+                sprintf(bufferUART, "** EEPROM Status ON-OFF = %d \r\n", data_read);
+                UART_1_PutBuffer;
             }
         }
         // if STOP
@@ -300,6 +304,10 @@ int main(void) {
             {
                 EEPROM_writeByte(ONOFF_ADD, OFF);
                 EEPROM_waitForWriteComplete();
+                // Read: making sure the writing was sussesful
+                data_read = EEPROM_readByte(ONOFF_ADD);   
+                sprintf(bufferUART, "** EEPROM Status ON-OFF = %d \r\n", data_read);
+                UART_1_PutBuffer;
             }
         }
         
@@ -362,10 +370,14 @@ int main(void) {
             
             EEPROM_waitForWriteComplete();
                     
-            // Read: making sure the writing was sussesful           serve farlo??? :(
-    //      uint8_t data_read = EEPROM_readByte(0x0000);   
-    //      sprintf(bufferUART, "** EEPROM Status = %d (%d)\r\n", data_read, data);
-    //      UART_1_PutBuffer;
+            // Read: making sure the writing was sussesful
+            data_read = EEPROM_readByte(ACC_CONFIG_FSR_AD);   
+            sprintf(bufferUART, "** EEPROM FSR = %d \r\n", data_read);
+            UART_1_PutBuffer;
+            data_read = EEPROM_readByte(ACC_CONFIG_SF_AD);   
+            sprintf(bufferUART, "** EEPROM SF = %d \r\n", data_read);
+            UART_1_PutBuffer;
+            
         }
         
         

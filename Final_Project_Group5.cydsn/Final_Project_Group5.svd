@@ -4336,9 +4336,18 @@
       </addressBlock>
       <registers>
         <register>
+          <name>TX_UART_1_TX_DATA</name>
+          <description>TX Data Register</description>
+          <addressOffset>0x4000644C</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
           <name>TX_UART_1_TX_STATUS</name>
           <description>TX status register</description>
-          <addressOffset>0x40006469</addressOffset>
+          <addressOffset>0x40006468</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4377,7 +4386,7 @@
         <register>
           <name>RX_UART_1_RX_ADDRESS1</name>
           <description>RX Address1 Register</description>
-          <addressOffset>0x4000652B</addressOffset>
+          <addressOffset>0x40006529</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4386,16 +4395,7 @@
         <register>
           <name>RX_UART_1_RX_ADDRESS2</name>
           <description>RX Address2 Register</description>
-          <addressOffset>0x4000653B</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>TX_UART_1_TX_DATA</name>
-          <description>TX Data Register</description>
-          <addressOffset>0x40006549</addressOffset>
+          <addressOffset>0x40006539</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4404,7 +4404,7 @@
         <register>
           <name>RX_UART_1_RX_DATA</name>
           <description>RX Data Register</description>
-          <addressOffset>0x4000654B</addressOffset>
+          <addressOffset>0x40006549</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4413,7 +4413,7 @@
         <register>
           <name>RX_UART_1_RX_STATUS</name>
           <description>RX status register</description>
-          <addressOffset>0x4000656A</addressOffset>
+          <addressOffset>0x40006569</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4483,41 +4483,18 @@
       </addressBlock>
       <registers>
         <register>
-          <name>PWM_OnboardLED_Control_Reg</name>
-          <description>UDB Control Register - Assigned Control Register Value</description>
-          <addressOffset>0x40006478</addressOffset>
+          <name>PWM_OnboardLED_COMPARE_Reg_</name>
+          <description>UDB.D0 - Assigned Compare Value</description>
+          <addressOffset>0x40006429</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0</resetMask>
-          <fields>
-            <field>
-              <name>CTRL_ENABLE</name>
-              <description>Enable the PWM</description>
-              <lsb>7</lsb>
-              <msb>7</msb>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CTRL_CMPMODE2</name>
-              <description>Compare mode 2</description>
-              <lsb>3</lsb>
-              <msb>5</msb>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CTRL_CMPMODE1</name>
-              <description>Compare mode 1</description>
-              <lsb>0</lsb>
-              <msb>2</msb>
-              <access>read-write</access>
-            </field>
-          </fields>
         </register>
         <register>
           <name>PWM_OnboardLED_STATUS_MASK</name>
           <description>UDB Status bits Interrupt Mask Enable Register</description>
-          <addressOffset>0x40006488</addressOffset>
+          <addressOffset>0x40006489</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4561,18 +4538,9 @@
           </fields>
         </register>
         <register>
-          <name>PWM_OnboardLED_COMPARE_Reg_</name>
-          <description>UDB.D0 - Assigned Compare Value</description>
-          <addressOffset>0x40006527</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
           <name>PWM_OnboardLED_STATUS_AUX_CTRL</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x40006597</addressOffset>
+          <addressOffset>0x40006499</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4691,6 +4659,38 @@
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>PWM_OnboardLED_Control_Reg</name>
+          <description>UDB Control Register - Assigned Control Register Value</description>
+          <addressOffset>0x40006578</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>CTRL_ENABLE</name>
+              <description>Enable the PWM</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CTRL_CMPMODE2</name>
+              <description>Compare mode 2</description>
+              <lsb>3</lsb>
+              <msb>5</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CTRL_CMPMODE1</name>
+              <description>Compare mode 1</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
             </field>
           </fields>
         </register>
