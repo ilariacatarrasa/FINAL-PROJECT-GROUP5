@@ -193,13 +193,14 @@ int main(void) {
     /**/
 
     // Variables definitions
-    uint8_t new_data;
-    uint8_t data[DATA_BYTES];
+    uint8_t data[DATA_BYTES]; //
     uint8_t data_EEPROM[DATA_BYTES_EEPROM];
     uint8_t counter=0;
     char ZEROARRAY[64] = {0};
     int i=0;
-    uint8_t data_read;
+    uint8_t data_read; //data read from EEPROM
+    uint8_t fifo_src_reg;
+    uint8_t FIFO_data[192];
     
     //save counter in EEPROM at the address of COUNTER_ADD
     EEPROM_writeByte(COUNTER_AD, counter);
@@ -215,60 +216,51 @@ int main(void) {
     
     // show the menu
     show_menu();
+    
+    //Cleaning FIFO buffer
+    uint8_t cleaning[6];
+    
+    while (ACC_readRegister(LIS3DH_FIFO_SRC_REG) == 0x20)
+    {
+        ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) cleaning, 6);
+    }
+    sprintf(bufferUART, "\r\n FIFO clean \r\n");
+    UART_1_PutBuffer;   
 
     for(;;){
         
-        //PROVA PER MULTIREAD:          
-        new_data = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
-                
-        //sprintf(bufferUART, "********************\r\n");
-        //UART_1_PutBuffer;
-        //data = ACC_readRegister(LIS3DH_OUT_X_H); 
-        if ( new_data & LIS3DH_FIFO_SRC_REG_OVRN_FIFO ) 
-        {             
-            ACC_Multi_Read(LIS3DH_OUT_X_L, &data[0], 6); 
-            sprintf(bufferUART, " data 0x%d %d %d\r\n", data[0], data[1], data[2]);             
-            UART_1_PutBuffer;
+            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
         
-       
-        }
-       
-                                
-        //sprintf(bufferUART, "********************\r\n");
-        //UART_1_PutBuffer;
-        //ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);            
-        //ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
-        //FINE PROVA PER MULTIREAD
-      
-        //new_data = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
-        //sprintf(bufferUART, " data 0x%02X  \r\n", INT1_Read());
-        //UART_1_PutBuffer;
- //       if ( new_data & LIS3DH_FIFO_SRC_REG_OVRN_FIFO ) //      
- //       {              
-            /* non funziona :
-//            for (i = 0; i<32; i++)
-            {
-                //ACC_Multi_Read(LIS3DH_OUT_X_L, &data[0], 6); 
-            
-            }
-            //DA PROVARE COME LA EEPROM DOPO*/          
-            
-//             UART_1_PutString(" Overrun occurred! \r\n");
-                        
-          
-/*        }
-        else
-        {               
-            data[0] = ACC_readRegister(LIS3DH_OUT_Z_L);
-            data[1] = ACC_readRegister(LIS3DH_OUT_Z_H);
-            if (data[0]||data[1] != 0)
-            {
-                sprintf(bufferUART, " data 0x%02X 0x%02X \r\n", data[0], data[1]);
+//        sprintf(bufferUART, " data 0x%02X  \r\n", fifo_src_reg);
+//        UART_1_PutBuffer;
+               
+        
+            if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO )       
+               {              
+                ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) FIFO_data, 192); 
+                
+                fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
+                sprintf(bufferUART, " fifo_src_reg dopo la multiread 0x%02X  \r\n", fifo_src_reg);
                 UART_1_PutBuffer;
-            }
-            //sprintf(bufferUART, " OVerrun not occurred 0x%02X \r\n", new_data);
-            //UART_1_PutBuffer;            
-       }*/
+                
+                sprintf(bufferUART, " Primi 63 valori del buffer: \r\n");
+                UART_1_PutBuffer;   
+                    
+                for (uint i=0; i<192; i++)
+                {
+                    sprintf(bufferUART, " %d ", FIFO_data[i]);
+                    UART_1_PutBuffer;
+                }
+                
+                                    
+                ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
+                CyDelayUs(2);
+                ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
+                
+                fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
+                sprintf(bufferUART, "\r\n fifo_src_reg dopo il reset 0x%02X  \r\n", fifo_src_reg);
+                UART_1_PutBuffer;
+        }
         
         /* EEPROM */
         
@@ -378,12 +370,7 @@ int main(void) {
             sprintf(bufferUART, "** EEPROM SF = %d \r\n", data_read);
             UART_1_PutBuffer;
             
-        }
-        
-        
-        
-        
-        
+        }           
 }
     
 }
