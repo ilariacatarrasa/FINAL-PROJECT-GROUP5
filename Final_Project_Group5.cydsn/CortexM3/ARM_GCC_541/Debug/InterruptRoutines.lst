@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
   28:InterruptRoutines.c **** /* EEPROM 25LC256 Library */
   29:InterruptRoutines.c **** #include "25LC256.h"
   30:InterruptRoutines.c **** 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 2
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 2
 
 
   31:InterruptRoutines.c **** // Variabile declaration
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
   61 000c 37D1     		bne	.L2
   52:InterruptRoutines.c ****     {
   53:InterruptRoutines.c ****         value_digit=ADC_DelSig_Read32(); // Read value in ADC
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 3
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 3
 
 
   62              		.loc 1 53 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  106 0058 094B     		ldr	r3, .L8
  107 005a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
  108 005c 012B     		cmp	r3, #1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 4
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 4
 
 
  109 005e 0BD1     		bne	.L6
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  153              		.cfi_offset 4, -8
  154              		.cfi_offset 14, -4
   74:InterruptRoutines.c ****     ch_received=UART_1_GetChar();
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 5
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 5
 
 
  155              		.loc 1 74 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  208 006a EE01     		.2byte	(.L10-.L13)/2
  209 006c EE01     		.2byte	(.L10-.L13)/2
  210 006e EE01     		.2byte	(.L10-.L13)/2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 6
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 6
 
 
  211 0070 EE01     		.2byte	(.L10-.L13)/2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
   90:InterruptRoutines.c ****             //Onboard LED tells the user that data acquisition is ON
   91:InterruptRoutines.c ****             PWM_OnboardLED_WritePeriod(255);  //1s period
  251              		.loc 1 91 0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 7
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 7
 
 
  252 00b2 FF20     		movs	r0, #255
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  118:InterruptRoutines.c ****             if (TemperatureMode==0)
  280              		.loc 1 118 0
  281 00d8 794B     		ldr	r3, .L50+8
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 8
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 8
 
 
  282 00da 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  323 0118 FFF7FEFF 		bl	UART_1_PutString
  324              	.LVL20:
  132:InterruptRoutines.c ****                 UART_1_PutString("4           | +- 16g \r\n");
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 9
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 9
 
 
  325              		.loc 1 132 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  361 014c 2046     		mov	r0, r4
  362 014e FFF7FEFF 		bl	UART_1_PutString
  363              	.LVL24:
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 10
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 10
 
 
  151:InterruptRoutines.c ****             UART_1_PutString("Character       | Sampling Frequency \r\n");
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  407 0192 1A70     		strb	r2, [r3]
  162:InterruptRoutines.c ****               
  163:InterruptRoutines.c ****         break;
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 11
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 11
 
 
  408              		.loc 1 163 0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  443              	.L28:
  183:InterruptRoutines.c ****             }
  184:InterruptRoutines.c ****             if (SamplingFreqFlag==5) // 1Hz
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 12
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 12
 
 
  444              		.loc 1 184 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  205:InterruptRoutines.c ****         // 2 command on UART
  206:InterruptRoutines.c ****         case '2':
  207:InterruptRoutines.c ****             if (FSRFlag==5) // +- 4g
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 13
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 13
 
 
  478              		.loc 1 207 0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  513 0232 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  514 0234 DBB2     		uxtb	r3, r3
  515 0236 052B     		cmp	r3, #5
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 14
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 14
 
 
  516 0238 40F0DB80 		bne	.L10
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  547 0268 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  548 026a DBB2     		uxtb	r3, r3
  549 026c 052B     		cmp	r3, #5
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 15
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 15
 
 
  550 026e 13D1     		bne	.L38
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  270:InterruptRoutines.c ****                 // Read register
  271:InterruptRoutines.c ****                 // communicate on UART if this freq is already setted
  272:InterruptRoutines.c ****                 if ( ACC_readRegister(LIS3DH_CTRL_REG1) & LIS3DH_CTRL_REG1_ODR_START_25HZ )
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 16
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 16
 
 
  584              		.loc 1 272 0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  281:InterruptRoutines.c ****                 }
  282:InterruptRoutines.c ****                 
  283:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 17
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 17
 
 
  284:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  304:InterruptRoutines.c ****                 }
  305:InterruptRoutines.c ****                 
  306:InterruptRoutines.c ****                 // delate previous data in EEPROM + reset counter stooring data
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 18
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 18
 
 
  307:InterruptRoutines.c ****                 // save new configuration in EEPROM memory
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  697              		.loc 1 327 0
  698 0380 0422     		movs	r2, #4
  699 0382 1D4B     		ldr	r3, .L52+4
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 19
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 19
 
 
  700 0384 1A70     		strb	r2, [r3]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  357:InterruptRoutines.c ****         case 'T':
  358:InterruptRoutines.c ****         case 't':
  359:InterruptRoutines.c ****             /* SHOW TEMPERATURE MENU' ON UART*/
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 20
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 20
 
 
  360:InterruptRoutines.c ****             UART_1_PutString("Store the temperature data \r\n");
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  374:InterruptRoutines.c ****         case 'c':
  375:InterruptRoutines.c ****             if (TemperatureMode==1)
  765              		.loc 1 375 0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 21
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 21
 
 
  766 03de 0E4B     		ldr	r3, .L52+36
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  812      20746865 
  813 0033 200D0A00 		.ascii	" \015\012\000"
  814 0037 00       		.space	1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 22
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 22
 
 
  815              	.LC1:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  838      2D2D2D2D 
  838      2D2D2D2D 
  838      2D2D2D2D 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 23
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 23
 
 
  839 0163 2D2D2D0D 		.ascii	"---\015\012\000"
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  863      65207468 
  863      65207465 
  863      6D706572 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 24
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 24
 
 
  863      61747572 
@@ -1436,20 +1436,20 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  903 0006 00000000 		.4byte	.Ldebug_abbrev0
  904 000a 04       		.byte	0x4
  905 000b 01       		.uleb128 0x1
- 906 000c E3010000 		.4byte	.LASF48
+ 906 000c E1010000 		.4byte	.LASF48
  907 0010 0C       		.byte	0xc
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 25
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 25
 
 
- 908 0011 77030000 		.4byte	.LASF49
- 909 0015 48000000 		.4byte	.LASF50
+ 908 0011 75030000 		.4byte	.LASF49
+ 909 0015 D6000000 		.4byte	.LASF50
  910 0019 00000000 		.4byte	.Ldebug_ranges0+0
  911 001d 00000000 		.4byte	0
  912 0021 00000000 		.4byte	.Ldebug_line0
  913 0025 02       		.uleb128 0x2
  914 0026 01       		.byte	0x1
  915 0027 06       		.byte	0x6
- 916 0028 21030000 		.4byte	.LASF0
+ 916 0028 1F030000 		.4byte	.LASF0
  917 002c 03       		.uleb128 0x3
  918 002d 00000000 		.4byte	.LASF4
  919 0031 02       		.byte	0x2
@@ -1458,36 +1458,36 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  922 0037 02       		.uleb128 0x2
  923 0038 01       		.byte	0x1
  924 0039 08       		.byte	0x8
- 925 003a F3000000 		.4byte	.LASF1
+ 925 003a BE000000 		.4byte	.LASF1
  926 003e 02       		.uleb128 0x2
  927 003f 02       		.byte	0x2
  928 0040 05       		.byte	0x5
- 929 0041 BF020000 		.4byte	.LASF2
+ 929 0041 BD020000 		.4byte	.LASF2
  930 0045 02       		.uleb128 0x2
  931 0046 02       		.byte	0x2
  932 0047 07       		.byte	0x7
- 933 0048 99000000 		.4byte	.LASF3
+ 933 0048 64000000 		.4byte	.LASF3
  934 004c 03       		.uleb128 0x3
- 935 004d 3E000000 		.4byte	.LASF5
+ 935 004d 41000000 		.4byte	.LASF5
  936 0051 02       		.byte	0x2
  937 0052 3F       		.byte	0x3f
  938 0053 57000000 		.4byte	0x57
  939 0057 02       		.uleb128 0x2
  940 0058 04       		.byte	0x4
  941 0059 05       		.byte	0x5
- 942 005a DE020000 		.4byte	.LASF6
+ 942 005a DC020000 		.4byte	.LASF6
  943 005e 02       		.uleb128 0x2
  944 005f 04       		.byte	0x4
  945 0060 07       		.byte	0x7
- 946 0061 27010000 		.4byte	.LASF7
+ 946 0061 25010000 		.4byte	.LASF7
  947 0065 02       		.uleb128 0x2
  948 0066 08       		.byte	0x8
  949 0067 05       		.byte	0x5
- 950 0068 98020000 		.4byte	.LASF8
+ 950 0068 96020000 		.4byte	.LASF8
  951 006c 02       		.uleb128 0x2
  952 006d 08       		.byte	0x8
  953 006e 07       		.byte	0x7
- 954 006f 8E010000 		.4byte	.LASF9
+ 954 006f 8C010000 		.4byte	.LASF9
  955 0073 04       		.uleb128 0x4
  956 0074 04       		.byte	0x4
  957 0075 05       		.byte	0x5
@@ -1495,54 +1495,54 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  959 007a 02       		.uleb128 0x2
  960 007b 04       		.byte	0x4
  961 007c 07       		.byte	0x7
- 962 007d 71010000 		.4byte	.LASF10
+ 962 007d 6F010000 		.4byte	.LASF10
  963 0081 03       		.uleb128 0x3
- 964 0082 A5010000 		.4byte	.LASF11
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 26
+ 964 0082 A3010000 		.4byte	.LASF11
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 26
 
 
  965 0086 03       		.byte	0x3
  966 0087 18       		.byte	0x18
  967 0088 2C000000 		.4byte	0x2c
  968 008c 03       		.uleb128 0x3
- 969 008d BF000000 		.4byte	.LASF12
+ 969 008d 8A000000 		.4byte	.LASF12
  970 0091 03       		.byte	0x3
  971 0092 2C       		.byte	0x2c
  972 0093 4C000000 		.4byte	0x4c
  973 0097 05       		.uleb128 0x5
- 974 0098 D8020000 		.4byte	.LASF13
+ 974 0098 D6020000 		.4byte	.LASF13
  975 009c 04       		.byte	0x4
  976 009d E401     		.2byte	0x1e4
  977 009f 37000000 		.4byte	0x37
  978 00a3 05       		.uleb128 0x5
- 979 00a4 39010000 		.4byte	.LASF14
+ 979 00a4 37010000 		.4byte	.LASF14
  980 00a8 04       		.byte	0x4
  981 00a9 E901     		.2byte	0x1e9
  982 00ab 57000000 		.4byte	0x57
  983 00af 02       		.uleb128 0x2
  984 00b0 04       		.byte	0x4
  985 00b1 04       		.byte	0x4
- 986 00b2 DD000000 		.4byte	.LASF15
+ 986 00b2 A8000000 		.4byte	.LASF15
  987 00b6 02       		.uleb128 0x2
  988 00b7 08       		.byte	0x8
  989 00b8 04       		.byte	0x4
- 990 00b9 4C010000 		.4byte	.LASF16
+ 990 00b9 4A010000 		.4byte	.LASF16
  991 00bd 02       		.uleb128 0x2
  992 00be 01       		.byte	0x1
  993 00bf 08       		.byte	0x8
- 994 00c0 E7020000 		.4byte	.LASF17
+ 994 00c0 E5020000 		.4byte	.LASF17
  995 00c4 06       		.uleb128 0x6
  996 00c5 97000000 		.4byte	0x97
  997 00c9 02       		.uleb128 0x2
  998 00ca 08       		.byte	0x8
  999 00cb 04       		.byte	0x4
- 1000 00cc FA020000 		.4byte	.LASF18
+ 1000 00cc F8020000 		.4byte	.LASF18
  1001 00d0 02       		.uleb128 0x2
  1002 00d1 04       		.byte	0x4
  1003 00d2 07       		.byte	0x7
- 1004 00d3 7D020000 		.4byte	.LASF19
+ 1004 00d3 7B020000 		.4byte	.LASF19
  1005 00d7 07       		.uleb128 0x7
- 1006 00d8 AD010000 		.4byte	.LASF51
+ 1006 00d8 AB010000 		.4byte	.LASF51
  1007 00dc 01       		.byte	0x1
  1008 00dd 29       		.byte	0x29
  1009 00de 00000000 		.4byte	.LFB64
@@ -1550,7 +1550,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1011 00e6 01       		.uleb128 0x1
  1012 00e7 9C       		.byte	0x9c
  1013 00e8 08       		.uleb128 0x8
- 1014 00e9 2F000000 		.4byte	.LASF20
+ 1014 00e9 32000000 		.4byte	.LASF20
  1015 00ed 01       		.byte	0x1
  1016 00ee 2E       		.byte	0x2e
  1017 00ef 00000000 		.4byte	.LFB65
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1019 00f7 01       		.uleb128 0x1
  1020 00f8 9C       		.byte	0x9c
  1021 00f9 19010000 		.4byte	0x119
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 27
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 27
 
 
  1022 00fd 09       		.uleb128 0x9
@@ -1572,7 +1572,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1030 0114 8E080000 		.4byte	0x88e
  1031 0118 00       		.byte	0
  1032 0119 08       		.uleb128 0x8
- 1033 011a A6020000 		.4byte	.LASF21
+ 1033 011a A4020000 		.4byte	.LASF21
  1034 011e 01       		.byte	0x1
  1035 011f 48       		.byte	0x48
  1036 0120 00000000 		.4byte	.LFB66
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1076 017b D0000000 		.4byte	.LVL9
  1077 017f BA080000 		.4byte	0x8ba
  1078 0183 8E010000 		.4byte	0x18e
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 28
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 28
 
 
  1079 0187 0B       		.uleb128 0xb
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1133 01ed F8010000 		.4byte	0x1f8
  1134 01f1 0B       		.uleb128 0xb
  1135 01f2 01       		.uleb128 0x1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 29
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 29
 
 
  1136 01f3 50       		.byte	0x50
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1190 025c 01       		.uleb128 0x1
  1191 025d 50       		.byte	0x50
  1192 025e 05       		.uleb128 0x5
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 30
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 30
 
 
  1193 025f 03       		.byte	0x3
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1247 02cb 02       		.uleb128 0x2
  1248 02cc 74       		.byte	0x74
  1249 02cd 00       		.sleb128 0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 31
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 31
 
 
  1250 02ce 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1304 0337 B0010000 		.4byte	.LC11
  1305 033b 00       		.byte	0
  1306 033c 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 32
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 32
 
 
  1307 033d 76010000 		.4byte	.LVL30
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1361 03a6 0A       		.uleb128 0xa
  1362 03a7 A6010000 		.4byte	.LVL35
  1363 03ab E6080000 		.4byte	0x8e6
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 33
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 33
 
 
  1364 03af BA030000 		.4byte	0x3ba
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1418 0412 02       		.uleb128 0x2
  1419 0413 08       		.byte	0x8
  1420 0414 20       		.byte	0x20
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 34
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 34
 
 
  1421 0415 00       		.byte	0
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1475 047e 0B       		.uleb128 0xb
  1476 047f 01       		.uleb128 0x1
  1477 0480 50       		.byte	0x50
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 35
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 35
 
 
  1478 0481 05       		.uleb128 0x5
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1532 04e4 0A       		.uleb128 0xa
  1533 04e5 58020000 		.4byte	.LVL49
  1534 04e9 F1080000 		.4byte	0x8f1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 36
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 36
 
 
  1535 04ed FE040000 		.4byte	0x4fe
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1589 0550 02       		.uleb128 0x2
  1590 0551 08       		.byte	0x8
  1591 0552 23       		.byte	0x23
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 37
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 37
 
 
  1592 0553 0B       		.uleb128 0xb
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1646 05b3 08       		.byte	0x8
  1647 05b4 37       		.byte	0x37
  1648 05b5 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 38
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 38
 
 
  1649 05b6 0A       		.uleb128 0xa
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1703 061f 0B       		.uleb128 0xb
  1704 0620 01       		.uleb128 0x1
  1705 0621 50       		.byte	0x50
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 39
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 39
 
 
  1706 0622 05       		.uleb128 0x5
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1760 0685 0A       		.uleb128 0xa
  1761 0686 8E030000 		.4byte	.LVL67
  1762 068a BA080000 		.4byte	0x8ba
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 40
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 40
 
 
  1763 068e 99060000 		.4byte	0x699
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1817 06f7 01       		.uleb128 0x1
  1818 06f8 50       		.byte	0x50
  1819 06f9 02       		.uleb128 0x2
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 41
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 41
 
 
  1820 06fa 74       		.byte	0x74
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1874 0763 05       		.uleb128 0x5
  1875 0764 03       		.byte	0x3
  1876 0765 D0020000 		.4byte	.LC19
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 42
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 42
 
 
  1877 0769 00       		.byte	0
@@ -2481,7 +2481,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1894 0789 09       		.byte	0x9
  1895 078a 00       		.byte	0
  1896 078b 0F       		.uleb128 0xf
- 1897 078c B4020000 		.4byte	.LASF22
+ 1897 078c B2020000 		.4byte	.LASF22
  1898 0790 05       		.byte	0x5
  1899 0791 2F       		.byte	0x2f
  1900 0792 7B070000 		.4byte	0x77b
@@ -2489,7 +2489,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1902 0797 03       		.byte	0x3
  1903 0798 00000000 		.4byte	DataBuffer
  1904 079c 0F       		.uleb128 0xf
- 1905 079d E3000000 		.4byte	.LASF23
+ 1905 079d AE000000 		.4byte	.LASF23
  1906 07a1 05       		.byte	0x5
  1907 07a2 2B       		.byte	0x2b
  1908 07a3 C4000000 		.4byte	0xc4
@@ -2497,7 +2497,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1910 07a8 03       		.byte	0x3
  1911 07a9 00000000 		.4byte	PacketReadyFlag
  1912 07ad 0F       		.uleb128 0xf
- 1913 07ae AC000000 		.4byte	.LASF24
+ 1913 07ae 77000000 		.4byte	.LASF24
  1914 07b2 05       		.byte	0x5
  1915 07b3 2C       		.byte	0x2c
  1916 07b4 C4000000 		.4byte	0xc4
@@ -2505,7 +2505,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1918 07b9 03       		.byte	0x3
  1919 07ba 00000000 		.4byte	StartFlag
  1920 07be 0F       		.uleb128 0xf
- 1921 07bf 6F030000 		.4byte	.LASF25
+ 1921 07bf 6D030000 		.4byte	.LASF25
  1922 07c3 05       		.byte	0x5
  1923 07c4 2D       		.byte	0x2d
  1924 07c5 C4000000 		.4byte	0xc4
@@ -2513,25 +2513,25 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1926 07ca 03       		.byte	0x3
  1927 07cb 00000000 		.4byte	FSRFlag
  1928 07cf 0F       		.uleb128 0xf
- 1929 07d0 2D030000 		.4byte	.LASF26
+ 1929 07d0 2B030000 		.4byte	.LASF26
  1930 07d4 05       		.byte	0x5
  1931 07d5 2E       		.byte	0x2e
  1932 07d6 C4000000 		.4byte	0xc4
  1933 07da 05       		.uleb128 0x5
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 43
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 43
 
 
  1934 07db 03       		.byte	0x3
  1935 07dc 00000000 		.4byte	SamplingFreqFlag
  1936 07e0 10       		.uleb128 0x10
- 1937 07e1 3F010000 		.4byte	.LASF27
+ 1937 07e1 3D010000 		.4byte	.LASF27
  1938 07e5 06       		.byte	0x6
  1939 07e6 1207     		.2byte	0x712
  1940 07e8 EC070000 		.4byte	0x7ec
  1941 07ec 06       		.uleb128 0x6
  1942 07ed 8C000000 		.4byte	0x8c
  1943 07f1 0F       		.uleb128 0xf
- 1944 07f2 71020000 		.4byte	.LASF28
+ 1944 07f2 6F020000 		.4byte	.LASF28
  1945 07f6 01       		.byte	0x1
  1946 07f7 20       		.byte	0x20
  1947 07f8 97000000 		.4byte	0x97
@@ -2539,7 +2539,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1949 07fd 03       		.byte	0x3
  1950 07fe 00000000 		.4byte	ch_received
  1951 0802 0F       		.uleb128 0xf
- 1952 0803 7E010000 		.4byte	.LASF29
+ 1952 0803 7C010000 		.4byte	.LASF29
  1953 0807 01       		.byte	0x1
  1954 0808 21       		.byte	0x21
  1955 0809 97000000 		.4byte	0x97
@@ -2547,7 +2547,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1957 080e 03       		.byte	0x3
  1958 080f 00000000 		.4byte	TemperatureMode
  1959 0813 0F       		.uleb128 0xf
- 1960 0814 C9020000 		.4byte	.LASF30
+ 1960 0814 C7020000 		.4byte	.LASF30
  1961 0818 01       		.byte	0x1
  1962 0819 22       		.byte	0x22
  1963 081a 97000000 		.4byte	0x97
@@ -2555,7 +2555,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1965 081f 03       		.byte	0x3
  1966 0820 00000000 		.4byte	FahrenheitFlag
  1967 0824 0F       		.uleb128 0xf
- 1968 0825 D8010000 		.4byte	.LASF31
+ 1968 0825 D6010000 		.4byte	.LASF31
  1969 0829 01       		.byte	0x1
  1970 082a 23       		.byte	0x23
  1971 082b 73000000 		.4byte	0x73
@@ -2563,7 +2563,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1973 0830 03       		.byte	0x3
  1974 0831 00000000 		.4byte	value_temp
  1975 0835 0F       		.uleb128 0xf
- 1976 0836 23000000 		.4byte	.LASF32
+ 1976 0836 26000000 		.4byte	.LASF32
  1977 083a 01       		.byte	0x1
  1978 083b 24       		.byte	0x24
  1979 083c A3000000 		.4byte	0xa3
@@ -2571,14 +2571,14 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1981 0841 03       		.byte	0x3
  1982 0842 00000000 		.4byte	value_digit
  1983 0846 0F       		.uleb128 0xf
- 1984 0847 B6000000 		.4byte	.LASF33
+ 1984 0847 81000000 		.4byte	.LASF33
  1985 084b 01       		.byte	0x1
  1986 084c 25       		.byte	0x25
  1987 084d 73000000 		.4byte	0x73
  1988 0851 05       		.uleb128 0x5
  1989 0852 03       		.byte	0x3
  1990 0853 00000000 		.4byte	value_mv
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 44
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 44
 
 
  1991 0857 0D       		.uleb128 0xd
@@ -2589,7 +2589,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  1996 0865 03       		.byte	0x3
  1997 0866 00       		.byte	0
  1998 0867 0F       		.uleb128 0xf
- 1999 0868 D2000000 		.4byte	.LASF34
+ 1999 0868 9D000000 		.4byte	.LASF34
  2000 086c 01       		.byte	0x1
  2001 086d 27       		.byte	0x27
  2002 086e 57080000 		.4byte	0x857
@@ -2597,71 +2597,71 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  2004 0873 03       		.byte	0x3
  2005 0874 00000000 		.4byte	data_start
  2006 0878 11       		.uleb128 0x11
- 2007 0879 0A000000 		.4byte	.LASF35
- 2008 087d 0A000000 		.4byte	.LASF35
+ 2007 0879 4B000000 		.4byte	.LASF35
+ 2008 087d 4B000000 		.4byte	.LASF35
  2009 0881 07       		.byte	0x7
  2010 0882 5E       		.byte	0x5e
  2011 0883 11       		.uleb128 0x11
- 2012 0884 86020000 		.4byte	.LASF36
- 2013 0888 86020000 		.4byte	.LASF36
+ 2012 0884 84020000 		.4byte	.LASF36
+ 2013 0888 84020000 		.4byte	.LASF36
  2014 088c 08       		.byte	0x8
  2015 088d 56       		.byte	0x56
  2016 088e 11       		.uleb128 0x11
- 2017 088f BD010000 		.4byte	.LASF37
- 2018 0893 BD010000 		.4byte	.LASF37
+ 2017 088f BB010000 		.4byte	.LASF37
+ 2018 0893 BB010000 		.4byte	.LASF37
  2019 0897 08       		.byte	0x8
  2020 0898 47       		.byte	0x47
  2021 0899 11       		.uleb128 0x11
- 2022 089a 60030000 		.4byte	.LASF38
- 2023 089e 60030000 		.4byte	.LASF38
+ 2022 089a 5E030000 		.4byte	.LASF38
+ 2023 089e 5E030000 		.4byte	.LASF38
  2024 08a2 09       		.byte	0x9
  2025 08a3 71       		.byte	0x71
  2026 08a4 11       		.uleb128 0x11
- 2027 08a5 01010000 		.4byte	.LASF39
- 2028 08a9 01010000 		.4byte	.LASF39
+ 2027 08a5 CC000000 		.4byte	.LASF39
+ 2028 08a9 CC000000 		.4byte	.LASF39
  2029 08ad 0A       		.byte	0xa
  2030 08ae 12       		.byte	0x12
  2031 08af 11       		.uleb128 0x11
- 2032 08b0 65010000 		.4byte	.LASF40
- 2033 08b4 65010000 		.4byte	.LASF40
+ 2032 08b0 63010000 		.4byte	.LASF40
+ 2033 08b4 63010000 		.4byte	.LASF40
  2034 08b8 07       		.byte	0x7
  2035 08b9 5A       		.byte	0x5a
  2036 08ba 11       		.uleb128 0x11
- 2037 08bb 06030000 		.4byte	.LASF41
- 2038 08bf 06030000 		.4byte	.LASF41
+ 2037 08bb 04030000 		.4byte	.LASF41
+ 2038 08bf 04030000 		.4byte	.LASF41
  2039 08c3 0B       		.byte	0xb
  2040 08c4 BE       		.byte	0xbe
  2041 08c5 11       		.uleb128 0x11
- 2042 08c6 0B010000 		.4byte	.LASF42
- 2043 08ca 0B010000 		.4byte	.LASF42
+ 2042 08c6 0A000000 		.4byte	.LASF42
+ 2043 08ca 0A000000 		.4byte	.LASF42
  2044 08ce 0B       		.byte	0xb
  2045 08cf C3       		.byte	0xc3
  2046 08d0 11       		.uleb128 0x11
- 2047 08d1 C7000000 		.4byte	.LASF43
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 45
+ 2047 08d1 92000000 		.4byte	.LASF43
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 45
 
 
- 2048 08d5 C7000000 		.4byte	.LASF43
+ 2048 08d5 92000000 		.4byte	.LASF43
  2049 08d9 07       		.byte	0x7
  2050 08da 5B       		.byte	0x5b
  2051 08db 11       		.uleb128 0x11
- 2052 08dc 3E030000 		.4byte	.LASF44
- 2053 08e0 3E030000 		.4byte	.LASF44
+ 2052 08dc 3C030000 		.4byte	.LASF44
+ 2053 08e0 3C030000 		.4byte	.LASF44
  2054 08e4 09       		.byte	0x9
  2055 08e5 8B       		.byte	0x8b
  2056 08e6 11       		.uleb128 0x11
- 2057 08e7 4F030000 		.4byte	.LASF45
- 2058 08eb 4F030000 		.4byte	.LASF45
+ 2057 08e7 4D030000 		.4byte	.LASF45
+ 2058 08eb 4D030000 		.4byte	.LASF45
  2059 08ef 0C       		.byte	0xc
  2060 08f0 75       		.byte	0x75
  2061 08f1 11       		.uleb128 0x11
- 2062 08f2 53010000 		.4byte	.LASF46
- 2063 08f6 53010000 		.4byte	.LASF46
+ 2062 08f2 51010000 		.4byte	.LASF46
+ 2063 08f6 51010000 		.4byte	.LASF46
  2064 08fa 0C       		.byte	0xc
  2065 08fb 6D       		.byte	0x6d
  2066 08fc 11       		.uleb128 0x11
- 2067 08fd EC020000 		.4byte	.LASF47
- 2068 0901 EC020000 		.4byte	.LASF47
+ 2067 08fd EA020000 		.4byte	.LASF47
+ 2068 0901 EA020000 		.4byte	.LASF47
  2069 0905 0D       		.byte	0xd
  2070 0906 26       		.byte	0x26
  2071 0907 00       		.byte	0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  2102 001c 00       		.byte	0
  2103 001d 00       		.byte	0
  2104 001e 03       		.uleb128 0x3
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 46
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 46
 
 
  2105 001f 16       		.uleb128 0x16
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  2159 0055 27       		.uleb128 0x27
  2160 0056 19       		.uleb128 0x19
  2161 0057 11       		.uleb128 0x11
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 47
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 47
 
 
  2162 0058 01       		.uleb128 0x1
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  2216 0094 0B       		.uleb128 0xb
  2217 0095 8A8201   		.uleb128 0x410a
  2218 0098 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 48
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 48
 
 
  2219 0099 02       		.uleb128 0x2
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  2273 00d2 0E       		.uleb128 0xe
  2274 00d3 3A       		.uleb128 0x3a
  2275 00d4 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 49
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 49
 
 
  2276 00d5 3B       		.uleb128 0x3b
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  2330              		.section	.debug_line,"",%progbits
  2331              	.Ldebug_line0:
  2332 0000 99020000 		.section	.debug_str,"MS",%progbits,1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 50
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 50
 
 
  2332      0200D301 
@@ -2949,267 +2949,267 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 1
  2334 0000 5F5F7569 		.ascii	"__uint8_t\000"
  2334      6E74385F 
  2334      7400
- 2335              	.LASF35:
- 2336 000a 54696D65 		.ascii	"Timer_ReadStatusRegister\000"
- 2336      725F5265 
- 2336      61645374 
- 2336      61747573 
- 2336      52656769 
+ 2335              	.LASF42:
+ 2336 000a 50574D5F 		.ascii	"PWM_OnboardLED_WriteCompare\000"
+ 2336      4F6E626F 
+ 2336      6172644C 
+ 2336      45445F57 
+ 2336      72697465 
  2337              	.LASF32:
- 2338 0023 76616C75 		.ascii	"value_digit\000"
+ 2338 0026 76616C75 		.ascii	"value_digit\000"
  2338      655F6469 
  2338      67697400 
  2339              	.LASF20:
- 2340 002f 43757374 		.ascii	"Custom_ISR_ADC\000"
+ 2340 0032 43757374 		.ascii	"Custom_ISR_ADC\000"
  2340      6F6D5F49 
  2340      53525F41 
  2340      444300
  2341              	.LASF5:
- 2342 003e 5F5F696E 		.ascii	"__int32_t\000"
+ 2342 0041 5F5F696E 		.ascii	"__int32_t\000"
  2342      7433325F 
  2342      7400
- 2343              	.LASF50:
- 2344 0048 433A5C55 		.ascii	"C:\\Users\\Ilaria\\Documents\\GitHub\\FINAL-PROJECT"
- 2344      73657273 
- 2344      5C496C61 
- 2344      7269615C 
- 2344      446F6375 
- 2345 0076 2D47524F 		.ascii	"-GROUP5\\Final_Project_Group5.cydsn\000"
- 2345      5550355C 
- 2345      46696E61 
- 2345      6C5F5072 
- 2345      6F6A6563 
- 2346              	.LASF3:
- 2347 0099 73686F72 		.ascii	"short unsigned int\000"
- 2347      7420756E 
- 2347      7369676E 
- 2347      65642069 
- 2347      6E7400
- 2348              	.LASF24:
- 2349 00ac 53746172 		.ascii	"StartFlag\000"
- 2349      74466C61 
- 2349      6700
- 2350              	.LASF33:
- 2351 00b6 76616C75 		.ascii	"value_mv\000"
- 2351      655F6D76 
- 2351      00
- 2352              	.LASF12:
- 2353 00bf 696E7433 		.ascii	"int32_t\000"
- 2353      325F7400 
- 2354              	.LASF43:
- 2355 00c7 54696D65 		.ascii	"Timer_Stop\000"
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 51
+ 2343              	.LASF35:
+ 2344 004b 54696D65 		.ascii	"Timer_ReadStatusRegister\000"
+ 2344      725F5265 
+ 2344      61645374 
+ 2344      61747573 
+ 2344      52656769 
+ 2345              	.LASF3:
+ 2346 0064 73686F72 		.ascii	"short unsigned int\000"
+ 2346      7420756E 
+ 2346      7369676E 
+ 2346      65642069 
+ 2346      6E7400
+ 2347              	.LASF24:
+ 2348 0077 53746172 		.ascii	"StartFlag\000"
+ 2348      74466C61 
+ 2348      6700
+ 2349              	.LASF33:
+ 2350 0081 76616C75 		.ascii	"value_mv\000"
+ 2350      655F6D76 
+ 2350      00
+ 2351              	.LASF12:
+ 2352 008a 696E7433 		.ascii	"int32_t\000"
+ 2352      325F7400 
+ 2353              	.LASF43:
+ 2354 0092 54696D65 		.ascii	"Timer_Stop\000"
+ 2354      725F5374 
+ 2354      6F7000
+ 2355              	.LASF34:
+ 2356 009d 64617461 		.ascii	"data_start\000"
+ 2356      5F737461 
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 51
 
 
- 2355      725F5374 
- 2355      6F7000
- 2356              	.LASF34:
- 2357 00d2 64617461 		.ascii	"data_start\000"
- 2357      5F737461 
- 2357      727400
- 2358              	.LASF15:
- 2359 00dd 666C6F61 		.ascii	"float\000"
- 2359      7400
- 2360              	.LASF23:
- 2361 00e3 5061636B 		.ascii	"PacketReadyFlag\000"
- 2361      65745265 
- 2361      61647946 
- 2361      6C616700 
- 2362              	.LASF1:
- 2363 00f3 756E7369 		.ascii	"unsigned char\000"
- 2363      676E6564 
- 2363      20636861 
- 2363      7200
- 2364              	.LASF39:
- 2365 0101 73686F77 		.ascii	"show_menu\000"
- 2365      5F6D656E 
- 2365      7500
- 2366              	.LASF42:
- 2367 010b 50574D5F 		.ascii	"PWM_OnboardLED_WriteCompare\000"
- 2367      4F6E626F 
- 2367      6172644C 
- 2367      45445F57 
- 2367      72697465 
+ 2356      727400
+ 2357              	.LASF15:
+ 2358 00a8 666C6F61 		.ascii	"float\000"
+ 2358      7400
+ 2359              	.LASF23:
+ 2360 00ae 5061636B 		.ascii	"PacketReadyFlag\000"
+ 2360      65745265 
+ 2360      61647946 
+ 2360      6C616700 
+ 2361              	.LASF1:
+ 2362 00be 756E7369 		.ascii	"unsigned char\000"
+ 2362      676E6564 
+ 2362      20636861 
+ 2362      7200
+ 2363              	.LASF39:
+ 2364 00cc 73686F77 		.ascii	"show_menu\000"
+ 2364      5F6D656E 
+ 2364      7500
+ 2365              	.LASF50:
+ 2366 00d6 433A5C55 		.ascii	"C:\\Users\\User\\Documents\\GitHub\\FINAL-PROJECT-G"
+ 2366      73657273 
+ 2366      5C557365 
+ 2366      725C446F 
+ 2366      63756D65 
+ 2367 0104 524F5550 		.ascii	"ROUP5\\Final_Project_Group5.cydsn\000"
+ 2367      355C4669 
+ 2367      6E616C5F 
+ 2367      50726F6A 
+ 2367      6563745F 
  2368              	.LASF7:
- 2369 0127 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2369 0125 6C6F6E67 		.ascii	"long unsigned int\000"
  2369      20756E73 
  2369      69676E65 
  2369      6420696E 
  2369      7400
  2370              	.LASF14:
- 2371 0139 696E7433 		.ascii	"int32\000"
+ 2371 0137 696E7433 		.ascii	"int32\000"
  2371      3200
  2372              	.LASF27:
- 2373 013f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2373 013d 49544D5F 		.ascii	"ITM_RxBuffer\000"
  2373      52784275 
  2373      66666572 
  2373      00
  2374              	.LASF16:
- 2375 014c 646F7562 		.ascii	"double\000"
+ 2375 014a 646F7562 		.ascii	"double\000"
  2375      6C6500
  2376              	.LASF46:
- 2377 0153 4143435F 		.ascii	"ACC_writeRegister\000"
+ 2377 0151 4143435F 		.ascii	"ACC_writeRegister\000"
  2377      77726974 
  2377      65526567 
  2377      69737465 
  2377      7200
  2378              	.LASF40:
- 2379 0165 54696D65 		.ascii	"Timer_Start\000"
+ 2379 0163 54696D65 		.ascii	"Timer_Start\000"
  2379      725F5374 
  2379      61727400 
  2380              	.LASF10:
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 52
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 52
 
 
- 2381 0171 756E7369 		.ascii	"unsigned int\000"
+ 2381 016f 756E7369 		.ascii	"unsigned int\000"
  2381      676E6564 
  2381      20696E74 
  2381      00
  2382              	.LASF29:
- 2383 017e 54656D70 		.ascii	"TemperatureMode\000"
+ 2383 017c 54656D70 		.ascii	"TemperatureMode\000"
  2383      65726174 
  2383      7572654D 
  2383      6F646500 
  2384              	.LASF9:
- 2385 018e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2385 018c 6C6F6E67 		.ascii	"long long unsigned int\000"
  2385      206C6F6E 
  2385      6720756E 
  2385      7369676E 
  2385      65642069 
  2386              	.LASF11:
- 2387 01a5 75696E74 		.ascii	"uint8_t\000"
+ 2387 01a3 75696E74 		.ascii	"uint8_t\000"
  2387      385F7400 
  2388              	.LASF51:
- 2389 01ad 43757374 		.ascii	"Custom_isr_FIFO\000"
+ 2389 01ab 43757374 		.ascii	"Custom_isr_FIFO\000"
  2389      6F6D5F69 
  2389      73725F46 
  2389      49464F00 
  2390              	.LASF37:
- 2391 01bd 4144435F 		.ascii	"ADC_DelSig_CountsTo_mVolts\000"
+ 2391 01bb 4144435F 		.ascii	"ADC_DelSig_CountsTo_mVolts\000"
  2391      44656C53 
  2391      69675F43 
  2391      6F756E74 
  2391      73546F5F 
  2392              	.LASF31:
- 2393 01d8 76616C75 		.ascii	"value_temp\000"
+ 2393 01d6 76616C75 		.ascii	"value_temp\000"
  2393      655F7465 
  2393      6D7000
  2394              	.LASF48:
- 2395 01e3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2395 01e1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  2395      43313120 
  2395      352E342E 
  2395      31203230 
  2395      31363036 
- 2396 0216 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2396 0214 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  2396      20726576 
  2396      6973696F 
  2396      6E203233 
  2396      37373135 
- 2397 0249 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2397 0247 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  2397      66756E63 
  2397      74696F6E 
  2397      2D736563 
  2397      74696F6E 
  2398              	.LASF28:
- 2399 0271 63685F72 		.ascii	"ch_received\000"
+ 2399 026f 63685F72 		.ascii	"ch_received\000"
  2399      65636569 
  2399      76656400 
  2400              	.LASF19:
- 2401 027d 73697A65 		.ascii	"sizetype\000"
+ 2401 027b 73697A65 		.ascii	"sizetype\000"
  2401      74797065 
  2401      00
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 53
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 53
 
 
  2402              	.LASF36:
- 2403 0286 4144435F 		.ascii	"ADC_DelSig_Read32\000"
+ 2403 0284 4144435F 		.ascii	"ADC_DelSig_Read32\000"
  2403      44656C53 
  2403      69675F52 
  2403      65616433 
  2403      3200
  2404              	.LASF8:
- 2405 0298 6C6F6E67 		.ascii	"long long int\000"
+ 2405 0296 6C6F6E67 		.ascii	"long long int\000"
  2405      206C6F6E 
  2405      6720696E 
  2405      7400
  2406              	.LASF21:
- 2407 02a6 43757374 		.ascii	"Custom_ISR_RX\000"
+ 2407 02a4 43757374 		.ascii	"Custom_ISR_RX\000"
  2407      6F6D5F49 
  2407      53525F52 
  2407      5800
  2408              	.LASF22:
- 2409 02b4 44617461 		.ascii	"DataBuffer\000"
+ 2409 02b2 44617461 		.ascii	"DataBuffer\000"
  2409      42756666 
  2409      657200
  2410              	.LASF2:
- 2411 02bf 73686F72 		.ascii	"short int\000"
+ 2411 02bd 73686F72 		.ascii	"short int\000"
  2411      7420696E 
  2411      7400
  2412              	.LASF30:
- 2413 02c9 46616872 		.ascii	"FahrenheitFlag\000"
+ 2413 02c7 46616872 		.ascii	"FahrenheitFlag\000"
  2413      656E6865 
  2413      6974466C 
  2413      616700
  2414              	.LASF13:
- 2415 02d8 75696E74 		.ascii	"uint8\000"
+ 2415 02d6 75696E74 		.ascii	"uint8\000"
  2415      3800
  2416              	.LASF6:
- 2417 02de 6C6F6E67 		.ascii	"long int\000"
+ 2417 02dc 6C6F6E67 		.ascii	"long int\000"
  2417      20696E74 
  2417      00
  2418              	.LASF17:
- 2419 02e7 63686172 		.ascii	"char\000"
+ 2419 02e5 63686172 		.ascii	"char\000"
  2419      00
  2420              	.LASF47:
- 2421 02ec 4578745F 		.ascii	"Ext_LED_Write\000"
+ 2421 02ea 4578745F 		.ascii	"Ext_LED_Write\000"
  2421      4C45445F 
  2421      57726974 
  2421      6500
  2422              	.LASF18:
- 2423 02fa 6C6F6E67 		.ascii	"long double\000"
+ 2423 02f8 6C6F6E67 		.ascii	"long double\000"
  2423      20646F75 
  2423      626C6500 
  2424              	.LASF41:
- 2425 0306 50574D5F 		.ascii	"PWM_OnboardLED_WritePeriod\000"
+ 2425 0304 50574D5F 		.ascii	"PWM_OnboardLED_WritePeriod\000"
  2425      4F6E626F 
  2425      6172644C 
  2425      45445F57 
  2425      72697465 
  2426              	.LASF0:
- 2427 0321 7369676E 		.ascii	"signed char\000"
+ 2427 031f 7369676E 		.ascii	"signed char\000"
  2427      65642063 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\cc1hmbqf.s 			page 54
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccP1CXNd.s 			page 54
 
 
  2427      68617200 
  2428              	.LASF26:
- 2429 032d 53616D70 		.ascii	"SamplingFreqFlag\000"
+ 2429 032b 53616D70 		.ascii	"SamplingFreqFlag\000"
  2429      6C696E67 
  2429      46726571 
  2429      466C6167 
  2429      00
  2430              	.LASF44:
- 2431 033e 55415254 		.ascii	"UART_1_PutString\000"
+ 2431 033c 55415254 		.ascii	"UART_1_PutString\000"
  2431      5F315F50 
  2431      75745374 
  2431      72696E67 
  2431      00
  2432              	.LASF45:
- 2433 034f 4143435F 		.ascii	"ACC_readRegister\000"
+ 2433 034d 4143435F 		.ascii	"ACC_readRegister\000"
  2433      72656164 
  2433      52656769 
  2433      73746572 
  2433      00
  2434              	.LASF38:
- 2435 0360 55415254 		.ascii	"UART_1_GetChar\000"
+ 2435 035e 55415254 		.ascii	"UART_1_GetChar\000"
  2435      5F315F47 
  2435      65744368 
  2435      617200
  2436              	.LASF25:
- 2437 036f 46535246 		.ascii	"FSRFlag\000"
+ 2437 036d 46535246 		.ascii	"FSRFlag\000"
  2437      6C616700 
  2438              	.LASF49:
- 2439 0377 496E7465 		.ascii	"InterruptRoutines.c\000"
+ 2439 0375 496E7465 		.ascii	"InterruptRoutines.c\000"
  2439      72727570 
  2439      74526F75 
  2439      74696E65 
