@@ -25,7 +25,8 @@
 #include "project.h"
 #include "LIS3DH.h"
 #include "Functions.h"
-
+/* EEPROM 25LC256 Library */
+#include "25LC256.h"
 
 // Variabile declaration
 uint8 ch_received;
@@ -34,6 +35,8 @@ uint8 FahrenheitFlag=0;
 int   value_temp;
 int32 value_digit;
 int   value_mv; 
+
+uint8_t data_start[4];
 
 CY_ISR_PROTO (Custom_isr_FIFO)
 {
@@ -80,14 +83,14 @@ CY_ISR(Custom_ISR_RX)
         case 'B':
         case 'b':
             
-            StartFlag=1;
+            StartFlag=START;
             // Start data acquisition from the accelerometer
             // Start sampling Temperature values every Timer overflow
             Timer_Start();
             //Onboard LED tells the user that data acquisition is ON
             PWM_OnboardLED_WritePeriod(255);  //1s period
             PWM_OnboardLED_WriteCompare(128); //50% DC (SISTEMARE CON DEFINE)
-            // Start data storage on the EEPROM
+            // Start data storage on the EEPROM           
             // Save the configuration on the EEPROM
           
         break;
@@ -96,7 +99,7 @@ CY_ISR(Custom_ISR_RX)
         case 'S':
         case 's':
             
-            StartFlag=0;
+            StartFlag=STOP;
             // Stop data acquisition from the accelerometer
             // Stop sampling Temperature values every Timer overflow
             Timer_Stop();
@@ -104,6 +107,7 @@ CY_ISR(Custom_ISR_RX)
             PWM_OnboardLED_WritePeriod(255);  //1s period
             PWM_OnboardLED_WriteCompare(0);   //Onboard LED OFF
             // Stop data storage on the EEPROM
+            
             // Save the configuration on the EEPROM
            
             

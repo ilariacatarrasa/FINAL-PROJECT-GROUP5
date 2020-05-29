@@ -24,6 +24,8 @@
     /* brief High and Low level state for digital output pin */
     #define EXT_LED_ON  1
     #define EXT_LED_OFF 0
+    #define START 1
+    #define STOP 0
     
     /*Prototyping interrupt service routine on receiving UART*/
     CY_ISR_PROTO (Custom_ISR_RX);
