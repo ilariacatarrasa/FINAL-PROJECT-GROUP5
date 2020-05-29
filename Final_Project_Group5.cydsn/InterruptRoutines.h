@@ -15,12 +15,19 @@
     
     #include "cytypes.h"
     #include "stdio.h"
+    #include "header.h"
+    #include "string.h"
+    #include "project.h"
     
     /*variable definition*/
     #define BYTE_TO_SEND 8
     #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
     
    
+    /*variable definition*/
+    #define BYTE_TO_SEND 8
+    #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
+    
     /* brief High and Low level state for digital output pin */
     #define EXT_LED_ON  1
     #define EXT_LED_OFF 0
@@ -36,15 +43,12 @@
     /*Prototyping interrupt service routine on Timer count*/
     CY_ISR_PROTO (Custom_ISR_ADC);
     
-    /*save buffer array*/
-    uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];    
-    
-    
     volatile uint8 PacketReadyFlag; /*Flag for packet ready*/
     volatile uint8 StartFlag;
     volatile uint8 FSRFlag;
     volatile uint8 SamplingFreqFlag;
-    uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];
+    volatile uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];
+    volatile int   value_temp;
     
     
 #endif

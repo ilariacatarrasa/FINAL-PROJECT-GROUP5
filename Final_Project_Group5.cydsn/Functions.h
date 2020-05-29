@@ -39,4 +39,16 @@
     void Send_BCP(uint8_t* tobedepacked, uint8_t* data_BCP);    
 #endif
 
+//Set the configuration of accelerometer (FSR and SF)
+#ifndef __CONFIG_SETTINGS__
+    #define __CONFIG_SETTINGS__
+    
+    #include "cytypes.h" 
+    
+    void Config_acc( uint8_t counter, uint8_t config, uint16_t address);
+    /*Declaration of function to store in EEPROM data of accelerometer and temperature*/
+    void Store_EEPROM(uint8_t* tobepacked, uint8_t* tobesentEEPROM);    
+#endif
+
+
 /* [] END OF FILE */
