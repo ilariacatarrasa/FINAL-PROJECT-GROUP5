@@ -194,7 +194,7 @@ int main(void) {
 
     // Variables definitions
     uint8_t data[DATA_BYTES]; //
-    uint8_t data_EEPROM[DATA_BYTES_EEPROM];
+    //uint8_t data_EEPROM[DATA_BYTES_EEPROM];
     uint8_t counter=4;
     char zero_array[64] = {0};
     int i=0;
@@ -226,6 +226,27 @@ int main(void) {
     }
     sprintf(bufferUART, "\r\n FIFO clean \r\n");
     UART_1_PutBuffer; 
+    
+    //SAVE ACCELEROMETER AND TEMP DATA IN EEPROM, SEND DEPACKET DATA TO BRIDGE CONTROL PANEL/////////////
+              
+    uint8_t data_prova[6] = {0b00000000, 0b11111111 , 0b00000000, 0b11111111 , 0b00000000, 0b11111111 };    
+    uint8_t data_EE[6] = {0}; //Data to be stored in EEPROM
+    uint8_t data_BCP[10] = {0}; // Data to send to Bridge Control Panel
+    //Function for storing in EEPROM data in 4 byte
+    Store_EEPROM(data_prova, data_EE);
+    sprintf(bufferUART, " data EEPROM 0x%02X 0x%02X 0x%02X 0x%02X \r\n", data_EE[0], data_EE[1], data_EE[2], data_EE[3]);
+    UART_1_PutBuffer;
+    //WRITE IN EEPROM
+    //
+    
+    ///Function for send Data to be sent to BRIDGE CONTROL PANEL        
+    Send_BCP(data_EE, data_BCP);
+    sprintf(bufferUART, " data BCP 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X \r\n", data_BCP[0], data_BCP[1], data_BCP[2], data_BCP[3], data_BCP[4], data_BCP[5], data_BCP[6]);
+    UART_1_PutBuffer;
+    //SENT TO UART
+    // 
+        
+    ///////////////////////////////////////////////////////////////////
     
     for(;;){
         
@@ -268,21 +289,9 @@ int main(void) {
             //Data to store in EEPROM: 4 bytes accelerometer (transform from 6 to 4 bytes) + 2bytes TEMP 
             //Data operations--> obtain data_EEPROM
             
-            //PROVA DA SOSTITUIRE CON DATI ACCELEROMETRO
-            uint8_t data_prova[6] = {0b00000000, 0b11111111 , 0b00000000, 0b11111111 , 0b00000000, 0b11111111 };    
-            uint8_t data_s[4] = {0};
-           
-            //Data to be stored in EEPROM
-            data_s[0] = data_prova[1];
-            data_s[1] = (data_prova[0] & 0b1100000) | (data_prova[3]>>2);
-            data_s[2] = (((data_prova[3]<<6) | (data_prova[2]>>2))& 0b11110000)| (data_prova[5]>>4);   
-            data_s[3] = (data_prova[5]<<4) | (data_prova[4]>>6);
-            
-           
             
             //Storing new set of data in EEPROM
-            //EEPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPROM); 
-            EEPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_s, DATA_BYTES_EEPROM); 
+            //EEPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPROM);            
             EEPROM_waitForWriteComplete();
             
                 
