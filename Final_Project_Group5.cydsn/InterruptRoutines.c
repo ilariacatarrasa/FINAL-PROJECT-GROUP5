@@ -134,6 +134,7 @@ CY_ISR(Custom_ISR_RX)
             if (TemperatureMode == 1)
             {
                 FahrenheitFlag = 1;
+                UART_1_PutString("Temperature mode setted in Farheneit\n\r");
             }
             TemperatureMode = 0;
             
@@ -380,6 +381,7 @@ CY_ISR(Custom_ISR_RX)
             if (TemperatureMode==1)
             {
                 FahrenheitFlag=0;
+                UART_1_PutString("Temperature mode setted in Celsius\n\r");
             }
             TemperatureMode=0;
             

@@ -22,36 +22,8 @@
 /* EEPROM LIS3DH Library */
 #include "LIS3DH.h"
 
-//Define buffer for UART
-#define UART_1_PutBuffer UART_1_PutString(bufferUART)
-char bufferUART[100];
-
-//Define data_acc dimension
-#define DATA_BYTES 6
-//Define data to store in EEPROM: 4bytes ACC + 2bytes TEMP
-#define DATA_BYTES_EEPROM 6
-//Define max number of byte to write in a single operation
-#define MAX_BYTE_PAGE 64
-
-/* Define configurations to save in EEPROM */
-//Configuration ON-OFF
-#define ON   0b10000000
-#define OFF  0b01000000
-//FSR config is saved in LIS3DH_CTRL_REG4
-//SF config is saved in LIS3DH_CTRL_REG1
-
-/* Define addresses in EEPROM */
-//Configurations for accelerometer address
-#define ACC_CONFIG_FSR_AD 0x0000
-#define ACC_CONFIG_SF_AD  0x0001
-//Configuration ON-OFF for accelerometer and temperature mode address
-#define ONOFF_ADD 0x0002
-//Counter for data address
-#define COUNTER_AD 0x0003
-//First data address
-#define FIRST_DATA_ADDR 0x0004
-#define HIGHEST_ADDRESS 0x7FFF //32767
-
+/*Include the macros*/
+#include "header.h"
 
 int main(void) {
     
@@ -191,13 +163,9 @@ int main(void) {
     
     UART_1_PutString("********************************************\r\n");
     /**/
-
-    // Variables definitions
-    uint8_t data[DATA_BYTES]; //
-    //uint8_t data_EEPROM[DATA_BYTES_EEPROM];
-    uint8_t counter=4;
-    char zero_array[64] = {0};
-    int i=0;
+        
+    volatile uint8_t counter=FIRST_DATA_ADDR;    
+    
     uint8_t data_read; //data read from EEPROM
     uint8_t fifo_src_reg;
     uint8_t FIFO_data[192];
@@ -205,15 +173,7 @@ int main(void) {
     //save counter in EEPROM at the address of COUNTER_ADD
     EEPROM_writeByte(COUNTER_AD, counter);
     EEPROM_waitForWriteComplete();
-    
-    
-    /* Variable initialization */
-    PacketReadyFlag=0;
-    StartFlag=0;                    //può creare problemi al reset??
-    FSRFlag=0;
-    SamplingFreqFlag=0;
-    
-    
+        
     // show the menu
     show_menu();
     
@@ -229,13 +189,13 @@ int main(void) {
     
     //SAVE ACCELEROMETER AND TEMP DATA IN EEPROM, SEND DEPACKET DATA TO BRIDGE CONTROL PANEL/////////////
               
-    uint8_t data_prova[6] = {0b00000000, 0b11111111 , 0b00000000, 0b11111111 , 0b00000000, 0b11111111 };    
+//    uint8_t data_prova[6] = {0b00000000, 0b11111111 , 0b00000000, 0b11111111 , 0b00000000, 0b11111111 };    
     uint8_t data_EE[6] = {0}; //Data to be stored in EEPROM
     uint8_t data_BCP[10] = {0}; // Data to send to Bridge Control Panel
     //Function for storing in EEPROM data in 4 byte
-    Store_EEPROM(data_prova, data_EE);
-    sprintf(bufferUART, " data EEPROM 0x%02X 0x%02X 0x%02X 0x%02X \r\n", data_EE[0], data_EE[1], data_EE[2], data_EE[3]);
-    UART_1_PutBuffer;
+//    Store_EEPROM(data_prova, data_EE);
+//    sprintf(bufferUART, " data EEPROM 0x%02X 0x%02X 0x%02X 0x%02X \r\n", data_EE[0], data_EE[1], data_EE[2], data_EE[3]);
+//    UART_1_PutBuffer;
     //WRITE IN EEPROM
     //
     
@@ -245,7 +205,60 @@ int main(void) {
     UART_1_PutBuffer;
     //SENT TO UART
     // 
-        
+    ///////////////////////////////////////////////////////////////////
+    FSRFlag = 0;
+    SamplingFreqFlag = 0;
+    StartFlag = 0;
+    uint8_t onoff_initial;
+    uint8_t data_add;
+    uint8_t fsr_init;
+    uint8_t sf_init;
+    uint8_t data[8] = {0,0,0,0,0,0,0,0};
+    uint8_t data_read_array[DATA_BYTES_EEPROM]= {0,0,0,0,0,0};
+    
+    
+    // Inizializzazioni START STOP 
+//    onoff_initial = EEPROM_readByte(ONOFF_ADD);
+//    if (onoff_initial & ON)
+//    {
+//        StartFlag = START;
+//    }
+//    else if(onoff_initial & OFF)
+//    {
+//        StartFlag = STOP;
+//    }
+//    else
+//    {
+//        EEPROM_writeByte(ONOFF_ADD, OFF);
+//        EEPROM_waitForWriteComplete();
+//    }  
+//    
+//    data_add = EEPROM_readByte(COUNTER_AD);
+//    fsr_init = EEPROM_readByte(ACC_CONFIG_FSR_AD);
+//    if (data_add < FIRST_DATA_ADDR)
+//    {
+//        EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
+//        EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
+//        EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
+//        EEPROM_waitForWriteComplete();        
+//    }
+//    else
+//    {
+//        counter = data_add;
+//        FSRFlag = fsr_init;
+//        SamplingFreqFlag = sf_init;
+//    }
+//      
+    
+    //PER FEDE
+    EEPROM_writeByte(ONOFF_ADD, OFF);
+    EEPROM_waitForWriteComplete();
+    EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
+    EEPROM_waitForWriteComplete();
+    EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
+    EEPROM_waitForWriteComplete();
+    EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
+    EEPROM_waitForWriteComplete();    
     ///////////////////////////////////////////////////////////////////
     
     for(;;){
@@ -281,147 +294,77 @@ int main(void) {
         }
         
         /* EEPROM */
+        // save new configuration in EEPROM memory:    
         
-        // if START
-        if(StartFlag==START)
+        // FSR configuration
+        if((FSRFlag != 0 )&&(FSRFlag != 1 ))
         {
+            Config_acc(counter, FSRFlag, ACC_CONFIG_FSR_AD);           //stores new config data if there is any change from UART
+            FSRFlag = 0;
+        }
+        
+        // Sampling Frequency configuration
+        if ((SamplingFreqFlag != 0)&&(SamplingFreqFlag != 1 ))
+        {
+            Config_acc(counter, SamplingFreqFlag, ACC_CONFIG_SF_AD);  //stores new config data if there is any change from UART
+            SamplingFreqFlag = 0;
+        }
+
+        //If acquisition is started from user
+        if(StartFlag == START)
+        { 
+            EEPROM_writeByte(ONOFF_ADD, ON);
+            EEPROM_waitForWriteComplete();
+            UART_1_PutString("** EEPROM Status ON ** \r\n");
+            
+            StartFlag =  2;  //exit from flag of START/stop
+            
             /* Storing data in EEPROM */
             //Data to store in EEPROM: 4 bytes accelerometer (transform from 6 to 4 bytes) + 2bytes TEMP 
             //Data operations--> obtain data_EEPROM
             
+            data[6] = DataBuffer[5]; 
+            data[7] = DataBuffer[6]; 
             
-            //Storing new set of data in EEPROM
-            //EEPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPROM);            
+            Store_EEPROM(data, data_EE);
+            sprintf(bufferUART, "** Data_EE Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", data_EE[0], data_EE[1], data_EE[2],  data_EE[3], data_EE[4], data_EE[5]);
+            UART_1_PutBuffer;
+            
+            EEPROM_writePage(counter, (uint8_t*) data_EE, DATA_BYTES_EEPROM);
             EEPROM_waitForWriteComplete();
+
+            EEPROM_readPage(counter, (uint8_t*) data_read_array, DATA_BYTES_EEPROM);
+            sprintf(bufferUART, "** EEPROM Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", data_read_array[0], data_read_array[1], data_read_array[2],  data_read_array[3], data_read_array[4], data_read_array[5]);
+            UART_1_PutBuffer;
+           
+            //Storing new set of data in EEPROM
+            //EPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPROM);            
+            //EEPROM_waitForWriteComplete();
             
-                
+            
             //update the storage counter in EEPROM at the address of COUNTER_ADD
             counter= counter+DATA_BYTES_EEPROM;
             EEPROM_writeByte(COUNTER_AD, counter);
             EEPROM_waitForWriteComplete();
-            data_read = EEPROM_readByte(ONOFF_ADD);
-            //sprintf(bufferUART, "** data_read %02X** \r\n", data_read );
-            //UART_1_PutBuffer;
-            
-            
-            if(data_read & OFF)
-            {
-                //sprintf(bufferUART, "** data_read %02X** \r\n", data_read );
-                //UART_1_PutBuffer;
-                
-                UART_1_PutString("** EEPROM Status ON ** \r\n");
-                EEPROM_writeByte(ONOFF_ADD, ON);
-                EEPROM_waitForWriteComplete();
-                // Read: making sure the writing was sussesful
-                data_read = EEPROM_readByte(ONOFF_ADD);   
-                sprintf(bufferUART, "** EEPROM Status ON-OFF = %d \r\n", data_read);
-                UART_1_PutBuffer;
-            }
-        }
-        // if STOP
-        else if(StartFlag==STOP)
-        {
-            data_read = EEPROM_readByte(ONOFF_ADD);
-            if(data_read & ON)
-            {
-                //sprintf(bufferUART, "** data_read %02X** \r\n", data_read );
-                //UART_1_PutBuffer;
-                
-                EEPROM_writeByte(ONOFF_ADD, OFF);
-                EEPROM_waitForWriteComplete();
-                // Read: making sure the writing was sussesful
-                UART_1_PutString("** EEPROM Status OFF **\r\n");
-                // Read: making sure the writing was sussesful
-                data_read = EEPROM_readByte(ONOFF_ADD);   
-                sprintf(bufferUART, "** EEPROM Status ON-OFF = %d \r\n", data_read);
-                UART_1_PutBuffer;
-                
-            }
         }
         
-        // if there is any change in accelerometer configuration of FSR or SF:
-        if (((FSRFlag==1)|(FSRFlag==2)|(FSRFlag==3)|(FSRFlag==4)|(SamplingFreqFlag==1)|(SamplingFreqFlag==2)|(SamplingFreqFlag==3)|(SamplingFreqFlag==4)))
-        {
-            // erase previous data in EEPROM
-            for (i=0 ; i<((counter-FIRST_DATA_ADDR)/MAX_BYTE_PAGE) ; i++)
-            {
-                EEPROM_writePage((FIRST_DATA_ADDR), (uint8_t*) zero_array, MAX_BYTE_PAGE);
-                EEPROM_waitForWriteComplete();
-            }
-            // reset counter stooring data
-            
-            counter=FIRST_DATA_ADDR;
-            EEPROM_writeByte(COUNTER_AD, counter);
+        //If acquisition is stopped from user
+        if(StartFlag==STOP)
+        {       
+            EEPROM_writeByte(ONOFF_ADD, OFF);
             EEPROM_waitForWriteComplete();
-            // save new configuration in EEPROM memory:            
-            // FSR configuration
-            if(FSRFlag==1)
-            {
-               EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
-               FSRFlag=0;
-               UART_1_PutString("FSR set to +-2 g");
-            }
-            else if(FSRFlag==2)
-            {
-               EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_4); 
-               FSRFlag=0;
-               UART_1_PutString("FSR set to +-4 g");
-            }
-            else if(FSRFlag==3)
-            {
-               EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_8);
-               FSRFlag=0;
-               UART_1_PutString("FSR set to +-8 g");
-            }
-            else if(FSRFlag==4)
-            {
-               EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_16); 
-               FSRFlag=0;
-               UART_1_PutString("FSR set to +-16 g");
-            }
-            // SF configuration
-            if(SamplingFreqFlag==1)
-            {
-               EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
-               SamplingFreqFlag=0;
-               UART_1_PutString("SF set to 1 Hz");
-            }
-            else if(SamplingFreqFlag==2)
-            {
-                EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_10HZ); 
-                SamplingFreqFlag=0;
-                UART_1_PutString("SF set to 10 Hz");
-            }
-            else if(SamplingFreqFlag==3)
-            {
-                EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_25HZ);
-                SamplingFreqFlag=0;
-                UART_1_PutString("SF set to 25 Hz");
-            }
-            else if(SamplingFreqFlag==4)
-            {
-                EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_50HZ); 
-                SamplingFreqFlag=0;
-                UART_1_PutString("SF set to 50 Hz");
-            }
+            UART_1_PutString("** EEPROM Status OFF ** \r\n");
+
+            StartFlag = 2; //exit from flag of START/stop
+        }
             
-            EEPROM_waitForWriteComplete();
-                    
-            // PROVA Read: making sure the writing was sussesful
-            /*data_read = EEPROM_readByte(ACC_CONFIG_FSR_AD);   
-            sprintf(bufferUART, "** EEPROM FSR = %d \r\n", data_read);
-            UART_1_PutBuffer;
-            
-            data_read = EEPROM_readByte(ACC_CONFIG_SF_AD);   
-            sprintf(bufferUART, "** EEPROM SF = %d \r\n", data_read);
-            UART_1_PutBuffer;*/
-            
-        } 
+        //Reset counter if the EEPROM storage is full
+        
         if ((int)counter > (int)(HIGHEST_ADDRESS-DATA_BYTES_EEPROM+1))
         {
             counter = FIRST_DATA_ADDR;
         }
-}
+    }               
     
 }
 
