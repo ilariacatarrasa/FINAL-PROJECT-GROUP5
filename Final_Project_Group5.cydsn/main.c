@@ -166,8 +166,7 @@ int main(void) {
     
     UART_1_PutString("********************************************\r\n");
     /**/
-        
-    volatile uint8_t counter=FIRST_DATA_ADDR;    
+            
     
     uint8_t data_read; //data read from EEPROM
     uint8_t fifo_src_reg;
@@ -366,6 +365,8 @@ int main(void) {
         if ((int)counter > (int)(HIGHEST_ADDRESS-DATA_BYTES_EEPROM+1))
         {
             counter = FIRST_DATA_ADDR;
+            
+            //PATTERN BOTTONE EEPROM PIENA
         }
     }               
     

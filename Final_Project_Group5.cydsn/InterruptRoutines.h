@@ -58,6 +58,7 @@
     volatile uint8 SamplingFreqFlag;
     volatile uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];
     volatile int   value_temp;
+    volatile uint8_t counter=FIRST_DATA_ADDR;    
     
     
 #endif
