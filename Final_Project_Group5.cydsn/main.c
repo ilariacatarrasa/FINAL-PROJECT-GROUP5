@@ -57,6 +57,9 @@ int main(void) {
     /* Initialize PWM so that the Onboard LED is OFF */
     PWM_OnboardLED_Start();
     
+    /* Start on-board push button ISR */
+    ISR_Button_StartEx(Custom_ISR_Button);
+    
     
     CyDelay(10); //"The boot procedure is complete about 10 milliseconds after device power-up."
         

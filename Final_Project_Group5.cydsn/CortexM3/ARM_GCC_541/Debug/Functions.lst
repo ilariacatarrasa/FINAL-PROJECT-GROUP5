@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 2
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 2
 
 
   32 0000 38B5     		push	{r3, r4, r5, lr}
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
   37:Functions.c   ****     UART_1_PutString("f        | Configuration of the accelerometer full scale range \r\n");
   76              		.loc 1 37 0
   77 003c 1848     		ldr	r0, .L3+24
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 3
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 3
 
 
   78 003e FFF7FEFF 		bl	UART_1_PutString
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  121 007e 0D48     		ldr	r0, .L3+44
  122 0080 FFF7FEFF 		bl	UART_1_PutString
  123              	.LVL20:
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 4
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 4
 
 
  124 0084 38BD     		pop	{r3, r4, r5, pc}
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  168 0012 4B70     		strb	r3, [r1, #1]
   59:Functions.c   ****     tobesentEEPROM[2] = (((tobepacked[3]<<6) | (tobepacked[2]>>2))& 0b11110000)| (tobepacked[5]>>4)
  169              		.loc 1 59 0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 5
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 5
 
 
  170 0014 C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  214 0002 0B70     		strb	r3, [r1]
   70:Functions.c   ****         
   71:Functions.c   ****     data_BCP[1] = tobedepacked[0]; 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 6
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 6
 
 
  215              		.loc 1 71 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  259              		.thumb
  260              		.thumb_func
  261              		.type	Config_acc, %function
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 7
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 7
 
 
  262              	Config_acc:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  293 001a FFF7FEFF 		bl	EEPROM_waitForWriteComplete
  294              	.LVL29:
  105:Functions.c   ****     
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 8
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 8
 
 
  106:Functions.c   ****     UART_1_PutString("New configuration set: 0x02X \r\n");
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  328      74202020 
  329 00ea 0000     		.space	2
  330              	.LC4:
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 9
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 9
 
 
  331 00ec 62202020 		.ascii	"b        | Start data acquisition from the accelero"
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  347 0273 00       		.space	1
  348              	.LC9:
  349 0274 75202020 		.ascii	"u        | Stop data visualization in the Bridge Co"
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 10
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 10
 
 
  349      20202020 
@@ -592,20 +592,20 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  375 0006 00000000 		.4byte	.Ldebug_abbrev0
  376 000a 04       		.byte	0x4
  377 000b 01       		.uleb128 0x1
- 378 000c 81010000 		.4byte	.LASF42
+ 378 000c 7F010000 		.4byte	.LASF42
  379 0010 0C       		.byte	0xc
- 380 0011 2D010000 		.4byte	.LASF43
- 381 0015 30000000 		.4byte	.LASF44
+ 380 0011 2B010000 		.4byte	.LASF43
+ 381 0015 86000000 		.4byte	.LASF44
  382 0019 00000000 		.4byte	.Ldebug_ranges0+0
  383 001d 00000000 		.4byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 11
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 11
 
 
  384 0021 00000000 		.4byte	.Ldebug_line0
  385 0025 02       		.uleb128 0x2
  386 0026 01       		.byte	0x1
  387 0027 06       		.byte	0x6
- 388 0028 A6020000 		.4byte	.LASF0
+ 388 0028 A4020000 		.4byte	.LASF0
  389 002c 03       		.uleb128 0x3
  390 002d 1C000000 		.4byte	.LASF3
  391 0031 02       		.byte	0x2
@@ -614,20 +614,20 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  394 0037 02       		.uleb128 0x2
  395 0038 01       		.byte	0x1
  396 0039 08       		.byte	0x8
- 397 003a BF000000 		.4byte	.LASF1
+ 397 003a 6E000000 		.4byte	.LASF1
  398 003e 02       		.uleb128 0x2
  399 003f 02       		.byte	0x2
  400 0040 05       		.byte	0x5
- 401 0041 63020000 		.4byte	.LASF2
+ 401 0041 61020000 		.4byte	.LASF2
  402 0045 03       		.uleb128 0x3
- 403 0046 1B010000 		.4byte	.LASF4
+ 403 0046 19010000 		.4byte	.LASF4
  404 004a 02       		.byte	0x2
  405 004b 2B       		.byte	0x2b
  406 004c 50000000 		.4byte	0x50
  407 0050 02       		.uleb128 0x2
  408 0051 02       		.byte	0x2
  409 0052 07       		.byte	0x7
- 410 0053 E9000000 		.4byte	.LASF5
+ 410 0053 E7000000 		.4byte	.LASF5
  411 0057 03       		.uleb128 0x3
  412 0058 26000000 		.4byte	.LASF6
  413 005c 02       		.byte	0x2
@@ -636,19 +636,19 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  416 0062 02       		.uleb128 0x2
  417 0063 04       		.byte	0x4
  418 0064 05       		.byte	0x5
- 419 0065 86020000 		.4byte	.LASF7
+ 419 0065 84020000 		.4byte	.LASF7
  420 0069 02       		.uleb128 0x2
  421 006a 04       		.byte	0x4
  422 006b 07       		.byte	0x7
- 423 006c D7000000 		.4byte	.LASF8
+ 423 006c D5000000 		.4byte	.LASF8
  424 0070 02       		.uleb128 0x2
  425 0071 08       		.byte	0x8
  426 0072 05       		.byte	0x5
- 427 0073 41020000 		.4byte	.LASF9
+ 427 0073 3F020000 		.4byte	.LASF9
  428 0077 02       		.uleb128 0x2
  429 0078 08       		.byte	0x8
  430 0079 07       		.byte	0x7
- 431 007a 57010000 		.4byte	.LASF10
+ 431 007a 55010000 		.4byte	.LASF10
  432 007e 04       		.uleb128 0x4
  433 007f 04       		.byte	0x4
  434 0080 05       		.byte	0x5
@@ -656,54 +656,54 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  436 0085 02       		.uleb128 0x2
  437 0086 04       		.byte	0x4
  438 0087 07       		.byte	0x7
- 439 0088 42010000 		.4byte	.LASF11
+ 439 0088 40010000 		.4byte	.LASF11
  440 008c 03       		.uleb128 0x3
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 12
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 12
 
 
- 441 008d 6E010000 		.4byte	.LASF12
+ 441 008d 6C010000 		.4byte	.LASF12
  442 0091 03       		.byte	0x3
  443 0092 18       		.byte	0x18
  444 0093 2C000000 		.4byte	0x2c
  445 0097 03       		.uleb128 0x3
- 446 0098 7D020000 		.4byte	.LASF13
+ 446 0098 7B020000 		.4byte	.LASF13
  447 009c 03       		.byte	0x3
  448 009d 24       		.byte	0x24
  449 009e 45000000 		.4byte	0x45
  450 00a2 03       		.uleb128 0x3
- 451 00a3 98000000 		.4byte	.LASF14
+ 451 00a3 47000000 		.4byte	.LASF14
  452 00a7 03       		.byte	0x3
  453 00a8 2C       		.byte	0x2c
  454 00a9 57000000 		.4byte	0x57
  455 00ad 05       		.uleb128 0x5
- 456 00ae B9000000 		.4byte	.LASF15
+ 456 00ae 68000000 		.4byte	.LASF15
  457 00b2 04       		.byte	0x4
  458 00b3 E401     		.2byte	0x1e4
  459 00b5 37000000 		.4byte	0x37
  460 00b9 02       		.uleb128 0x2
  461 00ba 04       		.byte	0x4
  462 00bb 04       		.byte	0x4
- 463 00bc AB000000 		.4byte	.LASF16
+ 463 00bc 5A000000 		.4byte	.LASF16
  464 00c0 02       		.uleb128 0x2
  465 00c1 08       		.byte	0x8
  466 00c2 04       		.byte	0x4
- 467 00c3 26010000 		.4byte	.LASF17
+ 467 00c3 24010000 		.4byte	.LASF17
  468 00c7 02       		.uleb128 0x2
  469 00c8 01       		.byte	0x1
  470 00c9 08       		.byte	0x8
- 471 00ca 4F020000 		.4byte	.LASF18
+ 471 00ca 4D020000 		.4byte	.LASF18
  472 00ce 06       		.uleb128 0x6
  473 00cf AD000000 		.4byte	0xad
  474 00d3 02       		.uleb128 0x2
  475 00d4 08       		.byte	0x8
  476 00d5 04       		.byte	0x4
- 477 00d6 9A020000 		.4byte	.LASF19
+ 477 00d6 98020000 		.4byte	.LASF19
  478 00da 02       		.uleb128 0x2
  479 00db 04       		.byte	0x4
  480 00dc 07       		.byte	0x7
- 481 00dd 38020000 		.4byte	.LASF20
+ 481 00dd 36020000 		.4byte	.LASF20
  482 00e1 07       		.uleb128 0x7
- 483 00e2 CD000000 		.4byte	.LASF45
+ 483 00e2 7C000000 		.4byte	.LASF45
  484 00e6 01       		.byte	0x1
  485 00e7 19       		.byte	0x19
  486 00e8 00000000 		.4byte	.LFB64
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  495 0103 09       		.uleb128 0x9
  496 0104 01       		.uleb128 0x1
  497 0105 50       		.byte	0x50
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 13
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 13
 
 
  498 0106 02       		.uleb128 0x2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  552 016f 50       		.byte	0x50
  553 0170 05       		.uleb128 0x5
  554 0171 03       		.byte	0x3
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 14
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 14
 
 
  555 0172 EC000000 		.4byte	.LC4
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  609 01de 74       		.byte	0x74
  610 01df 00       		.sleb128 0
  611 01e0 00       		.byte	0
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 15
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 15
 
 
  612 01e1 08       		.uleb128 0x8
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  666 024d 00       		.byte	0
  667 024e 08       		.uleb128 0x8
  668 024f 6C000000 		.4byte	.LVL16
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 16
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 16
 
 
  669 0253 8C040000 		.4byte	0x48c
@@ -955,10 +955,10 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  720 02b3 00       		.byte	0
  721 02b4 00       		.byte	0
  722 02b5 0B       		.uleb128 0xb
- 723 02b6 2B020000 		.4byte	.LASF23
+ 723 02b6 29020000 		.4byte	.LASF23
  724 02ba 01       		.byte	0x1
  725 02bb 36       		.byte	0x36
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 17
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 17
 
 
  726 02bc 00000000 		.4byte	.LFB65
@@ -974,7 +974,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  736 02d5 01       		.uleb128 0x1
  737 02d6 50       		.byte	0x50
  738 02d7 0C       		.uleb128 0xc
- 739 02d8 54020000 		.4byte	.LASF22
+ 739 02d8 52020000 		.4byte	.LASF22
  740 02dc 01       		.byte	0x1
  741 02dd 36       		.byte	0x36
  742 02de E5020000 		.4byte	0x2e5
@@ -985,7 +985,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  747 02e6 04       		.byte	0x4
  748 02e7 8C000000 		.4byte	0x8c
  749 02eb 0B       		.uleb128 0xb
- 750 02ec D4020000 		.4byte	.LASF24
+ 750 02ec D2020000 		.4byte	.LASF24
  751 02f0 01       		.byte	0x1
  752 02f1 43       		.byte	0x43
  753 02f2 00000000 		.4byte	.LFB66
@@ -994,14 +994,14 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  756 02fb 9C       		.byte	0x9c
  757 02fc 1B030000 		.4byte	0x31b
  758 0300 0C       		.uleb128 0xc
- 759 0301 81000000 		.4byte	.LASF25
+ 759 0301 30000000 		.4byte	.LASF25
  760 0305 01       		.byte	0x1
  761 0306 43       		.byte	0x43
  762 0307 E5020000 		.4byte	0x2e5
  763 030b 01       		.uleb128 0x1
  764 030c 50       		.byte	0x50
  765 030d 0C       		.uleb128 0xc
- 766 030e 39010000 		.4byte	.LASF26
+ 766 030e 37010000 		.4byte	.LASF26
  767 0312 01       		.byte	0x1
  768 0313 43       		.byte	0x43
  769 0314 E5020000 		.4byte	0x2e5
@@ -1009,7 +1009,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  771 0319 51       		.byte	0x51
  772 031a 00       		.byte	0
  773 031b 0B       		.uleb128 0xb
- 774 031c A0000000 		.4byte	.LASF27
+ 774 031c 4F000000 		.4byte	.LASF27
  775 0320 01       		.byte	0x1
  776 0321 57       		.byte	0x57
  777 0322 00000000 		.4byte	.LFB67
@@ -1018,22 +1018,22 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  780 032b 9C       		.byte	0x9c
  781 032c CA030000 		.4byte	0x3ca
  782 0330 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 18
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 18
 
 
- 783 0331 B1000000 		.4byte	.LASF28
+ 783 0331 60000000 		.4byte	.LASF28
  784 0335 01       		.byte	0x1
  785 0336 57       		.byte	0x57
  786 0337 8C000000 		.4byte	0x8c
  787 033b 00000000 		.4byte	.LLST0
  788 033f 0E       		.uleb128 0xe
- 789 0340 09010000 		.4byte	.LASF29
+ 789 0340 07010000 		.4byte	.LASF29
  790 0344 01       		.byte	0x1
  791 0345 57       		.byte	0x57
  792 0346 8C000000 		.4byte	0x8c
  793 034a 1F000000 		.4byte	.LLST1
  794 034e 0E       		.uleb128 0xe
- 795 034f 4F010000 		.4byte	.LASF30
+ 795 034f 4D010000 		.4byte	.LASF30
  796 0353 01       		.byte	0x1
  797 0354 57       		.byte	0x57
  798 0355 97000000 		.4byte	0x97
@@ -1045,7 +1045,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  804 0362 7E000000 		.4byte	0x7e
  805 0366 00       		.byte	0
  806 0367 10       		.uleb128 0x10
- 807 0368 10010000 		.4byte	.LASF46
+ 807 0368 0E010000 		.4byte	.LASF46
  808 036c 01       		.byte	0x1
  809 036d 5A       		.byte	0x5a
  810 036e CA030000 		.4byte	0x3ca
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  837 03a4 74       		.byte	0x74
  838 03a5 00       		.sleb128 0
  839 03a6 09       		.uleb128 0x9
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 19
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 19
 
 
  840 03a7 01       		.uleb128 0x1
@@ -1116,7 +1116,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  872 03e8 63       		.byte	0x63
  873 03e9 00       		.byte	0
  874 03ea 14       		.uleb128 0x14
- 875 03eb DD020000 		.4byte	.LASF31
+ 875 03eb DB020000 		.4byte	.LASF31
  876 03ef 05       		.byte	0x5
  877 03f0 0A       		.byte	0xa
  878 03f1 DA030000 		.4byte	0x3da
@@ -1124,43 +1124,43 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  880 03f6 03       		.byte	0x3
  881 03f7 00000000 		.4byte	bufferUART
  882 03fb 15       		.uleb128 0x15
- 883 03fc FC000000 		.4byte	.LASF32
+ 883 03fc FA000000 		.4byte	.LASF32
  884 0400 06       		.byte	0x6
  885 0401 1207     		.2byte	0x712
  886 0403 07040000 		.4byte	0x407
  887 0407 06       		.uleb128 0x6
  888 0408 A2000000 		.4byte	0xa2
  889 040c 14       		.uleb128 0x14
- 890 040d 6D020000 		.4byte	.LASF33
+ 890 040d 6B020000 		.4byte	.LASF33
  891 0411 07       		.byte	0x7
- 892 0412 2E       		.byte	0x2e
+ 892 0412 37       		.byte	0x37
  893 0413 CE000000 		.4byte	0xce
  894 0417 05       		.uleb128 0x5
  895 0418 03       		.byte	0x3
  896 0419 00000000 		.4byte	PacketReadyFlag
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 20
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 20
 
 
  897 041d 14       		.uleb128 0x14
- 898 041e 8E000000 		.4byte	.LASF34
+ 898 041e 3D000000 		.4byte	.LASF34
  899 0422 07       		.byte	0x7
- 900 0423 2F       		.byte	0x2f
+ 900 0423 38       		.byte	0x38
  901 0424 CE000000 		.4byte	0xce
  902 0428 05       		.uleb128 0x5
  903 0429 03       		.byte	0x3
  904 042a 00000000 		.4byte	StartFlag
  905 042e 14       		.uleb128 0x14
- 906 042f E8020000 		.4byte	.LASF35
+ 906 042f E6020000 		.4byte	.LASF35
  907 0433 07       		.byte	0x7
- 908 0434 30       		.byte	0x30
+ 908 0434 39       		.byte	0x39
  909 0435 CE000000 		.4byte	0xce
  910 0439 05       		.uleb128 0x5
  911 043a 03       		.byte	0x3
  912 043b 00000000 		.4byte	FSRFlag
  913 043f 14       		.uleb128 0x14
- 914 0440 B2020000 		.4byte	.LASF36
+ 914 0440 B0020000 		.4byte	.LASF36
  915 0444 07       		.byte	0x7
- 916 0445 31       		.byte	0x31
+ 916 0445 3A       		.byte	0x3a
  917 0446 CE000000 		.4byte	0xce
  918 044a 05       		.uleb128 0x5
  919 044b 03       		.byte	0x3
@@ -1173,9 +1173,9 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  926 045e 09       		.byte	0x9
  927 045f 00       		.byte	0
  928 0460 14       		.uleb128 0x14
- 929 0461 8F020000 		.4byte	.LASF37
+ 929 0461 8D020000 		.4byte	.LASF37
  930 0465 07       		.byte	0x7
- 931 0466 32       		.byte	0x32
+ 931 0466 3B       		.byte	0x3b
  932 0467 71040000 		.4byte	0x471
  933 046b 05       		.uleb128 0x5
  934 046c 03       		.byte	0x3
@@ -1183,9 +1183,9 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  936 0471 06       		.uleb128 0x6
  937 0472 50040000 		.4byte	0x450
  938 0476 14       		.uleb128 0x14
- 939 0477 76010000 		.4byte	.LASF38
+ 939 0477 74010000 		.4byte	.LASF38
  940 047b 07       		.byte	0x7
- 941 047c 33       		.byte	0x33
+ 941 047c 3C       		.byte	0x3c
  942 047d 87040000 		.4byte	0x487
  943 0481 05       		.uleb128 0x5
  944 0482 03       		.byte	0x3
@@ -1193,12 +1193,12 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  946 0487 06       		.uleb128 0x6
  947 0488 7E000000 		.4byte	0x7e
  948 048c 16       		.uleb128 0x16
- 949 048d C3020000 		.4byte	.LASF39
- 950 0491 C3020000 		.4byte	.LASF39
+ 949 048d C1020000 		.4byte	.LASF39
+ 950 0491 C1020000 		.4byte	.LASF39
  951 0495 08       		.byte	0x8
  952 0496 8B       		.byte	0x8b
  953 0497 16       		.uleb128 0x16
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 21
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 21
 
 
  954 0498 0B000000 		.4byte	.LASF40
@@ -1206,8 +1206,8 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  956 04a0 09       		.byte	0x9
  957 04a1 53       		.byte	0x53
  958 04a2 16       		.uleb128 0x16
- 959 04a3 0F020000 		.4byte	.LASF41
- 960 04a7 0F020000 		.4byte	.LASF41
+ 959 04a3 0D020000 		.4byte	.LASF41
+ 960 04a7 0D020000 		.4byte	.LASF41
  961 04ab 09       		.byte	0x9
  962 04ac 6C       		.byte	0x6c
  963 04ad 00       		.byte	0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  1008 002a 00       		.byte	0
  1009 002b 04       		.uleb128 0x4
  1010 002c 24       		.uleb128 0x24
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 22
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 22
 
 
  1011 002d 00       		.byte	0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  1065 0066 01       		.byte	0x1
  1066 0067 11       		.uleb128 0x11
  1067 0068 01       		.uleb128 0x1
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 23
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 23
 
 
  1068 0069 31       		.uleb128 0x31
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  1122 00a5 3A       		.uleb128 0x3a
  1123 00a6 0B       		.uleb128 0xb
  1124 00a7 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 24
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 24
 
 
  1125 00a8 0B       		.uleb128 0xb
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  1179 00de 0B       		.uleb128 0xb
  1180 00df 49       		.uleb128 0x49
  1181 00e0 13       		.uleb128 0x13
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 25
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 25
 
 
  1182 00e1 00       		.byte	0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  1236 0119 05       		.uleb128 0x5
  1237 011a 49       		.uleb128 0x49
  1238 011b 13       		.uleb128 0x13
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 26
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 26
 
 
  1239 011c 3F       		.uleb128 0x3f
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  1293 0044 0D000000 		.4byte	.LVL26-1
  1294 0048 0100     		.2byte	0x1
  1295 004a 52       		.byte	0x52
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 27
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 27
 
 
  1296 004b 0D000000 		.4byte	.LVL26-1
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  1341      42797465 
  1341      00
  1342              	.LASF3:
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 28
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 28
 
 
  1343 001c 5F5F7569 		.ascii	"__uint8_t\000"
@@ -1628,214 +1628,214 @@ ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 1
  1345 0026 5F5F696E 		.ascii	"__int32_t\000"
  1345      7433325F 
  1345      7400
- 1346              	.LASF44:
- 1347 0030 433A5C55 		.ascii	"C:\\Users\\Ilaria\\Documents\\GitHub\\FINAL-PROJECT"
- 1347      73657273 
- 1347      5C496C61 
- 1347      7269615C 
- 1347      446F6375 
- 1348 005e 2D47524F 		.ascii	"-GROUP5\\Final_Project_Group5.cydsn\000"
- 1348      5550355C 
- 1348      46696E61 
- 1348      6C5F5072 
- 1348      6F6A6563 
- 1349              	.LASF25:
- 1350 0081 746F6265 		.ascii	"tobedepacked\000"
- 1350      64657061 
- 1350      636B6564 
- 1350      00
- 1351              	.LASF34:
- 1352 008e 53746172 		.ascii	"StartFlag\000"
- 1352      74466C61 
- 1352      6700
- 1353              	.LASF14:
- 1354 0098 696E7433 		.ascii	"int32_t\000"
- 1354      325F7400 
- 1355              	.LASF27:
- 1356 00a0 436F6E66 		.ascii	"Config_acc\000"
- 1356      69675F61 
- 1356      636300
- 1357              	.LASF16:
- 1358 00ab 666C6F61 		.ascii	"float\000"
- 1358      7400
- 1359              	.LASF28:
- 1360 00b1 636F756E 		.ascii	"counter\000"
- 1360      74657200 
- 1361              	.LASF15:
- 1362 00b9 75696E74 		.ascii	"uint8\000"
- 1362      3800
- 1363              	.LASF1:
- 1364 00bf 756E7369 		.ascii	"unsigned char\000"
- 1364      676E6564 
- 1364      20636861 
- 1364      7200
- 1365              	.LASF45:
- 1366 00cd 73686F77 		.ascii	"show_menu\000"
- 1366      5F6D656E 
- 1366      7500
+ 1346              	.LASF25:
+ 1347 0030 746F6265 		.ascii	"tobedepacked\000"
+ 1347      64657061 
+ 1347      636B6564 
+ 1347      00
+ 1348              	.LASF34:
+ 1349 003d 53746172 		.ascii	"StartFlag\000"
+ 1349      74466C61 
+ 1349      6700
+ 1350              	.LASF14:
+ 1351 0047 696E7433 		.ascii	"int32_t\000"
+ 1351      325F7400 
+ 1352              	.LASF27:
+ 1353 004f 436F6E66 		.ascii	"Config_acc\000"
+ 1353      69675F61 
+ 1353      636300
+ 1354              	.LASF16:
+ 1355 005a 666C6F61 		.ascii	"float\000"
+ 1355      7400
+ 1356              	.LASF28:
+ 1357 0060 636F756E 		.ascii	"counter\000"
+ 1357      74657200 
+ 1358              	.LASF15:
+ 1359 0068 75696E74 		.ascii	"uint8\000"
+ 1359      3800
+ 1360              	.LASF1:
+ 1361 006e 756E7369 		.ascii	"unsigned char\000"
+ 1361      676E6564 
+ 1361      20636861 
+ 1361      7200
+ 1362              	.LASF45:
+ 1363 007c 73686F77 		.ascii	"show_menu\000"
+ 1363      5F6D656E 
+ 1363      7500
+ 1364              	.LASF44:
+ 1365 0086 433A5C55 		.ascii	"C:\\Users\\User\\Documents\\GitHub\\FINAL-PROJECT-G"
+ 1365      73657273 
+ 1365      5C557365 
+ 1365      725C446F 
+ 1365      63756D65 
+ 1366 00b4 524F5550 		.ascii	"ROUP5\\Final_Project_Group5.cydsn\000"
+ 1366      355C4669 
+ 1366      6E616C5F 
+ 1366      50726F6A 
+ 1366      6563745F 
  1367              	.LASF8:
- 1368 00d7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1368 00d5 6C6F6E67 		.ascii	"long unsigned int\000"
  1368      20756E73 
  1368      69676E65 
  1368      6420696E 
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 29
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 29
 
 
  1368      7400
  1369              	.LASF5:
- 1370 00e9 73686F72 		.ascii	"short unsigned int\000"
+ 1370 00e7 73686F72 		.ascii	"short unsigned int\000"
  1370      7420756E 
  1370      7369676E 
  1370      65642069 
  1370      6E7400
  1371              	.LASF32:
- 1372 00fc 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1372 00fa 49544D5F 		.ascii	"ITM_RxBuffer\000"
  1372      52784275 
  1372      66666572 
  1372      00
  1373              	.LASF29:
- 1374 0109 636F6E66 		.ascii	"config\000"
+ 1374 0107 636F6E66 		.ascii	"config\000"
  1374      696700
  1375              	.LASF46:
- 1376 0110 7A65726F 		.ascii	"zero_array\000"
+ 1376 010e 7A65726F 		.ascii	"zero_array\000"
  1376      5F617272 
  1376      617900
  1377              	.LASF4:
- 1378 011b 5F5F7569 		.ascii	"__uint16_t\000"
+ 1378 0119 5F5F7569 		.ascii	"__uint16_t\000"
  1378      6E743136 
  1378      5F7400
  1379              	.LASF17:
- 1380 0126 646F7562 		.ascii	"double\000"
+ 1380 0124 646F7562 		.ascii	"double\000"
  1380      6C6500
  1381              	.LASF43:
- 1382 012d 46756E63 		.ascii	"Functions.c\000"
+ 1382 012b 46756E63 		.ascii	"Functions.c\000"
  1382      74696F6E 
  1382      732E6300 
  1383              	.LASF26:
- 1384 0139 64617461 		.ascii	"data_BCP\000"
+ 1384 0137 64617461 		.ascii	"data_BCP\000"
  1384      5F424350 
  1384      00
  1385              	.LASF11:
- 1386 0142 756E7369 		.ascii	"unsigned int\000"
+ 1386 0140 756E7369 		.ascii	"unsigned int\000"
  1386      676E6564 
  1386      20696E74 
  1386      00
  1387              	.LASF30:
- 1388 014f 61646472 		.ascii	"address\000"
+ 1388 014d 61646472 		.ascii	"address\000"
  1388      65737300 
  1389              	.LASF10:
- 1390 0157 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1390 0155 6C6F6E67 		.ascii	"long long unsigned int\000"
  1390      206C6F6E 
  1390      6720756E 
  1390      7369676E 
  1390      65642069 
  1391              	.LASF12:
- 1392 016e 75696E74 		.ascii	"uint8_t\000"
+ 1392 016c 75696E74 		.ascii	"uint8_t\000"
  1392      385F7400 
  1393              	.LASF38:
- 1394 0176 76616C75 		.ascii	"value_temp\000"
+ 1394 0174 76616C75 		.ascii	"value_temp\000"
  1394      655F7465 
  1394      6D7000
  1395              	.LASF42:
- 1396 0181 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 30
+ 1396 017f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 30
 
 
  1396      43313120 
  1396      352E342E 
  1396      31203230 
  1396      31363036 
- 1397 01b4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1397 01b2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  1397      20726576 
  1397      6973696F 
  1397      6E203233 
  1397      37373135 
- 1398 01e7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1398 01e5 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1398      66756E63 
  1398      74696F6E 
  1398      2D736563 
  1398      74696F6E 
  1399              	.LASF41:
- 1400 020f 45455052 		.ascii	"EEPROM_waitForWriteComplete\000"
+ 1400 020d 45455052 		.ascii	"EEPROM_waitForWriteComplete\000"
  1400      4F4D5F77 
  1400      61697446 
  1400      6F725772 
  1400      69746543 
  1401              	.LASF23:
- 1402 022b 53746F72 		.ascii	"Store_EEPROM\000"
+ 1402 0229 53746F72 		.ascii	"Store_EEPROM\000"
  1402      655F4545 
  1402      50524F4D 
  1402      00
  1403              	.LASF20:
- 1404 0238 73697A65 		.ascii	"sizetype\000"
+ 1404 0236 73697A65 		.ascii	"sizetype\000"
  1404      74797065 
  1404      00
  1405              	.LASF9:
- 1406 0241 6C6F6E67 		.ascii	"long long int\000"
+ 1406 023f 6C6F6E67 		.ascii	"long long int\000"
  1406      206C6F6E 
  1406      6720696E 
  1406      7400
  1407              	.LASF18:
- 1408 024f 63686172 		.ascii	"char\000"
+ 1408 024d 63686172 		.ascii	"char\000"
  1408      00
  1409              	.LASF22:
- 1410 0254 746F6265 		.ascii	"tobesentEEPROM\000"
+ 1410 0252 746F6265 		.ascii	"tobesentEEPROM\000"
  1410      73656E74 
  1410      45455052 
  1410      4F4D00
  1411              	.LASF2:
- 1412 0263 73686F72 		.ascii	"short int\000"
+ 1412 0261 73686F72 		.ascii	"short int\000"
  1412      7420696E 
  1412      7400
  1413              	.LASF33:
- 1414 026d 5061636B 		.ascii	"PacketReadyFlag\000"
+ 1414 026b 5061636B 		.ascii	"PacketReadyFlag\000"
  1414      65745265 
  1414      61647946 
  1414      6C616700 
  1415              	.LASF13:
- 1416 027d 75696E74 		.ascii	"uint16_t\000"
+ 1416 027b 75696E74 		.ascii	"uint16_t\000"
  1416      31365F74 
  1416      00
  1417              	.LASF7:
- 1418 0286 6C6F6E67 		.ascii	"long int\000"
-ARM GAS  C:\Users\Ilaria\AppData\Local\Temp\ccOQLPCP.s 			page 31
+ 1418 0284 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccpYymDW.s 			page 31
 
 
  1418      20696E74 
  1418      00
  1419              	.LASF37:
- 1420 028f 44617461 		.ascii	"DataBuffer\000"
+ 1420 028d 44617461 		.ascii	"DataBuffer\000"
  1420      42756666 
  1420      657200
  1421              	.LASF19:
- 1422 029a 6C6F6E67 		.ascii	"long double\000"
+ 1422 0298 6C6F6E67 		.ascii	"long double\000"
  1422      20646F75 
  1422      626C6500 
  1423              	.LASF0:
- 1424 02a6 7369676E 		.ascii	"signed char\000"
+ 1424 02a4 7369676E 		.ascii	"signed char\000"
  1424      65642063 
  1424      68617200 
  1425              	.LASF36:
- 1426 02b2 53616D70 		.ascii	"SamplingFreqFlag\000"
+ 1426 02b0 53616D70 		.ascii	"SamplingFreqFlag\000"
  1426      6C696E67 
  1426      46726571 
  1426      466C6167 
  1426      00
  1427              	.LASF39:
- 1428 02c3 55415254 		.ascii	"UART_1_PutString\000"
+ 1428 02c1 55415254 		.ascii	"UART_1_PutString\000"
  1428      5F315F50 
  1428      75745374 
  1428      72696E67 
  1428      00
  1429              	.LASF24:
- 1430 02d4 53656E64 		.ascii	"Send_BCP\000"
+ 1430 02d2 53656E64 		.ascii	"Send_BCP\000"
  1430      5F424350 
  1430      00
  1431              	.LASF31:
- 1432 02dd 62756666 		.ascii	"bufferUART\000"
+ 1432 02db 62756666 		.ascii	"bufferUART\000"
  1432      65725541 
  1432      525400
  1433              	.LASF35:
- 1434 02e8 46535246 		.ascii	"FSRFlag\000"
+ 1434 02e6 46535246 		.ascii	"FSRFlag\000"
  1434      6C616700 
  1435              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

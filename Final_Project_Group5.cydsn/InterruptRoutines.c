@@ -23,6 +23,7 @@
 // Include header
 #include "InterruptRoutines.h"
 #include "project.h"
+/* Accelerometer LIS3DH Library */
 #include "LIS3DH.h"
 #include "Functions.h"
 /* EEPROM 25LC256 Library */
@@ -36,6 +37,37 @@ int32 value_digit;
 int   value_mv; 
 
 uint8_t data_start[4];
+
+CY_ISR(Custom_ISR_Button){
+    
+    long int button_press_counter = 0;
+    // Last reading of push button
+    uint8_t ButtonLastState = BUTTON_PRESSED;  
+    // Current reading of push button
+    uint8_t ButtonReading = BUTTON_PRESSED;
+
+        while (ButtonReading == ButtonLastState)
+        {
+            // Update state and reading
+            ButtonLastState = ButtonReading;
+            ButtonReading = Onboard_Button_Read();
+
+            // Increment counter
+            button_press_counter ++;
+            
+            // If we've waited enough time
+            if (button_press_counter == FIVE_SEC)
+            {
+                // If push button was still pressed
+                if (ButtonReading == BUTTON_PRESSED)
+                {
+                   Ext_LED_Write(EXT_LED_ON); //solo per vedere se funziona                                   
+                }
+            }
+        }
+    
+        Ext_LED_Write(EXT_LED_OFF); //solo per vedere se funziona
+}        
 
 CY_ISR_PROTO (Custom_isr_FIFO)
 {

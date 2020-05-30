@@ -34,6 +34,9 @@
     #define START 1
     #define STOP 0
     
+    /* Time counter to count the 5s pressure of the on-board button () */
+    #define FIVE_SEC 270000*5
+    
     /*Prototyping interrupt service routine on receiving UART*/
     CY_ISR_PROTO (Custom_ISR_RX);
     
@@ -42,6 +45,12 @@
     
     /*Prototyping interrupt service routine on Timer count*/
     CY_ISR_PROTO (Custom_ISR_ADC);
+    
+    /*Prototyping interrupt service routine on Button pression*/
+    CY_ISR_PROTO(Custom_ISR_Button);  
+
+    /* brief State of button pressed (logic low)*/
+    #define BUTTON_PRESSED 0
     
     volatile uint8 PacketReadyFlag; /*Flag for packet ready*/
     volatile uint8 StartFlag;
