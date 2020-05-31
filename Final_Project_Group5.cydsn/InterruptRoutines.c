@@ -71,7 +71,43 @@ CY_ISR(Custom_ISR_Button){
 
 CY_ISR_PROTO (Custom_isr_FIFO)
 {
-    /*Send data to EEPROM*/
+//   /    CyDelayUs(2);
+    if(StartFlag == START)
+    { 
+        if (count_wtm <= 31 ){
+            ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) datiAcc, 6);  
+    
+            Store_EEPROM(counter, datiAcc, data_EE);
+            
+            Send_BCP( counter, data_EE, data_BCP);
+            UART_1_PutArray(data_BCP, TRANSMIT_BUFFER_SIZE);
+//            counter= counter+DATA_BYTES_EEPROM;
+            count_wtm ++;
+        }
+        else
+        {   count_wtm = 0; 
+            ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) datiAcc, 6);        
+            count_wtm ++; 
+//            UART_1_PutString("CIAO\n\r");
+         }
+    
+    fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);        
+        
+    if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO)
+    {
+        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
+        CyDelayUs(2);
+        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);            
+        CyDelayUs(2);
+        count_wtm = 0;
+     }        
+            
+         
+//        sprintf(bufferUART, " Counter watermark %d \r\n", count_wtm);
+//         UART_1_PutBuffer;
+    
+    }
+    
 }
 
 CY_ISR(Custom_ISR_ADC)

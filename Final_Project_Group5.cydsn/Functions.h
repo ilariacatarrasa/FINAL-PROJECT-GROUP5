@@ -24,7 +24,7 @@
     #include "cytypes.h" 
     
     /*Declaration of function to store in EEPROM data of accelerometer and temperature*/
-    void Store_EEPROM(uint8_t* tobepacked, uint8_t* tobesentEEPROM);    
+    void Store_EEPROM(uint8_t counter, uint8_t* tobepacked, uint8_t* tobesentEEPROM);
 #endif
 
 #ifndef __SEND_BCP__
@@ -36,7 +36,7 @@
     #define TAIL 0xC0
     
     /*Declaration of function to send to Bridge control panel data of accelerometer and temperature*/
-    void Send_BCP(uint8_t* tobedepacked, uint8_t* data_BCP);    
+    void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP);    
 #endif
 
 //Set the configuration of accelerometer (FSR and SF)
@@ -47,7 +47,8 @@
     
     void Config_acc( uint8_t counter, uint8_t config, uint16_t address);
     /*Declaration of function to store in EEPROM data of accelerometer and temperature*/
-    void Store_EEPROM(uint8_t* tobepacked, uint8_t* tobesentEEPROM);    
+    
+
 #endif
 
 

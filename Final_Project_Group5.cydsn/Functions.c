@@ -51,7 +51,7 @@ void show_menu()
 }
 
 /*Send data of accelerometer and temperaure to EEPROM */
-void Store_EEPROM(uint8_t* tobepacked, uint8_t* tobesentEEPROM)
+void Store_EEPROM(uint8_t counter, uint8_t* tobepacked, uint8_t* tobesentEEPROM)
 {
     // Store X, Y, Z accelerometer data
     tobesentEEPROM[0] = tobepacked[1];
@@ -60,12 +60,21 @@ void Store_EEPROM(uint8_t* tobepacked, uint8_t* tobesentEEPROM)
     tobesentEEPROM[3] = ( tobepacked[5]<<4 ) | ( tobepacked[4]>>6 );
     tobesentEEPROM[4] = tobepacked[6]; // Store MSB of temperature data
     tobesentEEPROM[5] = tobepacked[7]; // Store LSB of temperature data
+    EEPROM_writePage(counter, (uint8_t*) tobesentEEPROM, DATA_BYTES_EEPROM);
+    EEPROM_waitForWriteComplete();
+    
+    
+//    EEPROM_readPage(counter, (uint8_t*) tobesentEEPROM, DATA_BYTES_EEPROM);
+//    sprintf(bufferUART, "** EEPROM Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", tobesentEEPROM[0], tobesentEEPROM[1], tobesentEEPROM[2],  tobesentEEPROM[3], tobesentEEPROM[4], tobesentEEPROM[5]);
+//    UART_1_PutBuffer;
     
 }
 
 /*Sed to Bridge control panel*/
-void Send_BCP(uint8_t* tobedepacked, uint8_t* data_BCP)
-{
+void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP)
+{       
+    EEPROM_readPage(counter, (uint8_t*) tobedepacked, DATA_BYTES_EEPROM);
+    
     data_BCP[0] = HEADER; // Headerof buffer to send to Bridge Control Panel
         
     data_BCP[1] = tobedepacked[0]; 
@@ -75,12 +84,15 @@ void Send_BCP(uint8_t* tobedepacked, uint8_t* data_BCP)
     data_BCP[5] = ( tobedepacked[2] << 4 ) | ((tobedepacked[3] >> 4 ) & (0b00001111));
     data_BCP[6] = ( tobedepacked[3] << 4 ) & 11110000;
     
-    data_BCP[7] = tobedepacked[4]; //MSB of temperature data
-    data_BCP[8] = tobedepacked[5]; //LSB of temperature data
+    data_BCP[7] = 0;//tobedepacked[4]; //MSB of temperature data
+    data_BCP[8] = 0;//tobedepacked[5]; //LSB of temperature data
     
     data_BCP[9] = TAIL; // Tail of buffer to send to Bridge Control Panel
+    
+//    UART_1_PutArray(data_BCP, TRANSMIT_BUFFER_SIZE);
 
 }
+
 
 
 /*Set ACCELEROMETER*/

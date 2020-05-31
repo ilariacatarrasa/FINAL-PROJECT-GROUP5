@@ -25,6 +25,10 @@
 /*Include the macros*/
 #include "header.h"
 
+//Counter for address where to start
+
+
+
 int main(void) {
     
     /* Enable global interrupts. */
@@ -189,22 +193,10 @@ int main(void) {
     sprintf(bufferUART, "\r\n FIFO clean \r\n");
     UART_1_PutBuffer; 
     
-    //SAVE ACCELEROMETER AND TEMP DATA IN EEPROM, SEND DEPACKET DATA TO BRIDGE CONTROL PANEL/////////////
-              
-//    uint8_t data_prova[6] = {0b00000000, 0b11111111 , 0b00000000, 0b11111111 , 0b00000000, 0b11111111 };    
-    uint8_t data_EE[6] = {0}; //Data to be stored in EEPROM
-    uint8_t data_BCP[10] = {0}; // Data to send to Bridge Control Panel
-    //Function for storing in EEPROM data in 4 byte
-//    Store_EEPROM(data_prova, data_EE);
-//    sprintf(bufferUART, " data EEPROM 0x%02X 0x%02X 0x%02X 0x%02X \r\n", data_EE[0], data_EE[1], data_EE[2], data_EE[3]);
-//    UART_1_PutBuffer;
-    //WRITE IN EEPROM
-    //
+
     
     ///Function for send Data to be sent to BRIDGE CONTROL PANEL        
-    Send_BCP(data_EE, data_BCP);
-    sprintf(bufferUART, " data BCP 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X \r\n", data_BCP[0], data_BCP[1], data_BCP[2], data_BCP[3], data_BCP[4], data_BCP[5], data_BCP[6]);
-    UART_1_PutBuffer;
+  
     //SENT TO UART
     // 
     ///////////////////////////////////////////////////////////////////
@@ -319,25 +311,26 @@ int main(void) {
             EEPROM_waitForWriteComplete();
             UART_1_PutString("** EEPROM Status ON ** \r\n");
             
+            counter= counter+DATA_BYTES_EEPROM;
             StartFlag =  2;  //exit from flag of START/stop
             
             /* Storing data in EEPROM */
             //Data to store in EEPROM: 4 bytes accelerometer (transform from 6 to 4 bytes) + 2bytes TEMP 
             //Data operations--> obtain data_EEPROM
             
-            data[6] = DataBuffer[5]; 
-            data[7] = DataBuffer[6]; 
-            
-            Store_EEPROM(data, data_EE);
-            sprintf(bufferUART, "** Data_EE Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", data_EE[0], data_EE[1], data_EE[2],  data_EE[3], data_EE[4], data_EE[5]);
-            UART_1_PutBuffer;
-            
-            EEPROM_writePage(counter, (uint8_t*) data_EE, DATA_BYTES_EEPROM);
-            EEPROM_waitForWriteComplete();
-
-            EEPROM_readPage(counter, (uint8_t*) data_read_array, DATA_BYTES_EEPROM);
-            sprintf(bufferUART, "** EEPROM Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", data_read_array[0], data_read_array[1], data_read_array[2],  data_read_array[3], data_read_array[4], data_read_array[5]);
-            UART_1_PutBuffer;
+//            data[6] = DataBuffer[5]; 
+//            data[7] = DataBuffer[6]; 
+//            
+//            Store_EEPROM(data, data_EE);
+//            sprintf(bufferUART, "** Data_EE Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", data_EE[0], data_EE[1], data_EE[2],  data_EE[3], data_EE[4], data_EE[5]);
+//            UART_1_PutBuffer;
+//            
+//            EEPROM_writePage(counter, (uint8_t*) data_EE, DATA_BYTES_EEPROM);
+//            EEPROM_waitForWriteComplete();
+//
+//            EEPROM_readPage(counter, (uint8_t*) data_read_array, DATA_BYTES_EEPROM);
+//            sprintf(bufferUART, "** EEPROM Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", data_read_array[0], data_read_array[1], data_read_array[2],  data_read_array[3], data_read_array[4], data_read_array[5]);
+//            UART_1_PutBuffer;
            
             //Storing new set of data in EEPROM
             //EPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPROM);            
@@ -345,9 +338,9 @@ int main(void) {
             
             
             //update the storage counter in EEPROM at the address of COUNTER_ADD
-            counter= counter+DATA_BYTES_EEPROM;
-            EEPROM_writeByte(COUNTER_AD, counter);
-            EEPROM_waitForWriteComplete();
+//            counter= counter+DATA_BYTES_EEPROM;
+//            EEPROM_writeByte(COUNTER_AD, counter);
+//            EEPROM_waitForWriteComplete();
         }
         
         //If acquisition is stopped from user

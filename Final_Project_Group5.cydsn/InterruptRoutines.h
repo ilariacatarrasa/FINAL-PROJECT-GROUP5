@@ -23,10 +23,6 @@
     #define BYTE_TO_SEND 8
     #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
     
-   
-    /*variable definition*/
-    #define BYTE_TO_SEND 8
-    #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
     
     /* brief High and Low level state for digital output pin */
     #define EXT_LED_ON  1
@@ -58,7 +54,14 @@
     volatile uint8 SamplingFreqFlag;
     volatile uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];
     volatile int   value_temp;
-    volatile uint8_t counter=FIRST_DATA_ADDR;    
+       
+    volatile int count_wtm;       
+    volatile uint8_t datiAcc[8];
+    volatile uint8_t data_EE[6];
+    volatile uint8_t data_BCP[10];
+    volatile uint16_t counter;
+    uint8_t fifo_src_reg;
+    
     
     
 #endif
