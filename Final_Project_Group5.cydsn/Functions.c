@@ -50,6 +50,32 @@ void show_menu()
     return;
 }
 
+void ACC_TEMP_8bytePacking(uint8_t* SixByte_Data, uint8_t* TwoByte_Data, uint8_t* EightByte_Data, int lenght)
+{
+    uint8_t count = 1;
+    //start packing from the 2nd accelerometer sample 
+    for (int i=6; i<lenght; i+=6)
+    {
+        for (int j=0; j<64; j+=2)
+        {
+            EightByte_Data[i   +2*count] = SixByte_Data[i];
+            EightByte_Data[i+1 +2*count] = SixByte_Data[i+1];
+            EightByte_Data[i+2 +2*count] = SixByte_Data[i+2];
+            EightByte_Data[i+3 +2*count] = SixByte_Data[i+3];
+            EightByte_Data[i+4 +2*count] = SixByte_Data[i+4];
+            EightByte_Data[i+5 +2*count] = SixByte_Data[i+5];
+            EightByte_Data[i+6 +2*count] = TwoByte_Data[j];
+            EightByte_Data[i+7 +2*count] = TwoByte_Data[j+1];
+            
+            count++;
+        }        
+                    
+//    sprintf(bufferUART, " %d \r\n", EightByte_Data[i]);
+//    UART_1_PutBuffer;
+
+    }
+}
+
 /*Send data of accelerometer and temperaure to EEPROM */
 void Store_EEPROM(uint8_t counter, uint8_t* tobepacked, uint8_t* tobesentEEPROM)
 {

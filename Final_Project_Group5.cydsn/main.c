@@ -132,7 +132,7 @@ int main(void) {
     /*Setting control register 1*/
      uint8_t ctrl_reg1;    
     //Enable the ODR
-    ACC_writeRegister(LIS3DH_CTRL_REG1, LIS3DH_CTRL_REG1_ODR_START_1HZ);
+    ACC_writeRegister(LIS3DH_CTRL_REG1, LIS3DH_CTRL_REG1_ODR_START_50HZ);
                 
     ctrl_reg1 = ACC_readRegister(LIS3DH_CTRL_REG1);
     sprintf(bufferUART, " Control register 1 has been set to = 0x%02X \r\n", ctrl_reg1);
@@ -150,8 +150,8 @@ int main(void) {
     
      /* Setting Control Register of FIFO */
     uint8_t ctrl1_FIFO;    
-    //Enable the Stream mode for FIFO and latch int1
-    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_STRM_MODE);
+    //Enable FIFO mode and the Watermark on 21 samples
+    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0x15);
                 
     ctrl1_FIFO = ACC_readRegister(LIS3DH_FIFO_CTRL_REG);
     sprintf(bufferUART, " Control register of FIFO has been set to = 0x%02X \r\n", ctrl1_FIFO);
@@ -162,7 +162,7 @@ int main(void) {
     uint8_t ctrl_reg3;
     
     //Enable FIFO Overrun interrupt on INT1.
-    ACC_writeRegister(LIS3DH_CTRL_REG3, LIS3DH_CTRL_REG3_FIFO_OVERRUN);
+    ACC_writeRegister(LIS3DH_CTRL_REG3, LIS3DH_CTRL_REG3_FIFO_WTM);
     
     ctrl_reg3 = ACC_readRegister(LIS3DH_CTRL_REG3);
     sprintf(bufferUART, " Control register 3 has been set to = 0x%02X \r\n", ctrl_reg3);
@@ -257,36 +257,36 @@ int main(void) {
     
     for(;;){
         
-        fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);     
-            
-        
-        if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO )       
-           {              
-            ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) FIFO_data, 192); 
-            
-            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
-            sprintf(bufferUART, " fifo_src_reg dopo la multiread 0x%02X  \r\n", fifo_src_reg);
-            UART_1_PutBuffer;
-            
-            sprintf(bufferUART, " Primi 63 valori del buffer: \r\n");
-            UART_1_PutBuffer;   
-                
-            for (uint i=0; i<192; i++)
-            {
-                sprintf(bufferUART, " %d ", FIFO_data[i]);
-                UART_1_PutBuffer;
-            }
-            
-                                
-            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
-            CyDelayUs(2);
-            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
-            
-            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
-            sprintf(bufferUART, "\r\n fifo_src_reg dopo il reset 0x%02X  \r\n", fifo_src_reg);
-            UART_1_PutBuffer;
-        }
-        
+//        fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);     
+//            
+//        
+//        if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO )       
+//           {              
+//            ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) FIFO_data, 192); 
+//            
+//            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
+//            sprintf(bufferUART, " fifo_src_reg dopo la multiread 0x%02X  \r\n", fifo_src_reg);
+//            UART_1_PutBuffer;
+//            
+//            sprintf(bufferUART, " Primi 63 valori del buffer: \r\n");
+//            UART_1_PutBuffer;   
+//                
+//            for (uint i=0; i<192; i++)
+//            {
+//                sprintf(bufferUART, " %d ", FIFO_data[i]);
+//                UART_1_PutBuffer;
+//            }
+//            
+//                                
+//            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
+//            CyDelayUs(2);
+//            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
+//            
+//            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
+//            sprintf(bufferUART, "\r\n fifo_src_reg dopo il reset 0x%02X  \r\n", fifo_src_reg);
+//            UART_1_PutBuffer;
+//        }
+//        
         /* EEPROM */
         // save new configuration in EEPROM memory:    
         

@@ -250,6 +250,17 @@
   </Group>
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
+    <Group key="Interrupt">
+      <Data key="1a02db18-eb10-45fd-b56e-d42b8e036146" value="isr_RX" />
+      <Data key="4d2166b7-c5d4-4c50-9f5b-3210ed276366" value="isr_ADC" />
+      <Data key="4d250294-fd32-439e-84cf-fa56f603380f" value="isr_FIFO" />
+      <Data key="9bec3b81-a188-497c-bdd2-9bdb29b246f3" value="ISR_Button" />
+      <Data key="15cb15b3-05f2-49b1-a67e-9f121bc62871/2f0e1ca3-d7f9-4fde-aef9-0b36f082c803" value="SPIM_1_TxInternalInterrupt" />
+      <Data key="15cb15b3-05f2-49b1-a67e-9f121bc62871/14fe96ba-901d-4b28-a648-bce191698c4b" value="SPIM_1_RxInternalInterrupt" />
+      <Data key="9883140b-fa63-44bc-ad04-21065bba30a4/b6592af9-e743-4dfd-a597-27f9102033ee" value="ADC_DelSig_IRQ" />
+      <Data key="ed8a5e0d-c9c9-4f22-8fb2-6ec0982b7f18/2f0e1ca3-d7f9-4fde-aef9-0b36f082c803" value="SPIM_2_TxInternalInterrupt" />
+      <Data key="ed8a5e0d-c9c9-4f22-8fb2-6ec0982b7f18/14fe96ba-901d-4b28-a648-bce191698c4b" value="SPIM_2_RxInternalInterrupt" />
+    </Group>
     <Group key="Pin">
       <Data key="1b426620-b4d2-4b2a-8133-3665c15953a4" value="Button" />
       <Data key="1d80bf51-70d0-47bd-bcdc-fb6f10b3f760" value="MOSI_2" />
@@ -3351,6 +3362,22 @@
       </Group>
       <Group key="1024">
         <Data key="LevelKey" value="00" />
+      </Group>
+    </Group>
+  </Group>
+  <Group key="Interrupt">
+    <Group key="1a02db18-eb10-45fd-b56e-d42b8e036146">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="6" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="9bec3b81-a188-497c-bdd2-9bdb29b246f3">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="6" />
+        <Data key="Vector" value="-1" />
       </Group>
     </Group>
   </Group>

@@ -67,8 +67,12 @@
 
 //brief Address of the Control register 3
 #define LIS3DH_CTRL_REG3 0x22
-//Enable FIFO data overrun on INT1(when FIFO is full interrupt enables and stops collecting data)
-#define LIS3DH_CTRL_REG3_FIFO_OVERRUN 0x02
+//Enable interrupt on Watermark = 32 samples 
+#define LIS3DH_CTRL_REG3_FIFO_WTM 0x04
+
+//brief Address of the Interrupt-1 source register
+#define LIS3DH_SRC_REG 0x31
+
 
 //brief Address FIFO source
 #define LIS3DH_FIFO_SRC_REG 0x2F
@@ -125,5 +129,21 @@ uint8_t ACC_readRegister(uint8_t reg_addr);
 *
 */
 void ACC_Multi_Read(uint8_t addr, uint8_t* data, uint8_t nBytes);
+
+/*
+* @brief Storing packets of 6 accelerometer bytes (X, Y and Z samples) + 2 temperature bytes
+*        in a 256 bytes array. This function rejects the first 6 Acc bytes because the
+*        first Acc. sample that is read using the Watermark is the last sample left by the  
+*        previous read. 
+*        (Check the LIS3DH Application Note (page 52) for details)
+*
+* @param[in]: uint8_t data array containing (accelerometer's) bytes to be splitted in packs of 6 bytes.
+* @param[in]: uint8_t data array containing (temperature's) bytes to be splitted in packs of 2 bytes.
+* @param[out]: uint8_t* pointer to the output array where bytes are ordered as 6 Acc. bytes + 2 Temp. Bytes.
+* @param[in]: Number of bytes of the output array
+*
+*/
+void ACC_TEMP_8bytePacking(uint8_t* SixByte_Data, uint8_t* TwoByte_Data, uint8_t* EightByte_Data, int lenght);
+
 
 /* [] END OF FILE */

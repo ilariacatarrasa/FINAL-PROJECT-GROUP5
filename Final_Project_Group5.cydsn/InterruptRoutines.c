@@ -71,42 +71,65 @@ CY_ISR(Custom_ISR_Button){
 
 CY_ISR_PROTO (Custom_isr_FIFO)
 {
-//   /    CyDelayUs(2);
-    if(StartFlag == START)
-    { 
-        if (count_wtm <= 31 ){
-            ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) datiAcc, 6);  
+
+     //read the Interrupt-1 source register to bring interrupt line low
+    fifo_src_reg = ACC_readRegister(LIS3DH_SRC_REG);
     
-            Store_EEPROM(counter, datiAcc, data_EE);
-            
-            Send_BCP( counter, data_EE, data_BCP, FahrenheitFlag);
-            UART_1_PutArray(data_BCP, TRANSMIT_BUFFER_SIZE);
-//            counter= counter+DATA_BYTES_EEPROM;
-            count_wtm ++;
-        }
-        else
-        {   count_wtm = 0; 
-            ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) datiAcc, 6);        
-            count_wtm ++; 
-//            UART_1_PutString("CIAO\n\r");
-         }
+    uint8_t dataAccTemp[256];
+    uint8_t dataAcc[192];
+    uint8_t dataTemp[2] = {0,0};       
     
-    fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);        
-        
-    if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO)
+    ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) dataAcc, 126);
+    
+    for (uint i=0; i<126; i++)
     {
-        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
-        CyDelayUs(2);
-        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);            
-        CyDelayUs(2);
-        count_wtm = 0;
-     }        
+        sprintf(bufferUART, " %d ", dataAcc[i]);
+        UART_1_PutString(bufferUART);
+    }
+    
+//    //qui funzione che salva 32 sample di temperatura    
+//    ACC_TEMP_8bytePacking((uint8_t*)dataAcc, (uint8_t*)dataTemp, (uint8_t*)dataAccTemp, 256);
+    
+    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
+    CyDelayUs(2);
+    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);            
+    CyDelayUs(2);
+
+//    if(StartFlag == START)
+//    { 
+//        if (count_wtm <= 31 ){
+//            ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) datiAcc, 6);  
+//    
+//            Store_EEPROM(counter, datiAcc, data_EE);
+//            
+//            Send_BCP( counter, data_EE, data_BCP, FahrenheitFlag);
+//            UART_1_PutArray(data_BCP, TRANSMIT_BUFFER_SIZE);
+////            counter= counter+DATA_BYTES_EEPROM;
+//            count_wtm ++;
+//        }
+//        else
+//        {   count_wtm = 0; 
+//            ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) datiAcc, 6);        
+//            count_wtm ++; 
+////            UART_1_PutString("CIAO\n\r");
+//         }
+//    
+//    fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);        
+//        
+//    if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO)
+//    {
+//        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
+//        CyDelayUs(2);
+//        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);            
+//        CyDelayUs(2);
+//        count_wtm = 0;
+//     }        
             
          
 //        sprintf(bufferUART, " Counter watermark %d \r\n", count_wtm);
 //         UART_1_PutBuffer;
     
-    }
+    
     
 }
 
@@ -156,6 +179,7 @@ CY_ISR(Custom_ISR_RX)
         case 'b':
             
             StartFlag=START;
+            isr_FIFO_StartEx(Custom_isr_FIFO);
             // Start data acquisition from the accelerometer
             // Start sampling Temperature values every Timer overflow
             Timer_Start();
@@ -172,6 +196,7 @@ CY_ISR(Custom_ISR_RX)
         case 's':
             
             StartFlag=STOP;
+            isr_FIFO_Stop();
             // Stop data acquisition from the accelerometer
             // Stop sampling Temperature values every Timer overflow
             Timer_Stop();
