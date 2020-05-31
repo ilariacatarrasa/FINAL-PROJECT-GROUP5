@@ -71,8 +71,13 @@ void Store_EEPROM(uint8_t counter, uint8_t* tobepacked, uint8_t* tobesentEEPROM)
 }
 
 /*Sed to Bridge control panel*/
-void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP)
+/*Sed to Bridge control panel*/
+void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP, uint8_t temperature_modality)
 {       
+    
+    int value_temp;
+    uint16_t temperature;
+    
     EEPROM_readPage(counter, (uint8_t*) tobedepacked, DATA_BYTES_EEPROM);
     
     data_BCP[0] = HEADER; // Headerof buffer to send to Bridge Control Panel
@@ -84,8 +89,21 @@ void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP)
     data_BCP[5] = ( tobedepacked[2] << 4 ) | ((tobedepacked[3] >> 4 ) & (0b00001111));
     data_BCP[6] = ( tobedepacked[3] << 4 ) & 11110000;
     
-    data_BCP[7] = 0;//tobedepacked[4]; //MSB of temperature data
-    data_BCP[8] = 0;//tobedepacked[5]; //LSB of temperature data
+    temperature = (uint16_t) tobedepacked[4] << 8 |  ( (uint16_t) tobedepacked[5] ) ;
+ 
+    value_temp = ADC_DelSig_CountsTo_mVolts(temperature);
+    sprintf(bufferUART, " value temperature MV: %d  \n\r", value_temp);
+    UART_1_PutBuffer;
+    value_temp = (value_temp-500)/10; // Temperature in Celsius
+    if(temperature_modality==1)
+    {
+        value_temp= value_temp * 9/5 + 32; // Temperature in Fahrenheit
+    }
+    sprintf(bufferUART, " value temperature: %d  \n\r", value_temp);
+    UART_1_PutBuffer;
+    
+    data_BCP[7] = (uint16_t)value_temp >> 8;  //MSB of temperature data
+    data_BCP[8] = (uint16_t)value_temp & 0xFF ; //LSB of temperature data
     
     data_BCP[9] = TAIL; // Tail of buffer to send to Bridge Control Panel
     

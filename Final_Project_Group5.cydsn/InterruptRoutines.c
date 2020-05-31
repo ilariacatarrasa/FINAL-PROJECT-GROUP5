@@ -35,7 +35,7 @@ uint8 TemperatureMode=0;
 uint8 FahrenheitFlag=0;
 int32 value_digit;
 int   value_mv; 
-
+int j;
 uint8_t data_start[4];
 
 CY_ISR(Custom_ISR_Button){
@@ -79,7 +79,7 @@ CY_ISR_PROTO (Custom_isr_FIFO)
     
             Store_EEPROM(counter, datiAcc, data_EE);
             
-            Send_BCP( counter, data_EE, data_BCP);
+            Send_BCP( counter, data_EE, data_BCP, FahrenheitFlag);
             UART_1_PutArray(data_BCP, TRANSMIT_BUFFER_SIZE);
 //            counter= counter+DATA_BYTES_EEPROM;
             count_wtm ++;
@@ -120,18 +120,25 @@ CY_ISR(Custom_ISR_ADC)
     if(value_digit<0)      value_digit=0;
     if(value_digit>65535)  value_digit=65535;
     
-    DataBuffer[5]=value_digit>>8; // shift a dx di 8 bit --> MSB
-    DataBuffer[6]=value_digit & 0xFF; // & bit a bit --> LSB
-    
-    value_mv=ADC_DelSig_CountsTo_mVolts(value_digit);
-    value_temp= (value_mv-500)/10; // Temperature in Celsius
-    if(FahrenheitFlag==1)
-    {
-        value_temp= value_temp * 9/5 + 32; // Temperature in Fahrenheit
+   if (j>=63)
+    { 
+        j = 0;
+        Buffer_Temp_Full = 1;
     }
+    DataBuffer[j]=value_digit>>8; // shift a dx di 8 bit --> MSB
+    j++;
+    DataBuffer[j]=value_digit & 0xFF; // & bit a bit --> LSB
+    j++;
+//    
+//    value_mv=ADC_DelSig_CountsTo_mVolts(value_digit);
+//    value_temp= (value_mv-500)/10; // Temperature in Celsius
+//    if(FahrenheitFlag==1)
+//    {
+//        value_temp= value_temp * 9/5 + 32; // Temperature in Fahrenheit
+//    }
 //    sprintf(bufferUART, " value temperature: %d  \n\r", value_temp);
 //    UART_1_PutBuffer;
-    PacketReadyFlag=1;
+//    PacketReadyFlag=1;
 }
 
 CY_ISR(Custom_ISR_RX)

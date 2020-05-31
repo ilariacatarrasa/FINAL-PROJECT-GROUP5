@@ -28,7 +28,7 @@
 #endif
 
 #ifndef __SEND_BCP__
-    #define __STORE_EEPROM__
+    #define __SEND_BCP__
     #include "cytypes.h"
     
     //Header and Tail for data buffer to sent to Bridge control panel
@@ -36,7 +36,7 @@
     #define TAIL 0xC0
     
     /*Declaration of function to send to Bridge control panel data of accelerometer and temperature*/
-    void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP);    
+    void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP, uint8_t temperature_modality);    
 #endif
 
 //Set the configuration of accelerometer (FSR and SF)

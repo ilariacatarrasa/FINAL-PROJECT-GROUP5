@@ -22,7 +22,7 @@
     /*variable definition*/
     #define BYTE_TO_SEND 8
     #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
-    
+    #define BYTE_TEMP_TO_STORE 64    
     
     /* brief High and Low level state for digital output pin */
     #define EXT_LED_ON  1
@@ -54,6 +54,7 @@
     volatile uint8 SamplingFreqFlag;
     volatile uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];
     volatile int   value_temp;
+    volatile uint8_t Buffer_Temp_Full;
        
     volatile int count_wtm;       
     volatile uint8_t datiAcc[8];
