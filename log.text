@@ -1,0 +1,312 @@
+commit c2b127d68a14d6878a6ba6b081457f1fc97ec664
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon Jun 1 16:59:48 2020 +0200
+
+    Deleted some unuseful comments
+
+commit 1384748a67d94173b43be8da4c223b25e4e4c684
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon Jun 1 16:54:29 2020 +0200
+
+    Implemented the Bridge Control Panel communication
+
+commit ae51202f8efc5d54fb21acc8b6ce7abb1fcc90ea
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon Jun 1 15:54:34 2020 +0200
+
+    Implemented the on-board button reset
+
+commit fff70e2be2b957fe4c4fbc64967b9e14c5cf8275
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon Jun 1 15:41:10 2020 +0200
+
+    Added temperature data storing
+
+commit ad7a1263ccc4c9154ba7628f87576e61eb894d1a
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon Jun 1 14:25:10 2020 +0200
+
+    Fixed some errors
+
+commit aed4dc0db3ff79e5579ed62b27bc374aca318435
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon Jun 1 10:47:04 2020 +0200
+
+    Watermark at 11 samples.
+
+commit 534331278dda33ebb68a886bc22840235e54f7da
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon Jun 1 00:47:23 2020 +0200
+
+    Adjustes Register configurations. Added a draft of FIFO multiread in the FIFO_isr with Watermark on 21 samples
+
+commit d5c5968e9268a82f7988eae854ab0ae087426958
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Sun May 31 23:05:36 2020 +0200
+
+    added temperature improvements to send to BCP + packing data temp
+
+commit 84840d541ca1b09f379f414364cb5197e5e55300
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sun May 31 22:47:33 2020 +0200
+
+    Added isr for FIFO accelerometer but still changes to do
+
+commit 8321b005e15e76ffbfc91798437b2104364e3dbf
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sat May 30 13:06:55 2020 +0200
+
+    Added some comments
+
+commit 86de8633b1c3ea61e873c306fd6d7e6a2b70abe4
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Sat May 30 11:40:37 2020 +0200
+
+    Reset Button draft implementation
+
+commit 9c749996625ed9b54665b46fc892771c1440a91d
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sat May 30 00:54:37 2020 +0200
+
+    Updated main with UART flags & created header.h for Macros
+
+commit f0174b643c18b536aee78d84697f320d7a25e1c1
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Sat May 30 00:35:08 2020 +0200
+
+    final version isr UART + adding EEPROM storing functions
+
+commit 1045b2c68cfe60650f2960b4ac221f51ca19cf32
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Fri May 29 17:46:34 2020 +0200
+
+    Added button Debouncer in the TopDesign
+
+commit 62f7c8e3659be1ce91d7fbd726ccfafb14e66abc
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Fri May 29 15:33:41 2020 +0200
+
+    Created functions to send to EEPROM & to Bridge control Panel
+
+commit 095dc1ec84e7e1b6565036bac2d85f4486d140d2
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Fri May 29 14:47:53 2020 +0200
+
+    adding data operation + modifying EEPROM part in main
+
+commit f8a8aff863cb1f9ff8e6832f7beb4107c6740c8a
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Thu May 28 15:49:45 2020 +0200
+
+    Added FIFO cleaning
+
+commit dc61bf75c8ab3cd2ee41de3c59ed747b6397fcaa
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Thu May 28 15:05:02 2020 +0200
+
+    adding reading
+
+commit 21728c9e3d6465a5305c586806ae54a085f81717
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Thu May 28 00:29:07 2020 +0200
+
+    finished point 5 with EEPROM part
+
+commit 8beaa22ac3e0371fc0a6f03e4ecad0f6830244df
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Wed May 27 16:55:41 2020 +0200
+
+    fixing menù, temperature issues, adding first EEPROM base
+
+commit f1b7ba2618fcc9fbc0006a6ad13e29d307273756
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Wed May 27 10:37:25 2020 +0200
+
+    Upload file with UART responding
+
+commit 6666b527b34adafcdf7f1445537a71a2eccdc592
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Tue May 26 09:59:59 2020 +0200
+
+    Added comments for multiread and fixed some LED problems
+
+commit ec679dd10e3d98e71ba1b18a7b0d152c1c3dca5c
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Mon May 25 23:56:44 2020 +0200
+
+    readding the world
+
+commit aa02d0e95e66305fbe81bad13b11d9f2e6dfcd89
+Merge: 1722317 a4f35f3
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Mon May 25 23:03:56 2020 +0200
+
+    Merge branch 'dev' of https://github.com/ilariacatarrasa/FINAL-PROJECT-GROUP5 into dev
+
+commit a4f35f3182176e29cc31664b7b7280676545e467
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Mon May 25 22:53:30 2020 +0200
+
+    Reverted to last commit
+
+commit 17223175779d0da074173aca8bb24b450cfcbda7
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Mon May 25 20:36:01 2020 +0200
+
+    Revert "Merge branch 'dev' of https://github.com/ilariacatarrasa/FINAL-PROJECT-GROUP5 into dev"
+    
+    This reverts commit e048e42ec71c88f2ce494741b88d6e23e4dc8053, reversing
+    changes made to 816c898eae28f154ab312e96bdc072946841d835.
+
+commit e048e42ec71c88f2ce494741b88d6e23e4dc8053
+Merge: 816c898 af9e291
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Mon May 25 20:27:15 2020 +0200
+
+    Merge branch 'dev' of https://github.com/ilariacatarrasa/FINAL-PROJECT-GROUP5 into dev
+
+commit 816c898eae28f154ab312e96bdc072946841d835
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Mon May 25 20:24:39 2020 +0200
+
+    Inserted coding in the ISR for FIFO accelerometer
+
+commit af9e2913248f18a3e4efd7bc80231318e6db9f23
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon May 25 20:02:58 2020 +0200
+
+    Test to show that multiread works. Fixed some errors in the register reading.
+
+commit 6d676ddacb8e762108ea8bfe593786a0df5c02e5
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon May 25 17:30:01 2020 +0200
+
+    Changed Ext. LED config. and fixed some LED settings in InterruptRoutines.c
+
+commit 9b584b6513e2e35c30c21427c98ebe08a7ae0267
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon May 25 16:53:06 2020 +0200
+
+    Onboard LED Blinking pattern and External LED setting
+
+commit 5681de480d5084000ac43cee0a13fabb2ca08d72
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Mon May 25 15:47:52 2020 +0200
+
+    Configured Onboard and External LED on TopDesign. Configured PWM
+
+commit 7f2ed502bb0231e9f0cf18d494aaa3cbcafb15a0
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sun May 24 19:49:33 2020 +0200
+
+    MACROs for data in LIS3DH_CTRL_REG1 register modified
+
+commit 1d5e15de6dd60513a352424fbc42d5d0761d6218
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sun May 24 18:47:56 2020 +0200
+
+    Update Final_Project_Group5.cyprj
+
+commit 007f5a9ef51496aaf9d3fa07aa2b4fe8b69a0dea
+Merge: 6011e28 c0826e2
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sun May 24 18:46:39 2020 +0200
+
+    Merge branch 'dev' of https://github.com/ilariacatarrasa/FINAL-PROJECT-GROUP5 into dev
+
+commit 6011e28ffcf962e7b74912c55ed4da7934ae3b34
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sun May 24 18:43:27 2020 +0200
+
+    added some essential comments
+
+commit c0826e291e4c9e69b4f154423b45e690d63760fb
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Sun May 24 18:41:24 2020 +0200
+
+    added ISR_ADC
+
+commit bc3fdaee92e96c2a545fd2b27f76065333618dee
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sun May 24 15:46:54 2020 +0200
+
+    Commented isrFIFO_StartEx() cause we're still using polling
+
+commit 9f80250c64b03bd32423b3c5c07886872657f242
+Merge: da63aae a2ce487
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sun May 24 15:31:50 2020 +0200
+
+    Enabled all FIFO registers & controlled FIFO Overrun occurs
+
+commit da63aaee666188a33661419fa061def3bfd2422f
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sun May 24 15:24:22 2020 +0200
+
+    Enabled all FIFO registers & controlled FIFO Overrun occurs
+
+commit a2ce4874de23e254f47b84cabeefce1cf212c9ff
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Sat May 23 19:21:09 2020 +0200
+
+    better interface with the user in menu
+
+commit c7a423cdf29f5d678cff7c5ba87e8b2d02ff6d5c
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Sat May 23 18:46:08 2020 +0200
+
+    added menù function + started isr_FIFO in main
+
+commit aebfcbfa72dc600484641f89e5b70c35c161144f
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Sat May 23 18:12:07 2020 +0200
+
+    modified menù uart
+
+commit 8831c06f2adc573612cf2b6c03e871d0666ee0c4
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sat May 23 18:03:29 2020 +0200
+
+    Modifications in TopDesign
+
+commit a05744bf31cdcee88ec670d0768629001e1960b4
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sat May 23 17:52:35 2020 +0200
+
+    FIFO register configuration adjusted
+
+commit 89d4b6c2f5ea899e0fc5a2373dfc258a6b2b8d4e
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sat May 23 16:43:05 2020 +0200
+
+    Interrupt Routines For FIFO declared in .h and .c files
+
+commit 498d84999e0b94e0ff632a90ab1972d0af6531a9
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sat May 23 15:25:58 2020 +0200
+
+    Added interrupt and made changes all in TopDesign
+
+commit 5d04dda6a466ef0903d71d42ced04c1e4d5176a3
+Author: FedericaGit <fede.e3@hotmail.it>
+Date:   Sat May 23 13:13:48 2020 +0200
+
+    Created file LIS3DH.c and SPI_Interface_LIS3DH.c/h to R/W accelerometer registers and set them
+
+commit a21778f90c7bd59e7a2b0249484b74ba8529a0e8
+Author: ilaria <ilaria1.milani@mail.polimi.it>
+Date:   Sat May 23 12:58:24 2020 +0200
+
+    UART MENU added
+
+commit 226385ad5b7cd3e819b6529bc10eb565be4c7ed1
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sat May 23 12:35:47 2020 +0200
+
+    Creation Header file LIS3DH.h for accelerometer settings
+
+commit 25ec33aee0fba5f8cdbab59b9480ca36c3e9ce65
+Author: ilariacatarrasa <62339940+ilariacatarrasa@users.noreply.github.com>
+Date:   Sat May 23 12:30:41 2020 +0200
+
+    Creation Final Project Group 5
