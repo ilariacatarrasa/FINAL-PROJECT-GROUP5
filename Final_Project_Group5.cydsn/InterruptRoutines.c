@@ -71,30 +71,32 @@ CY_ISR(Custom_ISR_Button){
 
 CY_ISR_PROTO (Custom_isr_FIFO)
 {
-
-     //read the Interrupt-1 source register to bring interrupt line low
+    //read the Interrupt-1 source register to bring interrupt line low
     fifo_src_reg = ACC_readRegister(LIS3DH_SRC_REG);
-    
+    FIFO_isr_flag = 1;
+
     uint8_t dataAccTemp[256];
-    uint8_t dataAcc[192];
-    uint8_t dataTemp[2] = {0,0};       
+    uint8_t dataTemp[2] = {0,0};
     
-    ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) dataAcc, 126);
-    
-    for (uint i=0; i<126; i++)
-    {
-        sprintf(bufferUART, " %d ", dataAcc[i]);
-        UART_1_PutString(bufferUART);
-    }
-    
-//    //qui funzione che salva 32 sample di temperatura    
-//    ACC_TEMP_8bytePacking((uint8_t*)dataAcc, (uint8_t*)dataTemp, (uint8_t*)dataAccTemp, 256);
-    
+    ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) dataAcc, 66);
+
     ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
     CyDelayUs(2);
     ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);            
     CyDelayUs(2);
+    
+//    ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp, 80);
 
+    
+    for (uint i=0; i<66; i++)
+    {
+        sprintf(bufferUART, " %d ", dataAcc[i]);
+        UART_1_PutString(bufferUART);
+    }
+    UART_1_PutString(" *********\r\n");
+    
+
+//  PROVE ILA CAT.  
 //    if(StartFlag == START)
 //    { 
 //        if (count_wtm <= 31 ){
@@ -178,8 +180,9 @@ CY_ISR(Custom_ISR_RX)
         case 'B':
         case 'b':
             
-            StartFlag=START;
             isr_FIFO_StartEx(Custom_isr_FIFO);
+            StartFlag=START;
+            
             // Start data acquisition from the accelerometer
             // Start sampling Temperature values every Timer overflow
             Timer_Start();
@@ -196,7 +199,11 @@ CY_ISR(Custom_ISR_RX)
         case 's':
             
             StartFlag=STOP;
+            
+            //prova fede
             isr_FIFO_Stop();
+            FIFO_isr_flag = 0;
+            
             // Stop data acquisition from the accelerometer
             // Stop sampling Temperature values every Timer overflow
             Timer_Stop();

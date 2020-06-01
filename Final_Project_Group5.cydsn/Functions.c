@@ -50,7 +50,7 @@ void show_menu()
     return;
 }
 
-void ACC_TEMP_8bytePacking(uint8_t* SixByte_Data, uint8_t* TwoByte_Data, uint8_t* EightByte_Data, int lenght)
+void ACC_TEMP_8bytePacking(uint8_t* SixByte_Packs, uint8_t* TwoByte_Packs, uint8_t* EightByte_Packs, int lenght)
 {
     uint8_t count = 1;
     //start packing from the 2nd accelerometer sample 
@@ -58,14 +58,14 @@ void ACC_TEMP_8bytePacking(uint8_t* SixByte_Data, uint8_t* TwoByte_Data, uint8_t
     {
         for (int j=0; j<64; j+=2)
         {
-            EightByte_Data[i   +2*count] = SixByte_Data[i];
-            EightByte_Data[i+1 +2*count] = SixByte_Data[i+1];
-            EightByte_Data[i+2 +2*count] = SixByte_Data[i+2];
-            EightByte_Data[i+3 +2*count] = SixByte_Data[i+3];
-            EightByte_Data[i+4 +2*count] = SixByte_Data[i+4];
-            EightByte_Data[i+5 +2*count] = SixByte_Data[i+5];
-            EightByte_Data[i+6 +2*count] = TwoByte_Data[j];
-            EightByte_Data[i+7 +2*count] = TwoByte_Data[j+1];
+            EightByte_Packs[i   +2*count] = SixByte_Packs[i];
+            EightByte_Packs[i+1 +2*count] = SixByte_Packs[i+1];
+            EightByte_Packs[i+2 +2*count] = SixByte_Packs[i+2];
+            EightByte_Packs[i+3 +2*count] = SixByte_Packs[i+3];
+            EightByte_Packs[i+4 +2*count] = SixByte_Packs[i+4];
+            EightByte_Packs[i+5 +2*count] = SixByte_Packs[i+5];
+            EightByte_Packs[i+6 +2*count] = TwoByte_Packs[j];
+            EightByte_Packs[i+7 +2*count] = TwoByte_Packs[j+1];
             
             count++;
         }        

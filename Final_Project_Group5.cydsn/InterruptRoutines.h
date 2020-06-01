@@ -63,6 +63,10 @@
     volatile uint16_t counter;
     uint8_t fifo_src_reg;
     
+    //prova
+    volatile uint8_t FIFO_isr_flag;
+    volatile uint8_t dataAcc[192];
+            
     
     
 #endif

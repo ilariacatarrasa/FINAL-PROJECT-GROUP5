@@ -150,8 +150,8 @@ int main(void) {
     
      /* Setting Control Register of FIFO */
     uint8_t ctrl1_FIFO;    
-    //Enable FIFO mode and the Watermark on 21 samples
-    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0x15);
+    //Enable FIFO mode and the Watermark on 11 samples
+    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0xB);
                 
     ctrl1_FIFO = ACC_readRegister(LIS3DH_FIFO_CTRL_REG);
     sprintf(bufferUART, " Control register of FIFO has been set to = 0x%02X \r\n", ctrl1_FIFO);
@@ -314,6 +314,12 @@ int main(void) {
             counter= counter+DATA_BYTES_EEPROM;
             StartFlag =  2;  //exit from flag of START/stop
             
+                    
+//    //qui funzione che salva 32 sample di temperatura    
+//    ACC_TEMP_8bytePacking((uint8_t*)dataAcc, (uint8_t*)dataTemp, (uint8_t*)dataAccTemp, 256);
+
+
+            
             /* Storing data in EEPROM */
             //Data to store in EEPROM: 4 bytes accelerometer (transform from 6 to 4 bytes) + 2bytes TEMP 
             //Data operations--> obtain data_EEPROM
@@ -361,7 +367,8 @@ int main(void) {
             
             //PATTERN BOTTONE EEPROM PIENA
         }
-    }               
+    } 
+    
     
 }
 

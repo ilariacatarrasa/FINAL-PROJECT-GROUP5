@@ -143,7 +143,7 @@ void ACC_Multi_Read(uint8_t addr, uint8_t* data, uint8_t nBytes);
 * @param[in]: Number of bytes of the output array
 *
 */
-void ACC_TEMP_8bytePacking(uint8_t* SixByte_Data, uint8_t* TwoByte_Data, uint8_t* EightByte_Data, int lenght);
+void ACC_TEMP_8bytePacking(uint8_t* SixByte_Packs, uint8_t* TwoByte_Packs, uint8_t* EightByte_Packs, int lenght);
 
 
 /* [] END OF FILE */
