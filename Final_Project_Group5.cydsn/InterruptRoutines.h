@@ -30,8 +30,8 @@
     #define START 1
     #define STOP 0
     
-    /* Time counter to count the 5s pressure of the on-board button () */
-    #define FIVE_SEC 270000*5
+    /* Time counter to count the 5s pressure of the on-board button (20ms*50=1s) */
+    #define FIVE_SEC 50*5
     
     /*Prototyping interrupt service routine on receiving UART*/
     CY_ISR_PROTO (Custom_ISR_RX);
@@ -65,7 +65,10 @@
     
 
     volatile uint8_t FIFO_Read_Flag;
+    
     volatile uint8_t dataAcc[66];
+    //flag for the system reset
+    volatile uint8_t ButtonPressed_flag;  
 
 #endif
 

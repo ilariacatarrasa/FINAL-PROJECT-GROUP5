@@ -291,8 +291,6 @@ int main(void) {
             
             counter= counter+DATA_BYTES_EEPROM;
             StartFlag =  2;  //exit from flag of START/stop
-
-            UART_1_PutString(" start flag=2\r\n");
             
             //Start FIFO interrupt on watermatk to start data acquisition from the accelerometer
             isr_FIFO_StartEx(Custom_isr_FIFO);

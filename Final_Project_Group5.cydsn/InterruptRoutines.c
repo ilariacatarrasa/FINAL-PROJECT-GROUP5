@@ -38,10 +38,19 @@ int   value_mv;
 int j;
 uint8_t data_start[4];
 
-    
+//Counter for the on-board button pression duration 
+long int button_press_counter = 0;
+//Last reading of push button
+uint8_t ButtonLastState = BUTTON_PRESSED;  
+//Current reading of push button
+uint8_t ButtonReading = BUTTON_PRESSED;
+
+
 
 CY_ISR(Custom_ISR_Button){
     
+    //Bring high the line for the on-board button for reset
+    ButtonPressed_flag = 1; 
 }        
 
 CY_ISR_PROTO (Custom_isr_FIFO)
@@ -61,7 +70,46 @@ CY_ISR_PROTO (Custom_isr_FIFO)
 CY_ISR(Custom_ISR_ADC)
 {
     /*Read Timer status register to bring interrupt line low*/
-    Timer_ReadStatusRegister();  
+    Timer_ReadStatusRegister();
+    
+    /*counting the duration of the on-board button pression exploiting the ADC isr frequency*/
+    
+    if (ButtonPressed_flag == 1)
+    {
+        // Update state and reading
+        ButtonLastState = ButtonReading;
+        ButtonReading = Onboard_Button_Read();
+        // Increment counter
+        button_press_counter ++;
+        if (ButtonReading != ButtonLastState)
+        {
+            // Reset counter if something changed
+            button_press_counter = 0;
+            ButtonPressed_flag = 0;
+        }
+        
+        // If the button has been pressed for 5 seconds
+        if (button_press_counter == FIVE_SEC)
+        {
+            // If push button is still pressed
+            if (ButtonReading == BUTTON_PRESSED)
+            {
+                //Restart storing data in the EEPROM from the first location
+                counter=FIRST_DATA_ADDR;
+                EEPROM_writeByte(COUNTER_AD, counter);
+                EEPROM_waitForWriteComplete();
+
+                //Onboard LED STOPS the "EEPROM full" blinking pattern. Now EEPROM has been reset 
+                PWM_OnboardLED_WritePeriod(255);  //1s period
+                PWM_OnboardLED_WriteCompare(0);   //Onboard LED OFF
+
+                button_press_counter = 0;
+                ButtonPressed_flag = 0;     
+                
+            }
+        }
+    }
+
 
     value_digit=ADC_DelSig_Read32(); // Read value in ADC
 
