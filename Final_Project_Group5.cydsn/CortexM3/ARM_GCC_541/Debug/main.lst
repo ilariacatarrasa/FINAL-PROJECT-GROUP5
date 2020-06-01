@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
   28:main.c        **** //Counter for address where to start
   29:main.c        **** 
   30:main.c        **** 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 2
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 2
 
 
   31:main.c        **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
   51:main.c        ****     
   52:main.c        ****     /* Start ISR_FIFO */
   53:main.c        ****     //isr_FIFO_StartEx(Custom_isr_FIFO);
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 3
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 3
 
 
   54:main.c        ****     
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
   90:main.c        **** //    sprintf(bufferUART, "** EEPROM Status = %d (%d)\r\n", data_read, data);
   91:main.c        **** //    UART_1_PutBuffer;
   92:main.c        ****  
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 4
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 4
 
 
   93:main.c        **** //    /* Data to Write */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
   96              		.loc 1 130 0
   97 004e 7348     		ldr	r0, .L11+20
   98 0050 FFF7FEFF 		bl	UART_1_PutString
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 5
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 5
 
 
   99              	.LVL14:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  135              	.LVL23:
  149:main.c        ****     UART_1_PutBuffer;
  136              		.loc 1 149 0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 6
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 6
 
 
  137 008a 2046     		mov	r0, r4
@@ -307,128 +307,130 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  150:main.c        ****     
  151:main.c        ****      /* Setting Control Register of FIFO */
  152:main.c        ****     uint8_t ctrl1_FIFO;    
- 153:main.c        ****     //Enable FIFO mode and the Watermark on 11 samples
- 154:main.c        ****     ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0xB);
- 140              		.loc 1 154 0
- 141 0090 4B21     		movs	r1, #75
+ 153:main.c        ****     //Enable FIFO mode and the Watermark on 9 samples
+ 154:main.c        ****     //ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0x0A);
+ 155:main.c        ****     //ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
+ 156:main.c        ****     ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0x0A);
+ 140              		.loc 1 156 0
+ 141 0090 4A21     		movs	r1, #74
  142 0092 2E20     		movs	r0, #46
  143 0094 FFF7FEFF 		bl	ACC_writeRegister
  144              	.LVL25:
- 155:main.c        ****                 
- 156:main.c        ****     ctrl1_FIFO = ACC_readRegister(LIS3DH_FIFO_CTRL_REG);
- 145              		.loc 1 156 0
+ 157:main.c        ****                 
+ 158:main.c        ****     ctrl1_FIFO = ACC_readRegister(LIS3DH_FIFO_CTRL_REG);
+ 145              		.loc 1 158 0
  146 0098 2E20     		movs	r0, #46
  147 009a FFF7FEFF 		bl	ACC_readRegister
  148              	.LVL26:
- 157:main.c        ****     sprintf(bufferUART, " Control register of FIFO has been set to = 0x%02X \r\n", ctrl1_FIFO);
- 149              		.loc 1 157 0
+ 159:main.c        ****     sprintf(bufferUART, " Control register of FIFO has been set to = 0x%02X \r\n", ctrl1_FIFO);
+ 149              		.loc 1 159 0
  150 009e 0246     		mov	r2, r0
  151 00a0 6149     		ldr	r1, .L11+32
  152 00a2 2046     		mov	r0, r4
  153              	.LVL27:
  154 00a4 FFF7FEFF 		bl	sprintf
  155              	.LVL28:
- 158:main.c        ****     UART_1_PutBuffer;
- 156              		.loc 1 158 0
+ 160:main.c        ****     UART_1_PutBuffer;
+ 156              		.loc 1 160 0
  157 00a8 2046     		mov	r0, r4
  158 00aa FFF7FEFF 		bl	UART_1_PutString
  159              	.LVL29:
- 159:main.c        ****     
- 160:main.c        ****     /* Setting Control Register 3 */
- 161:main.c        **** 
- 162:main.c        ****     uint8_t ctrl_reg3;
- 163:main.c        ****     
- 164:main.c        ****     //Enable FIFO Overrun interrupt on INT1.
- 165:main.c        ****     ACC_writeRegister(LIS3DH_CTRL_REG3, LIS3DH_CTRL_REG3_FIFO_WTM);
- 160              		.loc 1 165 0
+ 161:main.c        ****     
+ 162:main.c        ****     /* Setting Control Register 3 */
+ 163:main.c        **** 
+ 164:main.c        ****     uint8_t ctrl_reg3;
+ 165:main.c        ****     
+ 166:main.c        ****     //Enable FIFO Watermark interrupt on INT1.
+ 167:main.c        ****     ACC_writeRegister(LIS3DH_CTRL_REG3, 0x04);
+ 160              		.loc 1 167 0
  161 00ae 0421     		movs	r1, #4
  162 00b0 2220     		movs	r0, #34
  163 00b2 FFF7FEFF 		bl	ACC_writeRegister
  164              	.LVL30:
- 166:main.c        ****     
- 167:main.c        ****     ctrl_reg3 = ACC_readRegister(LIS3DH_CTRL_REG3);
- 165              		.loc 1 167 0
+ 168:main.c        ****     
+ 169:main.c        ****     ctrl_reg3 = ACC_readRegister(LIS3DH_CTRL_REG3);
+ 165              		.loc 1 169 0
  166 00b6 2220     		movs	r0, #34
  167 00b8 FFF7FEFF 		bl	ACC_readRegister
  168              	.LVL31:
- 168:main.c        ****     sprintf(bufferUART, " Control register 3 has been set to = 0x%02X \r\n", ctrl_reg3);
- 169              		.loc 1 168 0
+ 170:main.c        ****     sprintf(bufferUART, " Control register 3 has been set to = 0x%02X \r\n", ctrl_reg3);
+ 169              		.loc 1 170 0
  170 00bc 0246     		mov	r2, r0
  171 00be 5B49     		ldr	r1, .L11+36
  172 00c0 2046     		mov	r0, r4
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 7
+
+
  173              	.LVL32:
  174 00c2 FFF7FEFF 		bl	sprintf
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 7
-
-
  175              	.LVL33:
- 169:main.c        ****     UART_1_PutBuffer;
- 176              		.loc 1 169 0
+ 171:main.c        ****     UART_1_PutBuffer;
+ 176              		.loc 1 171 0
  177 00c6 2046     		mov	r0, r4
  178 00c8 FFF7FEFF 		bl	UART_1_PutString
  179              	.LVL34:
- 170:main.c        ****     
- 171:main.c        ****     UART_1_PutString("********************************************\r\n");
- 180              		.loc 1 171 0
+ 172:main.c        ****     
+ 173:main.c        ****     UART_1_PutString("********************************************\r\n");
+ 180              		.loc 1 173 0
  181 00cc 5848     		ldr	r0, .L11+40
  182 00ce FFF7FEFF 		bl	UART_1_PutString
  183              	.LVL35:
- 172:main.c        ****     /**/
- 173:main.c        ****             
- 174:main.c        ****     
- 175:main.c        ****     uint8_t data_read; //data read from EEPROM
- 176:main.c        ****     uint8_t fifo_src_reg;
- 177:main.c        ****     uint8_t FIFO_data[192];
- 178:main.c        ****     
- 179:main.c        ****     //save counter in EEPROM at the address of COUNTER_ADD
- 180:main.c        ****     EEPROM_writeByte(COUNTER_AD, counter);
- 184              		.loc 1 180 0
+ 174:main.c        ****     /**/
+ 175:main.c        ****             
+ 176:main.c        ****     
+ 177:main.c        ****     uint8_t data_read; //data read from EEPROM
+ 178:main.c        ****     uint8_t fifo_src_reg;
+ 179:main.c        ****     uint8_t FIFO_data[192];
+ 180:main.c        ****     
+ 181:main.c        ****     //save counter in EEPROM at the address of COUNTER_ADD
+ 182:main.c        ****     EEPROM_writeByte(COUNTER_AD, counter);
+ 184              		.loc 1 182 0
  185 00d2 584B     		ldr	r3, .L11+44
  186 00d4 1988     		ldrh	r1, [r3]
  187 00d6 C9B2     		uxtb	r1, r1
  188 00d8 0320     		movs	r0, #3
  189 00da FFF7FEFF 		bl	EEPROM_writeByte
  190              	.LVL36:
- 181:main.c        ****     EEPROM_waitForWriteComplete();
- 191              		.loc 1 181 0
+ 183:main.c        ****     EEPROM_waitForWriteComplete();
+ 191              		.loc 1 183 0
  192 00de FFF7FEFF 		bl	EEPROM_waitForWriteComplete
  193              	.LVL37:
- 182:main.c        ****         
- 183:main.c        ****     // show the menu
- 184:main.c        ****     show_menu();
- 194              		.loc 1 184 0
+ 184:main.c        ****         
+ 185:main.c        ****     // show the menu
+ 186:main.c        ****     show_menu();
+ 194              		.loc 1 186 0
  195 00e2 FFF7FEFF 		bl	show_menu
  196              	.LVL38:
- 185:main.c        ****     
- 186:main.c        ****     //Cleaning FIFO buffer
- 187:main.c        ****     uint8_t cleaning[6];
- 188:main.c        ****     
- 189:main.c        ****     while (ACC_readRegister(LIS3DH_FIFO_SRC_REG) == 0x20)
- 197              		.loc 1 189 0
+ 187:main.c        ****     
+ 188:main.c        ****     //Cleaning FIFO buffer
+ 189:main.c        ****     uint8_t cleaning[6];
+ 190:main.c        ****     
+ 191:main.c        ****     while (ACC_readRegister(LIS3DH_FIFO_SRC_REG) == 0x20)
+ 197              		.loc 1 191 0
  198 00e6 04E0     		b	.L2
  199              	.L3:
- 190:main.c        ****     {
- 191:main.c        ****         ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) cleaning, 6);
- 200              		.loc 1 191 0
+ 192:main.c        ****     {
+ 193:main.c        ****         ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) cleaning, 6);
+ 200              		.loc 1 193 0
  201 00e8 0622     		movs	r2, #6
  202 00ea 6946     		mov	r1, sp
  203 00ec 2820     		movs	r0, #40
  204 00ee FFF7FEFF 		bl	ACC_Multi_Read
  205              	.LVL39:
  206              	.L2:
- 189:main.c        ****     {
- 207              		.loc 1 189 0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 8
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 8
 
 
+ 191:main.c        ****     {
+ 207              		.loc 1 191 0
  208 00f2 2F20     		movs	r0, #47
  209 00f4 FFF7FEFF 		bl	ACC_readRegister
  210              	.LVL40:
  211 00f8 2028     		cmp	r0, #32
  212 00fa F5D0     		beq	.L3
- 192:main.c        ****     }
- 193:main.c        ****     sprintf(bufferUART, "\r\n FIFO clean \r\n");
- 213              		.loc 1 193 0
+ 194:main.c        ****     }
+ 195:main.c        ****     sprintf(bufferUART, "\r\n FIFO clean \r\n");
+ 213              		.loc 1 195 0
  214 00fc 454D     		ldr	r5, .L11+12
  215 00fe 4E4C     		ldr	r4, .L11+48
  216 0100 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
@@ -438,177 +440,168 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  220 0108 EB60     		str	r3, [r5, #12]	@ unaligned
  221 010a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  222 010c 2B74     		strb	r3, [r5, #16]
- 194:main.c        ****     UART_1_PutBuffer; 
- 223              		.loc 1 194 0
+ 196:main.c        ****     UART_1_PutBuffer; 
+ 223              		.loc 1 196 0
  224 010e 2846     		mov	r0, r5
  225 0110 FFF7FEFF 		bl	UART_1_PutString
  226              	.LVL41:
- 195:main.c        ****     
- 196:main.c        **** 
  197:main.c        ****     
- 198:main.c        ****     ///Function for send Data to be sent to BRIDGE CONTROL PANEL        
- 199:main.c        ****   
- 200:main.c        ****     //SENT TO UART
- 201:main.c        ****     // 
- 202:main.c        ****     ///////////////////////////////////////////////////////////////////
- 203:main.c        ****     FSRFlag = 0;
- 227              		.loc 1 203 0
+ 198:main.c        **** 
+ 199:main.c        ****     
+ 200:main.c        ****     ///Function for send Data to be sent to BRIDGE CONTROL PANEL        
+ 201:main.c        ****   
+ 202:main.c        ****     //SENT TO UART
+ 203:main.c        ****     // 
+ 204:main.c        ****     ///////////////////////////////////////////////////////////////////
+ 205:main.c        ****     FSRFlag = 0;
+ 227              		.loc 1 205 0
  228 0114 0024     		movs	r4, #0
  229 0116 494B     		ldr	r3, .L11+52
  230 0118 1C70     		strb	r4, [r3]
- 204:main.c        ****     SamplingFreqFlag = 0;
- 231              		.loc 1 204 0
+ 206:main.c        ****     SamplingFreqFlag = 0;
+ 231              		.loc 1 206 0
  232 011a 494B     		ldr	r3, .L11+56
  233 011c 1C70     		strb	r4, [r3]
- 205:main.c        ****     StartFlag = 0;
- 234              		.loc 1 205 0
+ 207:main.c        ****     StartFlag = 0;
+ 234              		.loc 1 207 0
  235 011e 494B     		ldr	r3, .L11+60
  236 0120 1C70     		strb	r4, [r3]
- 206:main.c        ****     uint8_t onoff_initial;
- 207:main.c        ****     uint8_t data_add;
- 208:main.c        ****     uint8_t fsr_init;
- 209:main.c        ****     uint8_t sf_init;
- 210:main.c        ****     uint8_t data[8] = {0,0,0,0,0,0,0,0};
- 211:main.c        ****     uint8_t data_read_array[DATA_BYTES_EEPROM]= {0,0,0,0,0,0};
- 212:main.c        ****     
- 213:main.c        ****     
- 214:main.c        ****     // Inizializzazioni START STOP 
- 215:main.c        **** //    onoff_initial = EEPROM_readByte(ONOFF_ADD);
- 216:main.c        **** //    if (onoff_initial & ON)
- 217:main.c        **** //    {
- 218:main.c        **** //        StartFlag = START;
- 219:main.c        **** //    }
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 9
+ 208:main.c        ****     uint8_t onoff_initial;
+ 209:main.c        ****     uint8_t data_add;
+ 210:main.c        ****     uint8_t fsr_init;
+ 211:main.c        ****     uint8_t sf_init;
+ 212:main.c        ****     uint8_t data[8] = {0,0,0,0,0,0,0,0};
+ 213:main.c        ****     uint8_t data_read_array[DATA_BYTES_EEPROM]= {0,0,0,0,0,0};
+ 214:main.c        ****     
+ 215:main.c        ****     
+ 216:main.c        ****     // Inizializzazioni START STOP 
+ 217:main.c        **** //    onoff_initial = EEPROM_readByte(ONOFF_ADD);
+ 218:main.c        **** //    if (onoff_initial & ON)
+ 219:main.c        **** //    {
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 9
 
 
- 220:main.c        **** //    else if(onoff_initial & OFF)
- 221:main.c        **** //    {
- 222:main.c        **** //        StartFlag = STOP;
- 223:main.c        **** //    }
- 224:main.c        **** //    else
- 225:main.c        **** //    {
- 226:main.c        **** //        EEPROM_writeByte(ONOFF_ADD, OFF);
- 227:main.c        **** //        EEPROM_waitForWriteComplete();
- 228:main.c        **** //    }  
- 229:main.c        **** //    
- 230:main.c        **** //    data_add = EEPROM_readByte(COUNTER_AD);
- 231:main.c        **** //    fsr_init = EEPROM_readByte(ACC_CONFIG_FSR_AD);
- 232:main.c        **** //    if (data_add < FIRST_DATA_ADDR)
- 233:main.c        **** //    {
- 234:main.c        **** //        EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
- 235:main.c        **** //        EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
- 236:main.c        **** //        EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
- 237:main.c        **** //        EEPROM_waitForWriteComplete();        
- 238:main.c        **** //    }
- 239:main.c        **** //    else
- 240:main.c        **** //    {
- 241:main.c        **** //        counter = data_add;
- 242:main.c        **** //        FSRFlag = fsr_init;
- 243:main.c        **** //        SamplingFreqFlag = sf_init;
- 244:main.c        **** //    }
- 245:main.c        **** //      
- 246:main.c        ****     
- 247:main.c        ****     //PER FEDE
- 248:main.c        ****     EEPROM_writeByte(ONOFF_ADD, OFF);
- 237              		.loc 1 248 0
+ 220:main.c        **** //        StartFlag = START;
+ 221:main.c        **** //    }
+ 222:main.c        **** //    else if(onoff_initial & OFF)
+ 223:main.c        **** //    {
+ 224:main.c        **** //        StartFlag = STOP;
+ 225:main.c        **** //    }
+ 226:main.c        **** //    else
+ 227:main.c        **** //    {
+ 228:main.c        **** //        EEPROM_writeByte(ONOFF_ADD, OFF);
+ 229:main.c        **** //        EEPROM_waitForWriteComplete();
+ 230:main.c        **** //    }  
+ 231:main.c        **** //    
+ 232:main.c        **** //    data_add = EEPROM_readByte(COUNTER_AD);
+ 233:main.c        **** //    fsr_init = EEPROM_readByte(ACC_CONFIG_FSR_AD);
+ 234:main.c        **** //    if (data_add < FIRST_DATA_ADDR)
+ 235:main.c        **** //    {
+ 236:main.c        **** //        EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
+ 237:main.c        **** //        EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
+ 238:main.c        **** //        EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
+ 239:main.c        **** //        EEPROM_waitForWriteComplete();        
+ 240:main.c        **** //    }
+ 241:main.c        **** //    else
+ 242:main.c        **** //    {
+ 243:main.c        **** //        counter = data_add;
+ 244:main.c        **** //        FSRFlag = fsr_init;
+ 245:main.c        **** //        SamplingFreqFlag = sf_init;
+ 246:main.c        **** //    }
+ 247:main.c        **** //      
+ 248:main.c        ****     
+ 249:main.c        ****     //PER FEDE
+ 250:main.c        ****     EEPROM_writeByte(ONOFF_ADD, OFF);
+ 237              		.loc 1 250 0
  238 0122 4021     		movs	r1, #64
  239 0124 0220     		movs	r0, #2
  240 0126 FFF7FEFF 		bl	EEPROM_writeByte
  241              	.LVL42:
- 249:main.c        ****     EEPROM_waitForWriteComplete();
- 242              		.loc 1 249 0
+ 251:main.c        ****     EEPROM_waitForWriteComplete();
+ 242              		.loc 1 251 0
  243 012a FFF7FEFF 		bl	EEPROM_waitForWriteComplete
  244              	.LVL43:
- 250:main.c        ****     EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
- 245              		.loc 1 250 0
+ 252:main.c        ****     EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
+ 245              		.loc 1 252 0
  246 012e 0421     		movs	r1, #4
  247 0130 0320     		movs	r0, #3
  248 0132 FFF7FEFF 		bl	EEPROM_writeByte
  249              	.LVL44:
- 251:main.c        ****     EEPROM_waitForWriteComplete();
- 250              		.loc 1 251 0
+ 253:main.c        ****     EEPROM_waitForWriteComplete();
+ 250              		.loc 1 253 0
  251 0136 FFF7FEFF 		bl	EEPROM_waitForWriteComplete
  252              	.LVL45:
- 252:main.c        ****     EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
- 253              		.loc 1 252 0
+ 254:main.c        ****     EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
+ 253              		.loc 1 254 0
  254 013a 8021     		movs	r1, #128
  255 013c 2046     		mov	r0, r4
  256 013e FFF7FEFF 		bl	EEPROM_writeByte
  257              	.LVL46:
- 253:main.c        ****     EEPROM_waitForWriteComplete();
- 258              		.loc 1 253 0
+ 255:main.c        ****     EEPROM_waitForWriteComplete();
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 10
+
+
+ 258              		.loc 1 255 0
  259 0142 FFF7FEFF 		bl	EEPROM_waitForWriteComplete
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 10
-
-
  260              	.LVL47:
- 254:main.c        ****     EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
- 261              		.loc 1 254 0
+ 256:main.c        ****     EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
+ 261              		.loc 1 256 0
  262 0146 1721     		movs	r1, #23
  263 0148 0120     		movs	r0, #1
  264 014a FFF7FEFF 		bl	EEPROM_writeByte
  265              	.LVL48:
- 255:main.c        ****     EEPROM_waitForWriteComplete();    
- 266              		.loc 1 255 0
+ 257:main.c        ****     EEPROM_waitForWriteComplete();    
+ 266              		.loc 1 257 0
  267 014e FFF7FEFF 		bl	EEPROM_waitForWriteComplete
  268              	.LVL49:
  269              	.L8:
- 256:main.c        ****     ///////////////////////////////////////////////////////////////////
- 257:main.c        ****     
- 258:main.c        ****     for(;;){
- 259:main.c        ****         
- 260:main.c        **** //        fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);     
- 261:main.c        **** //            
- 262:main.c        **** //        
- 263:main.c        **** //        if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO )       
- 264:main.c        **** //           {              
- 265:main.c        **** //            ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) FIFO_data, 192); 
- 266:main.c        **** //            
- 267:main.c        **** //            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
- 268:main.c        **** //            sprintf(bufferUART, " fifo_src_reg dopo la multiread 0x%02X  \r\n", fifo_src_reg);
- 269:main.c        **** //            UART_1_PutBuffer;
- 270:main.c        **** //            
- 271:main.c        **** //            sprintf(bufferUART, " Primi 63 valori del buffer: \r\n");
- 272:main.c        **** //            UART_1_PutBuffer;   
- 273:main.c        **** //                
- 274:main.c        **** //            for (uint i=0; i<192; i++)
- 275:main.c        **** //            {
- 276:main.c        **** //                sprintf(bufferUART, " %d ", FIFO_data[i]);
- 277:main.c        **** //                UART_1_PutBuffer;
- 278:main.c        **** //            }
- 279:main.c        **** //            
- 280:main.c        **** //                                
- 281:main.c        **** //            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
- 282:main.c        **** //            CyDelayUs(2);
- 283:main.c        **** //            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
- 284:main.c        **** //            
- 285:main.c        **** //            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
- 286:main.c        **** //            sprintf(bufferUART, "\r\n fifo_src_reg dopo il reset 0x%02X  \r\n", fifo_src_reg);
- 287:main.c        **** //            UART_1_PutBuffer;
- 288:main.c        **** //        }
- 289:main.c        **** //        
- 290:main.c        ****         /* EEPROM */
- 291:main.c        ****         // save new configuration in EEPROM memory:    
- 292:main.c        ****         
- 293:main.c        ****         // FSR configuration
- 294:main.c        ****         if((FSRFlag != 0 )&&(FSRFlag != 1 ))
- 270              		.loc 1 294 0
+ 258:main.c        ****     ///////////////////////////////////////////////////////////////////
+ 259:main.c        **** //    
+ 260:main.c        **** //    uint8_t dataAccTemp[80];
+ 261:main.c        **** //    uint8_t dataTemp[20]= {0};
+ 262:main.c        ****     
+ 263:main.c        ****     for(;;){
+ 264:main.c        **** 
+ 265:main.c        **** //        if (FIFO_Read_Flag == 1)
+ 266:main.c        **** //        {
+ 267:main.c        **** //
+ 268:main.c        **** //            ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp
+ 269:main.c        **** //
+ 270:main.c        **** //            for (uint i=0; i<80; i++)
+ 271:main.c        **** //            {
+ 272:main.c        **** //                sprintf(bufferUART, " %d ", dataAccTemp[i]);
+ 273:main.c        **** //                UART_1_PutString(bufferUART);
+ 274:main.c        **** //            }
+ 275:main.c        **** //            UART_1_PutString(" *********\r\n");
+ 276:main.c        **** //                
+ 277:main.c        **** //            FIFO_Read_Flag = 0;
+ 278:main.c        **** //            
+ 279:main.c        **** //        }
+ 280:main.c        **** 
+ 281:main.c        ****         
+ 282:main.c        ****         
+ 283:main.c        ****         /* EEPROM */
+ 284:main.c        ****         // save new configuration in EEPROM memory:    
+ 285:main.c        ****         
+ 286:main.c        ****         // FSR configuration
+ 287:main.c        ****         if((FSRFlag != 0 )&&(FSRFlag != 1 ))
+ 270              		.loc 1 287 0
  271 0152 3A4B     		ldr	r3, .L11+52
  272 0154 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  273 0156 13F0FF0F 		tst	r3, #255
  274 015a 0ED0     		beq	.L4
- 275              		.loc 1 294 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 11
-
-
+ 275              		.loc 1 287 0 is_stmt 0 discriminator 1
  276 015c 374B     		ldr	r3, .L11+52
  277 015e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  278 0160 DBB2     		uxtb	r3, r3
  279 0162 012B     		cmp	r3, #1
  280 0164 09D0     		beq	.L4
- 295:main.c        ****         {
- 296:main.c        ****             Config_acc(counter, FSRFlag, ACC_CONFIG_FSR_AD);           //stores new config data if 
- 281              		.loc 1 296 0 is_stmt 1
+ 288:main.c        ****         {
+ 289:main.c        ****             Config_acc(counter, FSRFlag, ACC_CONFIG_FSR_AD);           //stores new config data if 
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 11
+
+
+ 281              		.loc 1 289 0 is_stmt 1
  282 0166 334B     		ldr	r3, .L11+44
  283 0168 1888     		ldrh	r0, [r3]
  284 016a 344C     		ldr	r4, .L11+52
@@ -617,29 +610,29 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  287 0170 C0B2     		uxtb	r0, r0
  288 0172 FFF7FEFF 		bl	Config_acc
  289              	.LVL50:
- 297:main.c        ****             FSRFlag = 0;
- 290              		.loc 1 297 0
+ 290:main.c        ****             FSRFlag = 0;
+ 290              		.loc 1 290 0
  291 0176 0023     		movs	r3, #0
  292 0178 2370     		strb	r3, [r4]
  293              	.L4:
- 298:main.c        ****         }
- 299:main.c        ****         
- 300:main.c        ****         // Sampling Frequency configuration
- 301:main.c        ****         if ((SamplingFreqFlag != 0)&&(SamplingFreqFlag != 1 ))
- 294              		.loc 1 301 0
+ 291:main.c        ****         }
+ 292:main.c        ****         
+ 293:main.c        ****         // Sampling Frequency configuration
+ 294:main.c        ****         if ((SamplingFreqFlag != 0)&&(SamplingFreqFlag != 1 ))
+ 294              		.loc 1 294 0
  295 017a 314B     		ldr	r3, .L11+56
  296 017c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  297 017e 13F0FF0F 		tst	r3, #255
  298 0182 0ED0     		beq	.L5
- 299              		.loc 1 301 0 is_stmt 0 discriminator 1
+ 299              		.loc 1 294 0 is_stmt 0 discriminator 1
  300 0184 2E4B     		ldr	r3, .L11+56
  301 0186 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  302 0188 DBB2     		uxtb	r3, r3
  303 018a 012B     		cmp	r3, #1
  304 018c 09D0     		beq	.L5
- 302:main.c        ****         {
- 303:main.c        ****             Config_acc(counter, SamplingFreqFlag, ACC_CONFIG_SF_AD);  //stores new config data if t
- 305              		.loc 1 303 0 is_stmt 1
+ 295:main.c        ****         {
+ 296:main.c        ****             Config_acc(counter, SamplingFreqFlag, ACC_CONFIG_SF_AD);  //stores new config data if t
+ 305              		.loc 1 296 0 is_stmt 1
  306 018e 294B     		ldr	r3, .L11+44
  307 0190 1888     		ldrh	r0, [r3]
  308 0192 2B4C     		ldr	r4, .L11+56
@@ -648,146 +641,146 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  311 0198 C0B2     		uxtb	r0, r0
  312 019a FFF7FEFF 		bl	Config_acc
  313              	.LVL51:
- 304:main.c        ****             SamplingFreqFlag = 0;
- 314              		.loc 1 304 0
+ 297:main.c        ****             SamplingFreqFlag = 0;
+ 314              		.loc 1 297 0
  315 019e 0023     		movs	r3, #0
  316 01a0 2370     		strb	r3, [r4]
  317              	.L5:
- 305:main.c        ****         }
- 306:main.c        **** 
- 307:main.c        ****         //If acquisition is started from user
- 308:main.c        ****         if(StartFlag == START)
- 318              		.loc 1 308 0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 12
-
-
+ 298:main.c        ****         }
+ 299:main.c        **** 
+ 300:main.c        ****         //If acquisition is started from user
+ 301:main.c        ****         if(StartFlag == START)
+ 318              		.loc 1 301 0
  319 01a2 284B     		ldr	r3, .L11+60
  320 01a4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  321 01a6 DBB2     		uxtb	r3, r3
  322 01a8 012B     		cmp	r3, #1
  323 01aa 11D1     		bne	.L6
- 309:main.c        ****         { 
- 310:main.c        ****             EEPROM_writeByte(ONOFF_ADD, ON);
- 324              		.loc 1 310 0
+ 302:main.c        ****         { 
+ 303:main.c        ****             EEPROM_writeByte(ONOFF_ADD, ON);
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 12
+
+
+ 324              		.loc 1 303 0
  325 01ac 8021     		movs	r1, #128
  326 01ae 0220     		movs	r0, #2
  327 01b0 FFF7FEFF 		bl	EEPROM_writeByte
  328              	.LVL52:
- 311:main.c        ****             EEPROM_waitForWriteComplete();
- 329              		.loc 1 311 0
+ 304:main.c        ****             EEPROM_waitForWriteComplete();
+ 329              		.loc 1 304 0
  330 01b4 FFF7FEFF 		bl	EEPROM_waitForWriteComplete
  331              	.LVL53:
- 312:main.c        ****             UART_1_PutString("** EEPROM Status ON ** \r\n");
- 332              		.loc 1 312 0
+ 305:main.c        ****             UART_1_PutString("** EEPROM Status ON ** \r\n");
+ 332              		.loc 1 305 0
  333 01b8 2348     		ldr	r0, .L11+64
  334 01ba FFF7FEFF 		bl	UART_1_PutString
  335              	.LVL54:
- 313:main.c        ****             
- 314:main.c        ****             counter= counter+DATA_BYTES_EEPROM;
- 336              		.loc 1 314 0
+ 306:main.c        ****             
+ 307:main.c        ****             counter= counter+DATA_BYTES_EEPROM;
+ 336              		.loc 1 307 0
  337 01be 1D4A     		ldr	r2, .L11+44
  338 01c0 1388     		ldrh	r3, [r2]
  339 01c2 9BB2     		uxth	r3, r3
  340 01c4 0633     		adds	r3, r3, #6
  341 01c6 9BB2     		uxth	r3, r3
  342 01c8 1380     		strh	r3, [r2]	@ movhi
- 315:main.c        ****             StartFlag =  2;  //exit from flag of START/stop
- 343              		.loc 1 315 0
+ 308:main.c        ****             StartFlag =  2;  //exit from flag of START/stop
+ 343              		.loc 1 308 0
  344 01ca 0222     		movs	r2, #2
  345 01cc 1D4B     		ldr	r3, .L11+60
  346 01ce 1A70     		strb	r2, [r3]
  347              	.L6:
- 316:main.c        ****             
- 317:main.c        ****                     
- 318:main.c        **** //    //qui funzione che salva 32 sample di temperatura    
- 319:main.c        **** //    ACC_TEMP_8bytePacking((uint8_t*)dataAcc, (uint8_t*)dataTemp, (uint8_t*)dataAccTemp, 256);
- 320:main.c        **** 
- 321:main.c        **** 
- 322:main.c        ****             
- 323:main.c        ****             /* Storing data in EEPROM */
- 324:main.c        ****             //Data to store in EEPROM: 4 bytes accelerometer (transform from 6 to 4 bytes) + 2bytes
- 325:main.c        ****             //Data operations--> obtain data_EEPROM
- 326:main.c        ****             
- 327:main.c        **** //            data[6] = DataBuffer[5]; 
- 328:main.c        **** //            data[7] = DataBuffer[6]; 
- 329:main.c        **** //            
- 330:main.c        **** //            Store_EEPROM(data, data_EE);
- 331:main.c        **** //            sprintf(bufferUART, "** Data_EE Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n
+ 309:main.c        ****             
+ 310:main.c        ****                     
+ 311:main.c        **** //    //qui funzione che salva 32 sample di temperatura    
+ 312:main.c        **** //    ACC_TEMP_8bytePacking((uint8_t*)dataAcc, (uint8_t*)dataTemp, (uint8_t*)dataAccTemp, 256);
+ 313:main.c        **** 
+ 314:main.c        **** 
+ 315:main.c        ****             
+ 316:main.c        ****             /* Storing data in EEPROM */
+ 317:main.c        ****             //Data to store in EEPROM: 4 bytes accelerometer (transform from 6 to 4 bytes) + 2bytes
+ 318:main.c        ****             //Data operations--> obtain data_EEPROM
+ 319:main.c        ****             
+ 320:main.c        **** //            data[6] = DataBuffer[5]; 
+ 321:main.c        **** //            data[7] = DataBuffer[6]; 
+ 322:main.c        **** //            
+ 323:main.c        **** //            Store_EEPROM(data, data_EE);
+ 324:main.c        **** //            sprintf(bufferUART, "** Data_EE Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n
+ 325:main.c        **** //            UART_1_PutBuffer;
+ 326:main.c        **** //            
+ 327:main.c        **** //            EEPROM_writePage(counter, (uint8_t*) data_EE, DATA_BYTES_EEPROM);
+ 328:main.c        **** //            EEPROM_waitForWriteComplete();
+ 329:main.c        **** //
+ 330:main.c        **** //            EEPROM_readPage(counter, (uint8_t*) data_read_array, DATA_BYTES_EEPROM);
+ 331:main.c        **** //            sprintf(bufferUART, "** EEPROM Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n"
  332:main.c        **** //            UART_1_PutBuffer;
- 333:main.c        **** //            
- 334:main.c        **** //            EEPROM_writePage(counter, (uint8_t*) data_EE, DATA_BYTES_EEPROM);
- 335:main.c        **** //            EEPROM_waitForWriteComplete();
- 336:main.c        **** //
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 13
+ 333:main.c        ****            
+ 334:main.c        ****             //Storing new set of data in EEPROM
+ 335:main.c        ****             //EPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPRO
+ 336:main.c        ****             //EEPROM_waitForWriteComplete();
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 13
 
 
- 337:main.c        **** //            EEPROM_readPage(counter, (uint8_t*) data_read_array, DATA_BYTES_EEPROM);
- 338:main.c        **** //            sprintf(bufferUART, "** EEPROM Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n"
- 339:main.c        **** //            UART_1_PutBuffer;
- 340:main.c        ****            
- 341:main.c        ****             //Storing new set of data in EEPROM
- 342:main.c        ****             //EPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPRO
- 343:main.c        ****             //EEPROM_waitForWriteComplete();
- 344:main.c        ****             
- 345:main.c        ****             
- 346:main.c        ****             //update the storage counter in EEPROM at the address of COUNTER_ADD
- 347:main.c        **** //            counter= counter+DATA_BYTES_EEPROM;
- 348:main.c        **** //            EEPROM_writeByte(COUNTER_AD, counter);
- 349:main.c        **** //            EEPROM_waitForWriteComplete();
- 350:main.c        ****         }
- 351:main.c        ****         
- 352:main.c        ****         //If acquisition is stopped from user
- 353:main.c        ****         if(StartFlag==STOP)
- 348              		.loc 1 353 0
+ 337:main.c        ****             
+ 338:main.c        ****             
+ 339:main.c        ****             //update the storage counter in EEPROM at the address of COUNTER_ADD
+ 340:main.c        **** //            counter= counter+DATA_BYTES_EEPROM;
+ 341:main.c        **** //            EEPROM_writeByte(COUNTER_AD, counter);
+ 342:main.c        **** //            EEPROM_waitForWriteComplete();
+ 343:main.c        ****         }
+ 344:main.c        ****         
+ 345:main.c        ****         //If acquisition is stopped from user
+ 346:main.c        ****         if(StartFlag==STOP)
+ 348              		.loc 1 346 0
  349 01d0 1C4B     		ldr	r3, .L11+60
  350 01d2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  351 01d4 13F0FF0F 		tst	r3, #255
  352 01d8 0BD1     		bne	.L7
- 354:main.c        ****         {       
- 355:main.c        ****             EEPROM_writeByte(ONOFF_ADD, OFF);
- 353              		.loc 1 355 0
+ 347:main.c        ****         {       
+ 348:main.c        ****             EEPROM_writeByte(ONOFF_ADD, OFF);
+ 353              		.loc 1 348 0
  354 01da 4021     		movs	r1, #64
  355 01dc 0220     		movs	r0, #2
  356 01de FFF7FEFF 		bl	EEPROM_writeByte
  357              	.LVL55:
- 356:main.c        ****             EEPROM_waitForWriteComplete();
- 358              		.loc 1 356 0
+ 349:main.c        ****             EEPROM_waitForWriteComplete();
+ 358              		.loc 1 349 0
  359 01e2 FFF7FEFF 		bl	EEPROM_waitForWriteComplete
  360              	.LVL56:
- 357:main.c        ****             UART_1_PutString("** EEPROM Status OFF ** \r\n");
- 361              		.loc 1 357 0
+ 350:main.c        ****             UART_1_PutString("** EEPROM Status OFF ** \r\n");
+ 361              		.loc 1 350 0
  362 01e6 1948     		ldr	r0, .L11+68
  363 01e8 FFF7FEFF 		bl	UART_1_PutString
  364              	.LVL57:
- 358:main.c        **** 
- 359:main.c        ****             StartFlag = 2; //exit from flag of START/stop
- 365              		.loc 1 359 0
+ 351:main.c        **** 
+ 352:main.c        ****             StartFlag = 2; //exit from flag of START/stop
+ 365              		.loc 1 352 0
  366 01ec 0222     		movs	r2, #2
  367 01ee 154B     		ldr	r3, .L11+60
  368 01f0 1A70     		strb	r2, [r3]
  369              	.L7:
- 360:main.c        ****         }
- 361:main.c        ****             
- 362:main.c        ****         //Reset counter if the EEPROM storage is full
- 363:main.c        ****         
- 364:main.c        ****         if ((int)counter > (int)(HIGHEST_ADDRESS-DATA_BYTES_EEPROM+1))
- 370              		.loc 1 364 0
+ 353:main.c        ****         }
+ 354:main.c        ****             
+ 355:main.c        ****         //Reset counter if the EEPROM storage is full
+ 356:main.c        ****         
+ 357:main.c        ****         if ((int)counter > (int)(HIGHEST_ADDRESS-DATA_BYTES_EEPROM+1))
+ 370              		.loc 1 357 0
  371 01f2 104B     		ldr	r3, .L11+44
  372 01f4 1B88     		ldrh	r3, [r3]
  373 01f6 9BB2     		uxth	r3, r3
  374 01f8 47F6FA72 		movw	r2, #32762
  375 01fc 9342     		cmp	r3, r2
  376 01fe A8D9     		bls	.L8
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 14
-
-
- 365:main.c        ****         {
- 366:main.c        ****             counter = FIRST_DATA_ADDR;
- 377              		.loc 1 366 0
+ 358:main.c        ****         {
+ 359:main.c        ****             counter = FIRST_DATA_ADDR;
+ 377              		.loc 1 359 0
  378 0200 0422     		movs	r2, #4
  379 0202 0C4B     		ldr	r3, .L11+44
  380 0204 1A80     		strh	r2, [r3]	@ movhi
  381 0206 A4E7     		b	.L8
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 14
+
+
  382              	.L12:
  383              		.align	2
  384              	.L11:
@@ -813,7 +806,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  404              	.LFE64:
  405              		.size	main, .-main
  406              		.comm	dataAcc,192,4
- 407              		.comm	FIFO_isr_flag,1,1
+ 407              		.comm	FIFO_Read_Flag,1,1
  408              		.comm	fifo_src_reg,1,1
  409              		.comm	counter,2,2
  410              		.comm	data_BCP,10,4
@@ -838,9 +831,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  425      73746572 
  426 0030 00       		.ascii	"\000"
  427 0031 000000   		.space	3
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 15
-
-
  428              	.LC1:
  429 0034 2A2A2A2A 		.ascii	"**************Registers Values**************\015\012"
  429      2A2A2A2A 
@@ -848,6 +838,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  429      2A2A5265 
  429      67697374 
  430 0062 00       		.ascii	"\000"
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 15
+
+
  431 0063 00       		.space	1
  432              	.LC2:
  433 0064 20436F6E 		.ascii	" Control register 1 has been set to = 0x%02X \015\012"
@@ -898,9 +891,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  453      4550524F 
  453      4D205374 
  453      61747573 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 16
-
-
  453      204F4E20 
  454 018a 0000     		.space	2
  455              	.LC9:
@@ -908,6 +898,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  456      4550524F 
  456      4D205374 
  456      61747573 
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 16
+
+
  456      204F4646 
  457              		.text
  458              	.Letext0:
@@ -937,63 +930,63 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  482 0006 00000000 		.4byte	.Ldebug_abbrev0
  483 000a 04       		.byte	0x4
  484 000b 01       		.uleb128 0x1
- 485 000c 87030000 		.4byte	.LASF71
+ 485 000c 88030000 		.4byte	.LASF71
  486 0010 0C       		.byte	0xc
- 487 0011 02030000 		.4byte	.LASF72
- 488 0015 E0010000 		.4byte	.LASF73
+ 487 0011 03030000 		.4byte	.LASF72
+ 488 0015 EA010000 		.4byte	.LASF73
  489 0019 00000000 		.4byte	.Ldebug_ranges0+0
  490 001d 00000000 		.4byte	0
  491 0021 00000000 		.4byte	.Ldebug_line0
  492 0025 02       		.uleb128 0x2
  493 0026 01       		.byte	0x1
  494 0027 06       		.byte	0x6
- 495 0028 1F020000 		.4byte	.LASF0
+ 495 0028 29020000 		.4byte	.LASF0
  496 002c 03       		.uleb128 0x3
- 497 002d 6A010000 		.4byte	.LASF3
+ 497 002d 74010000 		.4byte	.LASF3
  498 0031 02       		.byte	0x2
  499 0032 1D       		.byte	0x1d
  500 0033 37000000 		.4byte	0x37
  501 0037 02       		.uleb128 0x2
  502 0038 01       		.byte	0x1
  503 0039 08       		.byte	0x8
- 504 003a CA010000 		.4byte	.LASF1
+ 504 003a D4010000 		.4byte	.LASF1
  505 003e 02       		.uleb128 0x2
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 17
-
-
  506 003f 02       		.byte	0x2
  507 0040 05       		.byte	0x5
  508 0041 5A000000 		.4byte	.LASF2
  509 0045 03       		.uleb128 0x3
- 510 0046 D0000000 		.4byte	.LASF4
+ 510 0046 CB000000 		.4byte	.LASF4
  511 004a 02       		.byte	0x2
  512 004b 2B       		.byte	0x2b
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 17
+
+
  513 004c 50000000 		.4byte	0x50
  514 0050 02       		.uleb128 0x2
  515 0051 02       		.byte	0x2
  516 0052 07       		.byte	0x7
- 517 0053 69020000 		.4byte	.LASF5
+ 517 0053 73020000 		.4byte	.LASF5
  518 0057 03       		.uleb128 0x3
- 519 0058 4A030000 		.4byte	.LASF6
+ 519 0058 4B030000 		.4byte	.LASF6
  520 005c 02       		.byte	0x2
  521 005d 3F       		.byte	0x3f
  522 005e 62000000 		.4byte	0x62
  523 0062 02       		.uleb128 0x2
  524 0063 04       		.byte	0x4
  525 0064 05       		.byte	0x5
- 526 0065 4D010000 		.4byte	.LASF7
+ 526 0065 57010000 		.4byte	.LASF7
  527 0069 02       		.uleb128 0x2
  528 006a 04       		.byte	0x4
  529 006b 07       		.byte	0x7
- 530 006c 09030000 		.4byte	.LASF8
+ 530 006c 0A030000 		.4byte	.LASF8
  531 0070 02       		.uleb128 0x2
  532 0071 08       		.byte	0x8
  533 0072 05       		.byte	0x5
- 534 0073 1F010000 		.4byte	.LASF9
+ 534 0073 29010000 		.4byte	.LASF9
  535 0077 02       		.uleb128 0x2
  536 0078 08       		.byte	0x8
  537 0079 07       		.byte	0x7
- 538 007a 2B020000 		.4byte	.LASF10
+ 538 007a 35020000 		.4byte	.LASF10
  539 007e 04       		.uleb128 0x4
  540 007f 04       		.byte	0x4
  541 0080 05       		.byte	0x5
@@ -1001,48 +994,48 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  543 0085 02       		.uleb128 0x2
  544 0086 04       		.byte	0x4
  545 0087 07       		.byte	0x7
- 546 0088 53020000 		.4byte	.LASF11
+ 546 0088 5D020000 		.4byte	.LASF11
  547 008c 03       		.uleb128 0x3
- 548 008d E6000000 		.4byte	.LASF12
+ 548 008d F0000000 		.4byte	.LASF12
  549 0091 03       		.byte	0x3
  550 0092 18       		.byte	0x18
  551 0093 2C000000 		.4byte	0x2c
  552 0097 03       		.uleb128 0x3
- 553 0098 60020000 		.4byte	.LASF13
+ 553 0098 6A020000 		.4byte	.LASF13
  554 009c 03       		.byte	0x3
  555 009d 24       		.byte	0x24
  556 009e 45000000 		.4byte	0x45
  557 00a2 03       		.uleb128 0x3
- 558 00a3 89020000 		.4byte	.LASF14
+ 558 00a3 98020000 		.4byte	.LASF14
  559 00a7 03       		.byte	0x3
  560 00a8 2C       		.byte	0x2c
  561 00a9 57000000 		.4byte	0x57
  562 00ad 05       		.uleb128 0x5
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 18
-
-
- 563 00ae 91020000 		.4byte	.LASF15
+ 563 00ae A0020000 		.4byte	.LASF15
  564 00b2 04       		.byte	0x4
  565 00b3 E401     		.2byte	0x1e4
  566 00b5 37000000 		.4byte	0x37
  567 00b9 02       		.uleb128 0x2
  568 00ba 04       		.byte	0x4
  569 00bb 04       		.byte	0x4
- 570 00bc 19010000 		.4byte	.LASF16
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 18
+
+
+ 570 00bc 23010000 		.4byte	.LASF16
  571 00c0 02       		.uleb128 0x2
  572 00c1 08       		.byte	0x8
  573 00c2 04       		.byte	0x4
- 574 00c3 1B030000 		.4byte	.LASF17
+ 574 00c3 1C030000 		.4byte	.LASF17
  575 00c7 02       		.uleb128 0x2
  576 00c8 01       		.byte	0x1
  577 00c9 08       		.byte	0x8
- 578 00ca 84020000 		.4byte	.LASF18
+ 578 00ca 8E020000 		.4byte	.LASF18
  579 00ce 06       		.uleb128 0x6
  580 00cf AD000000 		.4byte	0xad
  581 00d3 02       		.uleb128 0x2
  582 00d4 08       		.byte	0x8
  583 00d5 04       		.byte	0x4
- 584 00d6 A3010000 		.4byte	.LASF19
+ 584 00d6 AD010000 		.4byte	.LASF19
  585 00da 02       		.uleb128 0x2
  586 00db 04       		.byte	0x4
  587 00dc 07       		.byte	0x7
@@ -1052,7 +1045,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  591 00e6 06       		.uleb128 0x6
  592 00e7 97000000 		.4byte	0x97
  593 00eb 07       		.uleb128 0x7
- 594 00ec CB000000 		.4byte	.LASF74
+ 594 00ec 93020000 		.4byte	.LASF74
  595 00f0 01       		.byte	0x1
  596 00f1 20       		.byte	0x20
  597 00f2 7E000000 		.4byte	0x7e
@@ -1062,7 +1055,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  601 00ff 9C       		.byte	0x9c
  602 0100 99050000 		.4byte	0x599
  603 0104 08       		.uleb128 0x8
- 604 0105 64030000 		.4byte	.LASF21
+ 604 0105 65030000 		.4byte	.LASF21
  605 0109 01       		.byte	0x1
  606 010a 77       		.byte	0x77
  607 010b 8C000000 		.4byte	0x8c
@@ -1078,9 +1071,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  617 0127 01       		.byte	0x1
  618 0128 8F       		.byte	0x8f
  619 0129 8C000000 		.4byte	0x8c
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 19
-
-
  620 012d 26000000 		.4byte	.LLST2
  621 0131 08       		.uleb128 0x8
  622 0132 6E000000 		.4byte	.LASF24
@@ -1088,67 +1078,70 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  624 0137 98       		.byte	0x98
  625 0138 8C000000 		.4byte	0x8c
  626 013c 39000000 		.4byte	.LLST3
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 19
+
+
  627 0140 08       		.uleb128 0x8
  628 0141 14000000 		.4byte	.LASF25
  629 0145 01       		.byte	0x1
- 630 0146 A2       		.byte	0xa2
+ 630 0146 A4       		.byte	0xa4
  631 0147 8C000000 		.4byte	0x8c
  632 014b 4C000000 		.4byte	.LLST4
  633 014f 09       		.uleb128 0x9
- 634 0150 02010000 		.4byte	.LASF26
+ 634 0150 0C010000 		.4byte	.LASF26
  635 0154 01       		.byte	0x1
- 636 0155 AF       		.byte	0xaf
+ 636 0155 B1       		.byte	0xb1
  637 0156 8C000000 		.4byte	0x8c
  638 015a 09       		.uleb128 0x9
- 639 015b 1D040000 		.4byte	.LASF27
+ 639 015b 1E040000 		.4byte	.LASF27
  640 015f 01       		.byte	0x1
- 641 0160 B0       		.byte	0xb0
+ 641 0160 B2       		.byte	0xb2
  642 0161 8C000000 		.4byte	0x8c
  643 0165 09       		.uleb128 0x9
  644 0166 0A000000 		.4byte	.LASF28
  645 016a 01       		.byte	0x1
- 646 016b B1       		.byte	0xb1
+ 646 016b B3       		.byte	0xb3
  647 016c 99050000 		.4byte	0x599
  648 0170 0A       		.uleb128 0xa
- 649 0171 F9000000 		.4byte	.LASF29
+ 649 0171 03010000 		.4byte	.LASF29
  650 0175 01       		.byte	0x1
- 651 0176 BB       		.byte	0xbb
+ 651 0176 BD       		.byte	0xbd
  652 0177 A9050000 		.4byte	0x5a9
  653 017b 02       		.uleb128 0x2
  654 017c 91       		.byte	0x91
  655 017d 68       		.sleb128 -24
  656 017e 09       		.uleb128 0x9
- 657 017f 2D010000 		.4byte	.LASF30
+ 657 017f 37010000 		.4byte	.LASF30
  658 0183 01       		.byte	0x1
- 659 0184 CE       		.byte	0xce
+ 659 0184 D0       		.byte	0xd0
  660 0185 8C000000 		.4byte	0x8c
  661 0189 09       		.uleb128 0x9
- 662 018a 56010000 		.4byte	.LASF31
+ 662 018a 60010000 		.4byte	.LASF31
  663 018e 01       		.byte	0x1
- 664 018f CF       		.byte	0xcf
+ 664 018f D1       		.byte	0xd1
  665 0190 8C000000 		.4byte	0x8c
  666 0194 09       		.uleb128 0x9
  667 0195 B7000000 		.4byte	.LASF32
  668 0199 01       		.byte	0x1
- 669 019a D0       		.byte	0xd0
+ 669 019a D2       		.byte	0xd2
  670 019b 8C000000 		.4byte	0x8c
  671 019f 09       		.uleb128 0x9
- 672 01a0 2A040000 		.4byte	.LASF33
+ 672 01a0 2B040000 		.4byte	.LASF33
  673 01a4 01       		.byte	0x1
- 674 01a5 D1       		.byte	0xd1
+ 674 01a5 D3       		.byte	0xd3
  675 01a6 8C000000 		.4byte	0x8c
  676 01aa 09       		.uleb128 0x9
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 20
-
-
- 677 01ab B6020000 		.4byte	.LASF34
+ 677 01ab B7020000 		.4byte	.LASF34
  678 01af 01       		.byte	0x1
- 679 01b0 D2       		.byte	0xd2
+ 679 01b0 D4       		.byte	0xd4
  680 01b1 B9050000 		.4byte	0x5b9
  681 01b5 09       		.uleb128 0x9
- 682 01b6 BB020000 		.4byte	.LASF35
+ 682 01b6 BC020000 		.4byte	.LASF35
  683 01ba 01       		.byte	0x1
- 684 01bb D3       		.byte	0xd3
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 20
+
+
+ 684 01bb D5       		.byte	0xd5
  685 01bc A9050000 		.4byte	0x5a9
  686 01c0 0B       		.uleb128 0xb
  687 01c1 0A000000 		.4byte	.LVL0
@@ -1198,9 +1191,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  731 0235 3F       		.byte	0x3f
  732 0236 00       		.byte	0
  733 0237 0C       		.uleb128 0xc
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 21
-
-
  734 0238 48000000 		.4byte	.LVL12
  735 023c E1070000 		.4byte	0x7e1
  736 0240 54020000 		.4byte	0x254
@@ -1208,6 +1198,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  738 0245 01       		.uleb128 0x1
  739 0246 50       		.byte	0x50
  740 0247 02       		.uleb128 0x2
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 21
+
+
  741 0248 74       		.byte	0x74
  742 0249 00       		.sleb128 0
  743 024a 0D       		.uleb128 0xd
@@ -1258,9 +1251,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  788 0298 00       		.byte	0
  789 0299 0C       		.uleb128 0xc
  790 029a 62000000 		.4byte	.LVL16
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 22
-
-
  791 029e D6070000 		.4byte	0x7d6
  792 02a2 AD020000 		.4byte	0x2ad
  793 02a6 0D       		.uleb128 0xd
@@ -1268,6 +1258,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  795 02a8 50       		.byte	0x50
  796 02a9 02       		.uleb128 0x2
  797 02aa 08       		.byte	0x8
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 22
+
+
  798 02ab 20       		.byte	0x20
  799 02ac 00       		.byte	0
  800 02ad 0C       		.uleb128 0xc
@@ -1318,9 +1311,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  845 02f8 0C       		.uleb128 0xc
  846 02f9 80000000 		.4byte	.LVL21
  847 02fd D6070000 		.4byte	0x7d6
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 23
-
-
  848 0301 0C030000 		.4byte	0x30c
  849 0305 0D       		.uleb128 0xd
  850 0306 01       		.uleb128 0x1
@@ -1328,6 +1318,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  852 0308 02       		.uleb128 0x2
  853 0309 08       		.byte	0x8
  854 030a 24       		.byte	0x24
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 23
+
+
  855 030b 00       		.byte	0
  856 030c 0C       		.uleb128 0xc
  857 030d 8A000000 		.4byte	.LVL23
@@ -1372,15 +1365,12 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  896 0352 51       		.byte	0x51
  897 0353 02       		.uleb128 0x2
  898 0354 08       		.byte	0x8
- 899 0355 4B       		.byte	0x4b
+ 899 0355 4A       		.byte	0x4a
  900 0356 00       		.byte	0
  901 0357 0C       		.uleb128 0xc
  902 0358 9E000000 		.4byte	.LVL26
  903 035c D6070000 		.4byte	0x7d6
  904 0360 6B030000 		.4byte	0x36b
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 24
-
-
  905 0364 0D       		.uleb128 0xd
  906 0365 01       		.uleb128 0x1
  907 0366 50       		.byte	0x50
@@ -1388,6 +1378,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  909 0368 08       		.byte	0x8
  910 0369 2E       		.byte	0x2e
  911 036a 00       		.byte	0
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 24
+
+
  912 036b 0C       		.uleb128 0xc
  913 036c A8000000 		.4byte	.LVL28
  914 0370 E1070000 		.4byte	0x7e1
@@ -1438,9 +1431,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  959 03be C9030000 		.4byte	0x3c9
  960 03c2 0D       		.uleb128 0xd
  961 03c3 01       		.uleb128 0x1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 25
-
-
  962 03c4 50       		.byte	0x50
  963 03c5 02       		.uleb128 0x2
  964 03c6 08       		.byte	0x8
@@ -1448,6 +1438,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  966 03c8 00       		.byte	0
  967 03c9 0C       		.uleb128 0xc
  968 03ca C6000000 		.4byte	.LVL33
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 25
+
+
  969 03ce E1070000 		.4byte	0x7e1
  970 03d2 E6030000 		.4byte	0x3e6
  971 03d6 0D       		.uleb128 0xd
@@ -1498,9 +1491,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1016 0424 0B       		.uleb128 0xb
  1017 0425 E2000000 		.4byte	.LVL37
  1018 0429 0D080000 		.4byte	0x80d
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 26
-
-
  1019 042d 0B       		.uleb128 0xb
  1020 042e E6000000 		.4byte	.LVL38
  1021 0432 18080000 		.4byte	0x818
@@ -1508,6 +1498,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1023 0437 F2000000 		.4byte	.LVL39
  1024 043b 23080000 		.4byte	0x823
  1025 043f 55040000 		.4byte	0x455
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 26
+
+
  1026 0443 0D       		.uleb128 0xd
  1027 0444 01       		.uleb128 0x1
  1028 0445 50       		.byte	0x50
@@ -1558,9 +1551,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1073 048d 01       		.uleb128 0x1
  1074 048e 32       		.byte	0x32
  1075 048f 0D       		.uleb128 0xd
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 27
-
-
  1076 0490 01       		.uleb128 0x1
  1077 0491 51       		.byte	0x51
  1078 0492 02       		.uleb128 0x2
@@ -1568,6 +1558,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1080 0494 40       		.byte	0x40
  1081 0495 00       		.byte	0
  1082 0496 0B       		.uleb128 0xb
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 27
+
+
  1083 0497 2E010000 		.4byte	.LVL43
  1084 049b 0D080000 		.4byte	0x80d
  1085 049f 0C       		.uleb128 0xc
@@ -1618,9 +1611,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1130 04f3 01       		.uleb128 0x1
  1131 04f4 31       		.byte	0x31
  1132 04f5 0D       		.uleb128 0xd
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 28
-
-
  1133 04f6 01       		.uleb128 0x1
  1134 04f7 51       		.byte	0x51
  1135 04f8 01       		.uleb128 0x1
@@ -1628,6 +1618,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1137 04fa 00       		.byte	0
  1138 04fb 0B       		.uleb128 0xb
  1139 04fc 52010000 		.4byte	.LVL49
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 28
+
+
  1140 0500 0D080000 		.4byte	0x80d
  1141 0504 0C       		.uleb128 0xc
  1142 0505 76010000 		.4byte	.LVL50
@@ -1678,9 +1671,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1187 055c 05       		.uleb128 0x5
  1188 055d 03       		.byte	0x3
  1189 055e 70010000 		.4byte	.LC8
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 29
-
-
  1190 0562 00       		.byte	0
  1191 0563 0C       		.uleb128 0xc
  1192 0564 E2010000 		.4byte	.LVL55
@@ -1688,6 +1678,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1194 056c 7C050000 		.4byte	0x57c
  1195 0570 0D       		.uleb128 0xd
  1196 0571 01       		.uleb128 0x1
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 29
+
+
  1197 0572 50       		.byte	0x50
  1198 0573 01       		.uleb128 0x1
  1199 0574 32       		.byte	0x32
@@ -1734,13 +1727,10 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1240 05c7 07       		.byte	0x7
  1241 05c8 00       		.byte	0
  1242 05c9 11       		.uleb128 0x11
- 1243 05ca 7A030000 		.4byte	.LASF36
+ 1243 05ca 7B030000 		.4byte	.LASF36
  1244 05ce 05       		.byte	0x5
  1245 05cf 1207     		.2byte	0x712
  1246 05d1 D5050000 		.4byte	0x5d5
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 30
-
-
  1247 05d5 06       		.uleb128 0x6
  1248 05d6 A2000000 		.4byte	0xa2
  1249 05da 0F       		.uleb128 0xf
@@ -1748,10 +1738,13 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1251 05df EA050000 		.4byte	0x5ea
  1252 05e3 10       		.uleb128 0x10
  1253 05e4 DA000000 		.4byte	0xda
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 30
+
+
  1254 05e8 63       		.byte	0x63
  1255 05e9 00       		.byte	0
  1256 05ea 12       		.uleb128 0x12
- 1257 05eb DB000000 		.4byte	.LASF37
+ 1257 05eb E5000000 		.4byte	.LASF37
  1258 05ef 06       		.byte	0x6
  1259 05f0 0A       		.byte	0xa
  1260 05f1 DA050000 		.4byte	0x5da
@@ -1759,7 +1752,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1262 05f6 03       		.byte	0x3
  1263 05f7 00000000 		.4byte	bufferUART
  1264 05fb 12       		.uleb128 0x12
- 1265 05fc 7C010000 		.4byte	.LASF38
+ 1265 05fc 86010000 		.4byte	.LASF38
  1266 0600 07       		.byte	0x7
  1267 0601 33       		.byte	0x33
  1268 0602 CE000000 		.4byte	0xce
@@ -1767,7 +1760,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1270 0607 03       		.byte	0x3
  1271 0608 00000000 		.4byte	PacketReadyFlag
  1272 060c 12       		.uleb128 0x12
- 1273 060d 8C010000 		.4byte	.LASF39
+ 1273 060d 96010000 		.4byte	.LASF39
  1274 0611 07       		.byte	0x7
  1275 0612 34       		.byte	0x34
  1276 0613 CE000000 		.4byte	0xce
@@ -1775,7 +1768,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1278 0618 03       		.byte	0x3
  1279 0619 00000000 		.4byte	StartFlag
  1280 061d 12       		.uleb128 0x12
- 1281 061e 7C020000 		.4byte	.LASF40
+ 1281 061e 86020000 		.4byte	.LASF40
  1282 0622 07       		.byte	0x7
  1283 0623 35       		.byte	0x35
  1284 0624 CE000000 		.4byte	0xce
@@ -1783,7 +1776,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1286 0629 03       		.byte	0x3
  1287 062a 00000000 		.4byte	FSRFlag
  1288 062e 12       		.uleb128 0x12
- 1289 062f 42020000 		.4byte	.LASF41
+ 1289 062f 4C020000 		.4byte	.LASF41
  1290 0633 07       		.byte	0x7
  1291 0634 36       		.byte	0x36
  1292 0635 CE000000 		.4byte	0xce
@@ -1798,9 +1791,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1301 064d 09       		.byte	0x9
  1302 064e 00       		.byte	0
  1303 064f 12       		.uleb128 0x12
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 31
-
-
  1304 0650 C0000000 		.4byte	.LASF42
  1305 0654 07       		.byte	0x7
  1306 0655 37       		.byte	0x37
@@ -1808,10 +1798,13 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1308 065a 05       		.uleb128 0x5
  1309 065b 03       		.byte	0x3
  1310 065c 00000000 		.4byte	DataBuffer
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 31
+
+
  1311 0660 06       		.uleb128 0x6
  1312 0661 3F060000 		.4byte	0x63f
  1313 0665 12       		.uleb128 0x12
- 1314 0666 EE000000 		.4byte	.LASF43
+ 1314 0666 F8000000 		.4byte	.LASF43
  1315 066a 07       		.byte	0x7
  1316 066b 38       		.byte	0x38
  1317 066c 76060000 		.4byte	0x676
@@ -1829,7 +1822,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1329 0687 03       		.byte	0x3
  1330 0688 00000000 		.4byte	Buffer_Temp_Full
  1331 068c 12       		.uleb128 0x12
- 1332 068d C0010000 		.4byte	.LASF45
+ 1332 068d CA010000 		.4byte	.LASF45
  1333 0691 07       		.byte	0x7
  1334 0692 3B       		.byte	0x3b
  1335 0693 76060000 		.4byte	0x676
@@ -1844,7 +1837,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1344 06ab 07       		.byte	0x7
  1345 06ac 00       		.byte	0
  1346 06ad 12       		.uleb128 0x12
- 1347 06ae 42030000 		.4byte	.LASF46
+ 1347 06ae 43030000 		.4byte	.LASF46
  1348 06b2 07       		.byte	0x7
  1349 06b3 3C       		.byte	0x3c
  1350 06b4 BE060000 		.4byte	0x6be
@@ -1858,9 +1851,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1358 06c8 D3060000 		.4byte	0x6d3
  1359 06cc 10       		.uleb128 0x10
  1360 06cd DA000000 		.4byte	0xda
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 32
-
-
  1361 06d1 05       		.byte	0x5
  1362 06d2 00       		.byte	0
  1363 06d3 12       		.uleb128 0x12
@@ -1868,6 +1858,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1365 06d8 07       		.byte	0x7
  1366 06d9 3D       		.byte	0x3d
  1367 06da E4060000 		.4byte	0x6e4
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 32
+
+
  1368 06de 05       		.uleb128 0x5
  1369 06df 03       		.byte	0x3
  1370 06e0 00000000 		.4byte	data_EE
@@ -1891,7 +1884,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1388 070a 06       		.uleb128 0x6
  1389 070b E9060000 		.4byte	0x6e9
  1390 070f 12       		.uleb128 0x12
- 1391 0710 D8010000 		.4byte	.LASF49
+ 1391 0710 E2010000 		.4byte	.LASF49
  1392 0714 07       		.byte	0x7
  1393 0715 3F       		.byte	0x3f
  1394 0716 E6000000 		.4byte	0xe6
@@ -1899,7 +1892,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1396 071b 03       		.byte	0x3
  1397 071c 00000000 		.4byte	counter
  1398 0720 12       		.uleb128 0x12
- 1399 0721 1D040000 		.4byte	.LASF27
+ 1399 0721 1E040000 		.4byte	.LASF27
  1400 0725 07       		.byte	0x7
  1401 0726 40       		.byte	0x40
  1402 0727 8C000000 		.4byte	0x8c
@@ -1907,27 +1900,27 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1404 072c 03       		.byte	0x3
  1405 072d 00000000 		.4byte	fifo_src_reg
  1406 0731 12       		.uleb128 0x12
- 1407 0732 A8020000 		.4byte	.LASF50
+ 1407 0732 D6000000 		.4byte	.LASF50
  1408 0736 07       		.byte	0x7
  1409 0737 43       		.byte	0x43
  1410 0738 E1000000 		.4byte	0xe1
  1411 073c 05       		.uleb128 0x5
  1412 073d 03       		.byte	0x3
- 1413 073e 00000000 		.4byte	FIFO_isr_flag
+ 1413 073e 00000000 		.4byte	FIFO_Read_Flag
  1414 0742 0F       		.uleb128 0xf
  1415 0743 E1000000 		.4byte	0xe1
  1416 0747 52070000 		.4byte	0x752
  1417 074b 10       		.uleb128 0x10
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 33
-
-
  1418 074c DA000000 		.4byte	0xda
  1419 0750 BF       		.byte	0xbf
  1420 0751 00       		.byte	0
  1421 0752 12       		.uleb128 0x12
- 1422 0753 74010000 		.4byte	.LASF51
+ 1422 0753 7E010000 		.4byte	.LASF51
  1423 0757 07       		.byte	0x7
  1424 0758 44       		.byte	0x44
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 33
+
+
  1425 0759 63070000 		.4byte	0x763
  1426 075d 05       		.uleb128 0x5
  1427 075e 03       		.byte	0x3
@@ -1935,33 +1928,33 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1429 0763 06       		.uleb128 0x6
  1430 0764 42070000 		.4byte	0x742
  1431 0768 13       		.uleb128 0x13
- 1432 0769 0C010000 		.4byte	.LASF52
- 1433 076d 0C010000 		.4byte	.LASF52
+ 1432 0769 16010000 		.4byte	.LASF52
+ 1433 076d 16010000 		.4byte	.LASF52
  1434 0771 08       		.byte	0x8
  1435 0772 54       		.byte	0x54
  1436 0773 13       		.uleb128 0x13
- 1437 0774 6D030000 		.4byte	.LASF53
- 1438 0778 6D030000 		.4byte	.LASF53
+ 1437 0774 6E030000 		.4byte	.LASF53
+ 1438 0778 6E030000 		.4byte	.LASF53
  1439 077c 09       		.byte	0x9
  1440 077d 4D       		.byte	0x4d
  1441 077e 13       		.uleb128 0x13
- 1442 077f 96010000 		.4byte	.LASF54
- 1443 0783 96010000 		.4byte	.LASF54
+ 1442 077f A0010000 		.4byte	.LASF54
+ 1443 0783 A0010000 		.4byte	.LASF54
  1444 0787 0A       		.byte	0xa
  1445 0788 4D       		.byte	0x4d
  1446 0789 13       		.uleb128 0x13
- 1447 078a AF010000 		.4byte	.LASF55
- 1448 078e AF010000 		.4byte	.LASF55
+ 1447 078a B9010000 		.4byte	.LASF55
+ 1448 078e B9010000 		.4byte	.LASF55
  1449 0792 0B       		.byte	0xb
  1450 0793 3A       		.byte	0x3a
  1451 0794 13       		.uleb128 0x13
- 1452 0795 DE020000 		.4byte	.LASF56
- 1453 0799 DE020000 		.4byte	.LASF56
+ 1452 0795 DF020000 		.4byte	.LASF56
+ 1453 0799 DF020000 		.4byte	.LASF56
  1454 079d 0C       		.byte	0xc
  1455 079e 18       		.byte	0x18
  1456 079f 13       		.uleb128 0x13
- 1457 07a0 54030000 		.4byte	.LASF57
- 1458 07a4 54030000 		.4byte	.LASF57
+ 1457 07a0 55030000 		.4byte	.LASF57
+ 1458 07a4 55030000 		.4byte	.LASF57
  1459 07a8 0D       		.byte	0xd
  1460 07a9 18       		.byte	0x18
  1461 07aa 13       		.uleb128 0x13
@@ -1970,41 +1963,41 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1464 07b3 0B       		.byte	0xb
  1465 07b4 3D       		.byte	0x3d
  1466 07b5 13       		.uleb128 0x13
- 1467 07b6 ED020000 		.4byte	.LASF59
- 1468 07ba ED020000 		.4byte	.LASF59
+ 1467 07b6 EE020000 		.4byte	.LASF59
+ 1468 07ba EE020000 		.4byte	.LASF59
  1469 07be 0E       		.byte	0xe
  1470 07bf 92       		.byte	0x92
  1471 07c0 13       		.uleb128 0x13
- 1472 07c1 CB020000 		.4byte	.LASF60
- 1473 07c5 CB020000 		.4byte	.LASF60
+ 1472 07c1 CC020000 		.4byte	.LASF60
+ 1473 07c5 CC020000 		.4byte	.LASF60
  1474 07c9 0F       		.byte	0xf
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 34
-
-
  1475 07ca 18       		.byte	0x18
  1476 07cb 13       		.uleb128 0x13
- 1477 07cc 15040000 		.4byte	.LASF61
- 1478 07d0 15040000 		.4byte	.LASF61
+ 1477 07cc 16040000 		.4byte	.LASF61
+ 1478 07d0 16040000 		.4byte	.LASF61
  1479 07d4 10       		.byte	0x10
  1480 07d5 76       		.byte	0x76
  1481 07d6 13       		.uleb128 0x13
- 1482 07d7 97020000 		.4byte	.LASF62
- 1483 07db 97020000 		.4byte	.LASF62
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 34
+
+
+ 1482 07d7 A6020000 		.4byte	.LASF62
+ 1483 07db A6020000 		.4byte	.LASF62
  1484 07df 11       		.byte	0x11
  1485 07e0 79       		.byte	0x79
  1486 07e1 13       		.uleb128 0x13
- 1487 07e2 17020000 		.4byte	.LASF63
- 1488 07e6 17020000 		.4byte	.LASF63
+ 1487 07e2 21020000 		.4byte	.LASF63
+ 1488 07e6 21020000 		.4byte	.LASF63
  1489 07ea 12       		.byte	0x12
  1490 07eb E7       		.byte	0xe7
  1491 07ec 13       		.uleb128 0x13
- 1492 07ed 22030000 		.4byte	.LASF64
- 1493 07f1 22030000 		.4byte	.LASF64
+ 1492 07ed 23030000 		.4byte	.LASF64
+ 1493 07f1 23030000 		.4byte	.LASF64
  1494 07f5 08       		.byte	0x8
  1495 07f6 8B       		.byte	0x8b
  1496 07f7 13       		.uleb128 0x13
- 1497 07f8 3B010000 		.4byte	.LASF65
- 1498 07fc 3B010000 		.4byte	.LASF65
+ 1497 07f8 45010000 		.4byte	.LASF65
+ 1498 07fc 45010000 		.4byte	.LASF65
  1499 0800 11       		.byte	0x11
  1500 0801 71       		.byte	0x71
  1501 0802 13       		.uleb128 0x13
@@ -2023,13 +2016,13 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1514 0821 14       		.byte	0x14
  1515 0822 12       		.byte	0x12
  1516 0823 13       		.uleb128 0x13
- 1517 0824 33030000 		.4byte	.LASF69
- 1518 0828 33030000 		.4byte	.LASF69
+ 1517 0824 34030000 		.4byte	.LASF69
+ 1518 0828 34030000 		.4byte	.LASF69
  1519 082c 11       		.byte	0x11
  1520 082d 83       		.byte	0x83
  1521 082e 13       		.uleb128 0x13
- 1522 082f 5F010000 		.4byte	.LASF70
- 1523 0833 5F010000 		.4byte	.LASF70
+ 1522 082f 69010000 		.4byte	.LASF70
+ 1523 0833 69010000 		.4byte	.LASF70
  1524 0837 14       		.byte	0x14
  1525 0838 30       		.byte	0x30
  1526 0839 00       		.byte	0
@@ -2038,9 +2031,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1529 0000 01       		.uleb128 0x1
  1530 0001 11       		.uleb128 0x11
  1531 0002 01       		.byte	0x1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 35
-
-
  1532 0003 25       		.uleb128 0x25
  1533 0004 0E       		.uleb128 0xe
  1534 0005 13       		.uleb128 0x13
@@ -2048,6 +2038,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1536 0007 03       		.uleb128 0x3
  1537 0008 0E       		.uleb128 0xe
  1538 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 35
+
+
  1539 000a 0E       		.uleb128 0xe
  1540 000b 55       		.uleb128 0x55
  1541 000c 17       		.uleb128 0x17
@@ -2098,9 +2091,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1586 0039 03       		.uleb128 0x3
  1587 003a 0E       		.uleb128 0xe
  1588 003b 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 36
-
-
  1589 003c 0B       		.uleb128 0xb
  1590 003d 3B       		.uleb128 0x3b
  1591 003e 05       		.uleb128 0x5
@@ -2108,6 +2098,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1593 0040 13       		.uleb128 0x13
  1594 0041 00       		.byte	0
  1595 0042 00       		.byte	0
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 36
+
+
  1596 0043 06       		.uleb128 0x6
  1597 0044 35       		.uleb128 0x35
  1598 0045 00       		.byte	0
@@ -2158,9 +2151,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1643 0074 02       		.uleb128 0x2
  1644 0075 17       		.uleb128 0x17
  1645 0076 00       		.byte	0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 37
-
-
  1646 0077 00       		.byte	0
  1647 0078 09       		.uleb128 0x9
  1648 0079 34       		.uleb128 0x34
@@ -2168,6 +2158,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1650 007b 03       		.uleb128 0x3
  1651 007c 0E       		.uleb128 0xe
  1652 007d 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 37
+
+
  1653 007e 0B       		.uleb128 0xb
  1654 007f 3B       		.uleb128 0x3b
  1655 0080 0B       		.uleb128 0xb
@@ -2218,9 +2211,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1700 00b3 9142     		.uleb128 0x2111
  1701 00b5 18       		.uleb128 0x18
  1702 00b6 00       		.byte	0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 38
-
-
  1703 00b7 00       		.byte	0
  1704 00b8 0E       		.uleb128 0xe
  1705 00b9 898201   		.uleb128 0x4109
@@ -2228,6 +2218,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1707 00bd 11       		.uleb128 0x11
  1708 00be 01       		.uleb128 0x1
  1709 00bf 31       		.uleb128 0x31
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 38
+
+
  1710 00c0 13       		.uleb128 0x13
  1711 00c1 00       		.byte	0
  1712 00c2 00       		.byte	0
@@ -2278,9 +2271,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1757 00ef 49       		.uleb128 0x49
  1758 00f0 13       		.uleb128 0x13
  1759 00f1 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 39
-
-
  1760 00f2 19       		.uleb128 0x19
  1761 00f3 02       		.uleb128 0x2
  1762 00f4 18       		.uleb128 0x18
@@ -2288,6 +2278,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1764 00f6 00       		.byte	0
  1765 00f7 13       		.uleb128 0x13
  1766 00f8 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 39
+
+
  1767 00f9 00       		.byte	0
  1768 00fa 3F       		.uleb128 0x3f
  1769 00fb 19       		.uleb128 0x19
@@ -2338,9 +2331,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1814 004c BC000000 		.4byte	.LVL31
  1815 0050 C2000000 		.4byte	.LVL32
  1816 0054 0100     		.2byte	0x1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 40
-
-
  1817 0056 50       		.byte	0x50
  1818 0057 00000000 		.4byte	0
  1819 005b 00000000 		.4byte	0
@@ -2348,6 +2338,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1821 0000 1C000000 		.4byte	0x1c
  1822 0004 0200     		.2byte	0x2
  1823 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 40
+
+
  1824 000a 04       		.byte	0x4
  1825 000b 00       		.byte	0
  1826 000c 0000     		.2byte	0
@@ -2398,9 +2391,6 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1853              	.LASF66:
  1854 0049 45455052 		.ascii	"EEPROM_writeByte\000"
  1854      4F4D5F77 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 41
-
-
  1854      72697465 
  1854      42797465 
  1854      00
@@ -2408,6 +2398,9 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1856 005a 73686F72 		.ascii	"short int\000"
  1856      7420696E 
  1856      7400
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 41
+
+
  1857              	.LASF68:
  1858 0064 73686F77 		.ascii	"show_menu\000"
  1858      5F6D656E 
@@ -2443,291 +2436,291 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 1
  1872 00c0 44617461 		.ascii	"DataBuffer\000"
  1872      42756666 
  1872      657200
- 1873              	.LASF74:
- 1874 00cb 6D61696E 		.ascii	"main\000"
- 1874      00
- 1875              	.LASF4:
- 1876 00d0 5F5F7569 		.ascii	"__uint16_t\000"
- 1876      6E743136 
- 1876      5F7400
+ 1873              	.LASF4:
+ 1874 00cb 5F5F7569 		.ascii	"__uint16_t\000"
+ 1874      6E743136 
+ 1874      5F7400
+ 1875              	.LASF50:
+ 1876 00d6 4649464F 		.ascii	"FIFO_Read_Flag\000"
+ 1876      5F526561 
+ 1876      645F466C 
+ 1876      616700
  1877              	.LASF37:
- 1878 00db 62756666 		.ascii	"bufferUART\000"
+ 1878 00e5 62756666 		.ascii	"bufferUART\000"
  1878      65725541 
  1878      525400
  1879              	.LASF12:
- 1880 00e6 75696E74 		.ascii	"uint8_t\000"
+ 1880 00f0 75696E74 		.ascii	"uint8_t\000"
  1880      385F7400 
  1881              	.LASF43:
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 42
-
-
- 1882 00ee 76616C75 		.ascii	"value_temp\000"
+ 1882 00f8 76616C75 		.ascii	"value_temp\000"
  1882      655F7465 
  1882      6D7000
  1883              	.LASF29:
- 1884 00f9 636C6561 		.ascii	"cleaning\000"
+ 1884 0103 636C6561 		.ascii	"cleaning\000"
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 42
+
+
  1884      6E696E67 
  1884      00
  1885              	.LASF26:
- 1886 0102 64617461 		.ascii	"data_read\000"
+ 1886 010c 64617461 		.ascii	"data_read\000"
  1886      5F726561 
  1886      6400
  1887              	.LASF52:
- 1888 010c 55415254 		.ascii	"UART_1_Start\000"
+ 1888 0116 55415254 		.ascii	"UART_1_Start\000"
  1888      5F315F53 
  1888      74617274 
  1888      00
  1889              	.LASF16:
- 1890 0119 666C6F61 		.ascii	"float\000"
+ 1890 0123 666C6F61 		.ascii	"float\000"
  1890      7400
  1891              	.LASF9:
- 1892 011f 6C6F6E67 		.ascii	"long long int\000"
+ 1892 0129 6C6F6E67 		.ascii	"long long int\000"
  1892      206C6F6E 
  1892      6720696E 
  1892      7400
  1893              	.LASF30:
- 1894 012d 6F6E6F66 		.ascii	"onoff_initial\000"
+ 1894 0137 6F6E6F66 		.ascii	"onoff_initial\000"
  1894      665F696E 
  1894      69746961 
  1894      6C00
  1895              	.LASF65:
- 1896 013b 4143435F 		.ascii	"ACC_writeRegister\000"
+ 1896 0145 4143435F 		.ascii	"ACC_writeRegister\000"
  1896      77726974 
  1896      65526567 
  1896      69737465 
  1896      7200
  1897              	.LASF7:
- 1898 014d 6C6F6E67 		.ascii	"long int\000"
+ 1898 0157 6C6F6E67 		.ascii	"long int\000"
  1898      20696E74 
  1898      00
  1899              	.LASF31:
- 1900 0156 64617461 		.ascii	"data_add\000"
+ 1900 0160 64617461 		.ascii	"data_add\000"
  1900      5F616464 
  1900      00
  1901              	.LASF70:
- 1902 015f 436F6E66 		.ascii	"Config_acc\000"
+ 1902 0169 436F6E66 		.ascii	"Config_acc\000"
  1902      69675F61 
  1902      636300
  1903              	.LASF3:
- 1904 016a 5F5F7569 		.ascii	"__uint8_t\000"
+ 1904 0174 5F5F7569 		.ascii	"__uint8_t\000"
  1904      6E74385F 
  1904      7400
  1905              	.LASF51:
- 1906 0174 64617461 		.ascii	"dataAcc\000"
+ 1906 017e 64617461 		.ascii	"dataAcc\000"
  1906      41636300 
  1907              	.LASF38:
- 1908 017c 5061636B 		.ascii	"PacketReadyFlag\000"
+ 1908 0186 5061636B 		.ascii	"PacketReadyFlag\000"
  1908      65745265 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 43
-
-
  1908      61647946 
  1908      6C616700 
  1909              	.LASF39:
- 1910 018c 53746172 		.ascii	"StartFlag\000"
+ 1910 0196 53746172 		.ascii	"StartFlag\000"
  1910      74466C61 
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 43
+
+
  1910      6700
  1911              	.LASF54:
- 1912 0196 5350494D 		.ascii	"SPIM_2_Start\000"
+ 1912 01a0 5350494D 		.ascii	"SPIM_2_Start\000"
  1912      5F325F53 
  1912      74617274 
  1912      00
  1913              	.LASF19:
- 1914 01a3 6C6F6E67 		.ascii	"long double\000"
+ 1914 01ad 6C6F6E67 		.ascii	"long double\000"
  1914      20646F75 
  1914      626C6500 
  1915              	.LASF55:
- 1916 01af 4144435F 		.ascii	"ADC_DelSig_Start\000"
+ 1916 01b9 4144435F 		.ascii	"ADC_DelSig_Start\000"
  1916      44656C53 
  1916      69675F53 
  1916      74617274 
  1916      00
  1917              	.LASF45:
- 1918 01c0 636F756E 		.ascii	"count_wtm\000"
+ 1918 01ca 636F756E 		.ascii	"count_wtm\000"
  1918      745F7774 
  1918      6D00
  1919              	.LASF1:
- 1920 01ca 756E7369 		.ascii	"unsigned char\000"
+ 1920 01d4 756E7369 		.ascii	"unsigned char\000"
  1920      676E6564 
  1920      20636861 
  1920      7200
  1921              	.LASF49:
- 1922 01d8 636F756E 		.ascii	"counter\000"
+ 1922 01e2 636F756E 		.ascii	"counter\000"
  1922      74657200 
  1923              	.LASF73:
- 1924 01e0 433A5C55 		.ascii	"C:\\Users\\User\\Desktop\\01_06\\Final_Project_Grou"
+ 1924 01ea 433A5C55 		.ascii	"C:\\Users\\User\\Desktop\\01_06\\Final_Project_Grou"
  1924      73657273 
  1924      5C557365 
  1924      725C4465 
  1924      736B746F 
- 1925 020e 70352E63 		.ascii	"p5.cydsn\000"
+ 1925 0218 70352E63 		.ascii	"p5.cydsn\000"
  1925      7964736E 
  1925      00
  1926              	.LASF63:
- 1927 0217 73707269 		.ascii	"sprintf\000"
+ 1927 0221 73707269 		.ascii	"sprintf\000"
  1927      6E746600 
  1928              	.LASF0:
- 1929 021f 7369676E 		.ascii	"signed char\000"
+ 1929 0229 7369676E 		.ascii	"signed char\000"
  1929      65642063 
  1929      68617200 
  1930              	.LASF10:
- 1931 022b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1931 0235 6C6F6E67 		.ascii	"long long unsigned int\000"
  1931      206C6F6E 
  1931      6720756E 
  1931      7369676E 
  1931      65642069 
  1932              	.LASF41:
- 1933 0242 53616D70 		.ascii	"SamplingFreqFlag\000"
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 44
-
-
+ 1933 024c 53616D70 		.ascii	"SamplingFreqFlag\000"
  1933      6C696E67 
  1933      46726571 
  1933      466C6167 
  1933      00
  1934              	.LASF11:
- 1935 0253 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 44
+
+
+ 1935 025d 756E7369 		.ascii	"unsigned int\000"
  1935      676E6564 
  1935      20696E74 
  1935      00
  1936              	.LASF13:
- 1937 0260 75696E74 		.ascii	"uint16_t\000"
+ 1937 026a 75696E74 		.ascii	"uint16_t\000"
  1937      31365F74 
  1937      00
  1938              	.LASF5:
- 1939 0269 73686F72 		.ascii	"short unsigned int\000"
+ 1939 0273 73686F72 		.ascii	"short unsigned int\000"
  1939      7420756E 
  1939      7369676E 
  1939      65642069 
  1939      6E7400
  1940              	.LASF40:
- 1941 027c 46535246 		.ascii	"FSRFlag\000"
+ 1941 0286 46535246 		.ascii	"FSRFlag\000"
  1941      6C616700 
  1942              	.LASF18:
- 1943 0284 63686172 		.ascii	"char\000"
+ 1943 028e 63686172 		.ascii	"char\000"
  1943      00
- 1944              	.LASF14:
- 1945 0289 696E7433 		.ascii	"int32_t\000"
- 1945      325F7400 
- 1946              	.LASF15:
- 1947 0291 75696E74 		.ascii	"uint8\000"
- 1947      3800
- 1948              	.LASF62:
- 1949 0297 4143435F 		.ascii	"ACC_readRegister\000"
- 1949      72656164 
- 1949      52656769 
- 1949      73746572 
- 1949      00
- 1950              	.LASF50:
- 1951 02a8 4649464F 		.ascii	"FIFO_isr_flag\000"
- 1951      5F697372 
- 1951      5F666C61 
- 1951      6700
+ 1944              	.LASF74:
+ 1945 0293 6D61696E 		.ascii	"main\000"
+ 1945      00
+ 1946              	.LASF14:
+ 1947 0298 696E7433 		.ascii	"int32_t\000"
+ 1947      325F7400 
+ 1948              	.LASF15:
+ 1949 02a0 75696E74 		.ascii	"uint8\000"
+ 1949      3800
+ 1950              	.LASF62:
+ 1951 02a6 4143435F 		.ascii	"ACC_readRegister\000"
+ 1951      72656164 
+ 1951      52656769 
+ 1951      73746572 
+ 1951      00
  1952              	.LASF34:
- 1953 02b6 64617461 		.ascii	"data\000"
+ 1953 02b7 64617461 		.ascii	"data\000"
  1953      00
  1954              	.LASF35:
- 1955 02bb 64617461 		.ascii	"data_read_array\000"
+ 1955 02bc 64617461 		.ascii	"data_read_array\000"
  1955      5F726561 
  1955      645F6172 
  1955      72617900 
  1956              	.LASF60:
- 1957 02cb 4953525F 		.ascii	"ISR_Button_StartEx\000"
+ 1957 02cc 4953525F 		.ascii	"ISR_Button_StartEx\000"
  1957      42757474 
  1957      6F6E5F53 
  1957      74617274 
  1957      457800
  1958              	.LASF56:
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 45
-
-
- 1959 02de 6973725F 		.ascii	"isr_RX_StartEx\000"
+ 1959 02df 6973725F 		.ascii	"isr_RX_StartEx\000"
  1959      52585F53 
  1959      74617274 
  1959      457800
  1960              	.LASF59:
- 1961 02ed 50574D5F 		.ascii	"PWM_OnboardLED_Start\000"
+ 1961 02ee 50574D5F 		.ascii	"PWM_OnboardLED_Start\000"
  1961      4F6E626F 
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 45
+
+
  1961      6172644C 
  1961      45445F53 
  1961      74617274 
  1962              	.LASF72:
- 1963 0302 6D61696E 		.ascii	"main.c\000"
+ 1963 0303 6D61696E 		.ascii	"main.c\000"
  1963      2E6300
  1964              	.LASF8:
- 1965 0309 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1965 030a 6C6F6E67 		.ascii	"long unsigned int\000"
  1965      20756E73 
  1965      69676E65 
  1965      6420696E 
  1965      7400
  1966              	.LASF17:
- 1967 031b 646F7562 		.ascii	"double\000"
+ 1967 031c 646F7562 		.ascii	"double\000"
  1967      6C6500
  1968              	.LASF64:
- 1969 0322 55415254 		.ascii	"UART_1_PutString\000"
+ 1969 0323 55415254 		.ascii	"UART_1_PutString\000"
  1969      5F315F50 
  1969      75745374 
  1969      72696E67 
  1969      00
  1970              	.LASF69:
- 1971 0333 4143435F 		.ascii	"ACC_Multi_Read\000"
+ 1971 0334 4143435F 		.ascii	"ACC_Multi_Read\000"
  1971      4D756C74 
  1971      695F5265 
  1971      616400
  1972              	.LASF46:
- 1973 0342 64617469 		.ascii	"datiAcc\000"
+ 1973 0343 64617469 		.ascii	"datiAcc\000"
  1973      41636300 
  1974              	.LASF6:
- 1975 034a 5F5F696E 		.ascii	"__int32_t\000"
+ 1975 034b 5F5F696E 		.ascii	"__int32_t\000"
  1975      7433325F 
  1975      7400
  1976              	.LASF57:
- 1977 0354 6973725F 		.ascii	"isr_ADC_StartEx\000"
+ 1977 0355 6973725F 		.ascii	"isr_ADC_StartEx\000"
  1977      4144435F 
  1977      53746172 
  1977      74457800 
  1978              	.LASF21:
- 1979 0364 77686F5F 		.ascii	"who_am_i\000"
+ 1979 0365 77686F5F 		.ascii	"who_am_i\000"
  1979      616D5F69 
  1979      00
  1980              	.LASF53:
- 1981 036d 5350494D 		.ascii	"SPIM_1_Start\000"
+ 1981 036e 5350494D 		.ascii	"SPIM_1_Start\000"
  1981      5F315F53 
  1981      74617274 
  1981      00
  1982              	.LASF36:
- 1983 037a 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1983 037b 49544D5F 		.ascii	"ITM_RxBuffer\000"
  1983      52784275 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccfn5Xpc.s 			page 46
-
-
  1983      66666572 
  1983      00
  1984              	.LASF71:
- 1985 0387 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1985 0388 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1985      43313120 
  1985      352E342E 
  1985      31203230 
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccCbuclh.s 			page 46
+
+
  1985      31363036 
- 1986 03ba 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1986 03bb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  1986      20726576 
  1986      6973696F 
  1986      6E203233 
  1986      37373135 
- 1987 03ed 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1987 03ee 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1987      66756E63 
  1987      74696F6E 
  1987      2D736563 
  1987      74696F6E 
  1988              	.LASF61:
- 1989 0415 43794465 		.ascii	"CyDelay\000"
+ 1989 0416 43794465 		.ascii	"CyDelay\000"
  1989      6C617900 
  1990              	.LASF27:
- 1991 041d 6669666F 		.ascii	"fifo_src_reg\000"
+ 1991 041e 6669666F 		.ascii	"fifo_src_reg\000"
  1991      5F737263 
  1991      5F726567 
  1991      00
  1992              	.LASF33:
- 1993 042a 73665F69 		.ascii	"sf_init\000"
+ 1993 042b 73665F69 		.ascii	"sf_init\000"
  1993      6E697400 
  1994              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

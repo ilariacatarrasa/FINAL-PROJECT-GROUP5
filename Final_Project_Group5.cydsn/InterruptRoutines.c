@@ -38,6 +38,10 @@ int   value_mv;
 int j;
 uint8_t data_start[4];
 
+    
+uint8_t dataAccTemp[80];
+uint8_t dataTemp[20]= {0};
+
 CY_ISR(Custom_ISR_Button){
     
     long int button_press_counter = 0;
@@ -73,27 +77,22 @@ CY_ISR_PROTO (Custom_isr_FIFO)
 {
     //read the Interrupt-1 source register to bring interrupt line low
     fifo_src_reg = ACC_readRegister(LIS3DH_SRC_REG);
-    FIFO_isr_flag = 1;
 
-    uint8_t dataAccTemp[256];
-    uint8_t dataTemp[2] = {0,0};
-    
     ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) dataAcc, 66);
-
+      
     ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
-    CyDelayUs(2);
     ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);            
-    CyDelayUs(2);
-    
-//    ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp, 80);
 
-    
+//    ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp, 80);
+//
     for (uint i=0; i<66; i++)
     {
         sprintf(bufferUART, " %d ", dataAcc[i]);
         UART_1_PutString(bufferUART);
     }
     UART_1_PutString(" *********\r\n");
+
+    
     
 
 //  PROVE ILA CAT.  
@@ -202,7 +201,6 @@ CY_ISR(Custom_ISR_RX)
             
             //prova fede
             isr_FIFO_Stop();
-            FIFO_isr_flag = 0;
             
             // Stop data acquisition from the accelerometer
             // Stop sampling Temperature values every Timer overflow

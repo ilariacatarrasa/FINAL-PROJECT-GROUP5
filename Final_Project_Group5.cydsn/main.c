@@ -150,8 +150,10 @@ int main(void) {
     
      /* Setting Control Register of FIFO */
     uint8_t ctrl1_FIFO;    
-    //Enable FIFO mode and the Watermark on 11 samples
-    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0xB);
+    //Enable FIFO mode and the Watermark on 9 samples
+    //ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0x0A);
+    //ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
+    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0x0A);
                 
     ctrl1_FIFO = ACC_readRegister(LIS3DH_FIFO_CTRL_REG);
     sprintf(bufferUART, " Control register of FIFO has been set to = 0x%02X \r\n", ctrl1_FIFO);
@@ -161,8 +163,8 @@ int main(void) {
 
     uint8_t ctrl_reg3;
     
-    //Enable FIFO Overrun interrupt on INT1.
-    ACC_writeRegister(LIS3DH_CTRL_REG3, LIS3DH_CTRL_REG3_FIFO_WTM);
+    //Enable FIFO Watermark interrupt on INT1.
+    ACC_writeRegister(LIS3DH_CTRL_REG3, 0x04);
     
     ctrl_reg3 = ACC_readRegister(LIS3DH_CTRL_REG3);
     sprintf(bufferUART, " Control register 3 has been set to = 0x%02X \r\n", ctrl_reg3);
@@ -254,39 +256,30 @@ int main(void) {
     EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
     EEPROM_waitForWriteComplete();    
     ///////////////////////////////////////////////////////////////////
+//    
+//    uint8_t dataAccTemp[80];
+//    uint8_t dataTemp[20]= {0};
     
     for(;;){
-        
-//        fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);     
-//            
-//        
-//        if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO )       
-//           {              
-//            ACC_Multi_Read(LIS3DH_OUT_X_L, (uint8_t*) FIFO_data, 192); 
-//            
-//            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
-//            sprintf(bufferUART, " fifo_src_reg dopo la multiread 0x%02X  \r\n", fifo_src_reg);
-//            UART_1_PutBuffer;
-//            
-//            sprintf(bufferUART, " Primi 63 valori del buffer: \r\n");
-//            UART_1_PutBuffer;   
-//                
-//            for (uint i=0; i<192; i++)
+
+//        if (FIFO_Read_Flag == 1)
+//        {
+//
+//            ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp, 80);
+//
+//            for (uint i=0; i<80; i++)
 //            {
-//                sprintf(bufferUART, " %d ", FIFO_data[i]);
-//                UART_1_PutBuffer;
+//                sprintf(bufferUART, " %d ", dataAccTemp[i]);
+//                UART_1_PutString(bufferUART);
 //            }
+//            UART_1_PutString(" *********\r\n");
+//                
+//            FIFO_Read_Flag = 0;
 //            
-//                                
-//            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
-//            CyDelayUs(2);
-//            ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);
-//            
-//            fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
-//            sprintf(bufferUART, "\r\n fifo_src_reg dopo il reset 0x%02X  \r\n", fifo_src_reg);
-//            UART_1_PutBuffer;
 //        }
-//        
+
+        
+        
         /* EEPROM */
         // save new configuration in EEPROM memory:    
         
