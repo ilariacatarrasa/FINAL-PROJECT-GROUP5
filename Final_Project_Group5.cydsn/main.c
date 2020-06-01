@@ -272,7 +272,7 @@ int main(void) {
             PWM_OnboardLED_WriteCompare(32);   //50% DC
         }
         
-        if (BCP_START == START)
+        while (BCP_START == START)
         {
             for (int i=0; i<10; i++)
             {   
