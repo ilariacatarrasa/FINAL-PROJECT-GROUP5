@@ -103,8 +103,6 @@ void Store_EEPROM(uint16_t counter, uint8_t* tobepacked, uint8_t* tobesentEEPROM
         counter= counter+DATA_BYTES_EEPROM;
        
         EEPROM_readPage(counter, (uint8_t*) tobesentEEPROM, DATA_BYTES_EEPROM);
-        sprintf(bufferUART, "** EEPROM Read = %d %d %d %d %d %d \r\n", tobesentEEPROM[j], tobesentEEPROM[j + 1], tobesentEEPROM[j + 2],  tobesentEEPROM[j + 3], tobesentEEPROM[j + 4], tobesentEEPROM[j + 5]);
-        UART_1_PutBuffer;
     }
 }
 
@@ -130,15 +128,12 @@ void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP, uint8_t
     temperature = (uint16_t) tobedepacked[4] << 8 |  ( (uint16_t) tobedepacked[5] ) ;
  
     value_temp = ADC_DelSig_CountsTo_mVolts(temperature);
-    sprintf(bufferUART, " value temperature MV: %d  \n\r", value_temp);
-    UART_1_PutBuffer;
+
     value_temp = (value_temp-500)/10; // Temperature in Celsius
     if(temperature_modality==1)
     {
         value_temp= value_temp * 9/5 + 32; // Temperature in Fahrenheit
     }
-    sprintf(bufferUART, " value temperature: %d  \n\r", value_temp);
-    UART_1_PutBuffer;
     
     data_BCP[7] = (uint16_t)value_temp >> 8;  //MSB of temperature data
     data_BCP[8] = (uint16_t)value_temp & 0xFF ; //LSB of temperature data
@@ -157,6 +152,14 @@ void Config_acc( uint8_t counter, uint8_t config, uint16_t address)
     int i = 0;
     uint8_t zero_array[64] = {0};
     
+    for (i=0 ; i<counter - FIRST_DATA_ADDR; i+=64)
+    {
+        EEPROM_writePage((FIRST_DATA_ADDR), (uint8_t*) zero_array, MAX_BYTE_PAGE);
+        EEPROM_waitForWriteComplete();
+        UART_1_PutString("ERASE COMPLETED \r\n");
+    }
+    
+    //reset counter stooring data  
     counter=FIRST_DATA_ADDR;
     EEPROM_writeByte(COUNTER_AD, counter);
     EEPROM_waitForWriteComplete();   
@@ -164,7 +167,7 @@ void Config_acc( uint8_t counter, uint8_t config, uint16_t address)
     EEPROM_waitForWriteComplete();
     
     UART_1_PutString("New configuration set: 0x02X \r\n");
-    
+        
 }
 
 /* [] END OF FILE */
