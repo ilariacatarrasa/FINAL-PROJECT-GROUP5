@@ -69,54 +69,7 @@ int main(void) {
     
     
     CyDelay(10); //"The boot procedure is complete about 10 milliseconds after device power-up."
-        
-//    /* PROJECT 1 */    
-//    /* Definition of the extern from 25LC256.c */
-//    uint8_t eeprom_Status = 0;
-//    
-//    eeprom_Status = EEPROM_readStatus();
-//    
-//    sprintf(bufferUART, "** EEPROM Status = 0x%02x\r\n", eeprom_Status);
-//    UART_1_PutBuffer;
-//    
-//    /* PROJECT 2 */
-//    /* Value to Write */
-//    uint8_t data = 94;
-//    
-//    /* Write */
-//    EEPROM_writeByte(0x0000, data);
-//    EEPROM_waitForWriteComplete();
-//    
-//    /* Read */
-//    uint8_t data_read = EEPROM_readByte(0x0000);
-//    
-//    sprintf(bufferUART, "** EEPROM Status = %d (%d)\r\n", data_read, data);
-//    UART_1_PutBuffer;
- 
-//    /* Data to Write */
-//    int16_t data[DATA_SIZE] = {15, -32, 258};
-//    
-//    /**** PROJECT 3 *****/
-//    
-//    /* Write */
-//    EEPROM_writePage(0x0001, (uint8_t*) data, DATA_BYTES);
-//    EEPROM_waitForWriteComplete();
-//    
-//    /**** PROJECT 4 ****/
-//    /* Read */
-//    int16_t data_read[DATA_SIZE];
-//    EEPROM_readPage(0x0001, (uint8_t*) data_read, DATA_BYTES);
-//    
-//    
-//    
-//    sprintf(bufferUART, "** EEPROM Read = %d %d %d \r\n", data_read[0], data_read[1], data_read[2]);
-//    UART_1_PutBuffer;
-//    
-//    UART_1_PutString("*************************************\r\n");
-//    
-//    return 0;
-    
-    
+               
     /* Read WHO AM I Accelerometer's register */
 
     uint8_t who_am_i;
@@ -216,50 +169,42 @@ int main(void) {
     uint8_t data_read_array[DATA_BYTES_EEPROM]= {0,0,0,0,0,0};
     
     
-    // Inizializzazioni START STOP 
-//    onoff_initial = EEPROM_readByte(ONOFF_ADD);
-//    if (onoff_initial & ON)
-//    {
-//        StartFlag = START;
-//    }
-//    else if(onoff_initial & OFF)
-//    {
-//        StartFlag = STOP;
-//    }
-//    else
-//    {
-//        EEPROM_writeByte(ONOFF_ADD, OFF);
-//        EEPROM_waitForWriteComplete();
-//    }  
-//    
-//    data_add = EEPROM_readByte(COUNTER_AD);
-//    fsr_init = EEPROM_readByte(ACC_CONFIG_FSR_AD);
-//    if (data_add < FIRST_DATA_ADDR)
-//    {
-//        EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
-//        EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
-//        EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
-//        EEPROM_waitForWriteComplete();        
-//    }
-//    else
-//    {
-//        counter = data_add;
-//        FSRFlag = fsr_init;
-//        SamplingFreqFlag = sf_init;
-//    }
-//      
+    //Initialization EEPROM registers
     
-    //PER FEDE
-    EEPROM_writeByte(ONOFF_ADD, OFF);
-    EEPROM_waitForWriteComplete();
-    EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
-    EEPROM_waitForWriteComplete();
-    EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
-    EEPROM_waitForWriteComplete();
-    EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
-    EEPROM_waitForWriteComplete();    
-    ///////////////////////////////////////////////////////////////////
-//    
+    onoff_initial = EEPROM_readByte(ONOFF_ADD);
+    if (onoff_initial & ON)
+    {
+        StartFlag = START;
+    }
+    else if(onoff_initial & OFF)
+    {
+        StartFlag = STOP;
+    }
+    else
+    {
+        EEPROM_writeByte(ONOFF_ADD, OFF);
+        EEPROM_waitForWriteComplete();
+    }  
+    
+    data_add = EEPROM_readByte(COUNTER_AD);
+    fsr_init = EEPROM_readByte(ACC_CONFIG_FSR_AD);
+    if (data_add < FIRST_DATA_ADDR)
+    {
+        EEPROM_writeByte(ACC_CONFIG_FSR_AD, LIS3DH_CTRL_REG4_FSR_2);
+        EEPROM_writeByte(ACC_CONFIG_SF_AD, LIS3DH_CTRL_REG1_ODR_START_1HZ);
+        EEPROM_writeByte(COUNTER_AD, FIRST_DATA_ADDR);
+        EEPROM_waitForWriteComplete();        
+    }
+    else
+    {
+        counter = data_add;
+        FSRFlag = fsr_init;
+        SamplingFreqFlag = sf_init;
+    }
+      
+    
+  
+
     uint8_t dataAccTemp[80];
     
     for(;;){
@@ -302,16 +247,7 @@ int main(void) {
                 
                 //storing data in EEPROM (in packs of 6 bytes)
                 Store_EEPROM(counter, (uint8_t*) dataAccTemp, (uint8_t*) data_EE);              
-                
-//                UART_1_PutString(" flag read=1\r\n");
-//                
-//                for (uint i=0; i<80; i++)
-//                {
-//                    sprintf(bufferUART, " %d ", dataAccTemp[i]);
-//                    UART_1_PutString(bufferUART);
-//                }
-//                UART_1_PutString(" *********\r\n");
-                    
+                                    
                 FIFO_Read_Flag = 0;          
         }
     
