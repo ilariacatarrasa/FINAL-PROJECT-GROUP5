@@ -39,38 +39,9 @@ int j;
 uint8_t data_start[4];
 
     
-uint8_t dataAccTemp[80];
-uint8_t dataTemp[20]= {0};
 
 CY_ISR(Custom_ISR_Button){
     
-    long int button_press_counter = 0;
-    // Last reading of push button
-    uint8_t ButtonLastState = BUTTON_PRESSED;  
-    // Current reading of push button
-    uint8_t ButtonReading = BUTTON_PRESSED;
-
-        while (ButtonReading == ButtonLastState)
-        {
-            // Update state and reading
-            ButtonLastState = ButtonReading;
-            ButtonReading = Onboard_Button_Read();
-
-            // Increment counter
-            button_press_counter ++;
-            
-            // If we've waited enough time
-            if (button_press_counter == FIVE_SEC)
-            {
-                // If push button was still pressed
-                if (ButtonReading == BUTTON_PRESSED)
-                {
-                   Ext_LED_Write(EXT_LED_ON); //solo per vedere se funziona                                   
-                }
-            }
-        }
-    
-        Ext_LED_Write(EXT_LED_OFF); //solo per vedere se funziona
 }        
 
 CY_ISR_PROTO (Custom_isr_FIFO)
@@ -79,59 +50,12 @@ CY_ISR_PROTO (Custom_isr_FIFO)
     fifo_src_reg = ACC_readRegister(LIS3DH_SRC_REG);
 
     ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) dataAcc, 66);
-      
+    
     ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
-    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);            
+    ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE | 0x0A);    
 
-//    ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp, 80);
-//
-    for (uint i=0; i<66; i++)
-    {
-        sprintf(bufferUART, " %d ", dataAcc[i]);
-        UART_1_PutString(bufferUART);
-    }
-    UART_1_PutString(" *********\r\n");
-
-    
-    
-
-//  PROVE ILA CAT.  
-//    if(StartFlag == START)
-//    { 
-//        if (count_wtm <= 31 ){
-//            ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) datiAcc, 6);  
-//    
-//            Store_EEPROM(counter, datiAcc, data_EE);
-//            
-//            Send_BCP( counter, data_EE, data_BCP, FahrenheitFlag);
-//            UART_1_PutArray(data_BCP, TRANSMIT_BUFFER_SIZE);
-////            counter= counter+DATA_BYTES_EEPROM;
-//            count_wtm ++;
-//        }
-//        else
-//        {   count_wtm = 0; 
-//            ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) datiAcc, 6);        
-//            count_wtm ++; 
-////            UART_1_PutString("CIAO\n\r");
-//         }
-//    
-//    fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);        
-//        
-//    if ( fifo_src_reg & LIS3DH_FIFO_SRC_REG_OVRN_FIFO)
-//    {
-//        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_BYPASS_MODE);  
-//        CyDelayUs(2);
-//        ACC_writeRegister(LIS3DH_FIFO_CTRL_REG, LIS3DH_FIFO_CTRL_REG_FIFO_MODE);            
-//        CyDelayUs(2);
-//        count_wtm = 0;
-//     }        
-            
-         
-//        sprintf(bufferUART, " Counter watermark %d \r\n", count_wtm);
-//         UART_1_PutBuffer;
-    
-    
-    
+    //bring the multiread flag high 
+    FIFO_Read_Flag = 1;    
 }
 
 CY_ISR(Custom_ISR_ADC)
@@ -144,25 +68,16 @@ CY_ISR(Custom_ISR_ADC)
     if(value_digit<0)      value_digit=0;
     if(value_digit>65535)  value_digit=65535;
     
-   if (j>=63)
+   if (j>=19)
     { 
         j = 0;
         Buffer_Temp_Full = 1;
     }
-    DataBuffer[j]=value_digit>>8; // shift a dx di 8 bit --> MSB
+    dataTemp[j]=value_digit>>8; // shift a dx di 8 bit --> MSB
     j++;
-    DataBuffer[j]=value_digit & 0xFF; // & bit a bit --> LSB
+    dataTemp[j]=value_digit & 0xFF; // & bit a bit --> LSB
     j++;
-//    
-//    value_mv=ADC_DelSig_CountsTo_mVolts(value_digit);
-//    value_temp= (value_mv-500)/10; // Temperature in Celsius
-//    if(FahrenheitFlag==1)
-//    {
-//        value_temp= value_temp * 9/5 + 32; // Temperature in Fahrenheit
-//    }
-//    sprintf(bufferUART, " value temperature: %d  \n\r", value_temp);
-//    UART_1_PutBuffer;
-//    PacketReadyFlag=1;
+
 }
 
 CY_ISR(Custom_ISR_RX)
@@ -179,15 +94,12 @@ CY_ISR(Custom_ISR_RX)
         case 'B':
         case 'b':
             
-            isr_FIFO_StartEx(Custom_isr_FIFO);
             StartFlag=START;
-            
-            // Start data acquisition from the accelerometer
-            // Start sampling Temperature values every Timer overflow
-            Timer_Start();
+
+
             //Onboard LED tells the user that data acquisition is ON
             PWM_OnboardLED_WritePeriod(255);  //1s period
-            PWM_OnboardLED_WriteCompare(128); //50% DC (SISTEMARE CON DEFINE)
+            PWM_OnboardLED_WriteCompare(128); //50% DC 
             // Start data storage on the EEPROM                
             // Save the configuration on the EEPROM
           
@@ -196,15 +108,12 @@ CY_ISR(Custom_ISR_RX)
         // OFF command on UART
         case 'S':
         case 's':
-            
+     
             StartFlag=STOP;
-            
-            //prova fede
+           
+            //Stop FIFO watermark isr to stop data acquisition from the accelerometer
             isr_FIFO_Stop();
-            
-            // Stop data acquisition from the accelerometer
-            // Stop sampling Temperature values every Timer overflow
-            Timer_Stop();
+
             //Onboard LED tells the user that data acquisition is OFF
             PWM_OnboardLED_WritePeriod(255);  //1s period
             PWM_OnboardLED_WriteCompare(0);   //Onboard LED OFF

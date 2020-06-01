@@ -58,6 +58,9 @@ int main(void) {
     /* Start ADC conversion */
     ADC_DelSig_StartConvert();
     
+    // Start sampling Temperature values every Timer overflow
+    Timer_Start();
+    
     /* Initialize PWM so that the Onboard LED is OFF */
     PWM_OnboardLED_Start();
     
@@ -257,28 +260,10 @@ int main(void) {
     EEPROM_waitForWriteComplete();    
     ///////////////////////////////////////////////////////////////////
 //    
-//    uint8_t dataAccTemp[80];
-//    uint8_t dataTemp[20]= {0};
+    uint8_t dataAccTemp[80];
     
     for(;;){
-
-//        if (FIFO_Read_Flag == 1)
-//        {
-//
-//            ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp, 80);
-//
-//            for (uint i=0; i<80; i++)
-//            {
-//                sprintf(bufferUART, " %d ", dataAccTemp[i]);
-//                UART_1_PutString(bufferUART);
-//            }
-//            UART_1_PutString(" *********\r\n");
-//                
-//            FIFO_Read_Flag = 0;
-//            
-//        }
-
-        
+      
         
         /* EEPROM */
         // save new configuration in EEPROM memory:    
@@ -306,40 +291,30 @@ int main(void) {
             
             counter= counter+DATA_BYTES_EEPROM;
             StartFlag =  2;  //exit from flag of START/stop
+
+            UART_1_PutString(" start flag=2\r\n");
             
+            //Start FIFO interrupt on watermatk to start data acquisition from the accelerometer
+            isr_FIFO_StartEx(Custom_isr_FIFO);
+            
+            if (FIFO_Read_Flag == 1)
+            {
+                ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp, 80);
+
+                
+                
+//                UART_1_PutString(" flag read=1\r\n");
+//                
+//                for (uint i=0; i<80; i++)
+//                {
+//                    sprintf(bufferUART, " %d ", dataAccTemp[i]);
+//                    UART_1_PutString(bufferUART);
+//                }
+//                UART_1_PutString(" *********\r\n");
                     
-//    //qui funzione che salva 32 sample di temperatura    
-//    ACC_TEMP_8bytePacking((uint8_t*)dataAcc, (uint8_t*)dataTemp, (uint8_t*)dataAccTemp, 256);
-
-
-            
-            /* Storing data in EEPROM */
-            //Data to store in EEPROM: 4 bytes accelerometer (transform from 6 to 4 bytes) + 2bytes TEMP 
-            //Data operations--> obtain data_EEPROM
-            
-//            data[6] = DataBuffer[5]; 
-//            data[7] = DataBuffer[6]; 
-//            
-//            Store_EEPROM(data, data_EE);
-//            sprintf(bufferUART, "** Data_EE Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", data_EE[0], data_EE[1], data_EE[2],  data_EE[3], data_EE[4], data_EE[5]);
-//            UART_1_PutBuffer;
-//            
-//            EEPROM_writePage(counter, (uint8_t*) data_EE, DATA_BYTES_EEPROM);
-//            EEPROM_waitForWriteComplete();
-//
-//            EEPROM_readPage(counter, (uint8_t*) data_read_array, DATA_BYTES_EEPROM);
-//            sprintf(bufferUART, "** EEPROM Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", data_read_array[0], data_read_array[1], data_read_array[2],  data_read_array[3], data_read_array[4], data_read_array[5]);
-//            UART_1_PutBuffer;
-           
-            //Storing new set of data in EEPROM
-            //EPROM_writePage((FIRST_DATA_ADDR + counter), (uint8_t*) data_EEPROM, DATA_BYTES_EEPROM);            
-            //EEPROM_waitForWriteComplete();
-            
-            
-            //update the storage counter in EEPROM at the address of COUNTER_ADD
-//            counter= counter+DATA_BYTES_EEPROM;
-//            EEPROM_writeByte(COUNTER_AD, counter);
-//            EEPROM_waitForWriteComplete();
+                FIFO_Read_Flag = 0;          
+        }
+    
         }
         
         //If acquisition is stopped from user
@@ -350,6 +325,7 @@ int main(void) {
             UART_1_PutString("** EEPROM Status OFF ** \r\n");
 
             StartFlag = 2; //exit from flag of START/stop
+
         }
             
         //Reset counter if the EEPROM storage is full

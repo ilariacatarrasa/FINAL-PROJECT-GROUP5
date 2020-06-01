@@ -12026,7 +12026,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  693              	.set isr_RX__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  694              	.set isr_RX__INTC_MASK, 0x20
  695              	.set isr_RX__INTC_NUMBER, 5
- 696              	.set isr_RX__INTC_PRIOR_NUM, 6
+ 696              	.set isr_RX__INTC_PRIOR_NUM, 4
  697              	.set isr_RX__INTC_PRIOR_REG, CYREG_NVIC_PRI_5
  698              	.set isr_RX__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  699              	.set isr_RX__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -12073,7 +12073,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  737              	.set isr_ADC__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  738              	.set isr_ADC__INTC_MASK, 0x20000
  739              	.set isr_ADC__INTC_NUMBER, 17
- 740              	.set isr_ADC__INTC_PRIOR_NUM, 7
+ 740              	.set isr_ADC__INTC_PRIOR_NUM, 5
  741              	.set isr_ADC__INTC_PRIOR_REG, CYREG_NVIC_PRI_17
  742              	.set isr_ADC__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  743              	.set isr_ADC__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -12248,7 +12248,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  903              	.set ISR_Button__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  904              	.set ISR_Button__INTC_MASK, 0x01
  905              	.set ISR_Button__INTC_NUMBER, 0
- 906              	.set ISR_Button__INTC_PRIOR_NUM, 6
+ 906              	.set ISR_Button__INTC_PRIOR_NUM, 1
  907              	.set ISR_Button__INTC_PRIOR_REG, CYREG_NVIC_PRI_0
  908              	.set ISR_Button__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  909              	.set ISR_Button__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0

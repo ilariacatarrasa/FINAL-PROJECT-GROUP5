@@ -22,7 +22,7 @@
     /*variable definition*/
     #define BYTE_TO_SEND 8
     #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
-    #define BYTE_TEMP_TO_STORE 64    
+    #define BYTE_TEMP_TO_STORE 20    
     
     /* brief High and Low level state for digital output pin */
     #define EXT_LED_ON  1
@@ -52,7 +52,7 @@
     volatile uint8 StartFlag;
     volatile uint8 FSRFlag;
     volatile uint8 SamplingFreqFlag;
-    volatile uint8 DataBuffer[TRANSMIT_BUFFER_SIZE];
+    volatile uint8 dataTemp[BYTE_TEMP_TO_STORE];
     volatile int   value_temp;
     volatile uint8_t Buffer_Temp_Full;
        
@@ -63,13 +63,10 @@
     volatile uint16_t counter;
     uint8_t fifo_src_reg;
     
-    //prova
-    volatile uint8_t FIFO_Read_Flag;
-    volatile uint8_t dataAcc[192];
 
-            
-    
-    
+    volatile uint8_t FIFO_Read_Flag;
+    volatile uint8_t dataAcc[66];
+
 #endif
 
 
