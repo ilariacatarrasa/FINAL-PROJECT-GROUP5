@@ -32,7 +32,6 @@
 // Variabile declaration
 uint8 ch_received;
 uint8 TemperatureMode=0;
-uint8 FahrenheitFlag=0;
 int32 value_digit;
 int   value_mv; 
 int j;
@@ -56,7 +55,8 @@ CY_ISR(Custom_ISR_Button){
 CY_ISR_PROTO (Custom_isr_FIFO)
 {
     //read the Interrupt-1 source register to bring interrupt line low
-    fifo_src_reg = ACC_readRegister(LIS3DH_SRC_REG);
+    fifo_src_reg = ACC_readRegister(LIS3DH_FIFO_SRC_REG);
+    fifo_src_reg = ACC_readRegister(LIS3DH_INT1_SRC_REG);
 
     ACC_Multi_Read(LIS3DH_OUT_X_L, ( uint8_t*) dataAcc, 66);
     
@@ -143,7 +143,6 @@ CY_ISR(Custom_ISR_RX)
         case 'b':
             
             StartFlag=START;
-
 
             //Onboard LED tells the user that data acquisition is ON
             PWM_OnboardLED_WritePeriod(255);  //1s period
@@ -400,6 +399,9 @@ CY_ISR(Custom_ISR_RX)
         case 'V':
         case 'v':
             //data acquisition from Acc and Storage in EEPROM must be STOPPED
+            StartFlag=STOP;
+            //start BCP comunication
+            BCP_START=START;
             //Onboard LED tells the user that data acquisition is OFF
             PWM_OnboardLED_WritePeriod(255);  //1s period
             PWM_OnboardLED_WriteCompare(0);   //Onboard LED OFF
@@ -413,11 +415,13 @@ CY_ISR(Custom_ISR_RX)
         case 'U':
         case 'u':
             
-            //External LED tells the user that streaming through UART has been stopped
-            Ext_LED_Write(EXT_LED_OFF);
-            //data acquisition from Acc and Storage in EEPROM must be RE-Started?
-            //vedi punto 6 dell'assignment, ultime righe
+            //data acquisition from Acc and Storage in EEPROM restarts
+            //StartFlag=START;
             
+            //stop BCP comunication
+            BCP_START=STOP;
+            //External LED tells the user that streaming through UART has been stopped
+            Ext_LED_Write(EXT_LED_OFF);            
             
         break;
             

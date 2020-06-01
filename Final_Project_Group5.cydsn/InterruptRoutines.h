@@ -54,11 +54,14 @@
     volatile uint8 SamplingFreqFlag;
     volatile uint8 dataTemp[BYTE_TEMP_TO_STORE];
     volatile int   value_temp;
-    volatile uint8_t Buffer_Temp_Full;
-       
+    volatile uint8_t Buffer_Temp_Full;  
+    //flag for temperature modality
+    volatile uint8 FahrenheitFlag;  
+    //flag to start the Bridge Control Panel comunication
+    volatile uint8_t BCP_START;   
+    
     volatile int count_wtm;       
-    volatile uint8_t datiAcc[8];
-    volatile uint8_t data_EE[6];
+    volatile uint8_t data_EE[60];
     volatile uint8_t data_BCP[10];
     volatile uint16_t counter;
     uint8_t fifo_src_reg;

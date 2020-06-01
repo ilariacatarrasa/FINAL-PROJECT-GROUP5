@@ -83,33 +83,39 @@ void ACC_TEMP_8bytePacking(uint8_t* SixByte_Packs, uint8_t* TwoByte_Packs, uint8
 }
 
 /*Send data of accelerometer and temperaure to EEPROM */
-void Store_EEPROM(uint8_t counter, uint8_t* tobepacked, uint8_t* tobesentEEPROM)
-{
-    // Store X, Y, Z accelerometer data
-    tobesentEEPROM[0] = tobepacked[1];
-    tobesentEEPROM[1] = ( tobepacked[0] & 0b1100000 ) | ( tobepacked[3]>>2 );
-    tobesentEEPROM[2] = ((( tobepacked[3]<<6 ) | ( tobepacked[2]>>2 ))& 0b11110000 )| ( tobepacked[5]>>4 );   
-    tobesentEEPROM[3] = ( tobepacked[5]<<4 ) | ( tobepacked[4]>>6 );
-    tobesentEEPROM[4] = tobepacked[6]; // Store MSB of temperature data
-    tobesentEEPROM[5] = tobepacked[7]; // Store LSB of temperature data
-    EEPROM_writePage(counter, (uint8_t*) tobesentEEPROM, DATA_BYTES_EEPROM);
-    EEPROM_waitForWriteComplete();
+void Store_EEPROM(uint16_t counter, uint8_t* tobepacked, uint8_t* tobesentEEPROM)
+{   
+    int j = 0;
     
-    
-//    EEPROM_readPage(counter, (uint8_t*) tobesentEEPROM, DATA_BYTES_EEPROM);
-//    sprintf(bufferUART, "** EEPROM Read = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x \r\n", tobesentEEPROM[0], tobesentEEPROM[1], tobesentEEPROM[2],  tobesentEEPROM[3], tobesentEEPROM[4], tobesentEEPROM[5]);
-//    UART_1_PutBuffer;
-    
+    for (uint i=0; i<80; i += 8)
+    {
+        // Store X, Y, Z accelerometer data
+        tobesentEEPROM[j] = tobepacked[i];
+        tobesentEEPROM[j + 1] = ( tobepacked[i] & 0b11000000 ) | ( tobepacked[i + 3]>>2 );
+        tobesentEEPROM[j + 2] = ((( tobepacked[i + 3]<<6 ) | ( tobepacked[i + 2]>>2 ))& 0b11110000 )| ( tobepacked[i + 58]>>4 );  
+        tobesentEEPROM[j + 3] = ( tobepacked[i + 5]<<4 ) | ( tobepacked[i + 4]>>6 );
+        tobesentEEPROM[j + 4] = tobepacked[i + 6]; // Store MSB of temperature data
+        tobesentEEPROM[j + 5] = tobepacked[i + 7]; // Store LSB of temperature data
+        EEPROM_writePage(counter, (uint8_t*) tobesentEEPROM, DATA_BYTES_EEPROM);
+        EEPROM_waitForWriteComplete();
+        
+        j += DATA_BYTES_EEPROM ;
+        counter= counter+DATA_BYTES_EEPROM;
+       
+        EEPROM_readPage(counter, (uint8_t*) tobesentEEPROM, DATA_BYTES_EEPROM);
+        sprintf(bufferUART, "** EEPROM Read = %d %d %d %d %d %d \r\n", tobesentEEPROM[j], tobesentEEPROM[j + 1], tobesentEEPROM[j + 2],  tobesentEEPROM[j + 3], tobesentEEPROM[j + 4], tobesentEEPROM[j + 5]);
+        UART_1_PutBuffer;
+    }
 }
 
-/*Sed to Bridge control panel*/
-/*Sed to Bridge control panel*/
+/*Send data to Bridge control panel*/
+
 void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP, uint8_t temperature_modality)
-{       
-    
+{         
     int value_temp;
     uint16_t temperature;
     
+    //start the EEPROM read from the counter address
     EEPROM_readPage(counter, (uint8_t*) tobedepacked, DATA_BYTES_EEPROM);
     
     data_BCP[0] = HEADER; // Headerof buffer to send to Bridge Control Panel
@@ -139,25 +145,17 @@ void Send_BCP(uint8_t counter, uint8_t* tobedepacked, uint8_t* data_BCP, uint8_t
     
     data_BCP[9] = TAIL; // Tail of buffer to send to Bridge Control Panel
     
-//    UART_1_PutArray(data_BCP, TRANSMIT_BUFFER_SIZE);
+    //send the pack to the BCP
+    UART_1_PutArray(data_BCP, TRANSMIT_BUFFER_SIZE);
 
 }
 
-
-
 /*Set ACCELEROMETER*/
+
 void Config_acc( uint8_t counter, uint8_t config, uint16_t address)
 {
     int i = 0;
     uint8_t zero_array[64] = {0};
-    
-//    for (i=0 ; i<counter - FIRST_DATA_ADDR; i+=64)
-//    {
-//        EEPROM_writePage((FIRST_DATA_ADDR), (uint8_t*) zero_array, MAX_BYTE_PAGE);
-//        EEPROM_waitForWriteComplete();
-//        UART_1_PutString("ERASE COMPLETED \r\n");
-//    }
-    // reset counter stooring data
     
     counter=FIRST_DATA_ADDR;
     EEPROM_writeByte(COUNTER_AD, counter);

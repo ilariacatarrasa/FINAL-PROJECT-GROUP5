@@ -297,9 +297,11 @@ int main(void) {
             
             if (FIFO_Read_Flag == 1)
             {
+                //packing accelerometer data together with temperature data (in packs of 8 bytes)
                 ACC_TEMP_8bytePacking((uint8_t*) dataAcc, (uint8_t*) dataTemp, (uint8_t*) dataAccTemp, 80);
-
                 
+                //storing data in EEPROM (in packs of 6 bytes)
+                Store_EEPROM(counter, (uint8_t*) dataAccTemp, (uint8_t*) data_EE);              
                 
 //                UART_1_PutString(" flag read=1\r\n");
 //                
@@ -326,16 +328,25 @@ int main(void) {
 
         }
             
-        //Reset counter if the EEPROM storage is full
-        
+        //if the EEPROM is full
         if ((int)counter > (int)(HIGHEST_ADDRESS-DATA_BYTES_EEPROM+1))
         {
-            counter = FIRST_DATA_ADDR;
-            
-            //PATTERN BOTTONE EEPROM PIENA
+            //Onboard LED tells the user that EEPROM is full of data
+            PWM_OnboardLED_WritePeriod(63);  //250ms period
+            PWM_OnboardLED_WriteCompare(32);   //50% DC
+        }
+        
+        if (BCP_START == START)
+        {
+            for (int i=0; i<10; i++)
+            {   
+                Send_BCP( counter, (uint8_t*) data_EE, (uint8_t*) data_BCP, FahrenheitFlag);
+                counter =+6;
+            }
         }
     } 
     
+
     
 }
 
