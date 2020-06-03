@@ -234,9 +234,6 @@ int main(void) {
             EEPROM_waitForWriteComplete();
             UART_1_PutString("** EEPROM Status ON ** \r\n");
             
-            counter= counter+DATA_BYTES_EEPROM;
-            StartFlag =  2;  //exit from flag of START/stop
-            
             //Start FIFO interrupt on watermatk to start data acquisition from the accelerometer
             isr_FIFO_StartEx(Custom_isr_FIFO);
             
@@ -249,7 +246,9 @@ int main(void) {
                 Store_EEPROM(counter, (uint8_t*) dataAccTemp, (uint8_t*) data_EE);              
                                     
                 FIFO_Read_Flag = 0;          
-        }
+            }
+            
+            StartFlag =  2;  //exit from flag of START/stop
     
         }
         
@@ -277,7 +276,7 @@ int main(void) {
             for (int i=0; i<10; i++)
             {   
                 Send_BCP( counter, (uint8_t*) data_EE, (uint8_t*) data_BCP, FahrenheitFlag);
-                counter =+6;
+                counter +=6;
             }
         }
     } 

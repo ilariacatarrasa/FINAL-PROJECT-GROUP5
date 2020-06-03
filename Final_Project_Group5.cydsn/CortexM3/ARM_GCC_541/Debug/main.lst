@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
   28:main.c        **** //Counter for address where to start
   29:main.c        **** 
   30:main.c        **** 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 2
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 2
 
 
   31:main.c        **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
   51:main.c        ****     
   52:main.c        ****     /* Start ISR_FIFO */
   53:main.c        ****     //isr_FIFO_StartEx(Custom_isr_FIFO);
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 3
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 3
 
 
   54:main.c        ****     
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
   91 0046 2046     		mov	r0, r4
   92              	.LVL12:
   93 0048 FFF7FEFF 		bl	sprintf
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 4
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 4
 
 
   94              	.LVL13:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  125 0078 2420     		movs	r0, #36
  126 007a FFF7FEFF 		bl	ACC_writeRegister
  127              	.LVL21:
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 5
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 5
 
 
  102:main.c        ****                 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  121:main.c        ****     
  122:main.c        ****     //Enable FIFO Watermark interrupt on INT1.
  123:main.c        ****     ACC_writeRegister(LIS3DH_CTRL_REG3, 0x04);
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 6
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 6
 
 
  163              		.loc 1 123 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  198 00e6 FFF7FEFF 		bl	show_menu
  199              	.LVL39:
  143:main.c        ****     
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 7
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 7
 
 
  144:main.c        ****     //Cleaning FIFO buffer
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  234              		.loc 1 162 0
  235 011e 714A     		ldr	r2, .L20+56
  236 0120 1370     		strb	r3, [r2]
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 8
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 8
 
 
  163:main.c        ****     StartFlag = 0;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  186:main.c        ****         EEPROM_waitForWriteComplete();
  268              		.loc 1 186 0
  269 0150 FFF7FEFF 		bl	EEPROM_waitForWriteComplete
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 9
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 9
 
 
  270              	.LVL46:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  310 0186 544B     		ldr	r3, .L20+44
  311 0188 1C80     		strh	r4, [r3]	@ movhi
  201:main.c        ****         FSRFlag = fsr_init;
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 10
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 10
 
 
  312              		.loc 1 201 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  223:main.c        ****         // Sampling Frequency configuration
  224:main.c        ****         if ((SamplingFreqFlag != 0)&&(SamplingFreqFlag != 1 ))
  345              		.loc 1 224 0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 11
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 11
 
 
  346 01bc 494B     		ldr	r3, .L20+56
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  387              		.loc 1 237 0
  388 0200 354A     		ldr	r2, .L20+44
  389 0202 1388     		ldrh	r3, [r2]
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 12
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 12
 
 
  390 0204 9BB2     		uxth	r3, r3
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  254:main.c        ****         }
  255:main.c        ****         
  256:main.c        ****         //If acquisition is stopped from user
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 13
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 13
 
 
  257:main.c        ****         if(StartFlag==STOP)
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  466              	.LVL71:
  467              	.L14:
  468              	.LBB2:
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 14
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 14
 
 
  273:main.c        ****         }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  512 02b8 00000000 		.word	bufferUART
  513 02bc 00000000 		.word	.LC0
  514 02c0 34000000 		.word	.LC1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 15
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 15
 
 
  515 02c4 64000000 		.word	.LC2
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  563      2A2A2A2A 
  563      2A2A5265 
  563      67697374 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 16
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 16
 
 
  564 0062 00       		.ascii	"\000"
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  590 018c 2A2A2045 		.ascii	"** EEPROM Status OFF ** \015\012\000"
  590      4550524F 
  590      4D205374 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 17
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 17
 
 
  590      61747573 
@@ -993,10 +993,10 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  618 0006 00000000 		.4byte	.Ldebug_abbrev0
  619 000a 04       		.byte	0x4
  620 000b 01       		.uleb128 0x1
- 621 000c 33040000 		.4byte	.LASF82
+ 621 000c E4030000 		.4byte	.LASF82
  622 0010 0C       		.byte	0xc
  623 0011 19030000 		.4byte	.LASF83
- 624 0015 A4030000 		.4byte	.LASF84
+ 624 0015 8C040000 		.4byte	.LASF84
  625 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
  626 001d 00000000 		.4byte	0
  627 0021 00000000 		.4byte	.Ldebug_line0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  643 0040 05       		.byte	0x5
  644 0041 66000000 		.4byte	.LASF2
  645 0045 03       		.uleb128 0x3
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 18
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 18
 
 
  646 0046 CC000000 		.4byte	.LASF4
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  700 00b2 04       		.byte	0x4
  701 00b3 E401     		.2byte	0x1e4
  702 00b5 37000000 		.4byte	0x37
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 19
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 19
 
 
  703 00b9 02       		.uleb128 0x2
@@ -1118,7 +1118,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  737 00ff 9C       		.byte	0x9c
  738 0100 93060000 		.4byte	0x693
  739 0104 08       		.uleb128 0x8
- 740 0105 F3030000 		.4byte	.LASF21
+ 740 0105 A4030000 		.4byte	.LASF21
  741 0109 01       		.byte	0x1
  742 010a 4B       		.byte	0x4b
  743 010b 8C000000 		.4byte	0x8c
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  757 0131 08       		.uleb128 0x8
  758 0132 7A000000 		.4byte	.LASF24
  759 0136 01       		.byte	0x1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 20
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 20
 
 
  760 0137 6C       		.byte	0x6c
@@ -1192,13 +1192,13 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  808 01a3 8C000000 		.4byte	0x8c
  809 01a7 85000000 		.4byte	.LLST7
  810 01ab 0A       		.uleb128 0xa
- 811 01ac D3040000 		.4byte	.LASF33
+ 811 01ac 84040000 		.4byte	.LASF33
  812 01b0 01       		.byte	0x1
  813 01b1 A7       		.byte	0xa7
  814 01b2 8C000000 		.4byte	0x8c
  815 01b6 01       		.uleb128 0x1
  816 01b7 52       		.byte	0x52
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 21
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 21
 
 
  817 01b8 09       		.uleb128 0x9
@@ -1212,7 +1212,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  825 01c9 A9       		.byte	0xa9
  826 01ca A3060000 		.4byte	0x6a3
  827 01ce 0A       		.uleb128 0xa
- 828 01cf 0D040000 		.4byte	.LASF36
+ 828 01cf BE030000 		.4byte	.LASF36
  829 01d3 01       		.byte	0x1
  830 01d4 D0       		.byte	0xd0
  831 01d5 C3060000 		.4byte	0x6c3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  871 022d 16000000 		.4byte	.LVL3
  872 0231 AB080000 		.4byte	0x8ab
  873 0235 0F       		.uleb128 0xf
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 22
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 22
 
 
  874 0236 1C000000 		.4byte	.LVL4
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  928 02ae 10       		.uleb128 0x10
  929 02af 52000000 		.4byte	.LVL14
  930 02b3 19090000 		.4byte	0x919
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 23
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 23
 
 
  931 02b7 C2020000 		.4byte	0x2c2
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  985 0317 02       		.uleb128 0x2
  986 0318 74       		.byte	0x74
  987 0319 00       		.sleb128 0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 24
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 24
 
 
  988 031a 0E       		.uleb128 0xe
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1042 0377 74       		.byte	0x74
  1043 0378 00       		.sleb128 0
  1044 0379 0E       		.uleb128 0xe
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 25
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 25
 
 
  1045 037a 01       		.uleb128 0x1
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1099 03d7 00       		.sleb128 0
  1100 03d8 0E       		.uleb128 0xe
  1101 03d9 01       		.uleb128 0x1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 26
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 26
 
 
  1102 03da 51       		.byte	0x51
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1156 0437 01       		.uleb128 0x1
  1157 0438 51       		.byte	0x51
  1158 0439 05       		.uleb128 0x5
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 27
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 27
 
 
  1159 043a 03       		.byte	0x3
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1213 04a6 02       		.uleb128 0x2
  1214 04a7 91       		.byte	0x91
  1215 04a8 68       		.sleb128 -24
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 28
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 28
 
 
  1216 04a9 0E       		.uleb128 0xe
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1270 0503 0F       		.uleb128 0xf
  1271 0504 54010000 		.4byte	.LVL46
  1272 0508 3A090000 		.4byte	0x93a
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 29
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 29
 
 
  1273 050c 10       		.uleb128 0x10
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1327 056c 7B050000 		.4byte	0x57b
  1328 0570 0E       		.uleb128 0xe
  1329 0571 01       		.uleb128 0x1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 30
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 30
 
 
  1330 0572 50       		.byte	0x50
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1384 05d5 E3050000 		.4byte	0x5e3
  1385 05d9 0E       		.uleb128 0xe
  1386 05da 01       		.uleb128 0x1
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 31
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 31
 
 
  1387 05db 50       		.byte	0x50
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1441 0635 10       		.uleb128 0x10
  1442 0636 54020000 		.4byte	.LVL66
  1443 063a 2F090000 		.4byte	0x92f
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 32
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 32
 
 
  1444 063e 4E060000 		.4byte	0x64e
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1498 06a1 BF       		.byte	0xbf
  1499 06a2 00       		.byte	0
  1500 06a3 11       		.uleb128 0x11
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 33
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 33
 
 
  1501 06a4 8C000000 		.4byte	0x8c
@@ -1942,7 +1942,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1519 06d1 4F       		.byte	0x4f
  1520 06d2 00       		.byte	0
  1521 06d3 13       		.uleb128 0x13
- 1522 06d4 26040000 		.4byte	.LASF37
+ 1522 06d4 D7030000 		.4byte	.LASF37
  1523 06d8 05       		.byte	0x5
  1524 06d9 1207     		.2byte	0x712
  1525 06db DF060000 		.4byte	0x6df
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1555 071d CE000000 		.4byte	0xce
  1556 0721 05       		.uleb128 0x5
  1557 0722 03       		.byte	0x3
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 34
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 34
 
 
  1558 0723 00000000 		.4byte	StartFlag
@@ -2038,14 +2038,14 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1612 079b 07       		.byte	0x7
  1613 079c 3B       		.byte	0x3b
  1614 079d CE000000 		.4byte	0xce
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 35
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 35
 
 
  1615 07a1 05       		.uleb128 0x5
  1616 07a2 03       		.byte	0x3
  1617 07a3 00000000 		.4byte	FahrenheitFlag
  1618 07a7 14       		.uleb128 0x14
- 1619 07a8 C9040000 		.4byte	.LASF47
+ 1619 07a8 7A040000 		.4byte	.LASF47
  1620 07ac 07       		.byte	0x7
  1621 07ad 3D       		.byte	0x3d
  1622 07ae E1000000 		.4byte	0xe1
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1669 0816 08020000 		.4byte	.LASF51
  1670 081a 07       		.byte	0x7
  1671 081b 42       		.byte	0x42
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 36
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 36
 
 
  1672 081c E6000000 		.4byte	0xe6
@@ -2139,7 +2139,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1707 0869 06       		.uleb128 0x6
  1708 086a 48080000 		.4byte	0x848
  1709 086e 14       		.uleb128 0x14
- 1710 086f F6040000 		.4byte	.LASF54
+ 1710 086f F7040000 		.4byte	.LASF54
  1711 0873 07       		.byte	0x7
  1712 0874 4A       		.byte	0x4a
  1713 0875 E1000000 		.4byte	0xe1
@@ -2157,11 +2157,11 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1725 0893 09       		.byte	0x9
  1726 0894 54       		.byte	0x54
  1727 0895 15       		.uleb128 0x15
- 1728 0896 19040000 		.4byte	.LASF57
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 37
+ 1728 0896 CA030000 		.4byte	.LASF57
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 37
 
 
- 1729 089a 19040000 		.4byte	.LASF57
+ 1729 089a CA030000 		.4byte	.LASF57
  1730 089e 0A       		.byte	0xa
  1731 089f 4D       		.byte	0x4d
  1732 08a0 15       		.uleb128 0x15
@@ -2205,8 +2205,8 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1770 08f6 11       		.byte	0x11
  1771 08f7 18       		.byte	0x18
  1772 08f8 15       		.uleb128 0x15
- 1773 08f9 C1040000 		.4byte	.LASF66
- 1774 08fd C1040000 		.4byte	.LASF66
+ 1773 08f9 72040000 		.4byte	.LASF66
+ 1774 08fd 72040000 		.4byte	.LASF66
  1775 0901 12       		.byte	0x12
  1776 0902 76       		.byte	0x76
  1777 0903 15       		.uleb128 0x15
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1783 090f 10020000 		.4byte	.LASF68
  1784 0913 10020000 		.4byte	.LASF68
  1785 0917 14       		.byte	0x14
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 38
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 38
 
 
  1786 0918 E7       		.byte	0xe7
@@ -2263,8 +2263,8 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1825 096f 08       		.byte	0x8
  1826 0970 4C       		.byte	0x4c
  1827 0971 15       		.uleb128 0x15
- 1828 0972 FC030000 		.4byte	.LASF77
- 1829 0976 FC030000 		.4byte	.LASF77
+ 1828 0972 AD030000 		.4byte	.LASF77
+ 1829 0976 AD030000 		.4byte	.LASF77
  1830 097a 16       		.byte	0x16
  1831 097b 18       		.byte	0x18
  1832 097c 15       		.uleb128 0x15
@@ -2278,11 +2278,11 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1840 0990 08       		.byte	0x8
  1841 0991 31       		.byte	0x31
  1842 0992 15       		.uleb128 0x15
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 39
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 39
 
 
- 1843 0993 DB040000 		.4byte	.LASF80
- 1844 0997 DB040000 		.4byte	.LASF80
+ 1843 0993 DC040000 		.4byte	.LASF80
+ 1844 0997 DC040000 		.4byte	.LASF80
  1845 099b 10       		.byte	0x10
  1846 099c BE       		.byte	0xbe
  1847 099d 15       		.uleb128 0x15
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1897 002a 00       		.byte	0
  1898 002b 04       		.uleb128 0x4
  1899 002c 24       		.uleb128 0x24
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 40
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 40
 
 
  1900 002d 00       		.byte	0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  1954 0065 01       		.uleb128 0x1
  1955 0066 13       		.uleb128 0x13
  1956 0067 00       		.byte	0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 41
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 41
 
 
  1957 0068 00       		.byte	0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2011 009e 34       		.uleb128 0x34
  2012 009f 00       		.byte	0
  2013 00a0 03       		.uleb128 0x3
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 42
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 42
 
 
  2014 00a1 08       		.uleb128 0x8
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2068 00e0 01       		.uleb128 0x1
  2069 00e1 13       		.uleb128 0x13
  2070 00e2 00       		.byte	0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 43
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 43
 
 
  2071 00e3 00       		.byte	0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2125 0119 0E       		.uleb128 0xe
  2126 011a 3A       		.uleb128 0x3a
  2127 011b 0B       		.uleb128 0xb
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 44
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 44
 
 
  2128 011c 3B       		.uleb128 0x3b
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2182 007d 00000000 		.4byte	0
  2183 0081 00000000 		.4byte	0
  2184              	.LLST7:
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 45
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 45
 
 
  2185 0085 62010000 		.4byte	.LVL49
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2234      5F726567 
  2234      3100
  2235              	.LASF28:
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 46
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 46
 
 
  2236 000a 4649464F 		.ascii	"FIFO_data\000"
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2260 00aa 42756666 		.ascii	"Buffer_Temp_Full\000"
  2260      65725F54 
  2260      656D705F 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 47
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 47
 
 
  2260      46756C6C 
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2286 014d 666C6F61 		.ascii	"float\000"
  2286      7400
  2287              	.LASF9:
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 48
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 48
 
 
  2288 0153 6C6F6E67 		.ascii	"long long int\000"
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2312 01e7 636F756E 		.ascii	"count_wtm\000"
  2312      745F7774 
  2312      6D00
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 49
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 49
 
 
  2313              	.LASF1:
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2336      65642069 
  2336      6E7400
  2337              	.LASF41:
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 50
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 50
 
 
  2338 028f 46535246 		.ascii	"FSRFlag\000"
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2364 0320 6C6F6E67 		.ascii	"long unsigned int\000"
  2364      20756E73 
  2364      69676E65 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 51
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 51
 
 
  2364      6420696E 
@@ -3041,83 +3041,83 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 1
  2380      4144435F 
  2380      53746172 
  2380      74457800 
- 2381              	.LASF84:
- 2382 03a4 433A5C55 		.ascii	"C:\\Users\\User\\Documents\\GitHub\\FINAL-PROJECT-G"
- 2382      73657273 
- 2382      5C557365 
- 2382      725C446F 
- 2382      63756D65 
- 2383 03d2 524F5550 		.ascii	"ROUP5\\Final_Project_Group5.cydsn\000"
- 2383      355C4669 
- 2383      6E616C5F 
- 2383      50726F6A 
- 2383      6563745F 
- 2384              	.LASF21:
- 2385 03f3 77686F5F 		.ascii	"who_am_i\000"
- 2385      616D5F69 
- 2385      00
- 2386              	.LASF77:
- 2387 03fc 6973725F 		.ascii	"isr_FIFO_StartEx\000"
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 52
+ 2381              	.LASF21:
+ 2382 03a4 77686F5F 		.ascii	"who_am_i\000"
+ 2382      616D5F69 
+ 2382      00
+ 2383              	.LASF77:
+ 2384 03ad 6973725F 		.ascii	"isr_FIFO_StartEx\000"
+ 2384      4649464F 
+ 2384      5F537461 
+ 2384      72744578 
+ 2384      00
+ 2385              	.LASF36:
+ 2386 03be 64617461 		.ascii	"dataAccTemp\000"
+ 2386      41636354 
+ 2386      656D7000 
+ 2387              	.LASF57:
+ 2388 03ca 5350494D 		.ascii	"SPIM_1_Start\000"
+ 2388      5F315F53 
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 52
 
 
- 2387      4649464F 
- 2387      5F537461 
- 2387      72744578 
- 2387      00
- 2388              	.LASF36:
- 2389 040d 64617461 		.ascii	"dataAccTemp\000"
- 2389      41636354 
- 2389      656D7000 
- 2390              	.LASF57:
- 2391 0419 5350494D 		.ascii	"SPIM_1_Start\000"
- 2391      5F315F53 
- 2391      74617274 
- 2391      00
- 2392              	.LASF37:
- 2393 0426 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 2393      52784275 
- 2393      66666572 
- 2393      00
- 2394              	.LASF82:
- 2395 0433 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 2395      43313120 
- 2395      352E342E 
- 2395      31203230 
- 2395      31363036 
- 2396 0466 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 2396      20726576 
- 2396      6973696F 
- 2396      6E203233 
- 2396      37373135 
- 2397 0499 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2397      66756E63 
- 2397      74696F6E 
- 2397      2D736563 
- 2397      74696F6E 
- 2398              	.LASF66:
- 2399 04c1 43794465 		.ascii	"CyDelay\000"
- 2399      6C617900 
- 2400              	.LASF47:
- 2401 04c9 4243505F 		.ascii	"BCP_START\000"
- 2401      53544152 
- 2401      5400
- 2402              	.LASF33:
- 2403 04d3 73665F69 		.ascii	"sf_init\000"
- 2403      6E697400 
+ 2388      74617274 
+ 2388      00
+ 2389              	.LASF37:
+ 2390 03d7 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2390      52784275 
+ 2390      66666572 
+ 2390      00
+ 2391              	.LASF82:
+ 2392 03e4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2392      43313120 
+ 2392      352E342E 
+ 2392      31203230 
+ 2392      31363036 
+ 2393 0417 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2393      20726576 
+ 2393      6973696F 
+ 2393      6E203233 
+ 2393      37373135 
+ 2394 044a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2394      66756E63 
+ 2394      74696F6E 
+ 2394      2D736563 
+ 2394      74696F6E 
+ 2395              	.LASF66:
+ 2396 0472 43794465 		.ascii	"CyDelay\000"
+ 2396      6C617900 
+ 2397              	.LASF47:
+ 2398 047a 4243505F 		.ascii	"BCP_START\000"
+ 2398      53544152 
+ 2398      5400
+ 2399              	.LASF33:
+ 2400 0484 73665F69 		.ascii	"sf_init\000"
+ 2400      6E697400 
+ 2401              	.LASF84:
+ 2402 048c 433A5C55 		.ascii	"C:\\Users\\ilami\\Documents\\GitHub\\FINAL-PROJECT-"
+ 2402      73657273 
+ 2402      5C696C61 
+ 2402      6D695C44 
+ 2402      6F63756D 
+ 2403 04ba 47524F55 		.ascii	"GROUP5\\Final_Project_Group5.cydsn\000"
+ 2403      50355C46 
+ 2403      696E616C 
+ 2403      5F50726F 
+ 2403      6A656374 
  2404              	.LASF80:
- 2405 04db 50574D5F 		.ascii	"PWM_OnboardLED_WritePeriod\000"
+ 2405 04dc 50574D5F 		.ascii	"PWM_OnboardLED_WritePeriod\000"
  2405      4F6E626F 
  2405      6172644C 
  2405      45445F57 
  2405      72697465 
  2406              	.LASF54:
- 2407 04f6 42757474 		.ascii	"ButtonPressed_flag\000"
+ 2407 04f7 42757474 		.ascii	"ButtonPressed_flag\000"
  2407      6F6E5072 
  2407      65737365 
  2407      645F666C 
  2407      616700
  2408              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccQ3XKzt.s 			page 53
+ARM GAS  C:\Users\ilami\AppData\Local\Temp\ccWIn4em.s 			page 53
 
 
